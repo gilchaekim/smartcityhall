@@ -16,6 +16,11 @@
 
 @import "common/all_menu";
 /*스크린리더 IR(Image Replacement)*/
+#wrapper {
+	background: #1E2025;
+	min-height: 600px;
+	min-width: 1920px;
+}
 .sr-only {
 	position: fixed;
 	width: 1px;
@@ -40,12 +45,239 @@
 }
 
 .header {
-	border: 1px solid red;
+	// border: 1px solid red;
+	height: 96px;
+	.inner {
+		position: relative;
+		padding: 0 40px;
+		display: flex;
+		height: 96px;
+		overflow: hidden;
+		flex: 1 1;
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 96px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #272A31;
+		}
+	}
+	.tnb {
+		position: absolute;
+		display: flex;
+		top: 8px;
+		right: 40px;
+		.menu {
+			padding-top: 2px;
+			& > a {
+				font-size: 14px;
+				color: #fff;
+				display: block;
+				line-height: 21px;
+				padding: 0 8px;
+				border-right: 1px solid rgba($color: #fff, $alpha: .2);
+			}
+			&.search {
+				margin-left: 38px;
+				padding-top: 0;
+				button {
+					span {
+						display: block;
+						width: 24px;
+						height: 24px;
+						background: url($url_common+"ico_search.svg") no-repeat left center;
+						background-size: 100%;
+						color: transparent;
+						font-size: 0;
+					}
+				}
+			}
+			&.toggle {
+				button {
+					color: #fff;
+					padding-left: 8px;
+					padding-right: 23px;
+					position: relative;
+					&::after {
+						content: '';
+						display: block;
+						@include icon_svg(arrow-down, "#fff", 15px);
+						position: absolute;
+						top: 4px;
+						right: 0;
+					}
+				}
+			}
+		}
+	}
 	.logo {
+		padding-top: 38px;
+		display: inline-flex;
 		a {
 			display: block;
 			padding-left: 58px;
-
+			color: #fff;
+			font-size: 22px;
+			height: 48px;
+			line-height: 48px;
+			background: url($url_common+"logo.svg") no-repeat left center;
+			background-size: 48px;
+			width: 160px;
+		}
+	}
+	.gnb {
+		padding: 48px 0 0 0;
+		display: inline-flex;
+		width: 100%;
+		position: relative;
+		justify-content: center;
+		z-index: 2;
+		.menu {
+			display: flex;
+			a {
+				color: #fff;
+			}
+			.deps1 {
+				width: 170px;
+				text-align: center;
+				font-weight: 500;
+				font-size: 18px;
+				display: flex;
+				flex-direction: column;
+			}
+			.deps2 {
+				text-align: left;
+				padding-left: 20px;
+				font-size: 16px;
+				font-weight: 400;
+				margin-top: 22px;
+				padding-top: 30px;
+				padding-bottom: 40px;
+				height: 100%;
+				// border: 1px solid blue;
+				ul {
+					height: 100%;
+					border-right: 1px solid #2F323A;
+					
+				}
+				li {
+					& ~ li {
+						margin-top: 5px;
+					}
+				}
+				a {
+					height: 23px;
+					line-height: 23px;
+					display: block;
+					&:hover {
+						color: #ED6C00;
+						font-weight: 700;
+					}
+				}
+			}
 		}
 	}
 }
+#contants {
+	display: flex;
+	padding-top: 32px;
+	flex: 1 1;
+	.side_menu {
+		padding: 0 40px;
+		width: 310px;
+		.deps1 {
+			width: 230px;
+			& > li {
+				&:not(:first-child) {
+					margin-top: 8px;
+				}
+				& > a {
+					display: block;
+					// background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+					background: #272A31;
+					border: 1px solid #2F323A;
+					height: 54px;
+					font-size: 18px;
+					border-radius: 27px;
+					line-height: 52px;
+					padding-left: 24px;
+					color: #fff;
+					position: relative;
+					&:hover {
+						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+						border: 0 none;
+						font-weight: 700;
+						padding-left: 25px;	
+						line-height: 54px;
+					}
+					&.ico {
+						padding-left: 72px;
+						&::after {
+							content: '';
+							width: 48px;
+							height: 48px;
+							position: absolute;
+							top: 3px;
+							left: 24px;
+							display: block;
+						}
+						@for $i from 1 through 8 {
+							&.type#{$i}:after {
+								background: url($url_common+"menu_ico#{$i}.svg") no-repeat center;
+							}
+						}
+						&:hover {
+							padding-left: 73px;
+							&::after {
+								top: 4px;
+								left: 25px;
+							}
+						}
+					}
+				}
+				&.mui_active {
+					& > a {
+						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+						border: 0 none;
+						font-weight: 700;
+						padding-left: 25px;	
+						line-height: 54px;
+						&.ico {
+							padding-left: 73px;
+						}
+					}
+				}
+			}
+			
+		}
+		.sub_deps {
+			li {
+				margin-top: 8px;
+				&.mui_active {
+					a {
+						font-weight: 700;
+						color: #ED6C00;
+					}
+				}
+			}
+			a {
+				display: block;
+				border-bottom: 1px solid #2F323A;
+				font-size: 18px;
+				color: #fff;
+				height: 34px;
+				line-height: 34px;
+				padding-left: 24px;
+				&:hover {
+					font-weight: 700;
+					color: #ED6C00;
+				}
+			}
+		}
+	}
+}
+
+

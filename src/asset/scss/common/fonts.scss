@@ -1,35 +1,82 @@
 @font-face {
-  font-family: 'NanumBarunGothic';
-  font-weight: 400;
-  src: local("나눔바른고딕"),
-       url("/fonts/NanumBarunGothicSubset.woff2") format('woff2'),
-       url("/fonts/NanumBarunGothicSubset.woff") format('woff'),
-       url("/fonts/NanumBarunGothicSubset.ttf") format('truetype');
+      font-family: 'Noto Sans';
+      font-weight: 400;
+      src: url("/fonts/notoSans/NotoSansKR-Regular-Hestia.eot");
+      src: url("/fonts/notoSans/NotoSansKR-Regular-Hestia.eot?#iefix") format("embedded-opentype"), 
+      url("/fonts/notoSans/NotoSansKR-Regular-Hestia.woff") format("woff");
 }
 @font-face {
-font-family: 'NanumBarunGothic';
-font-weight: 700;
-src: local("나눔바른고딕 Bold"),
-      url("/fonts/NanumBarunGothicBoldSubset.woff2") format('woff2'),
-      url("/fonts/NanumBarunGothicBoldSubset.woff") format('woff'),
-      url("/fonts/NanumBarunGothicBoldSubset.ttf") format('truetype');
+      font-family: 'Noto Sans';
+      font-weight: 700;
+      src: url("/fonts/notoSans/NotoSansKR-Bold-Hestia.eot");
+      src: url("/fonts/notoSans/NotoSansKR-Bold-Hestia.eot?#iefix") format("embedded-opentype"), 
+      url("/fonts/notoSans/NotoSansKR-Bold-Hestia.woff") format("woff");
 }
 @font-face {
-font-family: 'NanumBarunGothic';
-font-weight: 300;
-src: local("나눔바른고딕 Light"),
-      url("/fonts/NanumBarunGothicLightSubset.woff2") format('woff2'),
-      url("/fonts/NanumBarunGothicLightSubset.woff") format('woff'),
-      url("/fonts/NanumBarunGothicLightSubset.ttf") format('truetype');
+      font-family: 'Noto Sans';
+      font-weight: 500;
+      src: url("/fonts/notoSans/NotoSansKR-Medium-Hestia.eot");
+      src: url("/fonts/notoSans/NotoSansKR-Medium-Hestia.eot?#iefix") format("embedded-opentype"), 
+      url("/fonts/notoSans/NotoSansKR-Medium-Hestia.woff") format("woff");
 }
-@font-face {
-font-family: 'NanumBarunGothic';
-font-weight: 200;
-src: local("나눔바른고딕 UltraLight"),
-      url("/fonts/NanumBarunGothicUltraLightSubset.woff2") format('woff2'),
-      url("/fonts/NanumBarunGothicUltraLightSubset.woff") format('woff'),
-      url("/fonts/NanumBarunGothicUltraLightSubset.ttf") format('truetype');
+
+
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-1Thin.woff') format('woff'); 
+	font-weight: 100; 
+	font-style: normal; 
 }
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-2ExtraLight.woff') format('woff'); 
+	font-weight: 200; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-3Light.woff') format('woff'); 
+	font-weight: 300; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-4Regular.woff') format('woff'); 
+	font-weight: 400; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-5Medium.woff') format('woff'); 
+	font-weight: 500; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-6Bold.woff') format('woff'); 
+	font-weight: 600; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-7ExtraBold.woff') format('woff'); 
+	font-weight: 700; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-8Heavy.woff') format('woff'); 
+	font-weight: 800; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'S-CoreDream'; 
+	src: url('/fonts/S-CoreDream-9Black.woff') format('woff'); 
+	font-weight: 900; 
+	font-style: normal; 
+}
+
+
 
 @font-face {
       font-family: 'password';

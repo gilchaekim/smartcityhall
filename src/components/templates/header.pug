@@ -10,14 +10,23 @@ header.header
         a(href="") 시정영상
       .menu 
         a(href="") 통합플랫폼
-      .menu 
-        a(href="") 
+      .menu.toggle 
+        //- mui-toggle="target:#drop_menu"
+        button(
+          type="button"  
+        ) English
+        //- #drop_menu
+        //-   ul 
+        //-     li 
+        //-       a(href="") English
+        //-     li 
+        //-       a(href="") Korea
       .menu.search
         button(type="button")
           span 검색
     .gnb 
       .inset 
-        ul 
+        ul.menu
           li.deps1 
             a(href="") 민원분석
             .deps2 

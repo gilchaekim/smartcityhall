@@ -1,23 +1,75 @@
 @charset "UTF-8";
 @font-face {
-  font-family: "NanumBarunGothic";
+  font-family: "Noto Sans";
   font-weight: 400;
-  src: local("나눔바른고딕"), url("/fonts/NanumBarunGothicSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicSubset.woff") format("woff"), url("/fonts/NanumBarunGothicSubset.ttf") format("truetype");
+  src: url("/fonts/notoSans/NotoSansKR-Regular-Hestia.eot");
+  src: url("/fonts/notoSans/NotoSansKR-Regular-Hestia.eot?#iefix") format("embedded-opentype"), url("/fonts/notoSans/NotoSansKR-Regular-Hestia.woff") format("woff");
 }
 @font-face {
-  font-family: "NanumBarunGothic";
+  font-family: "Noto Sans";
   font-weight: 700;
-  src: local("나눔바른고딕 Bold"), url("/fonts/NanumBarunGothicBoldSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicBoldSubset.woff") format("woff"), url("/fonts/NanumBarunGothicBoldSubset.ttf") format("truetype");
+  src: url("/fonts/notoSans/NotoSansKR-Bold-Hestia.eot");
+  src: url("/fonts/notoSans/NotoSansKR-Bold-Hestia.eot?#iefix") format("embedded-opentype"), url("/fonts/notoSans/NotoSansKR-Bold-Hestia.woff") format("woff");
 }
 @font-face {
-  font-family: "NanumBarunGothic";
-  font-weight: 300;
-  src: local("나눔바른고딕 Light"), url("/fonts/NanumBarunGothicLightSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicLightSubset.woff") format("woff"), url("/fonts/NanumBarunGothicLightSubset.ttf") format("truetype");
+  font-family: "Noto Sans";
+  font-weight: 500;
+  src: url("/fonts/notoSans/NotoSansKR-Medium-Hestia.eot");
+  src: url("/fonts/notoSans/NotoSansKR-Medium-Hestia.eot?#iefix") format("embedded-opentype"), url("/fonts/notoSans/NotoSansKR-Medium-Hestia.woff") format("woff");
 }
 @font-face {
-  font-family: "NanumBarunGothic";
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-1Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-2ExtraLight.woff") format("woff");
   font-weight: 200;
-  src: local("나눔바른고딕 UltraLight"), url("/fonts/NanumBarunGothicUltraLightSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicUltraLightSubset.woff") format("woff"), url("/fonts/NanumBarunGothicUltraLightSubset.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-3Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-4Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-5Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-6Bold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-7ExtraBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-8Heavy.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream";
+  src: url("/fonts/S-CoreDream-9Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
 }
 @font-face {
   font-family: "password";
@@ -52,7 +104,7 @@ a:hover, a:focus, a:active, a:link {
 
 /* 폰트 초기화 */
 body, input, textarea, select, button, table {
-  font-family: "NanumBarunGothic", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -4552,6 +4604,12 @@ table, th, td {
 }
 
 /*스크린리더 IR(Image Replacement)*/
+#wrapper {
+  background: #1E2025;
+  min-height: 600px;
+  min-width: 1920px;
+}
+
 .sr-only {
   position: fixed;
   width: 1px;
@@ -4573,10 +4631,243 @@ table, th, td {
 }
 
 .header {
-  border: 1px solid red;
+  height: 96px;
+}
+.header .inner {
+  position: relative;
+  padding: 0 40px;
+  display: flex;
+  height: 96px;
+  overflow: hidden;
+  flex: 1 1;
+}
+.header .inner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 96px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #272A31;
+}
+.header .tnb {
+  position: absolute;
+  display: flex;
+  top: 8px;
+  right: 40px;
+}
+.header .tnb .menu {
+  padding-top: 2px;
+}
+.header .tnb .menu > a {
+  font-size: 14px;
+  color: #fff;
+  display: block;
+  line-height: 21px;
+  padding: 0 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.header .tnb .menu.search {
+  margin-left: 38px;
+  padding-top: 0;
+}
+.header .tnb .menu.search button span {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("/src/images/ico_search.svg") no-repeat left center;
+  background-size: 100%;
+  color: transparent;
+  font-size: 0;
+}
+.header .tnb .menu.toggle button {
+  color: #fff;
+  padding-left: 8px;
+  padding-right: 23px;
+  position: relative;
+}
+.header .tnb .menu.toggle button::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15px' height='15px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+.header .logo {
+  padding-top: 38px;
+  display: inline-flex;
 }
 .header .logo a {
   display: block;
   padding-left: 58px;
+  color: #fff;
+  font-size: 22px;
+  height: 48px;
+  line-height: 48px;
+  background: url("/src/images/logo.svg") no-repeat left center;
+  background-size: 48px;
+  width: 160px;
+}
+.header .gnb {
+  padding: 48px 0 0 0;
+  display: inline-flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  z-index: 2;
+}
+.header .gnb .menu {
+  display: flex;
+}
+.header .gnb .menu a {
+  color: #fff;
+}
+.header .gnb .menu .deps1 {
+  width: 170px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.header .gnb .menu .deps2 {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 22px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  height: 100%;
+}
+.header .gnb .menu .deps2 ul {
+  height: 100%;
+  border-right: 1px solid #2F323A;
+}
+.header .gnb .menu .deps2 li ~ li {
+  margin-top: 5px;
+}
+.header .gnb .menu .deps2 a {
+  height: 23px;
+  line-height: 23px;
+  display: block;
+}
+.header .gnb .menu .deps2 a:hover {
+  color: #ED6C00;
+  font-weight: 700;
+}
+
+#contants {
+  display: flex;
+  padding-top: 32px;
+  flex: 1 1;
+}
+#contants .side_menu {
+  padding: 0 40px;
+  width: 310px;
+}
+#contants .side_menu .deps1 {
+  width: 230px;
+}
+#contants .side_menu .deps1 > li:not(:first-child) {
+  margin-top: 8px;
+}
+#contants .side_menu .deps1 > li > a {
+  display: block;
+  background: #272A31;
+  border: 1px solid #2F323A;
+  height: 54px;
+  font-size: 18px;
+  border-radius: 27px;
+  line-height: 52px;
+  padding-left: 24px;
+  color: #fff;
+  position: relative;
+}
+#contants .side_menu .deps1 > li > a:hover {
+  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  border: 0 none;
+  font-weight: 700;
+  padding-left: 25px;
+  line-height: 54px;
+}
+#contants .side_menu .deps1 > li > a.ico {
+  padding-left: 72px;
+}
+#contants .side_menu .deps1 > li > a.ico::after {
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 3px;
+  left: 24px;
+  display: block;
+}
+#contants .side_menu .deps1 > li > a.ico.type1:after {
+  background: url("/src/images/menu_ico1.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico.type2:after {
+  background: url("/src/images/menu_ico2.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico.type3:after {
+  background: url("/src/images/menu_ico3.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico.type4:after {
+  background: url("/src/images/menu_ico4.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico.type5:after {
+  background: url("/src/images/menu_ico5.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico.type6:after {
+  background: url("/src/images/menu_ico6.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico.type7:after {
+  background: url("/src/images/menu_ico7.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico.type8:after {
+  background: url("/src/images/menu_ico8.svg") no-repeat center;
+}
+#contants .side_menu .deps1 > li > a.ico:hover {
+  padding-left: 73px;
+}
+#contants .side_menu .deps1 > li > a.ico:hover::after {
+  top: 4px;
+  left: 25px;
+}
+#contants .side_menu .deps1 > li.mui_active > a {
+  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  border: 0 none;
+  font-weight: 700;
+  padding-left: 25px;
+  line-height: 54px;
+}
+#contants .side_menu .deps1 > li.mui_active > a.ico {
+  padding-left: 73px;
+}
+#contants .side_menu .sub_deps li {
+  margin-top: 8px;
+}
+#contants .side_menu .sub_deps li.mui_active a {
+  font-weight: 700;
+  color: #ED6C00;
+}
+#contants .side_menu .sub_deps a {
+  display: block;
+  border-bottom: 1px solid #2F323A;
+  font-size: 18px;
+  color: #fff;
+  height: 34px;
+  line-height: 34px;
+  padding-left: 24px;
+}
+#contants .side_menu .sub_deps a:hover {
+  font-weight: 700;
+  color: #ED6C00;
 }
 /*# sourceMappingURL=common.css.map */
