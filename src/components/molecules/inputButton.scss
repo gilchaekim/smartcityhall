@@ -6,8 +6,10 @@
     position: relative;
     display: flex;
     align-items: center;
+    border: 1px solid #fff;
     .mui_input, .mui_select{
       position: static;
+      padding-left: 16px;
     }
     .btn_sec{
       padding-left: 12px;

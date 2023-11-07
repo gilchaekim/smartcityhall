@@ -19,7 +19,29 @@
 #wrapper {
 	background: #1E2025;
 	min-height: 600px;
-	min-width: 1920px;
+}
+.search_form {
+	.btn_sec {
+		.mui_button {
+			background: url($url_common+"ico_search.svg") no-repeat center;
+			color: transparent;
+			font-size: 0;
+			width: 40px;
+			height: 40px;
+			margin-right: 16px;
+		}
+	}
+}
+.mobile_only {
+	display: none;
+	@include respondTo("tablet"){
+		display: block;
+	}
+}
+.pc_only {
+	@include respondTo("tablet"){
+		display: none;
+	}
 }
 .sr-only {
 	position: fixed;
@@ -47,13 +69,21 @@
 .header {
 	// border: 1px solid red;
 	height: 96px;
+	@include respondTo("tablet"){
+		height: auto;
+		border-bottom: 1px solid rgba($color: #fff, $alpha: .1);
+	}
 	.inner {
 		position: relative;
 		padding: 0 40px;
 		display: flex;
-		height: 96px;
+		z-index: 3;
+		// height: 96px;
 		overflow: hidden;
 		flex: 1 1;
+		@include respondTo("tablet"){
+			padding: 15px 20px;
+		}
 		&::after {
 			content: '';
 			display: block;
@@ -63,6 +93,9 @@
 			right: 0;
 			bottom: 0;
 			background: #272A31;
+			@include respondTo("tablet"){
+				display: none;
+			}
 		}
 	}
 	.tnb {
@@ -70,6 +103,11 @@
 		display: flex;
 		top: 8px;
 		right: 40px;
+		z-index: 10;
+		@include respondTo("tablet"){
+			top: 15px;
+			right: 20px;
+		}
 		.menu {
 			padding-top: 2px;
 			& > a {
@@ -79,6 +117,11 @@
 				line-height: 21px;
 				padding: 0 8px;
 				border-right: 1px solid rgba($color: #fff, $alpha: .2);
+			}
+			@include respondTo("tablet"){
+				&:not(.search, .allmenu) {
+					display: none;
+				}
 			}
 			&.search {
 				margin-left: 38px;
@@ -92,10 +135,36 @@
 						background-size: 100%;
 						color: transparent;
 						font-size: 0;
+						@include respondTo("tablet"){
+							width: 30px;
+							height: 30px;
+							background-size: 20px;
+
+						}
+					}
+				}
+			}
+			&.allmenu {
+				margin-left: 20px;
+				padding-top: 0;
+				display: none;
+				@include respondTo("tablet"){
+					display: block;
+				}
+				button {
+					span {
+						display: block;
+						width: 30px;
+						height: 30px;
+						background: url($url_common+"ico_menu.svg") no-repeat left center;
+						background-size: 100%;
+						color: transparent;
+						font-size: 0;
 					}
 				}
 			}
 			&.toggle {
+				position: relative;
 				button {
 					color: #fff;
 					padding-left: 8px;
@@ -108,6 +177,71 @@
 						position: absolute;
 						top: 4px;
 						right: 0;
+					}
+				}
+				.drop_menu {
+					position: absolute;
+					top: 24px;
+					left: 0;
+					width: 71px;
+					height: 54px;
+					border-radius: 6px;
+					background: #272A31;
+					li {
+						text-align: center;
+						a {
+							color: #8A8C8F;
+							font-size: 14px;
+							display: inline-flex;
+						}
+						&.mui_active {
+							a {
+								color: #fff;
+								font-size: 14px;
+								border-bottom: 1px solid #fff;
+							}	
+						}
+					}
+				}
+			}
+			&.kren {
+				display: none;
+				@include respondTo("tablet"){
+					display: block;
+				}
+				
+				button {
+					font-size: 14px;
+					color: #fff;
+					&.mui_active {
+						span{
+							&:last-child {
+								color: #fff;
+							}
+							&:first-child {
+								color: rgba($color: #fff, $alpha: .5);	
+							}
+						}
+					}
+					span {
+						display: inline-flex;
+						position: relative;
+						&:last-child {
+							margin-left: 6px;
+							padding-left: 9px;
+							color: rgba($color: #fff, $alpha: .5);
+							&::after {
+								content: '';
+								width: 3px;
+								height: 3px;
+								border-radius: 50%;
+								background: #fff;
+								position: absolute;
+								top: 50%;
+								margin-top: -1px;
+								left: 0;
+							}
+						}
 					}
 				}
 			}
@@ -126,27 +260,53 @@
 			background: url($url_common+"logo.svg") no-repeat left center;
 			background-size: 48px;
 			width: 160px;
+			@include respondTo("tablet"){
+				font-size: 18px;
+				font-family: "S-Core Dream";
+				font-weight: 600;
+				background-size: 40px;
+				padding-left: 50px;
+				height: 30px;
+				line-height: 30px;
+			}
+		}
+		@include respondTo("tablet"){
+			padding-top: 0;
 		}
 	}
 	.gnb {
 		padding: 48px 0 0 0;
-		display: inline-flex;
+		display: flex;
 		width: 100%;
 		position: relative;
 		justify-content: center;
 		z-index: 2;
+		@include respondTo("tablet"){
+			display: none;
+		}
+		.inset {
+			width: 100%;
+			max-width: 1366px;
+			padding: 0 40px;
+			@include respondToMinMax(1025, 1366){
+				padding: 0;
+			}
+		}
 		.menu {
 			display: flex;
 			a {
 				color: #fff;
 			}
 			.deps1 {
-				width: 170px;
+				flex: 1;
 				text-align: center;
 				font-weight: 500;
 				font-size: 18px;
 				display: flex;
 				flex-direction: column;
+				// @include respondToMinMax(, $maxSize){
+					
+				// }
 			}
 			.deps2 {
 				text-align: left;
@@ -180,6 +340,94 @@
 			}
 		}
 	}
+} 
+.footer {
+	margin-top: 40px;
+	
+	padding-bottom: 28px;
+	@include respondTo("tablet"){
+		padding-bottom: 20px;
+	}
+	.inset {
+		display: flex;
+		max-width: 1240px;
+		margin: 0 auto;
+		justify-content: space-between;
+		padding: 0 20px;
+		@include respondTo("tablet"){
+			display: block;
+			text-align: center;
+		}
+	}
+	.left {
+		display: flex;
+		@include respondTo("tablet"){
+			display: block;
+		}
+	}
+	.logo {
+		opacity: .3;
+		@include respondTo("tablet"){
+			display: none;
+		}
+	}
+	.text {
+		margin-left: 48px;
+		font-size: 14px;
+		@include respondTo("tablet"){
+			margin-left: 0;
+		}
+		.txt {
+			color: rgba($color: #fff, $alpha: .8);
+			display: inline-flex;
+			@include respondTo("tablet"){
+				&:first-child {
+					display: block;
+				}
+			}
+			& ~ .txt {
+				margin-left: 20px;
+				@include respondTo("tablet"){
+					margin: 0 4px;
+				}
+			}
+		}
+		.tel {
+			color: rgba($color: #fff, $alpha: .5);
+			display: inline-flex;
+			margin-left: 10px;
+		}
+	}
+	.copy {
+		display: block;
+		margin-top: 15px;
+		color: #fff;
+		@include respondTo("tablet"){
+			margin-top: 11px;
+		}
+	}
+	.admin_btn {
+		@include respondTo("tablet"){
+			margin-top: 10px;
+		}
+		button {
+			span {
+				height: 40px;
+				border: 1px solid #868E96;
+				font-weight: 700;
+				font-size: 14px;
+				color: #fff;
+				line-height: 40px;
+				padding: 0 27px;
+				display: block;
+			}
+			@include respondTo("tablet"){
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+
 }
 #contants {
 	display: flex;
@@ -188,6 +436,9 @@
 	.side_menu {
 		padding: 0 40px;
 		width: 310px;
+		@include respondTo("tablet"){
+			display: none;
+		}
 		.deps1 {
 			width: 230px;
 			& > li {
@@ -275,6 +526,213 @@
 					font-weight: 700;
 					color: #ED6C00;
 				}
+			}
+		}
+	}
+}
+.common_search {
+	width: 100%;
+	height: 100%;
+	.mui_modal_body {
+		background: rgba($color: #000, $alpha: .8);
+		@include respondTo("mobile"){
+			background: #272A31;
+		}
+	}
+	.inset {
+		flex: 1;
+	}
+	.main_title {
+		font-size: 48px;
+		text-align: center;
+		color: #fff;
+		font-weight: 500;
+		margin-bottom: 72px;
+		@include respondTo("mobile"){
+			font-size: 28px;
+			margin-bottom: 20px;
+		}
+		&:first-child {
+			margin-top: 192px;
+			@include respondTo("mobile"){
+				margin-top: 85px;
+			}
+		}
+	}
+	.search_form {
+		max-width: 720px;
+		margin: 0 auto;
+		.mui_input {
+			padding-left: 8px;
+			input {
+				height: 56px;	
+				@include respondTo("mobile"){
+					height: 34px;
+					font-size: 14px;
+				}
+			}
+		}
+		.btn_sec {
+			.mui_button {
+				margin-right: 24px;
+				
+				@include respondTo("mobile"){
+					margin-right: 0;
+					width: 34px;
+					height: 34px;
+					background-size: 20px;
+				}
+			}
+		}
+		&:first-child {
+			margin-top: 144px;
+			@include respondTo("mobile"){
+				margin-top: 65px;
+			}
+		}
+	}
+	.result {
+		margin-top: 48px;
+		font-size: 24px;
+		color: #fff;
+		text-align: center;
+		em {
+			font-weight: 700;
+		}
+		@include respondTo("mobile"){
+			margin-top: 14px;
+			font-size: 18px;
+		}
+	}
+	.search_results {
+		max-height: calc( 100vh - 460px);
+		overflow: auto;
+		margin: 56px 0 0;
+		@include respondTo("mobile"){
+			margin: 20px 0 0;
+			max-height: none;
+		}
+		&::-webkit-scrollbar {
+      width: 4px;			
+      &-thumb {
+        background-color: rgba($color: #fff, $alpha: .5);
+				border-radius: 2px;
+      }
+    }  
+		.inset {
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+		.sec {
+			&:not(:first-child) {
+				margin-top: 48px;
+			}
+			.title {
+				padding-bottom: 8px;
+				position: relative;
+				border-bottom: 1px solid #868E96;
+				@include respondTo("mobile"){
+					padding-bottom: 4px;
+				}
+				.text {
+					font-weight: 500;
+					color: #fff;
+					font-size: 24px;
+					@include respondTo("mobile"){
+						display: inline-flex;
+						font-size: 16px;
+						font-family: "S-Core Dream";
+						font-weight: 600;
+						padding-right: 21px;
+						position: relative;
+						&::after {
+							content: '';
+							display: block;
+							@include icon_svg(arrow-left, "#fff", 21px);
+							position: absolute;
+							top: 2px;
+							right: 0;
+							transform: rotate(180deg);
+						}
+					}
+				}
+				
+				.more {
+					position: absolute;
+					top: 6px;
+					right: 0;
+					color: #fff;
+					font-size: 16px;
+					padding-right: 29px;
+					@include respondTo("mobile"){
+						font-size: 0;
+						color: transparent;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+					}
+					&::after {
+						content: '';
+						display: block;
+						@include icon_svg(arrow-left, "#fff", 21px);
+						position: absolute;
+						top: 2px;
+						right: 0;
+						transform: rotate(180deg);
+						@include respondTo("mobile"){
+							display: none;
+						}
+					}
+
+				}
+			}
+			.list {
+				margin-top: 16px;
+				li ~ li {
+					margin-top: 8px;
+					@include respondTo("mobile"){
+						margin-top: 4px;
+					}
+				}
+				a {
+					display: flex;
+					display: block;
+				}
+				.text {
+					display: block;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden; 
+				}
+				.date {
+					white-space: nowrap;
+					padding-left: 60px;
+					.tt {
+						display: none;
+					}
+					@include respondTo("mobile"){
+						padding-left: 0;
+						margin-top: 2px;
+						display: flex;
+						justify-content: space-between;
+						color: rgba($color: #fff, $alpha: .6);
+						.tt {
+							display: block;
+						}
+					}
+				}
+				@include respondTo("mobile"){
+					margin-top: 10px;
+				}
+			}
+		}
+		a {
+			color: rgba($color: #fff, $alpha: .6);
+			font-size: 16px;
+			@include respondTo("mobile"){
+				font-size: 14px;
+				color: #fff;
 			}
 		}
 	}

@@ -14,16 +14,35 @@ header.header
         //- mui-toggle="target:#drop_menu"
         button(
           type="button"  
-        ) English
-        //- #drop_menu
-        //-   ul 
-        //-     li 
-        //-       a(href="") English
-        //-     li 
-        //-       a(href="") Korea
+          mui-toggle="target:#drop_menu"
+        ) English 
+        #drop_menu.drop_menu(
+          hidden=""
+        )
+          ul 
+            li 
+              a(href="") Korea
+            li.mui_active 
+              a(href="") English
+      .menu.kren 
+        button(
+          type="button"
+          mui-toggle="cls:mui_active"
+        )
+          span KR
+          span EN
       .menu.search
-        button(type="button")
+        button(
+          type="button"
+          mui-toggle="target:#commonSearch"
+        )
           span 검색
+      .menu.allmenu
+        button(
+          type="button"
+          mui-toggle="target:#commonAllmenu"
+        )
+          span 전체메뉴
     .gnb 
       .inset 
         ul.menu

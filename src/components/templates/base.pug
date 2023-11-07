@@ -34,9 +34,6 @@ html#pageRoot(
   body
     #wrapper
       if showHeader
-        <!-- 전체메뉴 -->
-        include all_menu.pug
-        <!--// 전체메뉴 -->
         <!-- header -->
         #header
           include header.pug
@@ -55,8 +52,14 @@ html#pageRoot(
       <!-- / contents -->
 
 
-      <!-- footer -->
-      #footer
-        include footer.pug
-      <!-- / footer -->
+    <!-- footer -->
+    #footer
+      include footer.pug
+    <!-- / footer -->
+    include search_layer.pug
+    <!-- 전체메뉴 -->
+    include all_menu.pug
+    <!--// 전체메뉴 -->
+  script.
+    //- GCui.modal('#commonSearch').show();
       

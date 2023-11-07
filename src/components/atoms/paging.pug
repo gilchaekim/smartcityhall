@@ -1,0 +1,21 @@
+mixin paging(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}paging`
+    class=className
+  )
+    a(href="").first 처음
+    a(href="").prev 이전
+    a(href="").num 1
+    em.num 2
+    a(href="").num 3
+    a(href="").num 4
+    a(href="").num 5
+    a(href="").next 다음
+    a(href="").last 마지막
+

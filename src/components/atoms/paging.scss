@@ -1,0 +1,50 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_paging{
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+  @include respondTo("mobile"){
+    margin-top: 20px;
+  }
+  & > a, & > em  {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    @include respondTo("mobile"){
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+  & > a {
+    color: #fff;
+  }
+  & > em {
+    font-weight: 700;
+  }
+  .first,
+  .prev,
+  .next,
+  .last {
+    color: transparent !important;
+    font-size: 0 !important;
+    
+  }
+  .first {
+    background: url($url_common+"page_first.svg") no-repeat center;
+  }
+  .prev {
+    background: url($url_common+"page_prev.svg") no-repeat center;
+  }
+  .next {
+    background: url($url_common+"page_next.svg") no-repeat center;
+  }
+  .last {
+    background: url($url_common+"page_last.svg") no-repeat center;
+  }
+}

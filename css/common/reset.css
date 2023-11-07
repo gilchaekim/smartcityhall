@@ -53,13 +53,7 @@ strong {
 }
 
 em {
-  color: var(--main_color01);
-}
-em.type2 {
-  color: var(--font_color07);
-}
-em.ff {
-  color: var(--font_color08);
+  color: #ED6C00;
 }
 
 img {

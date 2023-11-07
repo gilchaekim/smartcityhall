@@ -53,10 +53,10 @@ mixin modal(params={})
             p #{title}
               if isDownBtn
                 a(href="").btn_down 내려받기
-        else if isCloseBtn
-          div(
-            class=`${prefix}${divide}modal${divide}header`
-          ) 
+        //- else if isCloseBtn
+        //-   div(
+        //-     class=`${prefix}${divide}modal${divide}header`
+        //-   ) 
         div(
           class=`${prefix}${divide}modal${divide}content`
         )
