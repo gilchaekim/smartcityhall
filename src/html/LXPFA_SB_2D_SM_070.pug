@@ -1,0 +1,33 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  +title({
+    text:"보고서",
+    lv:2,
+  })
+  .sub_title
+    +title({
+      text:"시흥시 OO보고서",
+      lv:2,
+    })
+  .board_view 
+    .board_data 
+      span 작성자 : 시흥시청
+      span 작성일 : 2023-03-31
+    .view_cont
+      .file 
+        a(href="") 
+          span 택지지구 인구현황 분석_공개용.pdf
+      .texts
+        .pdf_viewer 
+          img(src="/src/images/img_ex2.png", alt="")
+    .view_bottom
+      .btns
+        +button({
+          label:"목록으로",
+          size:"medium",
+          type:"primary",
+        })

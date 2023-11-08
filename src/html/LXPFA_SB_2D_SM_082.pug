@@ -1,0 +1,115 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  +title({
+    text:"공공데이터",
+    lv:2,
+  })
+  .board_top 
+    .sort 
+        +select({
+          options : [
+            '작성일'
+          ]
+        })
+        +select({
+          options : [
+            '내림차순'
+          ]
+        })
+        +select({
+          options : [
+            '내용+제목'
+          ]
+        })
+        +input_button({
+          btnText:"검색",
+          placeholder:"검색어를 입력해주세요",
+          type:"input"
+        })
+  
+    p.board_result_text
+      | 검색 결과 
+      em 36건
+      | 의 게시물이 등록되어 있습니다.
+  .board_lists 
+    .table_type 
+      table 
+        colgroup 
+          col.cols1
+          col.cols2
+          col.cols3
+          col.cols4
+        thead 
+          tr 
+            th 번호
+            th 제목
+            th 첨부파일
+            th 작성일
+        tbody 
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자[공간정보] 100m x 100m 격자[공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+          tr 
+            td 100
+            td 
+              a(href="") [공간정보] 100m x 100m 격자
+            td 1개
+            td 2023-07-11
+
+     
+    +paging()

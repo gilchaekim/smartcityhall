@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  +title({
+    text:"부서별 민원현황 (일별)",
+    lv:2,
+  })
+  .board_view 
+    .board_data 
+      span 작성자 : 시흥시청
+      span 작성일 : 2023-03-31
+    .view_cont
+      .texts 
+        .embed_container 
+          iframe(src="https://www.youtube.com/embed/ej2s9nEWR8c?si=Jc-rxV567aAt4c1R", frameborder="0", allowfullscreen) 
+    .view_bottom
+      .btns
+        +button({
+          label:"목록으로",
+          size:"medium",
+          type:"primary",
+        })

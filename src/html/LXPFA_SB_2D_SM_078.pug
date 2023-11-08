@@ -1,0 +1,21 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  +title({
+    text:"관련뉴스",
+    lv:2,
+  })
+  .news_sec 
+    .sec1
+      .top_decs 
+          p.txt  
+            | “빅카인즈”에서 “
+            em 시흥시
+            | ”에 대한 분석한 결과 화면입니다.
+          span.date 2023-04-19 ~ 2023-07-19 기준
+    .sec2
+      
+

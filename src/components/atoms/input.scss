@@ -19,13 +19,15 @@
   input{
     border: 0 none;
     background: none;
-    height: 48px;
+    height: 46px;
     font-size: 18px;
     outline: 0;
     width: 100%;
     color: #fff;
     caret-color:$main_color01;
-    
+    @include respondTo("tablet"){
+      height: 32px;
+    }
     &[type="password"]{
       font-family: 'password';
       font-size: 29px;

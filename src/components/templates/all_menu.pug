@@ -1,105 +1,83 @@
 +modal({
-  className:"common_search",
+  className:"common_allmenu",
   id:"commonAllmenu",
   type:"full"
 })
   .inset 
-    p.main_title 
-      |원하시는 
-      br.mobile_only
-      |정보를 검색해주세요.
-    .search_form 
-      +input_button({
-        btnText:"검색",
-        placeholder:"검색어를 입력해주세요",
-        type:"input"
+    .tnb_sec 
+      a(href="") 호조벌
+      a(href="") 시정영상
+      a(href="") 통합플랫폼
+    .menu_list 
+      +accordion({
+        active:0
       })
-    p.result 
-      | 검색어 
-      em “시흥시청” 
-      | 에 대한 
-      br.mobile_only
-      |검색 결과 입니다.
-    .search_results 
-      .inset
-        .sec 
-          .title 
-            p.text 메뉴검색
-            button(type="button").more 더보기
-          .list 
+        +acc_title('민원분석')
+        +acc_content()
+          .deps2 
             ul 
-              li 
-                a(href="")   
-                  span.text 
-                    | 스마트시정 소개 > 
-                    em 시흥시청
-              li 
-                a(href="")   
-                  span.text 
-                    | 스마트시정 소개 > 
-                    em 시흥시청
-              li 
-                a(href="")   
-                  span.text 
-                    | 스마트시정 소개 > 
-                    em 시흥시청
-              li 
-                a(href="")   
-                  span.text 
-                    | 스마트시정 소개 > 
-                    em 시흥시청
-              li 
-                a(href="")   
-                  span.text 
-                    | 스마트시정 소개 > 
-                    em 시흥시청
-        .sec
-          .title 
-            p.text 관련뉴스 검색
-            button(type="button").more 더보기
-          .list 
+              li
+                a(href="") 민원총괄
+              li
+                a(href="") 부서별 민원 현황
+              li
+                a(href="") 분야별 민원 현황
+        +acc_title('실시간 도시현황')
+        +acc_content()
+          .deps2 
             ul 
-              li 
-                a(href="")   
-                  span.text 
-                    em 시흥시 
-                    | 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축
-                  span.date 
-                    span.tt 공유박스 > 관련뉴스
-                    span 2023 / 07 / 19
-              li 
-                a(href="")   
-                  span.text 
-                    em 시흥시 
-                    | 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축
-                  span.date 
-                    span.tt 공유박스 > 관련뉴스
-                    span 2023 / 07 / 19
-              li 
-                a(href="")   
-                  span.text 
-                    em 시흥시 
-                    | 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축
-                  span.date 
-                    span.tt 공유박스 > 관련뉴스
-                    span 2023 / 07 / 19
-        .sec
-          .title 
-            p.text 포털소개 검색
-            button(type="button").more 더보기
-          .list 
+              li
+                a(href="") 교통정보
+              li
+                a(href="") 대기환경
+              li
+                a(href="") 감염병 발생
+              li
+                a(href="") 호조벌
+              li
+                a(href="") 통합플랫폼
+              li
+                a(href="") 시정영상
+        +acc_title('시정데이터')
+        +acc_content()
+          .deps2 
             ul 
-              li 
-                a(href="")   
-                  span.text 
-                    em 시흥시청
-              li 
-                a(href="")   
-                  span.text 
-                    em 시흥시청
-              li 
-                a(href="")   
-                  span.text 
-                    em 시흥시청
-      +paging()
-    
+              li
+                a(href="") 시정데이터
+        +acc_title('테마지도')
+        +acc_content()
+          .deps2 
+            ul 
+              li
+                a(href="") 테마지도
+              li
+                a(href="") 부동산 지도
+        +acc_title('빅데이터 분석')
+        +acc_content()
+            .deps2 
+              ul 
+                li
+                  a(href="") 자체분석
+                li
+                  a(href="") 분석플랫폼
+        +acc_title('공유박스')
+        +acc_content()
+          .deps2 
+            ul 
+              li
+                a(href="") 홍보영상
+              li
+                a(href="") 관련뉴스
+              li
+                a(href="") 공공데이터
+              li
+                a(href="") 연관 플랫폼 목록
+        +acc_title('스마트시정 소개')
+        +acc_content()
+          .deps2 
+            ul 
+              li
+                a(href="") 포털소개
+              li
+                a(href="") 공지사항
+  

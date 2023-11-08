@@ -42,24 +42,25 @@ html#pageRoot(
 
 
       <!-- contents -->
-      #contants(
+      #container(
         class=mainClassName
       )
         <!-- LNB -->
         include side_menu.pug
         <!--// LNB -->
-        block content
-      <!-- / contents -->
+        #contents
+          block content
+        <!-- / contents -->
 
 
-    <!-- footer -->
-    #footer
-      include footer.pug
-    <!-- / footer -->
-    include search_layer.pug
-    <!-- 전체메뉴 -->
-    include all_menu.pug
-    <!--// 전체메뉴 -->
-  script.
-    //- GCui.modal('#commonSearch').show();
+      <!-- footer -->
+      #footer
+        include footer.pug
+      <!-- / footer -->
+      include search_layer.pug
+      <!-- 전체메뉴 -->
+      include all_menu.pug
+      <!--// 전체메뉴 -->
+  //- script.
+  //-   GCui.modal('#commonAllmenu').show();
       

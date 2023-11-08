@@ -78,5 +78,5 @@ mixin colgroup(data)
   colgroup
     - for (let i = 0; i < data.length; i++)
       col(
-        width=`${data[i]}%`
+        class=data[i]
       )

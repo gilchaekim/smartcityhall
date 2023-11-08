@@ -10,28 +10,26 @@ block content
   })
   .board_top 
     .sort 
-      span.left 
-        +select({
-          options : [
-            '작성일'
-          ]
-        })
-        +select({
-          options : [
-            '내림차순'
-          ]
-        })
-      span.right
-        +select({
-          options : [
-            '작성일'
-          ]
-        })
-        +input_button({
-          btnText:"검색",
-          placeholder:"검색어를 입력해주세요",
-          type:"input"
-        })
+      +select({
+        options : [
+          '작성일'
+        ]
+      })
+      +select({
+        options : [
+          '내림차순'
+        ]
+      })
+      +select({
+        options : [
+          '작성일'
+        ]
+      })
+      +input_button({
+        btnText:"검색",
+        placeholder:"검색어를 입력해주세요",
+        type:"input"
+      })
   
     p.board_result_text
       | 검색 결과 

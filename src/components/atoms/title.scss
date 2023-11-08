@@ -2,25 +2,14 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_title{
-  & + .mui_result, & + .mui_datatable {
-    margin-top: 16px;
-  }
-  &.mini_title{
-    .title{
-      &.lv6{
-        font-weight: 700;
-        color:$font_color02;
-      }
-    }
-  }
   .title{
     font-weight: 700;
-    color:$font_color01;
+    color:#fff;
     &.lv1{
-      font-size: 24px;
+      font-size: 28px;
     }
     &.lv2{
-      font-size: 22px;
+      font-size: 28px;
     }
     &.lv3{
       font-size: 20px;

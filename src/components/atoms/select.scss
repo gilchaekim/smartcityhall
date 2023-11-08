@@ -1,2 +1,36 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
+
+
+.mui_select {
+  display: inline-flex;
+  border: 1px solid #3F4249;
+  position: relative;
+  select {
+    width: 100%;
+    background: #1F1F1F;
+    appearance: none;
+    height: 46px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    padding:0 52px 0 16px;
+    border: 0 none;
+    @include respondTo("tablet"){
+      padding: 0 30px 0 8px;
+      height: 34px;
+      font-size: 14px;
+    }
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    margin-top: -10px;
+    @include icon_svg(arrow-down, "#868E96", 20px);
+    @include respondTo("tablet"){
+      right: 5px;
+    }
+  }
+}
