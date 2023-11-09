@@ -43,7 +43,7 @@ export default {
         cls: 'mui_open',
         escClose: true,
         bgClose: true,
-        overlay: true,
+        overlay: false,
         stack: false,
         role: 'dialog',
         returnFocusTarget:null,

@@ -7,15 +7,111 @@ block content
   +title({
     text:"관련뉴스",
     lv:2,
+    className:"pc_only"
   })
-  .news_sec 
+  .news_sec
     .sec1
+      +title({
+        text:"관련뉴스",
+        lv:3,
+        className:"mobile_only"
+      })  
       .top_decs 
           p.txt  
             | “빅카인즈”에서 “
             em 시흥시
             | ”에 대한 분석한 결과 화면입니다.
           span.date 2023-04-19 ~ 2023-07-19 기준
+      .news_list 
+        ul 
+          li.lists
+            a(href="").box
+              .img 
+                img(src="/src/images/img_ex3.png", alt="")
+              .texts 
+                .inset
+                  .title 
+                    p ‘애써 준비한 행사도 폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제성
+                  .decs 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 준비한 축제성 행사를 잇따라 연기전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯..
+                  .data 
+                    span.com 서울경제
+                    span.date 2023 / 07 / 19
+                    span.writer 수원 - 손대선 기자
+          li.lists
+            a(href="").box
+              .img 
+                img(src="/src/images/img_ex3.png", alt="")
+              .texts 
+                .inset
+                  .title 
+                    p ‘애써 준비한 행사도 폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제성
+                  .decs 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 준비한 축제성 행사를 잇따라 연기전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯..
+                  .data 
+                    span.com 서울경제
+                    span.date 2023 / 07 / 19
+                    span.writer 수원 - 손대선 기자
+          li.lists
+            a(href="").box
+              .img 
+                img(src="/src/images/img_ex3.png", alt="")
+              .texts 
+                .inset
+                  .title 
+                    p ‘애써 준비한 행사도 폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제성
+                  .decs 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 준비한 축제성 행사를 잇따라 연기전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯..
+                  .data 
+                    span.com 서울경제
+                    span.date 2023 / 07 / 19
+                    span.writer 수원 - 손대선 기자
+          li.lists
+            a(href="").box
+              .img 
+                img(src="/src/images/img_ex3.png", alt="")
+              .texts 
+                .inset
+                  .title 
+                    p ‘애써 준비한 행사도 폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제성
+                  .decs 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 준비한 축제성 행사를 잇따라 연기전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯..
+                  .data 
+                    span.com 서울경제
+                    span.date 2023 / 07 / 19
+                    span.writer 수원 - 손대선 기자
+          li.lists
+            a(href="").box
+              .img 
+                img(src="/src/images/img_ex3.png", alt="")
+              .texts 
+                .inset
+                  .title 
+                    p ‘애써 준비한 행사도 폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제폭우에 휩쓸렸다‘ 경기권 지자체 축제성
+                  .decs 전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 준비한 축제성 행사를 잇따라 연기전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯..
+                  .data 
+                    span.com 서울경제
+                    span.date 2023 / 07 / 19
+                    span.writer 수원 - 손대선 기자
+      .pc_only
+        +paging()    
+      .mobile_only.more
+        button(type="button") 
+          span 더보기
+          
+
     .sec2
+      .view_box.chart_sec 
+        .title 키워드 트렌드
+        .decs 
+          | “빅카인즈”에서 
+          em “시흥시”
+          | 에 대한 분석한 결과 화면입니다.
+        #chart 
+      .view_box.bigkinds_data
+        .title 연관어 분석
+        .decs 
+          | “빅카인즈”에서 
+          em “시흥시”
+          | 에 대한 분석한 결과 화면입니다.
+        .img 
+          img(src="/src/images/keyword.png", alt="")
+
       
 

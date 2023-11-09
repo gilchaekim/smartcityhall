@@ -83,6 +83,7 @@
 		flex: 1 1;
 		@include respondTo("tablet"){
 			padding: 15px 20px;
+			height: auto;
 		}
 		&::after {
 			content: '';
@@ -439,20 +440,36 @@
 	flex: 1 1;
 	@include respondTo("tablet"){
 		padding-top: 20px;
+		display: block;
 	}
 	.side_menu {
 		padding: 0 40px;
 		width: 310px;
 		@include respondTo("tablet"){
-			display: none;
+			width: auto;
+			padding: 0 20px 20px;
 		}
 		.deps1 {
 			width: 230px;
+			@include respondTo("tablet"){
+				width: auto;
+				overflow-x: auto;
+				white-space: nowrap;
+				font-size: 0;
+				height: auto;
+			}
 			& > li {
+				@include respondTo("tablet"){
+					display: inline-block;
+				}
 				&:not(:first-child) {
 					margin-top: 8px;
+					@include respondTo("tablet"){
+						margin-top: 0;
+						margin-left: 6px;
+					}
 				}
-				& > a {
+				& > a, & > button {
 					display: block;
 					// background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
 					background: #272A31;
@@ -464,34 +481,42 @@
 					padding-left: 24px;
 					color: #fff;
 					position: relative;
+					@include respondTo("tablet"){
+						height: 48px;
+						line-height: 48px !important;
+						padding: 0 16px !important;
+					}
 					&:hover {
 						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
-						border: 0 none;
+						border-color: transparent;
 						font-weight: 700;
 						padding-left: 25px;	
 						line-height: 54px;
 					}
 					&.ico {
 						padding-left: 72px;
+						@include respondTo("tablet"){
+							padding-left: 47px !important;
+						}
 						&::after {
 							content: '';
 							width: 48px;
 							height: 48px;
 							position: absolute;
-							top: 3px;
+							top: 50%;
+							margin-top: -24px;
 							left: 24px;
 							display: block;
+							@include respondTo("tablet"){
+								width: 24px;
+								height: 24px;
+								left: 16px;
+								margin-top: -12px;
+							}
 						}
 						@for $i from 1 through 8 {
 							&.type#{$i}:after {
 								background: url($url_common+"menu_ico#{$i}.svg") no-repeat center;
-							}
-						}
-						&:hover {
-							padding-left: 73px;
-							&::after {
-								top: 4px;
-								left: 25px;
 							}
 						}
 					}
@@ -508,10 +533,14 @@
 						}
 					}
 				}
+
 			}
 			
 		}
 		.sub_deps {
+			@include respondTo("tablet"){
+				display: none;
+			}
 			li {
 				margin-top: 8px;
 				&.mui_active {
@@ -1100,6 +1129,211 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
+		}
+	}
+}
+.news_sec {
+	display: flex;
+	flex: 1 1;
+	margin-top: 8px;
+	.more {
+		button {
+			font-size: 16px;
+			font-weight: 500;
+			color: rgba($color: #fff, $alpha: .5);
+			margin-top: 20px;
+			width: 100%;
+			text-align: center;
+		}
+	}
+	.mui_title {
+		margin-bottom: 20px;
+	}
+	@include respondToMinMax(0, 1400){
+		display: block;
+	}
+
+	.sec1 {
+		padding-right: 24px;
+		width: 60%;
+		@include respondToMinMax(0, 1400){
+			width: 100%;			
+		}
+		@include respondTo("mobile"){
+			background: #272A31;
+			border: 1px solid #2F323A;
+			border-radius: 6px;
+			padding: 20px;
+		}
+		.top_decs {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			@include respondTo("mobile"){
+				display: block;
+			}
+			.txt {
+				font-size: 18px;
+				color: #868E96;
+				@include respondTo("mobile"){
+					font-size: 16px;
+				}
+			}
+			.date {
+				font-weight: 500;
+				font-size: 14px;
+				color: #C3CDD6;
+				@include respondTo("mobile"){
+					font-weight: 400;
+					margin-top: 10px;
+				}
+			}
+		}
+		.news_list {
+			margin-top: 40px;
+		}
+	}
+	.sec2 {
+		padding-top: 64px;
+		width: 40%;
+		@include respondToMinMax(0, 1400){
+			width: 100%;
+		}
+		@include respondTo("mobile"){
+			padding-top: 20px;
+		}
+		.view_box {
+			padding: 24px;
+			background: #272A31;
+			border: 1px solid #2F323A;
+			border-radius: 6px;
+			.title {
+				color: #fff;
+				font-size: 18px;
+				font-weight: 700;
+			}
+			.decs {
+				color: #888;
+				font-weight: 500;
+				font-size: 14px;
+				margin-top: 8px;
+			}
+		}
+		.chart_sec {
+
+		}
+		.bigkinds_data {
+			margin-top: 24px;
+		}
+	}
+	.lists {
+		padding: 24px 0;
+		border-bottom: 1px solid #2F323A;
+		&:first-child {
+			padding-top: 0;
+		}
+		@include respondTo("mobile"){
+			padding: 20px 0;
+		}
+	}
+	
+	.box {
+		display: flex;
+		flex: 1 1;
+		@include respondTo("mobile"){
+			display: block;
+		}
+		.img {
+			img {
+				width: 100%;
+				min-width: 200px;	
+			}
+			@include respondTo("mobile"){
+				overflow: hidden;
+				border-radius: 6px;
+				border:1px solid rgba($color: #fff, $alpha: .5);
+			}
+		}
+		.texts {
+			padding-left: 16px;
+			width: 100%;
+			@include respondTo("mobile"){
+				padding-left: 0;
+				margin-top: 10px;
+			}
+			.title {
+				color: #fff;
+				font-weight: 500;
+				font-size: 18px;
+				@include respondTo("mobile"){
+					font-size: 14px;
+				}
+				p {
+					text-overflow: ellipsis;
+					overflow: hidden;
+					-webkit-line-clamp: 1;
+					display: -webkit-box;   
+					-webkit-box-orient: vertical;
+					max-width: auto;
+					min-width: 0;
+					@include respondTo("mobile"){
+						-webkit-line-clamp: 2;
+					}
+				}
+			}
+			.decs {
+				margin-top: 8px;
+				font-size: 16px;
+				color: #A8A8A8;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				-webkit-line-clamp: 2;
+				display: -webkit-box;   
+				-webkit-box-orient: vertical;
+				@include respondTo("mobile"){
+					font-size: 12px;
+					-webkit-line-clamp: 5;
+				}
+			}
+			.data {
+				margin-top: 16px;
+				display: flex;
+				align-items: center;
+				@include respondTo("mobile"){
+					margin-top: 10px;
+				}
+				span {
+					font-size: 14px;
+					font-weight: 500;
+					color: #C3CDD6;
+					position: relative;
+					@include respondTo("mobile"){
+						font-size: 12px;
+					}
+					&:not(.com) {
+						margin-left: 8px;
+						padding-left: 9px;
+						&::after {
+							content: '';
+							display: block;
+							width: 1px;
+							position: absolute;
+							top: 4px;
+							bottom: 4px;
+							left: 0;
+							background: #C3CDD6;
+						}
+					}
+				}
+				.com {
+					color:#fff;
+					font-size: 18px;
+					@include respondTo("mobile"){
+						font-size: 12px;
+						font-weight: 700;
+					}
+				}
+			}
 		}
 	}
 }
