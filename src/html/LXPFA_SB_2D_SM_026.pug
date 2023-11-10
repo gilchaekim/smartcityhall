@@ -1,0 +1,24 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  .keyword_lank 
+    .sec_lank 
+      +title({
+        text:"민원 키워드 랭킹",
+        lv:2,
+      })
+      p.decs 검색 날짜에 가장 많이 나타난키워드 순위를 보여드립니다.
+      +tabsWrap({
+        active:0,
+        className:""
+      })
+        +tab("일별")
+        +tab("월별")
+    .sec_total_chart
+    
+
+      
+

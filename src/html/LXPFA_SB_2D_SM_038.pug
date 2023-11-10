@@ -1,0 +1,112 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  .view_city  
+    .map_sec 
+      img(src="/src/images/ex_map.png", alt="")
+    .keyword_lank 
+      .lank 
+        p.title 민원 키워드 랭킹
+        +dataTable({
+          caption:"민원 키워드 랭킹",
+          colgroup:["type1","type2","type3"],
+          headData:[
+            [
+              {
+                text: "구분",
+              },
+              {
+                text: "내용",
+              },
+              {
+                text: "일시",
+              },
+            ],
+          ],
+          bodyData:[
+            [
+              {
+                text: "<span class=\"tag type1\">사고</span>"
+              },
+              {
+                text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
+              },
+              {
+                text: "<span class=\"date\">07-17 10:30</span>"
+              }
+            ],
+            [
+              {
+                text: "<span class=\"tag type1\">사고</span>"
+              },
+              {
+                text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
+              },
+              {
+                text: "<span class=\"date\">07-17 10:30</span>"
+              }
+            ],
+            [
+              {
+                text: "<span class=\"tag type1\">사고</span>"
+              },
+              {
+                text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
+              },
+              {
+                text: "<span class=\"date\">07-17 10:30</span>"
+              }
+            ],
+            [
+              {
+                text: "<span class=\"tag type1\">사고</span>"
+              },
+              {
+                text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
+              },
+              {
+                text: "<span class=\"date\">07-17 10:30</span>"
+              }
+            ],
+            [
+              {
+                text: "<span class=\"tag type1\">사고</span>"
+              },
+              {
+                text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
+              },
+              {
+                text: "<span class=\"date\">07-17 10:30</span>"
+              }
+            ],
+          ]
+        })
+        a(href="").more 출처
+      .total 
+        p.title 교통현황통계
+        .list 
+          span.type1 
+            | 30
+            i 건 
+          span.type2 
+            | 30
+            i 건 
+          span.type3 
+            | 30
+            i 건
+          span.type4 
+            | 30
+            i 건
+          span.type5 
+            | 30
+            i 건
+          span.type6 
+            | 30
+            i 건
+        a(href="").more 출처
+      .legend
+        p.title 범례
+        a(href="").more 출처

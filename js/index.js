@@ -5075,6 +5075,7 @@
       }
     },
     connected: function connected() {
+      console.log(this.mode);
       if (!includes(this.mode, 'media') && !isFocusable(this.$el)) {
         attr(this.$el, 'tabindex', '0');
       }
@@ -5090,6 +5091,34 @@
       handler: function handler(e) {
         e.preventDefault();
         this.toggle();
+      }
+    }, {
+      name: "mouseenter mouseleave ".concat(pointerEnter, " ").concat(pointerLeave, " focus blur"),
+      filter: function filter() {
+        return includes(this.mode, 'hover');
+      },
+      handler: function handler(e) {
+        if (isTouch(e) || this.$el.disabled) {
+          return;
+        }
+        var show = includes(['mouseenter', pointerEnter, 'focus'], e.type);
+        var expanded = this.isToggled(this.target);
+
+        // Skip hide if still hovered or focused
+        if (!show && (!isBoolean(this._showState) || e.type !== 'blur' && matches(this.$el, ':focus') || e.type === 'blur' && matches(this.$el, ':hover'))) {
+          // Reset showState if already hidden
+          if (expanded === this._showState) {
+            this._showState = null;
+          }
+          return;
+        }
+
+        // Skip show if state does not change e.g. hover + focus received
+        if (show && isBoolean(this._showState) && expanded !== this._showState) {
+          return;
+        }
+        this._showState = show ? expanded : null;
+        this.toggle("toggle".concat(show ? 'show' : 'hide'));
       }
     }, {
       name: 'hide show',
