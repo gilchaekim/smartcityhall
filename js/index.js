@@ -5519,7 +5519,7 @@
       $year: '.picker_header>.year_month>.current_year',
       $month: '.picker_header>.year_month>.current_month',
       datePattern: ['yyyy', 'mm', 'dd'],
-      format: 'yyyy.mm.dd',
+      format: 'yyyy-mm-dd',
       // The start view date
       startDate: null,
       // The end view date

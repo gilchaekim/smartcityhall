@@ -1,0 +1,122 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  .indicators_lists   
+    .nav 
+      ul 
+        li.mui_active
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 주민등록
+              span.title2 국적별 Top 10
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 주민등록
+              span.title2 동별 인구
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 주민등록
+              span.title2 동별 성비
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 전출입
+              span.title2 전출입지 Top 10
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 전출입
+              span.title2 연령별 전출입 인구
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 세대별
+              span.title2 1인 가구 Top 5
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 세대별
+              span.title2 1인 가구 연도별
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 장래인구
+              span.title2 시흥시 인구 성장률
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 장래인구
+              span.title2 시군구별 장래인구 Top 10
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 장래인구
+              span.title2 연령별 추계
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 장래인구
+              span.title2 연도별 추계
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 외국인
+              span.title2 월 별 외국인 인구
+        li 
+          button(type="button") 
+            span.box 
+              span.top 
+                span 인구
+                span 2023년 기준
+              span.title1 외국인
+              span.title2 국적별 Top 10
+    .chart_sec 
+      .chart_wrap 
+        p.title 주민등록인구
+        .chart
+        a(href="").more 출처
+      .chart_wrap 
+        p.title 등록외국인
+        .chart
+        a(href="").more 출처

@@ -1,0 +1,82 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  .view_city.type02 
+    .map_sec 
+      .map 
+        img(src="/src/images/ex_map.png", alt="")
+        .map_ico(
+          style="top:300px;left:0;"
+        )
+          <!-- lv1 ~ 5 -->
+          button(type="button").status.lv5
+            span.num 155
+            span.txts 
+              span.lv 좋음 ㅣ 
+              span.text 배곧동
+
+      .select_type 
+        button(type="button").mui_active
+          span 
+            i pm10
+            span.text 미세먼지(㎍/㎥)
+        button(type="button") 
+          span 
+            i pm2.5
+            span.text 초미세먼지(㎍/㎥)
+        button(type="button") 
+          span 
+            i NO2
+            span.text 이산화질소(ppm)
+        button(type="button") 
+          span 
+            i O3
+            span.text 오존(ppm)
+      .legend2
+        p.title 
+          | 범례 ㅣ 미세먼지(㎍/㎥)
+        .grap   
+          .gage.lv1
+            span
+              | 좋음
+              i 0 - 30
+          .gage.lv2
+            span
+              | 보통
+              i 31 - 80
+          .gage.lv3
+            span
+              | 나쁨
+              i 81 - 150
+          .gage.lv4
+            span
+              | 매우나쁨
+              i 150 -
+
+
+    .keyword_lank 
+      .air_quality
+        p.title 대기질 예보통보
+        .detais 
+          .title_sec 
+            p.subtitle 대기질 예보통보
+            span.date 2023 - 07 - 18시 발표
+          dl
+            dt.lv1
+              span 미세먼지 (pm 10)
+              span.result 경기남부 :  좋음
+            dd 
+              p.texts [미세먼지] 전구역이 ‘좋음’으로 예상됩니다.
+              p.texts [미세먼지] 원활한 대기 확산과 강수의 영향으로 대기질이 청정할 것으로 예상됩니다 .
+          button(type="button") 
+            span 예측 모델 보기
+        a(href="").more 출처
+      .time_step 
+        p.title 시간대별 현황
+        .title_sec 
+          p.subtitle 미세먼지 시간대별 현황(㎍/㎥)
+        .chart
+        a(href="").more 출처

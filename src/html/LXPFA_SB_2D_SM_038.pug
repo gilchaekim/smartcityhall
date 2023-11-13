@@ -6,7 +6,58 @@ block prepend top
 block content
   .view_city  
     .map_sec 
-      img(src="/src/images/ex_map.png", alt="")
+      .map 
+        img(src="/src/images/ex_map.png", alt="")
+        .map_ico(
+          style="top:0;left:0;"
+        )
+          a(href="").type01
+            img(src="/src/images/ico_map1.svg", alt="사고")
+          .layer(style="display:none;")
+            p.title 
+              span.point 사고 
+              span 도로명
+            .details 
+              dl
+                dt 발생일시
+                dd.date 
+                  span 2023-07-17 
+                  span 18:42
+              dl
+                dt 종료일시
+                dd.date 
+                  span 2023-07-17 
+                  span 18:42
+              dl
+                dt 상세내용
+                dd [사고]심곡로 꿈이있는 교회에서 심곡사거리 방향1차로 고장차량 주의운전
+            button(type="button").close
+              span 닫기
+        .map_ico(
+          style="top:40px;left:20px;"
+        )
+          a(href="").type01
+            img(src="/src/images/ico_map1.svg", alt="사고")
+          .layer 
+            p.title 
+              span.point 사고 
+              span 도로명
+            .details 
+              dl
+                dt 발생일시
+                dd.date 
+                  span 2023-07-17 
+                  span 18:42
+              dl
+                dt 종료일시
+                dd.date 
+                  span 2023-07-17 
+                  span 18:42
+              dl
+                dt 상세내용
+                dd [사고]심곡로 꿈이있는 교회에서 심곡사거리 방향1차로 고장차량 주의운전
+            button(type="button").close
+              span 닫기
     .keyword_lank 
       .lank 
         p.title 민원 키워드 랭킹
@@ -109,4 +160,11 @@ block content
         a(href="").more 출처
       .legend
         p.title 범례
+        .list 
+          span.type1 사고
+          span.type2 행사
+          span.type3 통제
+          span.type4 공사
+          span.type5 기상
+          span.type6 재난
         a(href="").more 출처

@@ -1,0 +1,47 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  +title({
+    text:"부서별 민원현황 (일별)",
+    lv:2,
+  })
+  p.sub_decs 시흥시 오늘의 민원건수 및 민원이 가장 많은 부서/키워드를 보여줍니다.
+  .search_date 
+    .box
+      span.label 기간
+      .fromto 
+        +datepicker({
+          value:"2023-07-05 (수)"
+        })
+        span.dvd -
+        +datepicker({
+          value:"2023-07-05 (수)"
+        })
+        button(type="button") 
+          span 조회
+    .box
+      span.label 부서명
+      .search
+        +input()
+        button(type="button") 
+          span 조회
+  .minwon_lists
+    .box 
+      .head 
+        p.title 
+          | 민원이 가장 많은 분야
+          em 교통
+    .box 
+      .head 
+        p.title 
+          | 민원 건 수
+          em 303건
+    .box 
+      .head 
+        p.title 
+          | 교통 분야에서 민원이 가장 많은 키워드
+          em 불법_주정차
+
