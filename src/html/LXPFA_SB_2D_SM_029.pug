@@ -13,15 +13,16 @@ block content
     .box
       span.label 기간
       .fromto 
-        +datepicker({
-          value:"2023-07-05 (수)"
-        })
-        span.dvd -
-        +datepicker({
-          value:"2023-07-05 (수)"
-        })
+        span.inner
+          +datepicker({
+            value:"2023-07-05 (수)"
+          })
+          span.dvd -
+          +datepicker({
+            value:"2023-07-05 (수)"
+          })
         button(type="button") 
-          span 조회
+          span 검색
     .box
       span.label 부서명
       .search
@@ -32,16 +33,86 @@ block content
     .box 
       .head 
         p.title 
-          | 민원이 가장 많은 분야
-          em 교통
+          | 선택한 부서
+          em 교통행정과
+        p.cat 부서
+      ul.list
+        li 
+          a(href="") 교통행정과
+        li 
+          a(href="") 장애인복지과
+        li 
+          a(href="") 환경 정책과
+        li 
+          a(href="") 안전생활과
+        li 
+          a(href="") 대중교통과
+        li 
+          a(href="") 건설행정과
+        li 
+          a(href="") 경관디자인과
+        li 
+          a(href="") 도로시설과
+        li 
+          a(href="") 녹지과
+        //- li 
+        //-   a(href="") 건축과
+        //- li 
+        //-   a(href="") 건축과
+        //- li 
+        //-   a(href="") 건축과
+        //- li 
+        //-   a(href="") 건축과
+        //- li 
+        //-   a(href="") 건축과
+        //- li 
+        //-   a(href="") 건축과
+
     .box 
       .head 
         p.title 
           | 민원 건 수
           em 303건
+        p.cat 2023-07-05  ~  2023-07-10
+      ul.list.lank
+        li 
+          a(href="") 1. 주정차
+        li 
+          a(href="") 2. 불법 주정차 신고
+        li 
+          a(href="") 3. 불법주차
+        li 
+          a(href="") 4. 장애인
+        li 
+          a(href="") 
+            | 5. 장애인 전용구역  전용구역  전용구역  전용구역 
+          span.updown.up 1
+        li 
+          a(href="") 
+            | 6. 버스정류소
+          span.updown.down 1
+        li 
+          a(href="") 7. 횡단보도
+
+        li 
+          a(href="") 8. 장애인 전용구역
+        li 
+          a(href="") 9. 인도 불법
+        li 
+          a(href="") 10. 버스정류소 불법 …
+        li 
+          a(href="") 11. 충전구역
+        li 
+          a(href="") 12. 충전구역
+        li 
+          a(href="") 13. 충전구역
+        li 
+          a(href="") 14. 충전구역
+
     .box 
       .head 
         p.title 
-          | 교통 분야에서 민원이 가장 많은 키워드
-          em 불법_주정차
+          | 교통행정과에서 민원이 가장 많은 키워드
+          em 주정차
+        p.cat TOP 키워드 목록
 

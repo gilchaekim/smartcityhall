@@ -3,7 +3,7 @@ mixin datepicker(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  - const {element='div', className, placeholder="날짜선택", value, quickBtn, disabled, title, ...rest} = Object.assign({}, params);
+  - const {element='div', className, placeholder="날짜선택", value, quickBtn, disabled, title, readonly, ...rest} = Object.assign({}, params);
   if quickBtn
     .inner_quick_btn
       +radioCheck({
@@ -48,7 +48,8 @@ mixin datepicker(params={})
           value:value,
           disabled:disabled,
           placeholder:placeholder,
-          title:title
+          title:title,
+          readonly:readonly
         })
 
 

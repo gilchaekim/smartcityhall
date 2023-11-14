@@ -4,21 +4,96 @@ block prepend top
   - mainClassName=""
 
 block content
-  .keyword_lank 
+  .keyword_lank_wrap 
     .sec_lank 
       +title({
         text:"민원 키워드 랭킹",
         lv:2,
       })
       p.decs 검색 날짜에 가장 많이 나타난키워드 순위를 보여드립니다.
-      +tabsWrap({
-        active:0,
-        className:""
+      +radioCheck({
+        type:"radio",
+        name:'chk909406',
+        className:"button_type",
+        lists:[
+          {label:'일별',checked:true},
+          {label:'월별',},
+        ]
       })
-        +tab("일별")
-        +tab("월별")
+      .date_form 
+        .select_date 
+          button(type="button").prev
+            span 이전
+          +datepicker({
+            value:"2023-07-05 (수)",
+            readonly:true
+          })
+          button(type="button").next
+            span 다음  
+          
+        button(type="button").submit
+          span 조회
+      p.d_title 2023-07-05 (수)
+      ul.key_list 
+        li 
+          a(href="") 
+            span.num 01
+            | 주정차
+        li 
+          a(href="") 
+            span.num 02
+            | 불법 주정차 신고
+        li 
+          a(href="") 
+            span.num 03
+            | 불법주차
+        li 
+          a(href="") 
+            span.num 04
+            | 장애인
+        li 
+          a(href="") 05
+            span.num 
+            | 장애인 전용구역 불법주차 신고
+        li 
+          a(href="") 06
+            span.num 
+            | 버스정류소
+        li 
+          a(href="") 
+            span.num 07
+            | 횡단보도
+        li 
+          a(href="") 
+            span.num 08
+            | 장애인 전용구역
+        li 
+          a(href="") 
+            span.num 09
+            | 인도 불법
+        li 
+          a(href="") 
+            span.num 10
+            | 버스정류소 불법 주정차 신고
+        li 
+          a(href="") 
+            span.num 11
+            | 충전구역
+        li 
+          a(href="") 
+            span.num 12
+            | 소화전
+        li 
+          a(href="") 
+            span.num 13
+            | 충전구역 불법주차
+
     .sec_total_chart
-    
+      +title({
+        text:"민원 총괄",
+        lv:2,
+      })
+      p.decs 시흥시의 전반적인 민원 데이터 분석 현황을 보여드립니다.
 
       
 
