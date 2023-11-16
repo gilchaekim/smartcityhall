@@ -7111,6 +7111,7 @@ table, th, td {
 .main .section .req_data .data_box dl {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .main .section .req_data .data_box dl ~ dl {
   margin-top: 4px;
@@ -7152,7 +7153,7 @@ table, th, td {
   height: 8px;
   position: absolute;
   top: 50%;
-  margin-top: -2px;
+  margin-top: -4px;
   left: 0;
   background: url("/src/images/ico_up.svg") no-repeat center;
   background-size: 100%;
