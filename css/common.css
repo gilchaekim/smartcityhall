@@ -6870,6 +6870,9 @@ table, th, td {
 
 .main {
   color: #fff;
+  display: flex;
+  gap: 40px;
+  flex-direction: row;
 }
 .main .section {
   width: calc(25% - 26px);
@@ -6970,6 +6973,9 @@ table, th, td {
 .main .section .main_map {
   margin-top: 24px;
   margin-left: 55px;
+}
+.main .section .main_map svg {
+  max-width: 100%;
 }
 .main .section .data_list {
   position: absolute;
