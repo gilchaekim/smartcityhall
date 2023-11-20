@@ -438,6 +438,16 @@
 	display: flex;
 	padding-top: 32px;
 	flex: 1 1;
+	&.main_page {
+		padding-left: 40px;
+		padding-right: 0;
+		.side_menu {
+			display: none;
+		}
+		@include respondTo("mobile"){
+			padding-left: 0;
+		}
+	}
 	@include respondTo("tablet"){
 		padding-top: 20px;
 		display: block;
@@ -2332,12 +2342,16 @@
 	}
 }
 .keyword_lank_wrap {
+	display: flex;
+	@include respondTo("mobile"){
+		display: block;
+	}
 	.decs {
 		margin-top: 8px;
 		color: #868E96;
 		font-size: 18px;
 	}
-	display: flex;
+	
 	.sec_lank {
 		width: 32%;
 		border: 1px solid #2F323A;
@@ -2347,6 +2361,9 @@
 		.button_type {
 			margin-top: 29px;
 		}
+		@include respondTo("mobile"){
+			width: 100%;
+		}
 	}
 	.sec_total_chart {
 		width: calc( 68% - 24px );
@@ -2355,6 +2372,11 @@
 		border-radius: 6px;
 		padding: 24px;
 		background: #1B1B1B;
+		@include respondTo("mobile"){
+			width: 100%;
+			margin-left: 0;
+			margin-top: 20px;
+		}
 	}
 	.date_form {
 		display: flex;
@@ -2494,35 +2516,117 @@
 	color: #fff;
 	display: flex;
 	gap: 40px;
+	min-width: 0;
 	flex-direction: row;
+	@include respondTo("tablet"){
+		flex-wrap: wrap;
+	}
+	@include respondTo("mobile"){
+		gap: 20px;
+	}
+	.list_box_wrap {
+		display: none;
+		@include respondToMinMax(1024, 1366){
+			display: block;
+			margin-top: 24px;
+		}
+	}
+	@include respondToMinMax(1025,1919 ){
+		// width: 50%;
+		max-width: 100%;
+	}
 	.section {
 		width: calc(25% - 26px);
 		position: relative;
 		&:nth-child(1) {
-			width: calc(50% - 27px);
+			width: calc(100% - 890px);
+			@include respondToMinMax(1024, 1366){
+				width: calc(100% - 445px);
+			}
+			@include respondTo("tablet"){
+				width: 100%;
+				min-height: 500px;
+			}
 		}
 		&:nth-child(2) {
 			order: -2;
-			// background: #f00;
+			width: 445px;
+			@include respondToMinMax(1024, 1366){
+				display: none;
+			}
+			@include respondTo("tablet"){
+				order: 0;
+				width: 100%;
+			}
+		}
+		&:nth-child(3) {
+			width: 445px;
+			@include respondToMinMax(1024, 1366){
+				height: 500px;
+				overflow: auto;
+				&::-webkit-scrollbar {
+					width: 4px;			
+					&-thumb {
+						background-color: rgba($color: #fff, $alpha: .5);
+						border-radius: 2px;
+					}
+				}  
+			}
+			@include respondTo("tablet"){
+				order: 0;
+				width: 100%;
+			}
 		}
 		.main_title {
 			font-size: 36px;
+			position: relative;
+			z-index: 2;
+			@include respondTo("mobile"){
+				font-size: 24px;
+				.big {
+					font-size: 34px;
+					letter-spacing: -2px;
+				}
+			}
 			.big {
 				display: block;
 				font-size: 44px;
 				font-weight: 700;
 			}
+
 		}
 		.weather_legend {
 			position: absolute;
 			top: 0;
 			right: 0;
+			&.mobile {
+				display: none;
+				@include respondTo("mobile"){
+					display: block;
+					.legend {
+						justify-content: center;
+					}
+				}
+			}
+			@include respondToMinMax(0, 1366){
+				position: relative;
+				z-index: 2;
+				margin-top: 30px;
+				padding-left: 16px;
+			}
+			@include respondTo("mobile"){
+				padding-left: 0;
+				margin-top: 13px;
+			}
 			.weather {
 				font-size: 18px;
 				font-weight: 500;
 				color: #fff;
 				display: flex;
 				justify-content: end;
+				@include respondToMinMax(0, 1366){
+					justify-content: start;
+				}	
 				.title {
 					margin-right: 8px;
 				}
@@ -2574,6 +2678,11 @@
 			.legend {
 				display: flex;
 				margin-top: 7px;
+				@include respondTo("mobile"){
+					&.pc {
+						display: none;
+					}
+				}
 				p {
 					margin-left: 16px;
 					font-size: 12px;
@@ -2607,15 +2716,45 @@
 		.main_map{
 			margin-top: 24px;
 			margin-left: 55px;
+			text-align: right;
 			svg {
 				max-width: 100%;
 				// width: 200px;
+			}
+			@include respondToMinMax(0, 1366){
+				position: absolute;
+				top: 0;
+				right: 0;
+				svg {
+					max-height: 500px;
+				}
+			}
+			@include respondTo("mobile"){
+				position: relative;
+				margin-top: 0;
+				margin-left: 0;
 			}
 		}
 		.data_list{
 			position: absolute;
 			top: 144px;
 			left: 0;
+			@include respondToMinMax(0, 1366){
+				position: relative;
+				margin-top: 30px;
+				top: 0;
+				z-index: 2;
+			}
+			@include respondTo("mobile"){
+				margin-top: 15px;
+				ul {
+					display: flex;
+					flex-wrap: wrap;
+					li {
+						width: 50%;
+					}
+				}
+			}
 			button {
 				height: 40px;
 				display: flex;
@@ -2662,10 +2801,27 @@
 			background: #272A31;
 			padding: 24px;
 			position: relative;
+			max-width: 100%;
+			min-width: 0;
+			@include respondTo("mobile"){
+				padding: 20px;
+			}
 			.title1 {
 				font-size: 18px;
 				color: #fff;
 				font-weight: 700;
+				a {
+					color: #fff;
+					display: inline-flex;
+					position: relative;
+					align-items: center;
+					&::after {
+						content: '';
+						display: inline-flex;
+						@include icon_svg(arrow-left, "#fff", 20px);
+						transform: rotate(180deg);
+					}
+				}
 			}
 			.title2 {
 				font-size: 16px;
@@ -2687,6 +2843,9 @@
 			}
 			& ~ .list_box {
 				margin-top: 24px;
+				@include respondTo("mobile"){
+					margin-top: 20px;
+				}
 			}
 			.more {
 				font-size: 12px;
@@ -2698,6 +2857,10 @@
 			}
 		}
 		.slides_chart{
+			max-width: 100%;
+			width: 100%;
+			// display: none;
+			min-width: 0;
 			.slider {
 				overflow: hidden;
 			}
@@ -2705,6 +2868,9 @@
 		.population {
 			display: flex;
 			margin: 16px 0 32px;
+			@include respondTo("mobile"){
+				margin: 10px 0;
+			}
 			p {
 				width: 33.3333%;
 				text-align: center;
@@ -2712,6 +2878,9 @@
 				font-size: 24px;
 				color: #fff;
 				position: relative;
+				@include respondTo("mobile"){
+					font-size: 20px;
+				}
 				&:nth-child(2) {
 					&::after, &::before {
 						content: '';
@@ -2721,6 +2890,10 @@
 						position: absolute;
 						top: 12px;
 						left: 0;
+						@include respondTo("mobile"){
+							top: 6px;
+							height: 42px;
+						}
 					}
 					&::after {
 						left: auto;
@@ -2741,18 +2914,34 @@
 				border-bottom: 1px solid #2F323A;
 				padding: 16px 0;
 				display: flex;
+				@include respondTo("mobile"){
+					display: block;
+				}
 				.title2 {
 					width: 68px;
+					@include respondTo("mobile"){
+						width: auto;
+					}
 				}
 				&:last-child {
 					border-bottom: 0 none;
 				}
 			}
 			.data_box {
+				@include respondTo("mobile"){
+					// padding-left: 18px;
+					margin-top: 8px;
+				}
 				dl {
 					display: flex;
 					flex-wrap: wrap;
 					align-items: center;
+					@include respondTo("mobile"){
+						&:first-child {
+							border-bottom: 1px solid rgba($color: #fff, $alpha: .1);
+							padding-bottom: 4px;
+						}
+					}
 					& ~ dl {
 						margin-top: 4px;
 						dt {
@@ -2780,6 +2969,9 @@
 						display: flex;
 						align-items: center;
 						gap: 4px;
+						@include respondTo("mobile"){
+							flex-wrap: wrap;
+						}
 						em {
 							font-size: 12px;
 							font-weight: 500;
@@ -2829,6 +3021,9 @@
 						font-size: 12px;
 						font-weight: 500;
 						word-break: keep-all;
+						@include respondTo("mobile"){
+							width: 100%;
+						}
 					}
 				}
 				.btns {
@@ -2854,7 +3049,371 @@
 				}
 			}
 		}
+		.news_list{
+			margin-top: 16px;
+			li {
+				& ~ li {
+					margin-top: 8px;
+				}
+			}
+			a {
+				// display: flex;
+				display: block;
+				font-size: 14px;
+				color: #fff;
+				padding: 0 70px 0 20px;
+				position: relative;
+				max-width: 100%;
+				&::before {
+					content: '';
+					width: 3px;
+					height: 3px;
+					background: #fff;
+					border-radius: 50%;
+					position: absolute;
+					top: 9px;
+					left: 10px;
+				}
+				.text {
+					display: block;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					-webkit-line-clamp: 1;
+					display: -webkit-box;   
+					-webkit-box-orient: vertical;
+				}
+				.date {
+					white-space:nowrap;
+					opacity: .5;
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+		}
+		.switch_toggle {
+			position: absolute;
+			top: 24px;
+			right: 24px;
+			@include respondTo("mobile"){
+				top: 20px;
+				right: 20px;
+			}
+			label {
+				background: rgba($color: #fff, $alpha: .1);
+				padding: 0;
+				font-size: 14px;
+				color: rgba($color: #fff, $alpha: .4);
+				border-radius: 15px;
+				overflow: hidden;
+				& > span {
+					display: inline-flex;
+					align-items: center;
+					padding: 0 14px;
+					height: 30px;
+					border-radius: 15px;
+					&.label1 {
+						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+						color: #fff;
+					}
+				}
+				&::before, &::after {
+					display: none;
+				}
+			}
+			input:checked {
+				& + label {
+					.label1 {
+						background: none;
+						color: rgba($color: #fff, $alpha: .4);
+					}
+					.label2 {
+						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+						color: #fff;
+					}
+				}
+			}
+		}
+		.sns_list{
+			display: flex;
+			margin-top: 16px;
+			gap: 8px;
+			@include respondTo("mobile"){
+				flex-wrap: wrap;
+			}
+			.sns_title{
+				font-weight: 500;
+				font-size: 16px;
+				a {
+					color: #fff;
+					display: inline-flex;
+					align-items: center;
+					&::before {
+						content: '';
+						display: inline-flex;
+						width: 24px;
+						height: 24px;
+						margin-right: 4px;
+						background: url($url_common+"ico_sns01.svg") no-repeat center;
+					}
+					&::after {
+						content: '';
+						display: inline-flex;
+						@include icon_svg(arrow-left, "#fff", 20px);
+						transform: rotate(180deg);
+						margin-left: 4px;
+					}
+				}
+				&.type02 a::before{
+					background-image: url($url_common+"ico_sns02.svg");
+				}
+			}
+			.box {
+				border: 1px solid rgba($color: #fff, $alpha: .2);
+				padding: 8px ;
+				border-radius: 2px;
+				flex: 1;
+				@include respondTo("mobile"){
+					width: 100%;
+					flex: none;
+				}
+			}
+			.list_thumb{
+				height: 130px;
+				overflow: auto;
+				&::-webkit-scrollbar {
+					width: 4px;			
+					&-thumb {
+						background-color: rgba($color: #fff, $alpha: .5);
+						border-radius: 2px;
+					}
+				}  
+				li {
+					border-bottom: 1px solid rgba($color: #fff, $alpha: .25);
+					&:first-child a {
+						padding-top: 0;
+					}
+				}
+				a {
+					display: flex;
+					padding: 8px 0;
+					flex-wrap: wrap;
+				}
+				.img {
+					width: 70px;
+					& + .texts{
+						width: calc(100% - 70px);
+						padding-left: 10px;	
+						.list_title {
+							-webkit-line-clamp: 2;
+						}
+						
+					}
+				}
+				.texts {
+					.list_title {
+						color: #fff;
+						font-size: 12px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						-webkit-line-clamp: 1;
+						display: -webkit-box;   
+						-webkit-box-orient: vertical;
+					}
+					.list_decs {
+						font-size: 10px;
+						color: #868E96;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						-webkit-line-clamp: 2;
+						display: -webkit-box;   
+						-webkit-box-orient: vertical;
+					}
+				}
+			}
+		}
+		.prms_status {
+			margin-top: 16px;
+			.table_list{
+				position: relative;
+				.detail_view {
+					background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+					height: 24px;
+					display: block;
+					padding: 0 8px;
+					line-height: 24px;
+					font-size: 12px;
+					color: #fff;
+					position: absolute;
+					top: 0;
+					right: 0;
+					border-radius: 12px;
+					@include respondTo("mobile"){
+						position: static;
+						display: inline-flex;
+					}
+				}
+				.box {
+					display: flex;
+					flex-wrap: wrap;
+					@include respondTo("mobile"){
+						align-items: center;
+					}
+					.num {
+						width: 36px;
+						height: 36px;
+						border-radius: 18px;
+						border: 1px solid #ED6C00;
+						text-align: center;
+						line-height: 34px;
+						font-size: 18px;
+						font-weight: 500;
+						color: #fff;
+						@include respondTo("mobile"){
+							width: 44px;
+							height: 44px;
+							border-radius: 22px;
+							line-height: 42px;
+						}
+					}
+					.texts {
+						width: calc(100% - 36px);
+						padding-left: 4px;
+						font-size: 12px;
+						text-align: center;
+						@include respondTo("mobile"){
+							width: calc(100% - 59px);
+							display: flex;
+							border-bottom: 1px solid rgba($color: #fff, $alpha: .1);
+							padding-bottom: 6px;
+							margin-left: 15px;
+						}
+						.sub {
+							border-bottom: 1px solid rgba($color: #fff, $alpha: .1);
+							@include respondTo("mobile"){
+								border-bottom: 0 none;
+							}
+						}
+						.ma {
+							font-weight: 700;
+						}
+
+					}
+				}
+				.list {
+					display: flex;
+					flex-wrap: wrap;
+					margin-top: 16px;
+					gap: 9px;
+					li {
+						width: calc(33.3333% - 6px) ;
+						@include respondTo("mobile"){
+							width: 100%;
+						}
+					}
+				}
+			}
+			.keyword_list {
+				margin-top: 16px;
+				.list {
+					display: flex;
+					gap: 8px;
+					flex-wrap: wrap;
+					margin-top: 16px;
+					a {
+						display: inline-flex;
+						align-items: center;
+						height: 30px;
+						border: 1px solid #ED6C00;
+						padding: 0 24px;
+						color: #fff;
+						border-radius: 15px;
+						@include respondTo("mobile"){
+							display: flex;
+							width: 100%;
+							justify-content: center;
+						}
+					}
+				}
+			}
+		}
 	}
 }
+.minwon_month {
+	display: flex;
+	margin-top: 40px;
+	gap: 24px;
+	@include respondToMinMax(0, 1366){
+		flex-wrap: wrap;
+	}
+	.titles {
+		position: relative;
+		.download {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+	.chart_wrap {
+		position: relative;
+		margin-top: 18px;
 
+	}
+	button {
+		&.download {
+			display: flex;
+			padding: 6px 10px;
+			border: 1px solid #383B43;
+			color: #fff;
+			font-weight: 500;
+			font-size: 12px;
+			align-items: center;
+			&::before {
+				content: '';
+				display: inline-flex;
+				margin-right: 6px;
+				width: 16px;
+				height: 16px;
+				background: url($url_common+"ico_download.svg") no-repeat center;
+			}
+		}
+	}
+	.title1 {
+		margin-top: 16px;
+		font-size: 28px;
+		color: #ED6C00;
+		font-weight: 700;
+	}
+	.decs {
+		color: #868E96;
+		font-size: 16px;
+	}
+	.search_date {
+		margin-top: 0;
+		select {
+			background: none;
+		}
+		button {
+			background: #363A42;
+		}
+	}
+	.chart_secbump, 
+	.chart_secpie {
+		flex: 1;
+		padding: 24px 24px 0;
+		background: #272A31;
+		border: 1px solid #383B43;
+		border-radius: 6px;
+		.chart {
+			height: 400px;
+			background: #ff0;
+			margin: 0 -24px;
+			border-top: 1px solid #383B43;
+		}
+		@include respondToMinMax(0, 1366){
+			flex: none;
+			width: 100%;
+		}
+	}
+}
 

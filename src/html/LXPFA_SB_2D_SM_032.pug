@@ -1,0 +1,47 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  +modal()
+    .lank_layer 
+      .title 부서별 민원 건수 순위
+      .decs 검색 기간에 민원이 많은 순위를 보여드립니다.
+      .lank_wrap
+        .lank_sec 
+          ul 
+            li 
+              span.num 01
+              span.text 교통행정과
+            li 
+              span.num 02
+              span.text 교통행정과
+            li 
+              span.num 03
+              span.text 교통행정과
+            li 
+              span.num 04
+              span.text 교통행정과
+            li 
+              span.num 05
+              span.text 교통행정과
+            li 
+              span.num 06
+              span.text 교통행정과
+            li 
+              span.num 07
+              span.text 교통행정과
+            li 
+              span.num 08
+              span.text 교통행정과
+            li 
+              span.num 09
+              span.text 교통행정과
+            li 
+              span.num 10
+              span.text 교통행정과
+
+        .chart_sec
+
+    

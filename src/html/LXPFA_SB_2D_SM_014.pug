@@ -1,7 +1,7 @@
 extends ../components/templates/base.pug
 block prepend top 
   - showBg = true;
-  - mainClassName=""
+  - mainClassName="main_page"
 
 block content
   .main 
@@ -11,7 +11,7 @@ block content
           em 실시간
           | 으로 보는
         span.big 시흥시 스마트시정
-      .weather_legend 
+      .weather_legend
         .weather
           .title 날씨
           <!-- ico_wd1 ,ico_wd1_2 ,ico_wd1_3 ,ico_wd1_4 ,ico_wd1_5 -->
@@ -19,7 +19,7 @@ block content
             | 25.0ºC
           .data.type1.ico_wd2
             | 70%
-        .legend 
+        .legend.pc 
           p.type1 범례1
           p.type2 범례2
           p.type3 범례3
@@ -136,7 +136,12 @@ block content
         </defs>
         </svg>
 
-
+      .weather_legend.mobile
+        .legend 
+          p.type1 범례1
+          p.type2 범례2
+          p.type3 범례3
+          p.type4 범례4
     .section.sc2
       .list_box 
         p.title1 데이터명
@@ -254,4 +259,287 @@ block content
         
 
     .section.sc3
-      | 3
+      .list_box 
+        p.title1
+          a(href="") 시정뉴스
+        .switch_toggle
+          +radioCheck({
+            name:'chk',
+            label:'<span class="label1">카드뉴스</span><span class="label2">미디어 시흥</span>',
+          })
+        .news_list 
+          ul 
+            li 
+              a(href="") 
+                span.text [카드 뉴스] 2022년 세번째 카드뉴스 세번째 카드뉴스 세번째 카드뉴스
+                span.date 2023-01-01
+            li 
+              a(href="") 
+                span.text [카드 뉴스] 2022년 세번째 카드뉴스
+                span.date 2023-01-01
+            li 
+              a(href="") 
+                span.text [카드 뉴스] 2022년 세번째 카드뉴스
+                span.date 2023-01-01
+            li 
+              a(href="") 
+                span.text [카드 뉴스] 2022년 세번째 카드뉴스
+                span.date 2023-01-01
+            li 
+              a(href="") 
+                span.text [카드 뉴스] 2022년 세번째 카드뉴스
+                span.date 2023-01-01
+      .list_box 
+        p.title1 SNS 현황
+        .sns_list 
+          .box 
+            p.sns_title 
+              a(href="") 홍보영상
+            ul.list_thumb   
+              li 
+                a(href="") 
+                  .img 
+                    img(src="/src/images/img_ex4.png", alt="")
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+              li 
+                a(href="") 
+                  .img 
+                    img(src="/src/images/img_ex4.png", alt="")
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+              li 
+                a(href="") 
+                  .img 
+                    img(src="/src/images/img_ex4.png", alt="")
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+              li 
+                a(href="") 
+                  .img 
+                    img(src="/src/images/img_ex4.png", alt="")
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+          .box 
+            p.sns_title.type02
+              a(href="") 블로그
+            ul.list_thumb   
+              li 
+                a(href="")
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+                    p.list_decs ‘제3회 시흥시 청소년 아이디어 제안대회’에 참가할 청소년을 오는 8월1일까..
+              li 
+                a(href="") 
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+                    p.list_decs ‘제3회 시흥시 청소년 아이디어 제안대회’에 참가할 청소년을 오는 8월1일까..
+              li 
+                a(href="") 
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+                    p.list_decs ‘제3회 시흥시 청소년 아이디어 제안대회’에 참가할 청소년을 오는 8월1일까..
+              li 
+                a(href="") 
+                  .texts 
+                    p.list_title 제3회 시흥시 청소년 아이디어 청소년 아이디어 청소년 아이디어
+                    p.list_decs ‘제3회 시흥시 청소년 아이디어 제안대회’에 참가할 청소년을 오는 8월1일까..
+        a(href="").more 출처
+      .list_box 
+        p.title1
+          a(href="") 공약현황
+        .prms_status
+          .table_list
+            p.title2 
+              em 5대 
+              | 목표 - 
+              em 10대 
+              | 추진전략 분포표
+            a(href="").detail_view 상세보기
+            ul.list
+              li 
+                .box 
+                  span.num 55
+                  .texts 
+                    p.sub 
+                      | 시민이 
+                      em 잘사는
+                    p.ma
+                      | K-
+                      em 교육
+                      |  · K-
+                      em 경제
+              li 
+                .box 
+                  span.num 55
+                  .texts 
+                    p.sub 
+                      | 시민이 
+                      em 잘사는
+                    p.ma
+                      | K-
+                      em 교육
+                      |  · K-
+                      em 경제
+              li 
+                .box 
+                  span.num 55
+                  .texts 
+                    p.sub 
+                      | 시민이 
+                      em 잘사는
+                    p.ma
+                      | K-
+                      em 교육
+                      |  · K-
+                      em 경제
+              li 
+                .box 
+                  span.num 55
+                  .texts 
+                    p.sub 
+                      | 시민이 
+                      em 잘사는
+                    p.ma
+                      | K-
+                      em 교육
+                      |  · K-
+                      em 경제
+              li 
+                .box 
+                  span.num 55
+                  .texts 
+                    p.sub 
+                      | 시민이 
+                      em 잘사는
+                    p.ma
+                      | K-
+                      em 교육
+                      |  · K-
+                      em 경제
+            
+          .keyword_list
+            p.title2 
+              em 140대 
+              | 시정과제
+            .list 
+              a(href="") 비전공약 36개
+              a(href="") 균형발전 37개
+              a(href="") 40대 중첩과제
+
+        a(href="").more 출처
+      .list_box_wrap 
+        .list_box 
+          p.title1 데이터명
+          
+          .population
+            p 
+              | 123,456 
+              span.label 인구수(명)
+            p 
+              | 123,456 
+              span.label 남성(명)
+            p 
+              | 123,456 
+              span.label 여성(명)
+          p.title2 인구수 추이(명)
+          .slides_chart(mui-slider="pagination:true;")
+            .slider
+              .swiper-wrapper
+                .slide_list.swiper-slide
+                  .slide_chart 34324
+                .slide_list.swiper-slide
+                  .slide_chart 222
+                .slide_list.swiper-slide
+                  .slide_chart 111
+            
+
+
+          a(href="").more 출처
+        .list_box 
+          p.title1 일자리
+          ul.req_data
+            li 
+              p.title2 일반
+              .data_box 
+                dl 
+                  dt 일자리 창출
+                  dd 
+                    span.txt1 목표 : 
+                    span.txt2 29,500명
+                    span.txt1 실적 :
+                    span.txt2 20,0003명
+                dl 
+                  dt 고용율
+                  dd 
+                    span.txt3 
+                      | 63.9
+                      span.per %
+                    em.up 0.4%
+                    span.txt4 직전(반기 별) 조사보다 0.4% 상승
+            li 
+              p.title2 청년
+              .data_box 
+                dl 
+                  dt 일자리 창출
+                  dd 
+                    span.txt1 목표 : 
+                    span.txt2 29,500명
+                    span.txt1 실적 :
+                    span.txt2 20,0003명
+                dl 
+                  dt 고용율
+                  dd 
+                    span.txt3 
+                      | 63.9
+                      span.per %
+                    em.down 0.4%
+                    span.txt4 직전(반기 별) 조사보다 0.4% 상승
+            li 
+              p.title2 노인
+              .data_box 
+                dl 
+                  dt 일자리 창출
+                  dd 
+                    span.txt1 목표 : 
+                    span.txt2 29,500명
+                    span.txt1 실적 :
+                    span.txt2 20,0003명
+                dl 
+                  dt 고용율
+                  dd 
+                    span.txt3 
+                      | 63.9
+                      span.per %
+                    em.up 0.4%
+                    span.txt4 직전(반기 별) 조사보다 0.4% 상승
+                .btns
+                  button(type="button").type1
+                    span 관련 정책
+                  button(type="button").type2
+                    span 일자리보기
+            li 
+              p.title2 장애인
+              .data_box 
+                dl 
+                  dt 일자리 창출
+                  dd 
+                    span.txt1 목표 : 
+                    span.txt2 29,500명
+                    span.txt1 실적 :
+                    span.txt2 20,0003명
+                dl 
+                  dt 고용율
+                  dd 
+                    span.txt3 
+                      | 63.9
+                      span.per %
+                    em.up 0.4%
+                    span.txt4 직전(반기 별) 조사보다 0.4% 상승
+                .btns
+                  button(type="button").type1
+                    span 관련 정책
+                  button(type="button").type2
+                    span 일자리보기
+          a(href="").more 출처
+          
