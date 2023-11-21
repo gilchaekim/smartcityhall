@@ -3417,3 +3417,59 @@
 	}
 }
 
+.mui_modal_dialog.lank_view {
+	.mui_modal{
+		&_body {
+			border: 1px solid #ED6C00;
+			min-width: 1200px;
+			padding: 64px 100px;
+		}
+	}
+}
+.lank_layer {
+	.title {
+		text-align: center;
+		font-size: 28px;
+		font-weight: 700;
+	}
+	.decs {
+		font-size: 18px;
+		text-align: center;
+		color: #868E96;
+	}
+	.lank_wrap {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 40px;
+		.lank_sec {
+			width: 230px;
+			li {	
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				font-size: 18px;
+				.num {
+					width: 39px;
+					height: 39px;
+					border-radius: 6px;
+					background: #ED6C00;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					font-weight: 700;
+				}
+				.text {
+					font-weight: 500;
+				}
+				&:not(:first-child) {
+					margin-top: 8px;
+				}
+			}
+		}
+		.chart_sec {
+			width: 100%;
+		}
+	}
+}
+

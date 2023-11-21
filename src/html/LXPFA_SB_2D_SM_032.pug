@@ -4,7 +4,9 @@ block prepend top
   - mainClassName=""
 
 block content
-  +modal()
+  +modal({
+    className:'lank_view'
+  })
     .lank_layer 
       .title 부서별 민원 건수 순위
       .decs 검색 기간에 민원이 많은 순위를 보여드립니다.
@@ -37,11 +39,16 @@ block content
               span.text 교통행정과
             li 
               span.num 09
-              span.text 교통행정과
+              span.text 경관디자인과
             li 
               span.num 10
               span.text 교통행정과
-
         .chart_sec
+          .chart#barChart
 
+  script. 
+    GCui.modal('#modal').show();
+    GCui.util.on('#modal', 'shown ', function(){
+      GCui.chart('#barChart')
+    })
     
