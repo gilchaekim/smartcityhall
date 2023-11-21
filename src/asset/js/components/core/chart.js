@@ -256,7 +256,12 @@ export default {
                 fontSize:"12x"
               }
             },
-          }
+          },
+          yaxis: [{
+            label: {
+              fontSize: '16px',
+            }
+          }]
         };
         console.log(ApexCharts);
         new ApexCharts($el, options).render();

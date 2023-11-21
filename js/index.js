@@ -12851,7 +12851,12 @@
                 fontSize: "12x"
               }
             }
-          }
+          },
+          yaxis: [{
+            label: {
+              fontSize: '16px'
+            }
+          }]
         };
         console.log(ApexCharts$1);
         new ApexCharts$1($el, options).render();
