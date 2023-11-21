@@ -7668,4 +7668,7 @@ table, th, td {
 .lank_layer .lank_wrap .chart_sec {
   width: 100%;
 }
+.lank_layer .lank_wrap .chart_sec .apexcharts-yaxis-texts-g {
+  font-size: 16px;
+}
 /*# sourceMappingURL=common.css.map */

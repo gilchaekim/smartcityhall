@@ -12833,7 +12833,7 @@
             enabled: true,
             offsetX: 0,
             style: {
-              fontSize: '12px',
+              fontSize: '14px',
               colors: ['#fff']
             }
           },
@@ -12842,6 +12842,9 @@
           },
           xaxis: {
             categories: ['교통행정과', '환경정책과', '주택과', '건설행정과', '자원순환과', '장애인복지과', '건축과', '대충교통과', '경관디자인과', '위생과'],
+            style: {
+              fontSize: '16px'
+            },
             labels: {
               style: {
                 colors: "#fff",

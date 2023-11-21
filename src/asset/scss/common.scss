@@ -3467,8 +3467,12 @@
 				}
 			}
 		}
+		
 		.chart_sec {
 			width: 100%;
+			.apexcharts-yaxis-texts-g {
+				font-size: 16px;
+			}			
 		}
 	}
 }

@@ -227,7 +227,7 @@ export default {
             enabled: true,
             offsetX: 0,
             style: {
-              fontSize: '12px',
+              fontSize: '14px',
               colors: ['#fff']
             }
           },
@@ -247,6 +247,9 @@ export default {
               '경관디자인과', 
               '위생과'
             ],
+            style: {
+              fontSize: '16px',
+            },
             labels: {
               style: {
                 colors: "#fff",
