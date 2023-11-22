@@ -199,7 +199,7 @@
               <div class="chart_box">
                 <p class="title">일별 민원건수</p>
                 <p class="decs">최근 7일간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart1"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -207,7 +207,7 @@
               <div class="chart_box">
                 <p class="title">월별 민원건수</p>
                 <p class="decs">최근 6개월간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart2"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -215,7 +215,7 @@
               <div class="chart_box">
                 <p class="title">부서별 민원 TOP 10</p>
                 <p class="decs">최근 7일간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart3"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -223,7 +223,7 @@
               <div class="chart_box">
                 <p class="title">분야별 민원 TOP 10</p>
                 <p class="decs">최근 7일간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart4"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -231,6 +231,175 @@
             </div>
           </div>
         </div>
+        <script>
+          var options = {
+            series: [{
+              data: [
+                300,
+                400,
+                300,
+                400,
+                300,
+                400,
+                300,
+              ]
+            }],
+            yaxis: {
+              min: 0,
+              tickAmount: 4,
+              labels: {
+                style: {
+                  fontSize: "14px"
+                }
+              }
+            },
+            chart: {
+              type: "area",
+              height: 188,
+              background: "#19191E",
+              dropShadow: {
+                enabled: true,
+                color: "#000"
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            markers: {
+              colors: ["#FFFFFF"]
+            },
+            stroke: {
+              curve: "straight",
+              width: 1,
+              colors: ["#ED6C00"]
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                type: "vertical",
+                colorStops: [
+                  [{
+                      offset: 0,
+                      color: "#ED6C00",
+                      opacity: 0.4
+                    },
+                    {
+                      offset: 100,
+                      color: "#ED6C00",
+                      opacity: 0
+                    },
+                  ]
+                ]
+              }
+            },
+            xaxis: {
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+              labels: {
+                style: {
+                  colors: "#fff",
+                  fontSize: "14px"
+                }
+              }
+            },
+          };
+          var options = {
+            series: [{
+              data: [
+                300,
+                400,
+                300,
+                400,
+                300,
+                400,
+                300,
+              ]
+            }],
+            yaxis: {
+              min: 0,
+              tickAmount: 4,
+              labels: {
+                style: {
+                  fontSize: "14px"
+                }
+              }
+            },
+            chart: {
+              type: "area",
+              height: 188,
+              background: "#19191E",
+              dropShadow: {
+                enabled: true,
+                color: "#000"
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            markers: {
+              colors: ["#FFFFFF"]
+            },
+            stroke: {
+              curve: "straight",
+              width: 1,
+              colors: ["#ED6C00"]
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                type: "vertical",
+                colorStops: [
+                  [{
+                      offset: 0,
+                      color: "#ED6C00",
+                      opacity: 0.4
+                    },
+                    {
+                      offset: 100,
+                      color: "#ED6C00",
+                      opacity: 0
+                    },
+                  ]
+                ]
+              }
+            },
+            xaxis: {
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+              labels: {
+                style: {
+                  colors: "#fff",
+                  fontSize: "14px"
+                }
+              }
+            },
+          };
+
+          GCui.chart('#chart1', {
+            chartOptions: options
+          })
+          GCui.chart('#chart3', {
+            chartOptions: options
+          })
+          //- GCui.chart('#chart1', {chartOptions:options})
+          //- GCui.chart('#chart1', {chartOptions:options})
+        </script>
       </div><!-- / contents -->
     </div><!-- footer -->
     <div id="footer">

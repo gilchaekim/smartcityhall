@@ -6652,7 +6652,6 @@ table, th, td {
 .keyword_lank_wrap .chart_box_wrap .chart_box .box_chart {
   margin-top: 12px;
   height: 240px;
-  background: #ff0;
 }
 .keyword_lank_wrap .chart_box_wrap .title {
   font-weight: 700;
@@ -7605,8 +7604,7 @@ table, th, td {
 }
 .minwon_month .chart_secbump .chart,
 .minwon_month .chart_secpie .chart {
-  height: 400px;
-  background: #ff0;
+  padding: 20px 0;
   margin: 0 -24px;
   border-top: 1px solid #383B43;
 }
@@ -7618,10 +7616,36 @@ table, th, td {
   }
 }
 
-.mui_modal_dialog.lank_view .mui_modal_body {
-  border: 1px solid #ED6C00;
+.mui_modal_dialog.lank_view {
   min-width: 1200px;
+  border: 1px solid #ED6C00;
+  border-radius: 6px;
+}
+@media (min-width: 0px) and (max-width: 1240px) {
+  .mui_modal_dialog.lank_view {
+    min-width: 0;
+    width: 100%;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .mui_modal_dialog.lank_view {
+    height: 90%;
+    overflow: auto;
+    background: #1B1B1B;
+  }
+}
+.mui_modal_dialog.lank_view .mui_modal_body {
   padding: 64px 100px;
+}
+@media (min-width: 0px) and (max-width: 1240px) {
+  .mui_modal_dialog.lank_view .mui_modal_body {
+    padding: 64px 40px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .mui_modal_dialog.lank_view .mui_modal_body {
+    padding: 85px 20px 20px;
+  }
 }
 
 .lank_layer .title {
@@ -7640,14 +7664,36 @@ table, th, td {
   justify-content: space-between;
   margin-top: 40px;
 }
+@media (min-width: 0px) and (max-width: 767px) {
+  .lank_layer .lank_wrap {
+    display: block;
+    margin-top: 10px;
+  }
+}
 .lank_layer .lank_wrap .lank_sec {
   width: 230px;
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .lank_layer .lank_wrap .lank_sec {
+    width: auto;
+  }
+  .lank_layer .lank_wrap .lank_sec ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
 .lank_layer .lank_wrap .lank_sec li {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 18px;
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .lank_layer .lank_wrap .lank_sec li {
+    font-size: 14px;
+    width: calc(50% - 5px);
+  }
 }
 .lank_layer .lank_wrap .lank_sec li .num {
   width: 39px;
@@ -7659,6 +7705,12 @@ table, th, td {
   justify-content: center;
   font-weight: 700;
 }
+@media (min-width: 0px) and (max-width: 767px) {
+  .lank_layer .lank_wrap .lank_sec li .num {
+    width: 26px;
+    height: 26px;
+  }
+}
 .lank_layer .lank_wrap .lank_sec li .text {
   font-weight: 500;
 }
@@ -7666,9 +7718,11 @@ table, th, td {
   margin-top: 8px;
 }
 .lank_layer .lank_wrap .chart_sec {
-  width: 100%;
+  width: calc(100% - 230px);
 }
-.lank_layer .lank_wrap .chart_sec .apexcharts-yaxis-texts-g {
-  font-size: 16px;
+@media (min-width: 0px) and (max-width: 767px) {
+  .lank_layer .lank_wrap .chart_sec {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=common.css.map */

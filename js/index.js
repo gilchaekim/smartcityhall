@@ -748,6 +748,21 @@
       return match === a ? b : a;
     });
   }
+  var merge = function merge(target, source) {
+    if (!isObject$2(target) || !isObject$2(source)) return source;
+    Object.keys(source).forEach(function (key) {
+      var targetValue = target[key];
+      var sourceValue = source[key];
+      if (isArray(targetValue) && isArray(sourceValue)) {
+        target[key] = targetValue.concat(sourceValue);
+      } else if (isObject$2(targetValue) && isObject$2(sourceValue)) {
+        target[key] = merge(Object.assign({}, targetValue), sourceValue);
+      } else {
+        target[key] = sourceValue;
+      }
+    });
+    return target;
+  };
   var assign = Object.assign || function (target) {
     target = Object(target);
     for (var i = 0; i < (arguments.length <= 1 ? 0 : arguments.length - 1); i++) {
@@ -3158,6 +3173,7 @@
     toMs: toMs$1,
     isEqual: isEqual,
     swap: swap,
+    merge: merge,
     assign: assign,
     last: last,
     each: each,
@@ -12651,30 +12667,57 @@
   var apexcharts_commonExports = apexcharts_common.exports;
   var ApexCharts$1 = /*@__PURE__*/getDefaultExportFromCjs(apexcharts_commonExports);
 
-  var locales = {
-    "name": "ko",
-    "options": {
-      "months": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-      "shortMonths": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-      "days": ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
-      "shortDays": ["일", "월", "화", "수", "목", "금", "토"],
-      "toolbar": {
-        "exportToSVG": "SVG 다운로드",
-        "exportToPNG": "PNG 다운로드",
-        "exportToCSV": "CSV 다운로드",
-        "menu": "메뉴",
-        "selection": "선택",
-        "selectionZoom": "선택영역 확대",
-        "zoomIn": "확대",
-        "zoomOut": "축소",
-        "pan": "패닝",
-        "reset": "원래대로"
+  var chartDefaultOotions = {
+    grid: {
+      borderColor: "#222226",
+      xaxis: {
+        lines: {
+          show: true
+        }
+      }
+    },
+    chart: {
+      type: 'bar',
+      height: 500,
+      foreColor: '#ffffff',
+      fontFamily: 'Noto Sans, Arial, sans-serif',
+      toolbar: {
+        show: false
+      }
+    },
+    legend: {
+      show: false
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 0,
+        barHeight: 20,
+        horizontal: true,
+        dataLabels: {
+          position: 'top'
+        },
+        colors: {
+          ranges: [{
+            color: '#ED7200'
+          }]
+        }
+      }
+    },
+    tooltip: {
+      enabled: false
+    },
+    xaxis: {
+      labels: {
+        style: {
+          colors: "#fff",
+          fontSize: "12x"
+        }
       }
     }
   };
   var chart = {
     props: {
-      chartData: Array
+      chartData: Object
     },
     data: {
       targets: '> .list',
@@ -12689,177 +12732,25 @@
       transition: 'ease',
       duration: 300,
       offset: 0,
-      chartData: null
+      chartOptions: null
+    },
+    computed: {
+      chartOptions: function chartOptions(_ref) {
+        var chartOptions = _ref.chartOptions;
+        return merge(chartDefaultOotions, chartOptions);
+      }
     },
     connected: function connected() {
-      console.log(locales);
+      // console.log(locales);
       this.render();
     },
     methods: {
       render: function render() {
-        var $el = this.$el;
+        var $el = this.$el,
+          chartOptions = this.chartOptions;
         // console.log(this.chartData);
-        // var options = {
-        //   series: [{
-        //     data: [4710, 1022, 347, 263, 183, 153, 132, 108, 88, 72]
-        //   }],
-        //   animations: {
-        //     enabled: true,
-        //     easing: 'linear',
-        //     speed: 800,
-        //     animateGradually: {
-        //         enabled: true,
-        //         delay: 150
-        //     },
-        //     dynamicAnimation: {
-        //         enabled: true,
-        //         speed: 350
-        //     }
-        //   },
-        //   fill: {
-        //     type: "gradient",
-        //     gradient: {
-        //       colorStops: [
-        //         {
-        //           offset: 0,
-        //           color: "#ED4700",
-        //           opacity: 1
-        //         },
-        //         {
-        //           offset: 100,
-        //           color: "#ED7200",
-        //           opacity: 1
-        //         }
-        //       ]
-        //     }
-        //   },
-        //   chart: {
-        //     type: 'bar',
-        //     height: 428,
-        //   },
-        //   plotOptions: {
-        //     bar: {
-        //       borderRadius: 0,
-        //       barHeight:20,
-        //       horizontal: true,
-        //       colors: {
-        //         ranges: [{
-        //             color: '#ED7200'
-        //         }],
-        //       }
-        //     }
-        //   },
-        //   dataLabels: {
-        //     enabled: true,
-        //     offsetX: -6,
-        //     style: {
-        //       fontSize: '14px',
-        //       colors: ['#ED6C00']
-        //     }
-        //   },
-        //   xaxis: {
-        //     categories: [
-        //       '교통행정과', 
-        //       '환경정책과', 
-        //       '주택과', 
-        //       '건설행정과', 
-        //       '자원순환과', 
-        //       '장애인복지과', 
-        //       '건축과',
-        //       '대충교통과', 
-        //       '경관디자인과', 
-        //       '위생과'
-        //     ],
-        //   }
-        // };
-        var options = {
-          series: [{
-            data: [4710, 1022, 347, 263, 183, 153, 132, 108, 88, 72]
-          }],
-          grid: {
-            yaxis: {
-              lines: {
-                show: false
-              }
-            },
-            xaxis: {
-              lines: {
-                show: true
-              }
-            }
-          },
-          fill: {
-            type: "gradient",
-            gradient: {
-              colorStops: [{
-                offset: 0,
-                color: "#ED4700",
-                opacity: 1
-              }, {
-                offset: 100,
-                color: "#ED7200",
-                opacity: 1
-              }]
-            }
-          },
-          chart: {
-            type: 'bar',
-            height: 500,
-            foreColor: '#ffffff',
-            fontFamily: 'Noto Sans, Arial, sans-serif',
-            toolbar: {
-              show: false
-            }
-          },
-          legend: {
-            show: false
-          },
-          plotOptions: {
-            bar: {
-              borderRadius: 0,
-              barHeight: 20,
-              horizontal: true,
-              dataLabels: {
-                position: 'top'
-              },
-              colors: {
-                ranges: [{
-                  color: '#ED7200'
-                }]
-              }
-            }
-          },
-          dataLabels: {
-            enabled: true,
-            offsetX: 0,
-            style: {
-              fontSize: '14px',
-              colors: ['#fff']
-            }
-          },
-          tooltip: {
-            enabled: false
-          },
-          xaxis: {
-            categories: ['교통행정과', '환경정책과', '주택과', '건설행정과', '자원순환과', '장애인복지과', '건축과', '대충교통과', '경관디자인과', '위생과'],
-            style: {
-              fontSize: '16px'
-            },
-            labels: {
-              style: {
-                colors: "#fff",
-                fontSize: "12x"
-              }
-            }
-          },
-          yaxis: [{
-            label: {
-              fontSize: '16px'
-            }
-          }]
-        };
-        console.log(ApexCharts$1);
-        new ApexCharts$1($el, options).render();
+
+        new ApexCharts$1($el, chartOptions).render();
       }
     }
   };

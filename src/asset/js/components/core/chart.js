@@ -1,7 +1,7 @@
 import Class from '../mixin/class';
 import {default as Togglable, toggleHeight} from '../mixin/togglable';
 
-import {$, $$, attr, filter, getIndex, hasClass, includes, index, isInView, scrollIntoView, toggleClass, unwrap, wrapAll, within, width, css, toFloat, addClass, removeClass, Transition} from '../../util';
+import {$, $$, attr, filter, getIndex, each, hasClass, includes, index, isInView, scrollIntoView, toggleClass, unwrap, wrapAll, within, width, css, toFloat, addClass, removeClass, Transition, assign, merge} from '../../util';
 import ApexCharts from 'apexcharts';
 const locales = {
   "name": "ko",
@@ -59,10 +59,61 @@ const locales = {
   }
 }
 
+
+const chartDefaultOotions = {
+  grid: {
+    borderColor: "#222226",
+    xaxis: {
+      lines: {
+        show: true
+      }
+    }
+  },
+  
+  chart: {
+    type: 'bar',
+    height: 500,
+    foreColor: '#ffffff',
+    fontFamily: 'Noto Sans, Arial, sans-serif',
+    toolbar: {
+      show: false
+    },
+  },
+  legend: {
+    show: false
+  },
+  plotOptions: {
+    bar: {
+      borderRadius: 0,
+      barHeight:20,
+      horizontal: true,
+      dataLabels: {
+        position: 'top',
+      },
+      colors: {
+        ranges: [{
+            color: '#ED7200'
+        }],
+      }
+    }
+  },
+  tooltip: {
+    enabled: false
+  },
+  xaxis: {
+    labels: {
+      style: {
+        colors: "#fff",
+        fontSize:"12x"
+      }
+    },
+  }
+};
+
 export default {
     
     props: {
-      chartData : Array
+      chartData : Object
     },
 
     data: {
@@ -78,193 +129,24 @@ export default {
       transition: 'ease',
       duration:300,
       offset: 0,
-      chartData:null
+      chartOptions:null
+    },
+    computed: {
+      chartOptions({chartOptions}) {
+        return merge(chartDefaultOotions, chartOptions);
+      },
     },
     connected(){
-      console.log(locales);
+      // console.log(locales);
       this.render();
     },
 
     methods: {
       render() {
-        const {$el} = this;
+        const {$el, chartOptions} = this;
         // console.log(this.chartData);
-        // var options = {
-        //   series: [{
-        //     data: [4710, 1022, 347, 263, 183, 153, 132, 108, 88, 72]
-        //   }],
-        //   animations: {
-        //     enabled: true,
-        //     easing: 'linear',
-        //     speed: 800,
-        //     animateGradually: {
-        //         enabled: true,
-        //         delay: 150
-        //     },
-        //     dynamicAnimation: {
-        //         enabled: true,
-        //         speed: 350
-        //     }
-        //   },
-        //   fill: {
-        //     type: "gradient",
-        //     gradient: {
-        //       colorStops: [
-        //         {
-        //           offset: 0,
-        //           color: "#ED4700",
-        //           opacity: 1
-        //         },
-        //         {
-        //           offset: 100,
-        //           color: "#ED7200",
-        //           opacity: 1
-        //         }
-        //       ]
-        //     }
-        //   },
-        //   chart: {
-        //     type: 'bar',
-        //     height: 428,
-        //   },
-        //   plotOptions: {
-        //     bar: {
-        //       borderRadius: 0,
-        //       barHeight:20,
-        //       horizontal: true,
-        //       colors: {
-        //         ranges: [{
-        //             color: '#ED7200'
-        //         }],
-        //       }
-        //     }
-        //   },
-        //   dataLabels: {
-        //     enabled: true,
-        //     offsetX: -6,
-        //     style: {
-        //       fontSize: '14px',
-        //       colors: ['#ED6C00']
-        //     }
-        //   },
-        //   xaxis: {
-        //     categories: [
-        //       '교통행정과', 
-        //       '환경정책과', 
-        //       '주택과', 
-        //       '건설행정과', 
-        //       '자원순환과', 
-        //       '장애인복지과', 
-        //       '건축과',
-        //       '대충교통과', 
-        //       '경관디자인과', 
-        //       '위생과'
-        //     ],
-        //   }
-        // };
-        var options = {
-          series: [{
-            data: [4710, 1022, 347, 263, 183, 153, 132, 108, 88, 72]
-          }],
-          grid: {
-            yaxis: {
-              lines: {
-                show: false
-              }
-            },
-            xaxis: {
-              lines: {
-                show: true
-              }
-            }
-          },
-          
-          fill: {
-            type: "gradient",
-            gradient: {
-              colorStops: [
-                {
-                  offset: 0,
-                  color: "#ED4700",
-                  opacity: 1
-                },
-                {
-                  offset: 100,
-                  color: "#ED7200",
-                  opacity: 1
-                }
-              ]
-            }
-          },
-          chart: {
-            type: 'bar',
-            height: 500,
-            foreColor: '#ffffff',
-            fontFamily: 'Noto Sans, Arial, sans-serif',
-            toolbar: {
-              show: false
-            },
-          },
-          legend: {
-            show: false
-          },
-          plotOptions: {
-            bar: {
-              borderRadius: 0,
-              barHeight:20,
-              horizontal: true,
-              dataLabels: {
-                position: 'top',
-              },
-              colors: {
-                ranges: [{
-                    color: '#ED7200'
-                }],
-              }
-            }
-          },
-          dataLabels: {
-            enabled: true,
-            offsetX: 0,
-            style: {
-              fontSize: '14px',
-              colors: ['#fff']
-            }
-          },
-          tooltip: {
-            enabled: false
-          },
-          xaxis: {
-            categories: [
-              '교통행정과', 
-              '환경정책과', 
-              '주택과', 
-              '건설행정과', 
-              '자원순환과', 
-              '장애인복지과', 
-              '건축과',
-              '대충교통과', 
-              '경관디자인과', 
-              '위생과'
-            ],
-            style: {
-              fontSize: '16px',
-            },
-            labels: {
-              style: {
-                colors: "#fff",
-                fontSize:"12x"
-              }
-            },
-          },
-          yaxis: [{
-            label: {
-              fontSize: '16px',
-            }
-          }]
-        };
-        console.log(ApexCharts);
-        new ApexCharts($el, options).render();
+
+        new ApexCharts($el, chartOptions).render();
       }
     }
 
