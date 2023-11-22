@@ -12742,6 +12742,7 @@
     },
     connected: function connected() {
       // console.log(locales);
+      console.log('aaaaaaa');
       this.render();
     },
     methods: {
@@ -12750,7 +12751,8 @@
           chartOptions = this.chartOptions;
         // console.log(this.chartData);
 
-        new ApexCharts$1($el, chartOptions).render();
+        var aaaa = new ApexCharts$1($el, chartOptions);
+        aaaa.render();
       }
     }
   };

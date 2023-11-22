@@ -138,6 +138,7 @@ export default {
     },
     connected(){
       // console.log(locales);
+      console.log('aaaaaaa');
       this.render();
     },
 
@@ -146,7 +147,8 @@ export default {
         const {$el, chartOptions} = this;
         // console.log(this.chartData);
 
-        new ApexCharts($el, chartOptions).render();
+        const aaaa = new ApexCharts($el, chartOptions)
+        aaaa.render();
       }
     }
 
