@@ -12667,54 +12667,6 @@
   var apexcharts_commonExports = apexcharts_common.exports;
   var ApexCharts$1 = /*@__PURE__*/getDefaultExportFromCjs(apexcharts_commonExports);
 
-  var chartDefaultOotions = {
-    grid: {
-      borderColor: "#222226",
-      xaxis: {
-        lines: {
-          show: true
-        }
-      }
-    },
-    chart: {
-      type: 'bar',
-      height: 500,
-      foreColor: '#ffffff',
-      fontFamily: 'Noto Sans, Arial, sans-serif',
-      toolbar: {
-        show: false
-      }
-    },
-    legend: {
-      show: false
-    },
-    plotOptions: {
-      bar: {
-        borderRadius: 0,
-        barHeight: 20,
-        horizontal: true,
-        dataLabels: {
-          position: 'top'
-        },
-        colors: {
-          ranges: [{
-            color: '#ED7200'
-          }]
-        }
-      }
-    },
-    tooltip: {
-      enabled: false
-    },
-    xaxis: {
-      labels: {
-        style: {
-          colors: "#fff",
-          fontSize: "12x"
-        }
-      }
-    }
-  };
   var chart = {
     props: {
       chartData: Object
@@ -12737,6 +12689,49 @@
     computed: {
       chartOptions: function chartOptions(_ref) {
         var chartOptions = _ref.chartOptions;
+        var chartDefaultOotions = {
+          grid: {
+            borderColor: "#222226",
+            xaxis: {
+              lines: {
+                show: true
+              }
+            }
+          },
+          chart: {
+            type: 'bar',
+            height: 500,
+            foreColor: '#ffffff',
+            fontFamily: 'Noto Sans, Arial, sans-serif',
+            toolbar: {
+              show: false
+            }
+          },
+          // legend: {
+          //   show: false
+          // },
+          plotOptions: {
+            bar: {
+              borderRadius: 0,
+              barHeight: 20,
+              horizontal: false,
+              dataLabels: {
+                position: 'top'
+              },
+              colors: {
+                ranges: [{
+                  color: '#ED7200'
+                }]
+              }
+            }
+          },
+          tooltip: {
+            enabled: false
+          },
+          xaxis: {
+            show: false
+          }
+        };
         return merge(chartDefaultOotions, chartOptions);
       }
     },

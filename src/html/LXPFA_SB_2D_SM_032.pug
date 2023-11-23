@@ -58,6 +58,11 @@ block content
           }
         },
       },
+      plotOptions: {
+        bar: {
+          horizontal: true,
+        }
+      },
       animations: {
         enabled: true,
         easing: 'linear',
@@ -90,7 +95,7 @@ block content
       },
       chart: {
         type: 'bar',
-        height: 428,
+        height: 520,
       },
       fill: {
         type: "gradient",
@@ -111,22 +116,18 @@ block content
       },
       plotOptions: {
         bar: {
-          borderRadius: 0,
           barHeight:20,
           horizontal: true,
-          colors: {
-            ranges: [{
-                color: '#ED7200'
-            }],
-          }
         }
       },
       dataLabels: {
         enabled: true,
-        offsetX: 0,
+        offsetX: 22,
+        offsetY: -3,
+        textAnchor:'start',
         style: {
           fontSize: '14px',
-          colors: ['#fff']
+          colors: ['#ED6C00']
         }
       },
       xaxis: {
@@ -142,7 +143,25 @@ block content
           '경관디자인과', 
           '위생과'
         ],
-      }
+        labels: {
+          show: false
+        },
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+      },
+      yaxis: {
+        min:0,
+        max:6000,
+        labels: {
+          style:{
+            fontSize:"14px"
+          }
+        }
+      }, 
     };
     GCui.modal('#modal').show();
     GCui.util.on('#modal', 'shown ', function(){

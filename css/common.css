@@ -6617,6 +6617,11 @@ table, th, td {
   gap: 38px;
   margin-top: 24px;
 }
+@media (min-width: 0px) and (max-width: 767px) {
+  .keyword_lank_wrap .chart_box_wrap {
+    gap: 20px;
+  }
+}
 .keyword_lank_wrap .chart_box_wrap .chart_box {
   width: calc(50% - 19px);
   position: relative;
@@ -6652,6 +6657,11 @@ table, th, td {
 .keyword_lank_wrap .chart_box_wrap .chart_box .box_chart {
   margin-top: 12px;
   height: 240px;
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .keyword_lank_wrap .chart_box_wrap .chart_box {
+    width: 100%;
+  }
 }
 .keyword_lank_wrap .chart_box_wrap .title {
   font-weight: 700;
@@ -7719,10 +7729,29 @@ table, th, td {
 }
 .lank_layer .lank_wrap .chart_sec {
   width: calc(100% - 230px);
+  position: relative;
+  top: -32px;
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .lank_layer .lank_wrap .chart_sec {
     width: 100%;
+    top: -10px;
   }
+}
+
+.tooltip_box {
+  border: 1px solid #ED6C00;
+  padding: 6px 12px;
+  background: rgba(36, 36, 36, 0.8);
+  overflow: hidden;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #fff;
+}
+.tooltip_box.type2 {
+  border-color: #ED4801;
+}
+.tooltip_box span {
+  display: block;
 }
 /*# sourceMappingURL=common.css.map */

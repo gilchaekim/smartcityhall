@@ -59,57 +59,6 @@ const locales = {
   }
 }
 
-
-const chartDefaultOotions = {
-  grid: {
-    borderColor: "#222226",
-    xaxis: {
-      lines: {
-        show: true
-      }
-    }
-  },
-  
-  chart: {
-    type: 'bar',
-    height: 500,
-    foreColor: '#ffffff',
-    fontFamily: 'Noto Sans, Arial, sans-serif',
-    toolbar: {
-      show: false
-    },
-  },
-  legend: {
-    show: false
-  },
-  plotOptions: {
-    bar: {
-      borderRadius: 0,
-      barHeight:20,
-      horizontal: true,
-      dataLabels: {
-        position: 'top',
-      },
-      colors: {
-        ranges: [{
-            color: '#ED7200'
-        }],
-      }
-    }
-  },
-  tooltip: {
-    enabled: false
-  },
-  xaxis: {
-    labels: {
-      style: {
-        colors: "#fff",
-        fontSize:"12x"
-      }
-    },
-  }
-};
-
 export default {
     
     props: {
@@ -133,6 +82,51 @@ export default {
     },
     computed: {
       chartOptions({chartOptions}) {
+
+        const chartDefaultOotions = {
+          grid: {
+            borderColor: "#222226",
+            xaxis: {
+              lines: {
+                show: true
+              }
+            }
+          },
+          
+          chart: {
+            type: 'bar',
+            height: 500,
+            foreColor: '#ffffff',
+            fontFamily: 'Noto Sans, Arial, sans-serif',
+            toolbar: {
+              show: false
+            },
+          },
+          // legend: {
+          //   show: false
+          // },
+          plotOptions: {
+            bar: {
+              borderRadius: 0,
+              barHeight:20,
+              horizontal: false,
+              dataLabels: {
+                position: 'top',
+              },
+              colors: {
+                ranges: [{
+                    color: '#ED7200'
+                }],
+              }
+            }
+          },
+          tooltip: {
+            enabled: false
+          },
+          xaxis: {
+            show:false,
+          }
+        };
         return merge(chartDefaultOotions, chartOptions);
       },
     },
