@@ -17,6 +17,7 @@ export {default as Input} from './core/input';
 export {default as Tooltip} from './core/tooltip';
 export {default as Parallax} from './core/parallax';
 export {default as Chart} from './core/chart';
+export {default as Frontui} from './core/frontui';
 
 
 // 마크업진행표

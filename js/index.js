@@ -12752,6 +12752,95 @@
     }
   };
 
+  var frontui = {
+    data: {
+      aaa: 'aaa',
+      bbb: 'bbb',
+      ccc: 'ccc',
+      header: '#header',
+      gnb: '.header .gnb',
+      headerInset: '.header .inner',
+      aniSpped: 150,
+      openHeight: 0
+    },
+    computed: {
+      header: function header(_ref) {
+        var header = _ref.header;
+        return $$1(header);
+      },
+      headerInset: function headerInset(_ref2) {
+        var headerInset = _ref2.headerInset;
+        return $$1(headerInset);
+      },
+      headerHeight: function headerHeight(_ref3) {
+        _ref3.headerInset;
+        return Math.round(dimensions$1(this.header).height);
+      },
+      openHeight: function openHeight(_ref4) {
+        _ref4.headerInset;
+        return Math.round(dimensions$1(this.gnb).height + this.headerHeight);
+      }
+    },
+    connected: function connected() {
+      console.log('sdfsdf');
+      console.log(pointerEnter);
+      // on(this.gnb, pointerEnter, function(e){
+      //     console.log('!!!!!!!!!!!!!!');
+      // })
+    },
+
+    events: [{
+      name: "".concat(pointerEnter, " ").concat(pointerLeave),
+      el: function el() {
+        return $$1(this.gnb);
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        this[e.type === pointerEnter ? 'show' : 'hide']();
+      }
+    }],
+    methods: {
+      show: function show() {
+        Transition.start(css(this.headerInset, {
+          "height": '96px'
+        }), {
+          'height': '250px'
+        }, this.aniSpped);
+        console.log('show');
+        console.log(this.headerHeight);
+        console.log(this.openHeight);
+      },
+      hide: function hide() {
+        Transition.start(css(this.headerInset, {
+          "height": '250px'
+        }), {
+          'height': '96px'
+        }, this.aniSpped);
+        console.log('hide');
+      }
+    },
+    update: {
+      read: function read(_ref5) {
+        _ref5.test;
+          _ref5.aaaa;
+        // console.log('resizeRead')
+        // console.log(aaaa)
+        // console.log(test)
+        return {
+          test: 'dddd',
+          aaaa: 'dffadfsf'
+        };
+      },
+      write: function write(_ref6) {
+        _ref6.test;
+        console.log('resizeWrite');
+        // console.log(test)
+      },
+
+      events: ['resize']
+    }
+  };
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -12865,6 +12954,7 @@
     Tooltip: tooltip,
     Parallax: parallax,
     Chart: chart,
+    Frontui: frontui,
     Worklists: worklists
   });
 
@@ -13058,8 +13148,10 @@
   GCui.use(function (GCui) {
     inBrowser && ready(function () {
       GCui.update();
-      // on(window, 'load resize', () => GCui.update(null, 'resize'))
-
+      GCui.frontui($$1('body'));
+      on(window, 'load resize', function () {
+        return GCui.update(null, 'resize');
+      });
       var pending;
       on(window, 'scroll', function (e) {
         if (pending) {

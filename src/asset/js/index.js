@@ -4,6 +4,7 @@ import {
     each,
     on,
     ready,
+    $,
 } from './util/index';
 import {jsPrefix} from 'GC-data'
 import globalApi from './core/global';
@@ -59,7 +60,8 @@ each(components, (component, name) => {
 GCui.use(function(GCui) {
     inBrowser && ready(() => {
         GCui.update();
-        // on(window, 'load resize', () => GCui.update(null, 'resize'))
+        GCui.frontui($('body'));
+        on(window, 'load resize', () => GCui.update(null, 'resize'))
 
         let pending;
         on(window, 'scroll', e => {
