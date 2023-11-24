@@ -32,9 +32,10 @@ export default {
         openHeight({headerInset, gnb}){
             return Math.round(dimensions(this.gnb).height + this.headerHeight);
         }
+
     },
     connected() {
-        console.log('sdfsdf');
+        console.log('sdfs323df');
         console.log(pointerEnter);
         // on(this.gnb, pointerEnter, function(e){
         //     console.log('!!!!!!!!!!!!!!');
