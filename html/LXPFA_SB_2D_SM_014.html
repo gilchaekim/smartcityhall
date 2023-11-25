@@ -279,17 +279,17 @@
                   123,456 <span class="label">여성(명)</span></p>
               </div>
               <p class="title2">인구수 추이(명)</p>
-              <div class="slides_chart" mui-slider="pagination:true;">
+              <div class="slides_chart" mui-slider="pagination:true;loop:false;">
                 <div class="slider">
                   <div class="swiper-wrapper">
                     <div class="slide_list swiper-slide">
-                      <div class="slide_chart">34324</div>
+                      <div class="slide_chart" id="chart1"></div>
                     </div>
                     <div class="slide_list swiper-slide">
-                      <div class="slide_chart">222</div>
+                      <div class="slide_chart" id="chart2"></div>
                     </div>
                     <div class="slide_list swiper-slide">
-                      <div class="slide_chart">111</div>
+                      <div class="slide_chart" id="chart3"></div>
                     </div>
                   </div>
                 </div>
@@ -606,6 +606,187 @@
             </div>
           </div>
         </div>
+        <script>
+          var $ = GCui.util.$;
+          var merge = GCui.util.merge;
+          var find = GCui.util.find;
+          var chartStyle = {
+            grid: {
+              borderColor: "#666",
+            },
+            yaxis: {
+              min: 0,
+              tickAmount: 4,
+              labels: {
+                style: {
+                  fontSize: "14px"
+                },
+                formatter: (value) => {
+                  return new Intl.NumberFormat('en-US', {
+                    notation: 'compact',
+                    maximumFractionDigits: 1,
+                  }).format(value)
+                },
+              }
+            },
+            chart: {
+              type: "area",
+              height: 160,
+              dropShadow: {
+                enabled: true,
+                color: "#000"
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            markers: {
+              colors: ["#FFFFFF"]
+            },
+            stroke: {
+              curve: "straight",
+              width: 1,
+              colors: ["#ED6C00"]
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                type: "vertical",
+                colorStops: [
+                  [{
+                      offset: 0,
+                      color: "#ED6C00",
+                      opacity: 0.4
+                    },
+                    {
+                      offset: 100,
+                      color: "#ED6C00",
+                      opacity: 0
+                    },
+                  ]
+                ]
+              }
+            },
+            xaxis: {
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+              labels: {
+                style: {
+                  colors: "#fff",
+                  fontSize: "14px"
+                }
+              }
+            },
+          };
+          var optionChart1 = Object.assign({}, chartStyle, {
+            series: [{
+              data: [{
+                  x: ['2019'],
+                  y: 30000
+                },
+                {
+                  x: ['2020'],
+                  y: 40000
+                },
+                {
+                  x: ['2021'],
+                  y: 30000
+                },
+                {
+                  x: ['2022'],
+                  y: 40000
+                },
+                {
+                  x: ['2023'],
+                  y: 30000
+                },
+                {
+                  x: ['2024'],
+                  y: 40000
+                },
+              ]
+            }],
+          })
+          var optionChart2 = Object.assign({}, chartStyle, {
+            series: [{
+              data: [{
+                  x: ['2017'],
+                  y: 30000
+                },
+                {
+                  x: ['2020'],
+                  y: 40000
+                },
+                {
+                  x: ['2021'],
+                  y: 30000
+                },
+                {
+                  x: ['2022'],
+                  y: 40000
+                },
+                {
+                  x: ['2023'],
+                  y: 30000
+                },
+                {
+                  x: ['2024'],
+                  y: 40000
+                },
+              ]
+            }]
+          })
+          var optionChart3 = Object.assign({}, chartStyle, {
+            series: [{
+              data: [{
+                  x: ['2012'],
+                  y: 30000
+                },
+                {
+                  x: ['2020'],
+                  y: 40000
+                },
+                {
+                  x: ['2021'],
+                  y: 30000
+                },
+                {
+                  x: ['2022'],
+                  y: 40000
+                },
+                {
+                  x: ['2023'],
+                  y: 30000
+                },
+                {
+                  x: ['2024'],
+                  y: 40000
+                },
+              ]
+            }]
+          })
+          GCui.chart('#chart1', {
+            chartOptions: optionChart1
+          })
+          GCui.chart('#chart2', {
+            chartOptions: optionChart2
+          })
+          GCui.chart('#chart3', {
+            chartOptions: optionChart3
+          })
+          GCui.slider('[mui-slider]').Swiper.on('slideChangeTransitionEnd', function(e) {
+            var activeSlide = e.slides[e.activeIndex];
+            console.log(find('.slide_chart', activeSlide))
+          })
+        </script>
       </div><!-- / contents -->
     </div><!-- footer -->
     <div id="footer">

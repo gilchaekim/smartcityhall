@@ -5,7 +5,8 @@ import {
     css,
     Transition,
     dimensions,
-    find
+    find,
+    isTouch
 } from '../../util/index';
 
 export default {
@@ -16,8 +17,9 @@ export default {
         header:'#header',
         gnb:'.header .gnb',
         headerInset:'.header .inner',
-        aniSpped:150,
+        aniSpped:180,
         openHeight:0,
+        timing:'ease-in'
     },
     computed: {
         header({header}){
@@ -30,6 +32,8 @@ export default {
             return Math.round(dimensions(this.header).height);
         },
         openHeight({headerInset, gnb}){
+            console.log();
+            
             return Math.round(dimensions(this.gnb).height + this.headerHeight);
         }
 
@@ -50,24 +54,26 @@ export default {
             },
             handler(e) {
                 e.preventDefault();
-                this[e.type === pointerEnter ? 'show' : 'hide']();
+                if (!isTouch(e)) this[e.type === pointerEnter ? 'show' : 'hide']();
             }
         }
     ],
 
     methods: {
         show() {
-            Transition.start(css(this.headerInset, {"height":'96px'}), {
-                'height':'250px'
-            }, this.aniSpped)
+            const openHeight = find($('ul.menu'), this.gnb).scrollHeight + 48
+            Transition.start(css(this.headerInset, {"height":`${this.headerHeight}px`}), {
+                'height':`${openHeight}px`
+            }, this.aniSpped, this.timing)
             console.log('show');
-            console.log(this.headerHeight);
-            console.log(this.openHeight);
+            console.log(height);
+
         },
         hide() {
-            Transition.start(css(this.headerInset, {"height":'250px'}), {
-                'height':'96px'
-            }, this.aniSpped)
+            const openHeight = find($('ul.menu'), this.gnb).scrollHeight + 48
+            Transition.start(css(this.headerInset, {"height":`${openHeight}px`}), {
+                'height':`${this.headerHeight}px`
+            }, this.aniSpped, this.timing)
             console.log('hide');
         }
     },

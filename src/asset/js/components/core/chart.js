@@ -131,8 +131,6 @@ export default {
       },
     },
     connected(){
-      // console.log(locales);
-      console.log('aaaaaaa');
       this.render();
     },
 

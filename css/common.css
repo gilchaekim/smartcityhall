@@ -3912,6 +3912,24 @@ table, th, td {
 }
 
 /*스크린리더 IR(Image Replacement)*/
+.swiper_pagenation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.swiper_pagenation .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  border-radius: 4px;
+}
+.swiper_pagenation .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 20px;
+  background: #ED6C00;
+}
+
 #wrapper {
   background: #1E2025;
   min-height: 600px;

@@ -157,15 +157,15 @@ block content
             | 123,456 
             span.label 여성(명)
         p.title2 인구수 추이(명)
-        .slides_chart(mui-slider="pagination:true;")
+        .slides_chart(mui-slider="pagination:true;loop:false;")
           .slider
             .swiper-wrapper
               .slide_list.swiper-slide
-                .slide_chart 34324
+                .slide_chart#chart1
               .slide_list.swiper-slide
-                .slide_chart 222
+                .slide_chart#chart2
               .slide_list.swiper-slide
-                .slide_chart 111
+                .slide_chart#chart3
           
 
 
@@ -543,3 +543,188 @@ block content
                     span 일자리보기
           a(href="").more 출처
           
+
+  script.
+    var $ = GCui.util.$;
+    var merge = GCui.util.merge;
+    var find = GCui.util.find;
+    var chartStyle = {
+      grid: {
+        borderColor: "#666",
+      },
+      yaxis: {
+        min:0,
+        tickAmount:4,
+        labels: {
+          style:{
+            fontSize:"14px"
+          },
+          formatter: (value) => { 
+            return new Intl.NumberFormat('en-US', {
+              notation: 'compact',
+              maximumFractionDigits: 1,
+            }).format(value)
+          },
+        }
+      }, 
+      chart: {
+        type: "area",
+        height: 160,
+        dropShadow: {
+          enabled: true,
+          color: "#000"
+        },
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      stroke: {
+        curve: "straight",
+        width: 1,
+        colors: ["#ED6C00"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          type: "vertical",
+          colorStops: [
+            [
+              {
+                offset: 0,
+                color: "#ED6C00",
+                opacity: 0.4
+              },
+              {
+                offset: 100,
+                color: "#ED6C00",
+                opacity: 0
+              },
+            ]
+          ]
+        }
+      },
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"14px"
+          }
+        }
+      },
+    };
+    var optionChart1 = Object.assign({}, chartStyle, {
+      series: [
+        {
+          data: [
+            {
+              x: ['2019'],
+              y: 30000
+            },
+            {
+              x: ['2020'],
+              y: 40000
+            },
+            {
+              x: ['2021'],
+              y: 30000
+            },
+            {
+              x: ['2022'],
+              y: 40000
+            },
+            {
+              x: ['2023'],
+              y: 30000
+            },
+            {
+              x: ['2024'],
+              y: 40000
+            },
+          ]
+        }
+      ],
+    })
+    var optionChart2 = Object.assign({}, chartStyle, {
+      series: [
+        {
+          data: [
+            {
+              x: ['2017'],
+              y: 30000
+            },
+            {
+              x: ['2020'],
+              y: 40000
+            },
+            {
+              x: ['2021'],
+              y: 30000
+            },
+            {
+              x: ['2022'],
+              y: 40000
+            },
+            {
+              x: ['2023'],
+              y: 30000
+            },
+            {
+              x: ['2024'],
+              y: 40000
+            },
+          ]
+        }
+      ]
+    })
+    var optionChart3 = Object.assign({}, chartStyle, {
+      series: [
+        {
+          data: [
+            {
+              x: ['2012'],
+              y: 30000
+            },
+            {
+              x: ['2020'],
+              y: 40000
+            },
+            {
+              x: ['2021'],
+              y: 30000
+            },
+            {
+              x: ['2022'],
+              y: 40000
+            },
+            {
+              x: ['2023'],
+              y: 30000
+            },
+            {
+              x: ['2024'],
+              y: 40000
+            },
+          ]
+        }
+      ]
+    })
+    GCui.chart('#chart1', {chartOptions:optionChart1})
+    GCui.chart('#chart2', {chartOptions:optionChart2})
+    GCui.chart('#chart3', {chartOptions:optionChart3})
+    GCui.slider('[mui-slider]').Swiper.on('slideChangeTransitionEnd', function(e){
+      var activeSlide = e.slides[e.activeIndex];
+      console.log(find('.slide_chart', activeSlide))
+    })

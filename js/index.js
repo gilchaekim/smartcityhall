@@ -2039,7 +2039,7 @@
    */
   function dimensions$1(element) {
     var rect = isElement(element) ? toNode(element).getBoundingClientRect() : {
-      height: height(element),
+      height: height$1(element),
       width: width(element),
       top: 0,
       left: 0
@@ -2126,7 +2126,7 @@
   /**
    * height 값 반환
    */
-  var height = dimension('height');
+  var height$1 = dimension('height');
 
   /**
    * width 값 반환
@@ -2171,7 +2171,7 @@
   function toPx(value) {
     var property = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'width';
     var element = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : window;
-    return isNumeric(value) ? +value : endsWith(value, 'vh') ? percent(height(toWindow(element)), value) : endsWith(value, 'vw') ? percent(width(toWindow(element)), value) : endsWith(value, '%') ? percent(dimensions$1(element)[property], value) : toFloat(value);
+    return isNumeric(value) ? +value : endsWith(value, 'vh') ? percent(height$1(toWindow(element)), value) : endsWith(value, 'vw') ? percent(width(toWindow(element)), value) : endsWith(value, '%') ? percent(dimensions$1(element)[property], value) : toFloat(value);
   }
   function percent(base, value) {
     return base * toFloat(value) / 100;
@@ -3102,7 +3102,7 @@
     offset: offset,
     position: position,
     offsetPosition: offsetPosition,
-    height: height,
+    height: height$1,
     width: width,
     boxModelAdjust: boxModelAdjust,
     flipPosition: flipPosition,
@@ -3889,17 +3889,17 @@
     return function (el, show) {
       var inProgress = Transition.inProgress(el);
       var inner = el.hasChildNodes ? toFloat(css(el.firstElementChild, 'marginTop')) + toFloat(css(el.lastElementChild, 'marginBottom')) : 0;
-      var currentHeight = isVisible(el) ? height(el) + (inProgress ? 0 : inner) : 0;
+      var currentHeight = isVisible(el) ? height$1(el) + (inProgress ? 0 : inner) : 0;
       Transition.cancel(el);
       if (!isToggled(el)) {
         _toggle(el, true);
       }
-      height(el, '');
+      height$1(el, '');
 
       // Update child components first
       fastdom.flush();
-      var endHeight = height(el) + (inProgress ? 0 : inner);
-      height(el, currentHeight);
+      var endHeight = height$1(el) + (inProgress ? 0 : inner);
+      height$1(el, currentHeight);
       return (show ? Transition.start(el, assign({}, initProps, {
         overflow: 'hidden',
         height: endHeight
@@ -5003,7 +5003,7 @@
         var $el = el.$el,
           margin = el.margin,
           position = el.position;
-        var oldHeight = height($el) + margin;
+        var oldHeight = height$1($el) + margin;
         var newPostion = oldHeight + position;
         Transition.start(css($el, _defineProperty({}, gravity, position)), _defineProperty({}, gravity, oldHeight + position), this.aniSpped);
         el.position = newPostion;
@@ -6668,7 +6668,7 @@
         } else {
           css(this.$el, 'display', 'block');
         }
-        height(this.$el); // force reflow
+        height$1(this.$el); // force reflow
       }
     }, {
       name: 'hidden',
@@ -12736,8 +12736,6 @@
       }
     },
     connected: function connected() {
-      // console.log(locales);
-      console.log('aaaaaaa');
       this.render();
     },
     methods: {
@@ -12760,8 +12758,9 @@
       header: '#header',
       gnb: '.header .gnb',
       headerInset: '.header .inner',
-      aniSpped: 150,
-      openHeight: 0
+      aniSpped: 180,
+      openHeight: 0,
+      timing: 'ease-in'
     },
     computed: {
       header: function header(_ref) {
@@ -12778,11 +12777,13 @@
       },
       openHeight: function openHeight(_ref4) {
         _ref4.headerInset;
+          _ref4.gnb;
+        console.log();
         return Math.round(dimensions$1(this.gnb).height + this.headerHeight);
       }
     },
     connected: function connected() {
-      console.log('sdfsdf');
+      console.log('sdfs323df');
       console.log(pointerEnter);
       // on(this.gnb, pointerEnter, function(e){
       //     console.log('!!!!!!!!!!!!!!');
@@ -12796,26 +12797,27 @@
       },
       handler: function handler(e) {
         e.preventDefault();
-        this[e.type === pointerEnter ? 'show' : 'hide']();
+        if (!isTouch(e)) this[e.type === pointerEnter ? 'show' : 'hide']();
       }
     }],
     methods: {
       show: function show() {
+        var openHeight = find($$1('ul.menu'), this.gnb).scrollHeight + 48;
         Transition.start(css(this.headerInset, {
-          "height": '96px'
+          "height": "".concat(this.headerHeight, "px")
         }), {
-          'height': '250px'
-        }, this.aniSpped);
+          'height': "".concat(openHeight, "px")
+        }, this.aniSpped, this.timing);
         console.log('show');
-        console.log(this.headerHeight);
-        console.log(this.openHeight);
+        console.log(height);
       },
       hide: function hide() {
+        var openHeight = find($$1('ul.menu'), this.gnb).scrollHeight + 48;
         Transition.start(css(this.headerInset, {
-          "height": '250px'
+          "height": "".concat(openHeight, "px")
         }), {
-          'height': '96px'
-        }, this.aniSpped);
+          'height': "".concat(this.headerHeight, "px")
+        }, this.aniSpped, this.timing);
         console.log('hide');
       }
     },
