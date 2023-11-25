@@ -5,7 +5,8 @@ import browserSync from 'browser-sync';
 import sourcemaps from "gulp-sourcemaps";
 import babel from '@rollup/plugin-babel';
 import alias from '@rollup/plugin-alias';
-import resolve from "@rollup/plugin-node-resolve"
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import { rollup } from 'rollup';
 
 
@@ -16,6 +17,7 @@ const javascriptBuild = () => {
       input: config.source.jsIndex,
       format: "umd",
       plugins: [
+        commonjs(),
         resolve.nodeResolve(),
         babel.babel({
           exclude: ["node_modules/**"],
@@ -42,7 +44,7 @@ const javascriptBuild = () => {
       // }, 0);
       browserSync.reload();
       return bundle.write({
-        file: buildDir + "js/index.js",
+        file: config.build.js + "/index.js",
         format: "umd",
         name: "GCui",
         sourcemap: true,

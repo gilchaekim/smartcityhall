@@ -223,9 +223,149 @@
               <p class="title">
                 교통행정과에서 민원이 가장 많은 키워드<em>주정차</em></p>
               <p class="cat">TOP 키워드 목록</p>
+              <div class="chart" id="chart1"> </div>
             </div>
           </div>
         </div>
+        <script>
+          var options = {
+            series: [{
+              data: [120, 105, 88, 76, 52, 40, 34, 26, 22, 15, 8],
+            }],
+            grid: {
+              yaxis: {
+                lines: {
+                  show: false
+                }
+              },
+            },
+            plotOptions: {
+              bar: {
+                horizontal: true,
+              }
+            },
+            animations: {
+              enabled: true,
+              easing: 'linear',
+              speed: 8800,
+              animateGradually: {
+                enabled: true,
+                delay: 8150
+              },
+              dynamicAnimation: {
+                enabled: true,
+                speed: 8350
+              }
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                colorStops: [{
+                    offset: 0,
+                    color: "#ED4700",
+                    opacity: 1
+                  },
+                  {
+                    offset: 100,
+                    color: "#ED7200",
+                    opacity: 1
+                  }
+                ]
+              }
+            },
+            chart: {
+              type: 'bar',
+              height: 440,
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                colorStops: [{
+                    offset: 0,
+                    color: "#ED4700",
+                    opacity: 1
+                  },
+                  {
+                    offset: 100,
+                    color: "#ED7200",
+                    opacity: 1
+                  }
+                ]
+              }
+            },
+            plotOptions: {
+              bar: {
+                barHeight: 20,
+                horizontal: true,
+              }
+            },
+            dataLabels: {
+              enabled: true,
+              offsetX: 22,
+              offsetY: -3,
+              textAnchor: 'start',
+              style: {
+                fontSize: '14px',
+                colors: ['#ED6C00']
+              }
+            },
+            xaxis: {
+              categories: [
+                '주정차',
+                ['불법주정차', '신고'],
+                '불법주차',
+                '장애인',
+                ['장애인전용', '구역'],
+                '버스정류소',
+                '횡단보도',
+                ['장애인전용', '구역'],
+                '인도불법',
+                ['버스정류소', '불법'],
+                '충전구역'
+              ],
+              labels: {
+                show: false
+              },
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+            },
+            yaxis: {
+              min: 0,
+              max: 200,
+              labels: {
+                style: {
+                  fontSize: "12px",
+                  cssClass: "vertical"
+                }
+              }
+            },
+            tooltip: {
+              enabled: true,
+              theme: false,
+              custom: function({
+                series,
+                seriesIndex,
+                dataPointIndex,
+                w
+              }) {
+                var labels = GCui.util.isArray(w.globals.labels[dataPointIndex]) ? w.globals.labels[dataPointIndex].join(' ') : w.globals.labels[dataPointIndex];
+                return '<div class="tooltip_box">' +
+                  '<span>' + (dataPointIndex + 1) + '위 : ' + labels + '</span>' +
+                  '</div>'
+              },
+              fixed: {
+                position: 'bottomRight',
+              },
+            },
+          };
+          GCui.chart('#chart1', {
+            chartOptions: options
+          })
+        </script>
       </div><!-- / contents -->
     </div><!-- footer -->
     <div id="footer">

@@ -78,5 +78,149 @@ block content
         p.title 시간대별 현황
         .title_sec 
           p.subtitle 미세먼지 시간대별 현황(㎍/㎥)
-        .chart
+        .chart#chart1
         a(href="").more 출처
+
+  script.
+    var optionChart1 = {
+      grid: {
+        borderColor: "#666",
+        yaxis: {
+          lines: {
+              show: false
+          }
+        }, 
+      },
+      series: [
+        {
+          data: [
+            {
+              x: ['14시'],
+              y: 35
+            },
+            {
+              x: ['16시'],
+              y: 25
+            },
+            {
+              x: ['18시'],
+              y: 25
+            },
+            {
+              x: ['20시'],
+              y: 46
+            },
+            {
+              x: ['22시'],
+              y: 31
+            },
+            {
+              x: ['00시'],
+              y: 42
+            },
+            {
+              x: ['02시'],
+              y: 30
+            },
+            {
+              x: ['04시'],
+              y: 28
+            },
+            {
+              x: ['06시'],
+              y: 32
+            },
+            {
+              x: ['08시'],
+              y: 45
+            },
+            {
+              x: ['10시'],
+              y: 21
+            },
+            {
+              x: ['12시'],
+              y: 40
+            },
+          ]
+        }
+      ],
+      tooltip: {
+        enabled: true,
+        theme:false,
+        custom: function({series, seriesIndex, dataPointIndex, w}) {
+          //- console.log(w)
+          var dateStr = w.globals.categoryLabels[dataPointIndex].join('')
+          console.log()
+          return '<div class="tooltip_box">' +
+            '<span>' + dateStr + '</span>' +
+            '<span>미세먼지:' + series[seriesIndex][dataPointIndex] + '</span>' +
+            '</div>'
+        }
+      },
+      yaxis: {
+        min:0,
+        max:50,
+        tickAmount:5,
+        labels: {
+          style:{
+            fontSize:"14px"
+          }
+        }
+      }, 
+      chart: {
+        type: "area",
+        height: 350,
+        background: "#272A31",
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      stroke: {
+        curve: "straight",
+        width: 1,
+        colors: ["#ED6C00"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          type: "vertical",
+          colorStops: [
+            [
+              {
+                offset: 0,
+                color: "#ED6C00",
+                opacity: 0.4
+              },
+              {
+                offset: 100,
+                color: "#ED6C00",
+                opacity: 0
+              },
+            ]
+          ]
+        }
+      },
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"14px"
+          }
+        }
+      },
+    };
+    GCui.chart('#chart1', {chartOptions:optionChart1})

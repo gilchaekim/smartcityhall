@@ -199,7 +199,7 @@
               <div class="chart_box">
                 <p class="title">일별 민원건수</p>
                 <p class="decs">최근 7일간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart1"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -207,7 +207,7 @@
               <div class="chart_box">
                 <p class="title">월별 민원건수</p>
                 <p class="decs">최근 6개월간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart2"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -215,7 +215,7 @@
               <div class="chart_box">
                 <p class="title">부서별 민원 TOP 10</p>
                 <p class="decs">최근 7일간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart3"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -223,7 +223,7 @@
               <div class="chart_box">
                 <p class="title">분야별 민원 TOP 10</p>
                 <p class="decs">최근 7일간의 민원 건수를 보여드립니다.</p>
-                <div class="box_chart"></div>
+                <div class="box_chart" id="chart4"></div>
                 <div class="btns">
                   <button class="download" type="button">EXCLEL</button>
                 </div>
@@ -231,6 +231,503 @@
             </div>
           </div>
         </div>
+        <script>
+          var optionChart1 = {
+            series: [{
+              data: [{
+                  x: ['2023', '10-1'],
+                  y: 300
+                },
+                {
+                  x: ['2023', '10-2'],
+                  y: 400
+                },
+                {
+                  x: ['2023', '10-3'],
+                  y: 300
+                },
+                {
+                  x: ['2023', '10-4'],
+                  y: 400
+                },
+                {
+                  x: ['2023', '10-5'],
+                  y: 300
+                },
+                {
+                  x: ['2023', '10-6'],
+                  y: 400
+                },
+              ]
+            }],
+            tooltip: {
+              enabled: true,
+              theme: false,
+              custom: function({
+                series,
+                seriesIndex,
+                dataPointIndex,
+                w
+              }) {
+                //- console.log(w)
+                //- var dateStr = w.globals.categoryLabels[dataPointIndex]
+                //- console.log(dateStr)
+                return '<div class="tooltip_box">' +
+                  '<span>민원건수:' + series[seriesIndex][dataPointIndex] + '</span>' +
+                  '</div>'
+              }
+            },
+            yaxis: {
+              min: 0,
+              tickAmount: 4,
+              labels: {
+                style: {
+                  fontSize: "14px"
+                }
+              }
+            },
+            chart: {
+              type: "area",
+              height: 240,
+              background: "#19191E",
+              dropShadow: {
+                enabled: true,
+                color: "#000"
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            markers: {
+              colors: ["#FFFFFF"]
+            },
+            stroke: {
+              curve: "straight",
+              width: 1,
+              colors: ["#ED6C00"]
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                type: "vertical",
+                colorStops: [
+                  [{
+                      offset: 0,
+                      color: "#ED6C00",
+                      opacity: 0.4
+                    },
+                    {
+                      offset: 100,
+                      color: "#ED6C00",
+                      opacity: 0
+                    },
+                  ]
+                ]
+              }
+            },
+            xaxis: {
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+              labels: {
+                style: {
+                  colors: "#fff",
+                  fontSize: "14px"
+                }
+              }
+            },
+          };
+          var optionChart2 = {
+            series: [{
+              data: [{
+                  x: ['2023', '02월'],
+                  y: 12000
+                },
+                {
+                  x: ['2023', '03월'],
+                  y: 9000
+                },
+                {
+                  x: ['2023', '04월'],
+                  y: 8000
+                },
+                {
+                  x: ['2023', '05월'],
+                  y: 1100
+                },
+                {
+                  x: ['2023', '06월'],
+                  y: 7000
+                },
+                {
+                  x: ['2023', '07월'],
+                  y: 5000
+                },
+              ]
+            }],
+            tooltip: {
+              enabled: true,
+              theme: false,
+              custom: function({
+                series,
+                seriesIndex,
+                dataPointIndex,
+                w
+              }) {
+                //- console.log(w)
+                //- var dateStr = w.globals.categoryLabels[dataPointIndex]
+                //- console.log(dateStr)
+                return '<div class="tooltip_box type2">' +
+                  '<span>민원건수:' + series[seriesIndex][dataPointIndex] + '</span>' +
+                  '</div>'
+              }
+            },
+            yaxis: {
+              min: 0,
+              tickAmount: 4,
+              labels: {
+                style: {
+                  fontSize: "14px"
+                }
+              }
+            },
+            chart: {
+              type: "area",
+              height: 240,
+              background: "#19191E",
+              dropShadow: {
+                enabled: true,
+                color: "#000"
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            markers: {
+              colors: ["#FFFFFF"]
+            },
+            stroke: {
+              curve: "straight",
+              width: 1,
+              colors: ["#ED4700"]
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                type: "vertical",
+                colorStops: [
+                  [{
+                      offset: 0,
+                      color: "#ED6C00",
+                      opacity: 0.4
+                    },
+                    {
+                      offset: 100,
+                      color: "#ED4700",
+                      opacity: 0
+                    },
+                  ]
+                ]
+              }
+            },
+
+            xaxis: {
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+              labels: {
+                style: {
+                  colors: "#fff",
+                  fontSize: "14px"
+                }
+              }
+            },
+          };
+
+
+          var optionChart3 = {
+            series: [{
+              data: [{
+                  x: ['교통', '행정학과'],
+                  y: 12000
+                },
+                {
+                  x: ['장애인', '복지과'],
+                  y: 9000
+                },
+                {
+                  x: ['건설', '행정과'],
+                  y: 8000
+                },
+                {
+                  x: ['환경', '정책과'],
+                  y: 1100
+                },
+                {
+                  x: ['대중', '교통과'],
+                  y: 7000
+                },
+                {
+                  x: ['도로', '시설과'],
+                  y: 5000
+                },
+                {
+                  x: ['경관', '디자인과'],
+                  y: 5000
+                },
+                {
+                  x: ['안전', '생활과'],
+                  y: 5000
+                },
+                {
+                  x: ['건축과'],
+                  y: 5000
+                },
+                {
+                  x: ['자원', '순환과'],
+                  y: 5000
+                },
+              ]
+            }],
+            tooltip: {
+              enabled: true,
+              theme: false,
+              custom: function({
+                series,
+                seriesIndex,
+                dataPointIndex,
+                w
+              }) {
+                var labels = w.globals.seriesX[seriesIndex][dataPointIndex].join(' ')
+
+                return '<div class="tooltip_box type2">' +
+                  '<span>' + labels + '</span>' +
+                  '<span>민원건수:' + series[seriesIndex][dataPointIndex] + '</span>' +
+                  '</div>'
+              }
+            },
+            yaxis: {
+              min: 0,
+              tickAmount: 4,
+              labels: {
+                style: {
+                  fontSize: "14px"
+                }
+              }
+            },
+            plotOptions: {
+              bar: {
+                columnWidth: 24,
+              }
+            },
+            chart: {
+              type: "bar",
+              height: 240,
+              background: "#19191E",
+              dropShadow: {
+                enabled: true,
+                color: "#000"
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            markers: {
+              colors: ["#FFFFFF"]
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                type: "vertical",
+                colorStops: [{
+                    offset: 0,
+                    color: "#ED9C00",
+                    opacity: 1
+                  },
+                  {
+                    offset: 100,
+                    color: "#ED6C00",
+                    opacity: 1
+                  }
+                ]
+              }
+            },
+
+            xaxis: {
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+              labels: {
+                style: {
+                  colors: "#fff",
+                  fontSize: "14px"
+                }
+              }
+            },
+          };
+
+          var optionChart4 = {
+            series: [{
+              data: [{
+                  x: ['교통'],
+                  y: 12000
+                },
+                {
+                  x: ['도로'],
+                  y: 9000
+                },
+                {
+                  x: ['환경'],
+                  y: 8000
+                },
+                {
+                  x: ['도시'],
+                  y: 1100
+                },
+                {
+                  x: ['주택/', '건축'],
+                  y: 7000
+                },
+                {
+                  x: ['수자원'],
+                  y: 5000
+                },
+                {
+                  x: ['문화'],
+                  y: 5000
+                },
+                {
+                  x: ['행정/', '안전'],
+                  y: 5000
+                },
+                {
+                  x: ['해양', '수산'],
+                  y: 5000
+                },
+                {
+                  x: ['보건'],
+                  y: 5000
+                },
+              ]
+            }],
+            tooltip: {
+              enabled: true,
+              theme: false,
+              custom: function({
+                series,
+                seriesIndex,
+                dataPointIndex,
+                w
+              }) {
+                var labels = w.globals.seriesX[seriesIndex][dataPointIndex].join(' ')
+
+                return '<div class="tooltip_box type2">' +
+                  '<span>' + labels + '</span>' +
+                  '<span>민원건수:' + series[seriesIndex][dataPointIndex] + '</span>' +
+                  '</div>'
+              }
+            },
+            yaxis: {
+              min: 0,
+              tickAmount: 4,
+              labels: {
+                style: {
+                  fontSize: "14px"
+                }
+              }
+            },
+            plotOptions: {
+              bar: {
+                columnWidth: 24,
+              }
+            },
+            chart: {
+              type: "bar",
+              height: 240,
+              background: "#19191E",
+              dropShadow: {
+                enabled: true,
+                color: "#000"
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            markers: {
+              colors: ["#FFFFFF"]
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                type: "vertical",
+                colorStops: [{
+                    offset: 0,
+                    color: "#ED7200",
+                    opacity: 1
+                  },
+                  {
+                    offset: 100,
+                    color: "#ED4700",
+                    opacity: 1
+                  }
+                ]
+              }
+            },
+
+            xaxis: {
+              axisBorder: {
+                show: false
+              },
+              axisTicks: {
+                show: false
+              },
+              labels: {
+                style: {
+                  colors: "#fff",
+                  fontSize: "14px"
+                }
+              }
+            },
+          };
+
+
+          GCui.chart('#chart1', {
+            chartOptions: optionChart1
+          })
+          GCui.chart('#chart2', {
+            chartOptions: optionChart2
+          })
+          GCui.chart('#chart3', {
+            chartOptions: optionChart3
+          })
+          GCui.chart('#chart4', {
+            chartOptions: optionChart4
+          })
+          //- GCui.chart('#chart1', {chartOptions:options})
+        </script>
       </div><!-- / contents -->
     </div><!-- footer -->
     <div id="footer">

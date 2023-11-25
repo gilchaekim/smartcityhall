@@ -408,6 +408,21 @@
       return match === a ? b : a;
     });
   }
+  var merge = function merge(target, source) {
+    if (!isObject(target) || !isObject(source)) return source;
+    Object.keys(source).forEach(function (key) {
+      var targetValue = target[key];
+      var sourceValue = source[key];
+      if (isArray(targetValue) && isArray(sourceValue)) {
+        target[key] = targetValue.concat(sourceValue);
+      } else if (isObject(targetValue) && isObject(sourceValue)) {
+        target[key] = merge(Object.assign({}, targetValue), sourceValue);
+      } else {
+        target[key] = sourceValue;
+      }
+    });
+    return target;
+  };
   var assign = Object.assign || function (target) {
     target = Object(target);
     for (var i = 0; i < (arguments.length <= 1 ? 0 : arguments.length - 1); i++) {
@@ -2818,6 +2833,7 @@
     toMs: toMs,
     isEqual: isEqual,
     swap: swap,
+    merge: merge,
     assign: assign,
     last: last,
     each: each,

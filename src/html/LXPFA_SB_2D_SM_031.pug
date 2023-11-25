@@ -32,7 +32,6 @@ block content
         p.decs 검색년도에 민원이 가장 많은 TOP10개의 부서 월별 추이를 보여드립니다.
         button(type="button").download EXCLEL
       .chart_wrap
-        
         .chart
     .chart_secpie
       .search_date 
@@ -56,5 +55,52 @@ block content
         p.decs 검색년도에 민원이 가장 많은 TOP10개의 부서를 보여드립니다
         button(type="button").download EXCLEL
       .chart_wrap
-        
-        .chart
+        .chart#semiPie
+  script.
+    var options = {
+      series: [4710, 1022, 347, 263, 183, 153, 132, 108, 88,72],
+      labels: ['교통행정과', '환경쟁책과', '건설행정과', '자원순환과', '장애인복지과', '건축과', '대중교통과', '경관디자인과', '위생과'],
+      chart: {
+        type: 'donut',
+      },
+      colors: ['#21A182', '#2391A2', '#5D3F8B', '#F44B4B', '#F59239', '#00BCCC', '#3464A0', '#E55091', '#A23837', '#66A846'],
+      dataLabels: {
+        enabled: false
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            labels: {
+              show: true,
+              name: {
+              show: true,
+              fontSize: '22px',
+              color: '#ffffff',
+              offsetY: -10
+            },
+            value: {
+              show: true,
+              fontSize: '16px',
+              color: "#ffffff",
+              offsetY: 16,
+              formatter: function (val) {
+                return val
+              }
+            },
+              total: {
+              show: true,
+              label: 'Total',
+              color: '#ffffff',
+              formatter: function (w) {
+                return w.globals.seriesTotals.reduce((a, b) => {
+                  return a + b
+                }, 0)
+              }
+            }
+            }
+          }
+        }
+      },
+
+    };
+    GCui.chart('#semiPie', {chartOptions:options})
