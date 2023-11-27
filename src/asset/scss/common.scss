@@ -939,43 +939,41 @@
 	.sort {
 		display: flex;
 		justify-content: space-between;
+		@include respondTo("mobile"){
+			display: block;
+		}
+		.left, .right {
+			display: flex;
+			@include respondTo("mobile"){
+				gap: 8px;
+			}
+		}
+		.right {
+			@include respondTo("mobile"){
+				margin-top: 8px;
+			}
+		}
 		@include respondTo("tablet"){
 			flex-direction: row;
 			flex-wrap: wrap;
+			
 		}
 		.mui_select {
 			margin-right: 8px;
 			min-width: 200px;
-			&:nth-child(2) {
-				margin-right: auto;
+			@include respondToMinMax(0, 1200){
+				min-width: 150px;
 			}
-			&:nth-child(3) {
-				margin-left: 8px;
-			}
-			@include respondToMinMax(1025, 1200){
-				min-width: 140px;
-			}
-			@include respondTo("tablet"){
-				width: calc( 33.3333% - 6px );
-				min-width: 0;
-				margin: 0 !important;
+			@include respondTo("mobile"){
+				flex: 1;
+				margin-right: 0;
 			}
 		}
-		// span {
-		// 	display: flex;
-		// 	@include respondTo("tablet"){
-		// 		display: inline;
-		// 	}
-		// }
 	}
 	.mui_inputbtn {
 		border: 1px solid #3F4249;
-		@include respondToMinMax(1800, 10000){
-			width: 400px;
-		}
-		@include respondTo("tablet"){
-			width: 100%;
-			margin-top: 10px;
+		@include respondTo("mobile"){
+			flex: 1;
 		}
 		.mui_button {
 			width: 56px;
@@ -2682,6 +2680,21 @@
 					&.ico_wd1_5{
 						&::before {
 							background: url($url_common+"ico_wd1_5.svg") no-repeat center;
+						}
+					}
+					&.ico_wd1_6{
+						&::before {
+							background: url($url_common+"ico_wd1_6.svg") no-repeat center;
+						}
+					}
+					&.ico_wd1_7{
+						&::before {
+							background: url($url_common+"ico_wd1_7.svg") no-repeat center;
+						}
+					}
+					&.ico_wd1_8{
+						&::before {
+							background: url($url_common+"ico_wd1_8.svg") no-repeat center;
 						}
 					}
 					&.ico_wd2{

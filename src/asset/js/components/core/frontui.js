@@ -38,13 +38,6 @@ export default {
         }
 
     },
-    connected() {
-        console.log('sdfs323df');
-        console.log(pointerEnter);
-        // on(this.gnb, pointerEnter, function(e){
-        //     console.log('!!!!!!!!!!!!!!');
-        // })
-    },
 
     events: [
         {
@@ -65,8 +58,6 @@ export default {
             Transition.start(css(this.headerInset, {"height":`${this.headerHeight}px`}), {
                 'height':`${openHeight}px`
             }, this.aniSpped, this.timing)
-            console.log('show');
-            console.log(height);
 
         },
         hide() {
@@ -74,32 +65,8 @@ export default {
             Transition.start(css(this.headerInset, {"height":`${openHeight}px`}), {
                 'height':`${this.headerHeight}px`
             }, this.aniSpped, this.timing)
-            console.log('hide');
         }
     },
-    update: {
-
-        read({test, aaaa}) {
-
-            // console.log('resizeRead')
-            // console.log(aaaa)
-            // console.log(test)
-            return {
-                test: 'dddd',
-                aaaa: 'dffadfsf'
-            }
-
-        },
-        write({test}) {
-
-            console.log('resizeWrite')
-            // console.log(test)
-
-        },
-
-        events: ['resize']
-
-    }
 
 };
 

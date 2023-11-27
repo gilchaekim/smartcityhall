@@ -44,17 +44,7 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+tabsWrap({
-  active:1,
-  className:'custom_tab'
-})
-  +tab("텝 네비1")
-    div 11111
-  +tab("텝 네비2")
-    div 22222
-  +tab("텝 네비3")
-    div 33333
-  +tab("텝 네비4")</code></pre>
+          <pre><code class="language-pug"><div class="mui_tabs custom_tab" mui-tab=""><ul class="mui_tab_nav"><li class="nav_list"><button type="button">텝 네비1</button></li><li class="nav_list mui_active"><button type="button">텝 네비2</button></li><li class="nav_list"><button type="button">텝 네비3</button></li><li class="nav_list"><button type="button">텝 네비4</button></li></ul><div class="tab_contents"><div class="tab_pane"><div>11111</div></div><div class="tab_pane mui_active"><div>22222</div></div><div class="tab_pane"><div>33333</div></div><div class="tab_pane"></div></div></div></code></pre>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -77,16 +67,7 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+tabsLink({
-  list:[
-    {name:'텝 네비1'},
-    {name:'텝 네비2', active:true},
-    {name:'텝 네비3'},
-    {name:'텝 네비4'},
-  ],
-  className:'custom_tab'
-})
-  div 텝 컨텐츠</code></pre>
+          <pre><code class="language-pug"><div class="mui_tabs link_tab custom_tab"><ul class="mui_tab_nav"><li class="nav_list"><a href="#none">텝 네비1</a></li><li class="nav_list mui_active"><a href="#none">텝 네비2</a></li><li class="nav_list"><a href="#none">텝 네비3</a></li><li class="nav_list"><a href="#none">텝 네비4</a></li></ul><div class="tab_contents"><div class="tab_pane"><div>텝 컨텐츠</div></div></div></div></code></pre>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>

@@ -2039,7 +2039,7 @@
    */
   function dimensions$1(element) {
     var rect = isElement(element) ? toNode(element).getBoundingClientRect() : {
-      height: height$1(element),
+      height: height(element),
       width: width(element),
       top: 0,
       left: 0
@@ -2126,7 +2126,7 @@
   /**
    * height 값 반환
    */
-  var height$1 = dimension('height');
+  var height = dimension('height');
 
   /**
    * width 값 반환
@@ -2171,7 +2171,7 @@
   function toPx(value) {
     var property = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'width';
     var element = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : window;
-    return isNumeric(value) ? +value : endsWith(value, 'vh') ? percent(height$1(toWindow(element)), value) : endsWith(value, 'vw') ? percent(width(toWindow(element)), value) : endsWith(value, '%') ? percent(dimensions$1(element)[property], value) : toFloat(value);
+    return isNumeric(value) ? +value : endsWith(value, 'vh') ? percent(height(toWindow(element)), value) : endsWith(value, 'vw') ? percent(width(toWindow(element)), value) : endsWith(value, '%') ? percent(dimensions$1(element)[property], value) : toFloat(value);
   }
   function percent(base, value) {
     return base * toFloat(value) / 100;
@@ -3102,7 +3102,7 @@
     offset: offset,
     position: position,
     offsetPosition: offsetPosition,
-    height: height$1,
+    height: height,
     width: width,
     boxModelAdjust: boxModelAdjust,
     flipPosition: flipPosition,
@@ -3889,17 +3889,17 @@
     return function (el, show) {
       var inProgress = Transition.inProgress(el);
       var inner = el.hasChildNodes ? toFloat(css(el.firstElementChild, 'marginTop')) + toFloat(css(el.lastElementChild, 'marginBottom')) : 0;
-      var currentHeight = isVisible(el) ? height$1(el) + (inProgress ? 0 : inner) : 0;
+      var currentHeight = isVisible(el) ? height(el) + (inProgress ? 0 : inner) : 0;
       Transition.cancel(el);
       if (!isToggled(el)) {
         _toggle(el, true);
       }
-      height$1(el, '');
+      height(el, '');
 
       // Update child components first
       fastdom.flush();
-      var endHeight = height$1(el) + (inProgress ? 0 : inner);
-      height$1(el, currentHeight);
+      var endHeight = height(el) + (inProgress ? 0 : inner);
+      height(el, currentHeight);
       return (show ? Transition.start(el, assign({}, initProps, {
         overflow: 'hidden',
         height: endHeight
@@ -5003,7 +5003,7 @@
         var $el = el.$el,
           margin = el.margin,
           position = el.position;
-        var oldHeight = height$1($el) + margin;
+        var oldHeight = height($el) + margin;
         var newPostion = oldHeight + position;
         Transition.start(css($el, _defineProperty({}, gravity, position)), _defineProperty({}, gravity, oldHeight + position), this.aniSpped);
         el.position = newPostion;
@@ -5091,7 +5091,6 @@
       }
     },
     connected: function connected() {
-      console.log(this.mode);
       if (!includes(this.mode, 'media') && !isFocusable(this.$el)) {
         attr(this.$el, 'tabindex', '0');
       }
@@ -6668,7 +6667,7 @@
         } else {
           css(this.$el, 'display', 'block');
         }
-        height$1(this.$el); // force reflow
+        height(this.$el); // force reflow
       }
     }, {
       name: 'hidden',
@@ -12782,14 +12781,6 @@
         return Math.round(dimensions$1(this.gnb).height + this.headerHeight);
       }
     },
-    connected: function connected() {
-      console.log('sdfs323df');
-      console.log(pointerEnter);
-      // on(this.gnb, pointerEnter, function(e){
-      //     console.log('!!!!!!!!!!!!!!');
-      // })
-    },
-
     events: [{
       name: "".concat(pointerEnter, " ").concat(pointerLeave),
       el: function el() {
@@ -12808,8 +12799,6 @@
         }), {
           'height': "".concat(openHeight, "px")
         }, this.aniSpped, this.timing);
-        console.log('show');
-        console.log(height);
       },
       hide: function hide() {
         var openHeight = find($$1('ul.menu'), this.gnb).scrollHeight + 48;
@@ -12818,28 +12807,7 @@
         }), {
           'height': "".concat(this.headerHeight, "px")
         }, this.aniSpped, this.timing);
-        console.log('hide');
       }
-    },
-    update: {
-      read: function read(_ref5) {
-        _ref5.test;
-          _ref5.aaaa;
-        // console.log('resizeRead')
-        // console.log(aaaa)
-        // console.log(test)
-        return {
-          test: 'dddd',
-          aaaa: 'dffadfsf'
-        };
-      },
-      write: function write(_ref6) {
-        _ref6.test;
-        console.log('resizeWrite');
-        // console.log(test)
-      },
-
-      events: ['resize']
     }
   };
 

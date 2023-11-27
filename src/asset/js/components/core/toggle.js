@@ -51,7 +51,6 @@ export default {
     },
     
     connected() {
-        console.log(this.mode);
         if (!includes(this.mode, 'media') && !isFocusable(this.$el)) {
             attr(this.$el, 'tabindex', '0');
         }

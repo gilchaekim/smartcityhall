@@ -23,32 +23,7 @@
       <div class="guide_card_box">
         <section class="code_view"><span class="mui_input"><input type="text" value="default" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="default" mui-input="" /></span><br /><span class="mui_input"><input type="text" value="readonly" mui-input="" /></span><br /><span class="mui_input mui_disabled"><input type="text" disabled="disabled" value="disabled" mui-input="" /></span><br /><span class="mui_input inner_subfix subfix_won sublength_1"><input type="text" value="default" mui-input="" /><span class="subfix"><span>원</span><span class="delete_btn"><button class="delete_val" type="button"><span class="hidden">삭제</span></button></span></span></span></section>
         <div class="code_block">
-          <pre><code class="language-pug">//- 기본
-+input({
-  value:"default"
-})
-br
-+input({
-  placeholder:"default"
-})
-br
-//- readOnly
-+input({
-  readOnly:true,
-  value:"readonly"
-})
-br
-//- disabled
-+input({
-  disabled:true,
-  value:"disabled"
-})
-br
-//- subfix
-+input({
-  value:"default",
-  subfix:"원"
-})</code></pre>
+          <pre><code class="language-pug"><span class="mui_input"><input type="text" value="default" mui-input=""/></span><br/><span class="mui_input"><input type="text" placeholder="default" mui-input=""/></span><br/><span class="mui_input"><input type="text" value="readonly" mui-input=""/></span><br/><span class="mui_input mui_disabled"><input type="text" disabled="disabled" value="disabled" mui-input=""/></span><br/><span class="mui_input inner_subfix subfix_won sublength_1"><input type="text" value="default" mui-input=""/><span class="subfix"><span>원</span><span class="delete_btn"><button class="delete_val" type="button"><span class="hidden">삭제</span></button></span></span></span></code></pre>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -134,44 +109,7 @@ br
       <div class="guide_card_box">
         <section class="code_view"><span class="mui_input"><input type="text" placeholder="날짜 입력 폼 (yyyy-mm-dd)" mui-formatter="dateForm:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="금액 입력" mui-formatter="numeric:true" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="영문 대문자만 입력" mui-formatter="uppercase:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="영문 소문자만 입력" mui-formatter="lowercase:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="max length" maxlength="10" mui-formatter="viewMaxLength:true;" mui-input="" /></span><br /><span class="mui_input"><input type="text" placeholder="커스텀 포멧" value="123456" mui-formatter="delimiter:/;blocks:2|2|2;" mui-input="" /></span><br /></section>
         <div class="code_block">
-          <pre><code class="language-pug">//- 기본
-+input({
-  muiFormatter:"dateForm:true;",
-  placeholder:"날짜 입력 폼 (yyyy-mm-dd)",
-})
-//- 금액 입력 폼
-br
-+input({
-  muiFormatter:"numeric:true",
-  placeholder:"금액 입력"
-})
-br
-//- 영문 대문자 only
-+input({
-  muiFormatter:"uppercase:true;",
-  placeholder:"영문 대문자만 입력"
-})
-br
-//- 영문 소문자 only
-+input({
-  muiFormatter:"lowercase:true;",
-  placeholder:"영문 소문자만 입력"
-})
-//- maxlength
-br
-+input({
-  muiFormatter:"viewMaxLength:true;",
-  maxlength:10,
-  placeholder:"max length"
-})
-br
-//- 커스텀
-+input({
-  value:"123456",
-  muiFormatter:"delimiter:/;blocks:2|2|2;",
-  placeholder:"커스텀 포멧",
-})
-br</code></pre>
+          <pre><code class="language-pug"><span class="mui_input"><input type="text" placeholder="날짜 입력 폼 (yyyy-mm-dd)" mui-formatter="dateForm:true;" mui-input=""/></span><br/><span class="mui_input"><input type="text" placeholder="금액 입력" mui-formatter="numeric:true" mui-input=""/></span><br/><span class="mui_input"><input type="text" placeholder="영문 대문자만 입력" mui-formatter="uppercase:true;" mui-input=""/></span><br/><span class="mui_input"><input type="text" placeholder="영문 소문자만 입력" mui-formatter="lowercase:true;" mui-input=""/></span><br/><span class="mui_input"><input type="text" placeholder="max length" maxlength="10" mui-formatter="viewMaxLength:true;" mui-input=""/></span><br/><span class="mui_input"><input type="text" placeholder="커스텀 포멧" value="123456" mui-formatter="delimiter:/;blocks:2|2|2;" mui-input=""/></span><br/></code></pre>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>

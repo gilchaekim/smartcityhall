@@ -4929,6 +4929,24 @@ table, th, td {
   display: flex;
   justify-content: space-between;
 }
+@media (min-width: 0px) and (max-width: 767px) {
+  .board_top .sort {
+    display: block;
+  }
+}
+.board_top .sort .left, .board_top .sort .right {
+  display: flex;
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .board_top .sort .left, .board_top .sort .right {
+    gap: 8px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .board_top .sort .right {
+    margin-top: 8px;
+  }
+}
 @media (min-width: 0px) and (max-width: 1024px) {
   .board_top .sort {
     flex-direction: row;
@@ -4939,36 +4957,23 @@ table, th, td {
   margin-right: 8px;
   min-width: 200px;
 }
-.board_top .sort .mui_select:nth-child(2) {
-  margin-right: auto;
-}
-.board_top .sort .mui_select:nth-child(3) {
-  margin-left: 8px;
-}
-@media (min-width: 1025px) and (max-width: 1200px) {
+@media (min-width: 0px) and (max-width: 1200px) {
   .board_top .sort .mui_select {
-    min-width: 140px;
+    min-width: 150px;
   }
 }
-@media (min-width: 0px) and (max-width: 1024px) {
+@media (min-width: 0px) and (max-width: 767px) {
   .board_top .sort .mui_select {
-    width: calc(33.3333% - 6px);
-    min-width: 0;
-    margin: 0 !important;
+    flex: 1;
+    margin-right: 0;
   }
 }
 .board_top .mui_inputbtn {
   border: 1px solid #3F4249;
 }
-@media (min-width: 1800px) and (max-width: 10000px) {
+@media (min-width: 0px) and (max-width: 767px) {
   .board_top .mui_inputbtn {
-    width: 400px;
-  }
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  .board_top .mui_inputbtn {
-    width: 100%;
-    margin-top: 10px;
+    flex: 1;
   }
 }
 .board_top .mui_inputbtn .mui_button {
@@ -6859,6 +6864,15 @@ table, th, td {
 }
 .main .section .weather_legend .weather .data.ico_wd1_5::before {
   background: url("/src/images/ico_wd1_5.svg") no-repeat center;
+}
+.main .section .weather_legend .weather .data.ico_wd1_6::before {
+  background: url("/src/images/ico_wd1_6.svg") no-repeat center;
+}
+.main .section .weather_legend .weather .data.ico_wd1_7::before {
+  background: url("/src/images/ico_wd1_7.svg") no-repeat center;
+}
+.main .section .weather_legend .weather .data.ico_wd1_8::before {
+  background: url("/src/images/ico_wd1_8.svg") no-repeat center;
 }
 .main .section .weather_legend .weather .data.ico_wd2::before {
   background: url("/src/images/ico_wd2.svg") no-repeat center;

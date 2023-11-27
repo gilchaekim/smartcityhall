@@ -10,16 +10,7 @@ block content
   })
   .board_top 
     .sort 
-        +select({
-          options : [
-            '작성일'
-          ]
-        })
-        +select({
-          options : [
-            '내림차순'
-          ]
-        })
+      span.left
         +select({
           options : [
             '내용+제목'
@@ -30,7 +21,17 @@ block content
           placeholder:"검색어를 입력해주세요",
           type:"input"
         })
-  
+      span.right
+        +select({
+          options : [
+            '작성일'
+          ]
+        })
+        +select({
+          options : [
+            '내림차순'
+          ]
+        })
     p.board_result_text
       | 검색 결과 
       em 36건
