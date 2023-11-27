@@ -114,9 +114,226 @@ block content
     .chart_sec 
       .chart_wrap 
         p.title 주민등록인구
-        .chart
+        .chart#chart1
         a(href="").more 출처
       .chart_wrap 
         p.title 등록외국인
-        .chart
+        .chart#chart2
         a(href="").more 출처
+  script.
+    var optionChart1 = {
+      series: [
+        {
+          data: [
+            {
+              x: ['2023-01'],
+              y: 1200000
+            },
+            {
+              x: ['2023-02'],
+              y: 900000
+            },
+            {
+              x: ['2023-03'],
+              y: 800000
+            },
+            {
+              x: ['2023-04'],
+              y: 110000
+            },
+            {
+              x: ['2023-05'],
+              y: 700000
+            },
+            {
+              x: ['2023-06'],
+              y: 500000
+            },
+            {
+              x: ['2023-07'],
+              y: 500000
+            },
+          ]
+        }
+      ],
+      yaxis: {
+        min:0,
+        tickAmount:4,
+        labels: {
+          style:{
+            fontSize:"14px"
+          },
+          formatter: (value) => { 
+            return new Intl.NumberFormat('en-US', {
+              notation: 'compact',
+              maximumFractionDigits: 1,
+            }).format(value)
+          },
+        }
+      }, 
+      plotOptions: {
+        bar: {
+          columnWidth:24,
+        }
+      },
+      chart: {
+        type: "bar",
+        height: 240,
+        background: "#19191E",
+        dropShadow: {
+          enabled: true,
+          color: "#000"
+        },
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          type:"vertical",
+          colorStops: [
+            {
+              offset: 0,
+              color: "#ED9C00",
+              opacity: 1
+            },
+            {
+              offset: 100,
+              color: "#ED6C00",
+              opacity: 1
+            }
+          ]
+        }
+      },
+      
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"14px"
+          }
+        }
+      },
+    };
+    var optionChart2 = {
+      series: [
+        {
+          data: [
+            {
+              x: ['2023-01'],
+              y: 1200000
+            },
+            {
+              x: ['2023-02'],
+              y: 900000
+            },
+            {
+              x: ['2023-03'],
+              y: 800000
+            },
+            {
+              x: ['2023-04'],
+              y: 110000
+            },
+            {
+              x: ['2023-05'],
+              y: 700000
+            },
+            {
+              x: ['2023-06'],
+              y: 500000
+            },
+            {
+              x: ['2023-07'],
+              y: 500000
+            },
+          ]
+        }
+      ],
+      yaxis: {
+        min:0,
+        tickAmount:4,
+        labels: {
+          style:{
+            fontSize:"14px"
+          },
+          formatter: (value) => { 
+            return new Intl.NumberFormat('en-US', {
+              notation: 'compact',
+              maximumFractionDigits: 1,
+            }).format(value)
+          },
+        }
+      }, 
+      plotOptions: {
+        bar: {
+          columnWidth:24,
+        }
+      },
+      chart: {
+        type: "bar",
+        height: 240,
+        background: "#19191E",
+        dropShadow: {
+          enabled: true,
+          color: "#000"
+        },
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          type:"vertical",
+          colorStops: [
+            {
+              offset: 0,
+              color: "#ED7200",
+              opacity: 1
+            },
+            {
+              offset: 100,
+              color: "#ED4700",
+              opacity: 1
+            }
+          ]
+        }
+      },
+      
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"14px"
+          }
+        }
+      },
+    };
+    GCui.chart('#chart1', {chartOptions:optionChart1})
+    GCui.chart('#chart2', {chartOptions:optionChart2})
