@@ -5737,6 +5737,7 @@ table, th, td {
   border: 1px solid #2F323A;
   padding: 24px;
   border-radius: 6px;
+  position: relative;
 }
 .view_city .air_quality .title_sec {
   margin-top: 16px;
@@ -5829,6 +5830,7 @@ table, th, td {
   padding: 24px;
   border-radius: 6px;
   margin-top: 24px;
+  position: relative;
 }
 .view_city .time_step .title_sec {
   margin-top: 16px;
@@ -5878,14 +5880,6 @@ table, th, td {
     font-size: 14px;
     font-weight: 500;
   }
-}
-.view_city .keyword_lank .more {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  text-decoration: underline;
-  color: #C3CDD6;
-  font-size: 12px;
 }
 .view_city .lank,
 .view_city .total,
@@ -6127,14 +6121,6 @@ table, th, td {
   font-size: 28px;
   color: #fff;
   font-weight: 700;
-}
-.indicators_lists .chart_sec .chart_wrap .more {
-  position: absolute;
-  top: 32px;
-  right: 0;
-  text-decoration: underline;
-  color: #C3CDD6;
-  font-size: 12px;
 }
 .indicators_lists .nav {
   flex: 1;
@@ -7075,14 +7061,6 @@ table, th, td {
     margin-top: 20px;
   }
 }
-.main .section .list_box .more {
-  font-size: 12px;
-  color: #C3CDD6;
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  text-decoration: underline;
-}
 .main .section .slides_chart {
   max-width: 100%;
   width: 100%;
@@ -7785,5 +7763,62 @@ table, th, td {
 }
 .tooltip_box span {
   display: block;
+}
+
+.source_layer {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: #272A31;
+  padding: 6px 20px;
+  border: 1px solid #ED6C00;
+  border-radius: 6px;
+  z-index: 99;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25), -3px -3px 8px rgba(0, 0, 0, 0.25);
+}
+.source_layer .mui_datatable {
+  width: 260px;
+  font-size: 12px;
+}
+.source_layer .mui_datatable .cols1 {
+  width: 33.3333%;
+}
+.source_layer .mui_datatable .cols2 {
+  width: 33.3333%;
+}
+.source_layer .mui_datatable .cols3 {
+  width: 33.3334%;
+}
+.source_layer .mui_datatable th, .source_layer .mui_datatable td {
+  text-align: left;
+  padding: 6px 0 3px;
+}
+.source_layer .mui_datatable thead th {
+  color: #ED6C00;
+}
+.source_layer .mui_datatable thead tr {
+  border-bottom: 1px solid #ED6C00;
+}
+.source_layer .mui_datatable tbody th, .source_layer .mui_datatable tbody td {
+  color: #C3CDD6;
+}
+.source_layer .mui_datatable tbody tr:not(:last-child) {
+  border-bottom: 1px solid #636363;
+}
+
+.source {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.more {
+  font-size: 12px;
+  color: #C3CDD6;
+  text-decoration: underline !important;
+}
+.more:hover, .more:active, .more:focus {
+  color: #C3CDD6;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=common.css.map */

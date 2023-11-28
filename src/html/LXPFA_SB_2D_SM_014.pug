@@ -166,10 +166,77 @@ block content
                 .slide_chart#chart2
               .slide_list.swiper-slide
                 .slide_chart#chart3
-          
-
-
-        a(href="").more 출처
+        .source
+          a(href="", mui-toggle="target:#source1;mode:hover;").more 출처
+          .source_layer#source1(hidden="")
+            .data_table 
+              +dataTable({
+                caption:"출처",
+                colgroup:['cols1','cols2','cols3'],
+                headData:[
+                  [
+                    {
+                      text: "데이터",
+                    },
+                    {
+                      text: "출처",
+                    },
+                    {
+                      text: "기준일자",
+                    },
+                  ],
+                ],
+                bodyData:[
+                  [
+                    {
+                      text: "일반",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "청년",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "노인",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "장애인",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                ]
+              })
       .list_box 
         p.title1 일자리
         ul.req_data
@@ -545,7 +612,6 @@ block content
           
 
   script.
-    var $ = GCui.util.$;
     var merge = GCui.util.merge;
     var find = GCui.util.find;
     var chartStyle = {

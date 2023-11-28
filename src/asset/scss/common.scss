@@ -936,6 +936,7 @@
 		padding-bottom: 31px;
 		margin-top: 20px;
 	}
+	
 	.sort {
 		display: flex;
 		justify-content: space-between;
@@ -1680,6 +1681,7 @@
 		border: 1px solid #2F323A;
 		padding: 24px;
 		border-radius: 6px;
+		position: relative;
 		.title_sec {
 			margin-top: 16px;
 			display: flex;
@@ -1771,6 +1773,7 @@
 		padding: 24px;
 		border-radius: 6px;
 		margin-top: 24px;
+		position: relative;
 		.title_sec {
 			margin-top: 16px;
 			display: flex;
@@ -1813,14 +1816,6 @@
 				font-size: 14px;
 				font-weight: 500;
 			}
-		}
-		.more {
-			position: absolute;
-			top: 24px;
-			right: 24px;
-			text-decoration: underline;
-			color: #C3CDD6;
-			font-size: 12px;
 		}
 	}
 	.lank,
@@ -2027,14 +2022,7 @@
 				color: #fff;
 				font-weight: 700;
 			}
-			.more {
-				position: absolute;
-				top: 32px;
-				right: 0;
-				text-decoration: underline;
-				color: #C3CDD6;
-				font-size: 12px;
-			}
+
 		}
 	}
 	.nav {
@@ -2886,14 +2874,6 @@
 					margin-top: 20px;
 				}
 			}
-			.more {
-				font-size: 12px;
-				color: #C3CDD6;
-				position: absolute;
-				top: 24px;
-				right: 24px;
-				text-decoration: underline;
-			}
 		}
 		.slides_chart{
 			max-width: 100%;
@@ -3571,3 +3551,63 @@
 	}
 }
 
+.source_layer{
+	position: absolute;
+	right: 0;
+	top: 30px;
+	background: #272A31;
+	padding: 6px 20px;
+	border: 1px solid #ED6C00;
+	border-radius: 6px;
+	z-index: 99;
+	box-shadow: 3px 3px 8px rgba($color: #000, $alpha: .25), -3px -3px 8px rgba($color: #000, $alpha: .25);
+	.mui_datatable {
+		width: 260px;
+		font-size: 12px;
+		.cols{
+			&1{
+				width: 33.3333%;
+			}
+			&2{
+				width: 33.3333%;
+			}
+			&3{
+				width: 33.3334%;
+			}
+		}
+		th, td {
+			text-align: left;
+			padding: 6px 0 3px;
+		}
+		thead {
+			th {
+				color: #ED6C00;
+			}
+			tr {
+				border-bottom: 1px solid #ED6C00;
+			}
+		}
+		tbody {
+			th, td {
+				color: #C3CDD6;
+			}
+			tr:not(:last-child) {
+				border-bottom: 1px solid #636363;
+			}
+		}
+	}
+}
+.source {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+}
+.more {
+	font-size: 12px;
+	color: #C3CDD6;
+	text-decoration: underline !important;
+	&:hover, &:active, &:focus {
+		color: #C3CDD6;
+		text-decoration: underline;
+	}
+}

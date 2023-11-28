@@ -65,7 +65,10 @@ export default {
             },
             handler(e) {
                 e.preventDefault();
-                this.toggle();
+                if (!isTouch(e) || !includes(this.mode, 'hover') ) {
+                    this.toggle();
+                }
+                
             }
         },
         {
