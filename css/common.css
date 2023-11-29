@@ -5193,7 +5193,7 @@ table, th, td {
   font-size: 16px;
   color: #fff;
   display: block;
-  background: url("/src/images/ico_folder.svg") no-repeat left center;
+  background: url("/src/images/ico_folder.png") no-repeat left center;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .board_view .view_cont .file a {
