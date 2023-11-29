@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,19 @@
           <div id="toggle_box1">토글 컨텐츠</div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#toggle_box1;"><span>토글 - show/ hide</span></button><div id="toggle_box1">토글 컨텐츠</div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button({
+  label:"토글 - show/ hide",
+  size:'large',
+  muiToggle:'target:#toggle_box1;'
+})
+div#toggle_box1 토글 컨텐츠</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -37,7 +51,22 @@
           <div class="toggles" hidden="">내용 2</div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:.toggles;"><span>토글 - 내용 1 / 내용 2 번갈아 노출</span></button><div class="toggles">내용 1</div><div class="toggles" hidden="">내용 2</div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button({
+  label:"토글 - 내용 1 / 내용 2 번갈아 노출",
+  size:'large',
+  muiToggle:'target:.toggles;'
+})
+div.toggles 내용 1
+div.toggles(
+  hidden=""
+) 내용 2</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -48,7 +77,21 @@
           <div class="test_active" id="toggles">토글 내용</div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#toggles;cls:test_active"><span>토글 클래스</span></button><div class="test_active" id="toggles">토글 내용</div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button({
+  label:"토글 클래스",
+  size:'large',
+  muiToggle:'target:#toggles;cls:test_active'
+})
+div#toggles(
+  class="test_active"
+) 토글 내용</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -102,9 +145,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

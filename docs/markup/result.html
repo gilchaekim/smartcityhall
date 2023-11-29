@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -42,7 +44,33 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_result default"><dl> <dt>계좌상태</dt><dd> 활동계좌</dd></dl><dl> <dt>대출금액</dt><dd> 200,000,000,000원</dd></dl><dl> <dt>대출일자</dt><dd> YYYY.MM.DD</dd></dl><dl> <dt>대출만기일자</dt><dd> YYYY.MM.DD</dd></dl></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+result({
+  data:[
+    {
+      title:"계좌상태",
+      text:"활동계좌",
+    },
+    {
+      title:"대출금액",
+      text:"200,000,000,000원",
+    },
+    {
+      title:"대출일자",
+      text:"YYYY.MM.DD",
+    },
+    {
+      title:"대출만기일자",
+      text:"YYYY.MM.DD",
+    },
+  ]
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -70,7 +98,34 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_result default greybox"><dl> <dt>계좌상태</dt><dd> 활동계좌</dd></dl><dl> <dt>대출금액</dt><dd> 200,000,000,000원</dd></dl><dl> <dt>대출일자</dt><dd> YYYY.MM.DD</dd></dl><dl> <dt>대출만기일자</dt><dd> YYYY.MM.DD</dd></dl></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+result({
+  className:"greybox",
+  data:[
+    {
+      title:"계좌상태",
+      text:"활동계좌",
+    },
+    {
+      title:"대출금액",
+      text:"200,000,000,000원",
+    },
+    {
+      title:"대출일자",
+      text:"YYYY.MM.DD",
+    },
+    {
+      title:"대출만기일자",
+      text:"YYYY.MM.DD",
+    },
+  ]
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -98,7 +153,34 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_result line"><dl> <dt>계좌상태</dt><dd> 활동계좌</dd></dl><dl> <dt>대출금액</dt><dd> 200,000,000,000원</dd></dl><dl> <dt>대출일자</dt><dd> YYYY.MM.DD</dd></dl><dl> <dt>대출만기일자</dt><dd> YYYY.MM.DD</dd></dl></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+result({
+  dataType:"line",
+  data:[
+    {
+      title:"계좌상태",
+      text:"활동계좌",
+    },
+    {
+      title:"대출금액",
+      text:"200,000,000,000원",
+    },
+    {
+      title:"대출일자",
+      text:"YYYY.MM.DD",
+    },
+    {
+      title:"대출만기일자",
+      text:"YYYY.MM.DD",
+    },
+  ]
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -116,7 +198,19 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_result_ico result"><div class="icon_img"><img src="/src/images/ico_example2.png" alt=""/></div><p class="main_txt">결과 메세지</p><p class="sub_txt">서브 메세지<br>서브 메세지</p></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+result({
+  type:'result',
+  mainText:"결과 메세지",
+  subText:"서브 메세지<br>서브 메세지",
+  img:"/src/images/ico_example2.png",
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -133,7 +227,18 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_result_ico null"><div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt=""/></div><p class="main_txt">검색결과가 없습니다.</p></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+result({
+  type:'null',
+  mainText:"검색결과가 없습니다.",
+  img:"/src/images/ico_search_empty.svg",
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -196,7 +301,15 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_accresult"><div class="acc_result"><p class="date">2023.02.01</p><div class="lists"> <div class="text"> <p class="txt1">GS 편의점</p><p class="txt2 out">5,000원</p></div><div class="time"> <p class="txt1">11:08:00</p><p class="txt2">3,064,000원</p></div></div><div class="lists"> <div class="text"> <p class="txt1">급여</p><p class="txt2 in">30,000,000원</p></div><div class="time"> <p class="txt1">11:08:00</p><p class="txt2">3,064,000원</p></div></div><div class="lists"> <div class="text"> <p class="txt1">ABC 카페</p><p class="txt2 out">30,000원</p></div><div class="time"> <p class="txt1">11:08:00</p><p class="txt2">3,064,000원</p></div></div></div></div><div class="mui_accresult"><div class="acc_result"><p class="date">02.15.01</p><div class="lists"> <div class="text"> <p class="txt1">7회차</p><p class="txt2 out">5,000원</p></div><div class="time"> <p class="txt1">11:08:00</p><p class="txt2">3,064,000원</p></div></div></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+acc_results('acc_result')
++acc_results('acc_result2')</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -256,9 +369,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

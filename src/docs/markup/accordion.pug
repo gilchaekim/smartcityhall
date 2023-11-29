@@ -2,6 +2,7 @@ extends ../layout/guideBase.pug
 
 block content
   div.main_content
+    div(mui-bump) dfdfgsdfgsfdgsfd
     +guideTitle({
       text:"Accordion"
     })
@@ -26,6 +27,9 @@ block content
             div content2                
     br
     br
+    pre.tessss
+      code.testtttt
+      
     +guideExample()(code)
       :code
         +accordion({
@@ -85,6 +89,5 @@ block content
           text:'-'
         }
       ]
-    ])
-
+    ])  
 

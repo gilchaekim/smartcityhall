@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,18 @@
           <div class="mui_datasort"><span class="sort_data"><span class="total"> 총 <em>1</em>건</span><span class="date">2023.03.13~2023.03.19</span></span><button class="mui_button mui_select" type="button"><span class="inset"><span class="label">1주일<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_datasort"><span class="sort_data"><span class="total"> 총 <em>1</em>건</span><span class="date">2023.03.13~2023.03.19</span></span><button class="mui_button mui_select" type="button"><span class="inset"><span class="label">1주일<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+data_sort({
+  total:"1",
+  date:"2023.03.13~2023.03.19",
+  isBtn:true
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -41,9 +54,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

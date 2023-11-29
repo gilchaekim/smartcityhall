@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +28,21 @@
           <div class="mui_card_list"><a href=""><span class="img"><img src="/src/images/ico_example2.png" /></span><span class="text">카드 리스트</span></a></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_card_list"><a href=""><span class="img"><img src="/src/images/ico_example2.png"/></span><span class="text">카드 리스트</span></a></div><div class="mui_card_list"><a href=""><span class="img"><img src="/src/images/ico_example2.png"/></span><span class="text">카드 리스트</span></a></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+card_ico_list({
+  src:"/src/images/ico_example2.png",
+  text:"카드 리스트"
+})
++card_ico_list({
+  src:"/src/images/ico_example2.png",
+  text:"카드 리스트"
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -116,7 +132,110 @@
             </a></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_card is_linked"><a class="inset" href=""><div class="tags"><span class="tag default">정상</span></div><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div></a></div><div class="mui_card"><div class="inset"><div class="tags"><span class="tag error">정상</span></div><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div></div></div><div class="mui_card no_tag"><div class="inset"><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div></div></div><div class="mui_card no_tag select_type"><div class="inset"><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div><span class="mui_radio"><input type="radio" id="chk250176Id3" name="chk250176"/><label for="chk250176Id3">라디오 버튼 있음!</label></span></div></div><div class="mui_card no_tag select_type"><div class="inset"><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div><span class="mui_radio"><input type="radio" id="chk250176Id4" name="chk250176"/><label for="chk250176Id4">라디오 버튼 있음!</label></span></div></div><div class="mui_card is_linked no_tag in_title"><a class="inset" href=""><p class="title">타이틀</p><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div></a></div><div class="mui_card is_linked"><a class="inset" href=""><div class="tags"><span class="tag disabled">정상</span></div><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div></a></div><div class="mui_card is_linked"><a class="inset" href=""><div class="tags"><span class="tag error">정상</span></div><div class="mui_result default"><dl> <dt>내용</dt><dd> 내용</dd></dl></div></a></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+card({
+  isLinked:true,
+  tag : {
+    label:"정상",
+    status:"default"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  tag : {
+    label:"정상",
+    status:"error"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  isSelecte:true,
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
+  +radioCheck({
+    type:"radio",
+    name:'chk250176',
+    label:'라디오 버튼 있음!'
+  })
++card({
+  isSelecte:true,
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
+  +radioCheck({
+    type:"radio",
+    name:'chk250176',
+    label:'라디오 버튼 있음!'
+  })
++card({
+  isLinked:true,
+  title : "타이틀",
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  isLinked:true,
+  tag : {
+    label:"정상",
+    status:"disabled"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
++card({
+  isLinked:true,
+  tag : {
+    label:"정상",
+    status:"error"
+  },
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -132,9 +251,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +37,14 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_selectlist base"><!-- 체크 시 mui_active 클래스 추가 --><ul><li class="lists mui_active"><button type="button">리스트1<span class="hidden">선택 됨</span></button></li><li class="lists"><button type="button">리스트2</button></li><li class="lists"><button type="button">리스트3</button></li><li class="lists"><button type="button">리스트4</button></li></ul></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+select_list()</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -53,7 +62,16 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_selectlist account"><!-- 체크 시 mui_active 클래스 추가 --><ul><li class="lists mui_active"><button type="button"> <span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span><span class="hidden">선택 됨</span></button></li><li class="lists"><button type="button"> <span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span></button></li><li class="lists"><button type="button"> <span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span></button></li><li class="lists"><button type="button"> <span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span></button></li></ul></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+select_list({
+  type:"account"
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -71,7 +89,16 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_selectlist account_img"><!-- 체크 시 mui_active 클래스 추가 --><ul><li class="lists mui_active"><button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="hidden">선택 됨</span></button></li><li class="lists"><button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span></button></li><li class="lists"><button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span></button></li><li class="lists"><button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span></button></li></ul></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+select_list({
+  type:"account_img"
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -119,9 +146,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

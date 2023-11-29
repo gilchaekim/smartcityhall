@@ -322,7 +322,77 @@ block content
                   span 관련 정책
                 button(type="button").type2
                   span 일자리보기
-        a(href="").more 출처
+        .source
+          a(href="", mui-toggle="target:#source2;mode:hover;").more 출처
+          .source_layer#source2(hidden="")
+            .data_table 
+              +dataTable({
+                caption:"출처",
+                colgroup:['cols1','cols2','cols3'],
+                headData:[
+                  [
+                    {
+                      text: "데이터",
+                    },
+                    {
+                      text: "출처",
+                    },
+                    {
+                      text: "기준일자",
+                    },
+                  ],
+                ],
+                bodyData:[
+                  [
+                    {
+                      text: "일반",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "청년",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "노인",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "장애인",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                ]
+              })
         
 
     .section.sc3
@@ -494,7 +564,77 @@ block content
               a(href="") 균형발전 37개
               a(href="") 40대 중첩과제
 
-        a(href="").more 출처
+        .source
+          a(href="", mui-toggle="target:#source3;mode:hover;").more 출처
+          .source_layer#source3(hidden="")
+            .data_table 
+              +dataTable({
+                caption:"출처",
+                colgroup:['cols1','cols2','cols3'],
+                headData:[
+                  [
+                    {
+                      text: "데이터",
+                    },
+                    {
+                      text: "출처",
+                    },
+                    {
+                      text: "기준일자",
+                    },
+                  ],
+                ],
+                bodyData:[
+                  [
+                    {
+                      text: "일반",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "청년",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "노인",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                  [
+                    {
+                      text: "장애인",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                ]
+              })
       .list_box_wrap 
         .list_box 
           p.title1 데이터명
@@ -514,15 +654,85 @@ block content
             .slider
               .swiper-wrapper
                 .slide_list.swiper-slide
-                  .slide_chart 34324
+                  .slide_chart#chart1_1
                 .slide_list.swiper-slide
-                  .slide_chart 222
+                  .slide_chart#chart2_1
                 .slide_list.swiper-slide
-                  .slide_chart 111
+                  .slide_chart#chart3_1
             
 
 
-          a(href="").more 출처
+          .source
+            a(href="", mui-toggle="target:#source4;mode:hover;").more 출처
+            .source_layer#source4(hidden="")
+              .data_table 
+                +dataTable({
+                  caption:"출처",
+                  colgroup:['cols1','cols2','cols3'],
+                  headData:[
+                    [
+                      {
+                        text: "데이터",
+                      },
+                      {
+                        text: "출처",
+                      },
+                      {
+                        text: "기준일자",
+                      },
+                    ],
+                  ],
+                  bodyData:[
+                    [
+                      {
+                        text: "일반",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                    [
+                      {
+                        text: "청년",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                    [
+                      {
+                        text: "노인",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                    [
+                      {
+                        text: "장애인",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                  ]
+                })
         .list_box 
           p.title1 일자리
           ul.req_data
@@ -608,8 +818,78 @@ block content
                     span 관련 정책
                   button(type="button").type2
                     span 일자리보기
-          a(href="").more 출처
-          
+          .source
+            a(href="", mui-toggle="target:#source5;mode:hover;").more 출처
+            .source_layer#source5(hidden="")
+              .data_table 
+                +dataTable({
+                  caption:"출처",
+                  colgroup:['cols1','cols2','cols3'],
+                  headData:[
+                    [
+                      {
+                        text: "데이터",
+                      },
+                      {
+                        text: "출처",
+                      },
+                      {
+                        text: "기준일자",
+                      },
+                    ],
+                  ],
+                  bodyData:[
+                    [
+                      {
+                        text: "일반",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                    [
+                      {
+                        text: "청년",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                    [
+                      {
+                        text: "노인",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                    [
+                      {
+                        text: "장애인",
+                        isTitle:true
+                      },
+                      {
+                        text: "내용"
+                      },
+                      {
+                        text: "내용"
+                      }
+                    ],
+                  ]
+                })
+            
 
   script.
     var merge = GCui.util.merge;
@@ -790,6 +1070,9 @@ block content
     GCui.chart('#chart1', {chartOptions:optionChart1})
     GCui.chart('#chart2', {chartOptions:optionChart2})
     GCui.chart('#chart3', {chartOptions:optionChart3})
+    GCui.chart('#chart1_1', {chartOptions:optionChart1})
+    GCui.chart('#chart2_1', {chartOptions:optionChart2})
+    GCui.chart('#chart3_1', {chartOptions:optionChart3})
     GCui.slider('[mui-slider]').Swiper.on('slideChangeTransitionEnd', function(e){
       var activeSlide = e.slides[e.activeIndex];
       console.log(find('.slide_chart', activeSlide))

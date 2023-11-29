@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +37,16 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_inputmoney"><span class="mui_input inner_subfix subfix_won sublength_1"><input type="text" placeholder="숫자만 입력" value="" mui-input=""/><span class="subfix"><span>원</span><span class="delete_btn"><button class="delete_val" type="button"><span class="hidden">삭제</span></button></span></span></span><div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>전액</span></button></span></div></div><div class="mui_inputmoney"><span class="mui_input inner_subfix subfix_won sublength_1"><input type="text" placeholder="숫자만 입력" value="" mui-input=""/><span class="subfix"><span>원</span><span class="delete_btn"><button class="delete_val" type="button"><span class="hidden">삭제</span></button></span></span></span><div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span></div></div><p class="msg_form msg_error">에러 메세지</p><div class="mui_inputmoney"><span class="mui_input inner_subfix subfix_won sublength_1"><input type="text" placeholder="숫자만 입력" value="" mui-input=""/><span class="subfix"><span>원</span><span class="delete_btn"><button class="delete_val" type="button"><span class="hidden">삭제</span></button></span></span></span><p class="money_guide"> 100만<span>원</span></p><div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>전액</span></button></span></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+input_money()
++input_money({btns:["1만", "1만", "1만", "1만"], message:{type:"error", text:"에러 메세지"}})
++input_money({guideMoney:true})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -51,7 +62,18 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_inputbtn"><span class="mui_input"><input type="text" title="숫자만 입력하세요" placeholder="'-'제외하고 숫자만 입력하세요" mui-input=""/></span><div class="btn_sec"><button class="mui_button mui_medium mui_primary" type="button"><span>인증요청</span></button></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+input_button({
+  btnText:"인증요청",
+  placeholder:"'-'제외하고 숫자만 입력하세요",
+  title:"숫자만 입력하세요"
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -64,7 +86,19 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_inputbtn ico search"><span class="mui_input"><input type="text" title="주소 입력" placeholder="주소 입력" mui-input=""/></span><div class="btn_sec"><button class="mui_button mui_medium mui_primary" type="button"><span>검색</span></button></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+input_button({
+  btnText:"검색",
+  placeholder:"주소 입력",
+  title:"주소 입력",
+  className:"ico search"
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -80,9 +114,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

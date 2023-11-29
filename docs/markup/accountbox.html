@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +38,34 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_accountbox"><div class="acc_name_wrap inner_tag"><p class="acc_name">비대면 파킹통장 보통예금</p><div class="tags"><span class="mui_tag type1">전용계좌</span></div></div><div class="acc_data"><p class="acc_num">평생 010-12345678</p><p class="acc_end">2025.12.31</p></div><p class="acc_val">203030313333<span class="won">원</span></p><div class="btns"><button class="mui_button mui_medium mui_primary" type="button"><span>이체</span></button><button class="mui_button mui_medium mui_primary" type="button"><span>거래내역조회</span></button></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">//- 거래중지 = type1
++accountbox({
+  accName:"비대면 파킹통장 보통예금",
+  accNum:"평생 010-12345678",
+  accVal:"203030313333",
+  endDate:"2025.12.31",
+  btns: [
+    {
+      label:"이체"
+    },
+    {
+      label:"거래내역조회"
+    }
+  ],
+  
+  tags:[{
+    
+    text:"전용계좌", type:"type1"
+  }]
+ 
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -58,7 +87,32 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_accountbox main_card"><div class="acc_name_wrap inner_tag"><p class="acc_name"><a href=""><span>비대면 파킹통장 보통예금예금예금예</span></a></p><div class="tags"><span class="mui_tag test111222">거래중지</span></div></div><div class="acc_data"><p class="acc_num">평생 010-12345678</p><p class="acc_end">2025.12.31</p></div><p class="acc_val">20,303,031,3333<span class="won">원</span></p><div class="btns"><button class="mui_button mui_medium mui_primary" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_primary" type="button"><span>버튼</span></button></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+accountbox({
+  accNameLink:"비대면 파킹통장 보통예금예금예금예",
+  accNum:"평생 010-12345678",
+  accVal:"20,303,031,3333",
+  endDate:"2025.12.31",
+  className:"main_card",
+  btns: [
+    {
+      label:"버튼"
+    },
+    {
+      label:"버튼"
+    }
+  ],
+  tags:[{
+    text:"거래중지", type:"test111222"
+  }]
+ 
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -74,9 +128,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

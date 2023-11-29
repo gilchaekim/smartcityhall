@@ -15,7 +15,11 @@ const javascriptBuild = () => {
   return (
     rollup({
       input: config.source.jsIndex,
-      format: "umd",
+      format: "es6",
+      onwarn: function (warning, warn) {
+        if (warning.code === 'CIRCULAR_DEPENDENCY') return;
+        warn(warning);
+      },      
       plugins: [
         commonjs(),
         resolve.nodeResolve(),

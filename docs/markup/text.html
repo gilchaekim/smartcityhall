@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -28,7 +30,28 @@
           <p class="mui_text f18">입력하신 정보로<em>정기예금 복리식(비대면)</em>상품에 가입하시겠어요?</p>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><p class="mui_text default">가나다라마바사</p><p class="mui_text warning">가나다라마바사</p><p class="mui_text link"><a href="">대출신청 조회</a></p><p class="mui_text f18">입력하신 정보로<em>정기예금 복리식(비대면)</em>상품에 가입하시겠어요?</p></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+text({
+  text:"가나다라마바사"
+})
++text({
+  type:'warning',
+  text:"가나다라마바사"
+})
++text({
+  type:'link',
+  text:"대출신청 조회"
+})
++text({
+  type:'f18',
+  text:"입력하신 정보로<em>정기예금 복리식(비대면)</em>상품에 가입하시겠어요?"
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -76,9 +99,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

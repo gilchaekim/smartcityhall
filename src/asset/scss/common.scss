@@ -463,6 +463,9 @@
 		.side_menu {
 			display: none;
 		}
+		#contents {
+			
+		}
 		@include respondTo("mobile"){
 			padding-left: 0;
 		}
@@ -1113,6 +1116,7 @@
 	}
 }
 .board_view {
+	color: #fff;
 	.board_data {
 		margin-top: 16px;
 		padding-bottom: 16px;
@@ -2573,6 +2577,7 @@
 		}
 		&:nth-child(3) {
 			width: 445px;
+			min-width: 445px;
 			@include respondToMinMax(1024, 1366){
 				height: 500px;
 				overflow: auto;
@@ -3008,6 +3013,7 @@
 								background-size: 100%;
 							}
 							&.down {
+								color: #00B2FF;
 								&::after {
 									background-image: url($url_common+"ico_down.svg");
 								}
@@ -3344,9 +3350,10 @@
 						align-items: center;
 						height: 30px;
 						border: 1px solid #ED6C00;
-						padding: 0 24px;
+						padding: 0 20px;
 						color: #fff;
 						border-radius: 15px;
+						font-size: 14px;
 						@include respondTo("mobile"){
 							display: flex;
 							width: 100%;
@@ -3611,3 +3618,4 @@
 		text-decoration: underline;
 	}
 }
+

@@ -5131,6 +5131,9 @@ table, th, td {
   border-bottom: 1px solid #2F323A;
 }
 
+.board_view {
+  color: #fff;
+}
 .board_view .board_data {
   margin-top: 16px;
   padding-bottom: 16px;
@@ -6748,6 +6751,7 @@ table, th, td {
 }
 .main .section:nth-child(3) {
   width: 445px;
+  min-width: 445px;
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
   .main .section:nth-child(3) {
@@ -7202,6 +7206,9 @@ table, th, td {
   background: url("/src/images/ico_up.svg") no-repeat center;
   background-size: 100%;
 }
+.main .section .req_data .data_box dl dd em.down {
+  color: #00B2FF;
+}
 .main .section .req_data .data_box dl dd em.down::after {
   background-image: url("/src/images/ico_down.svg");
 }
@@ -7544,9 +7551,10 @@ table, th, td {
   align-items: center;
   height: 30px;
   border: 1px solid #ED6C00;
-  padding: 0 24px;
+  padding: 0 20px;
   color: #fff;
   border-radius: 15px;
+  font-size: 14px;
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .main .section .prms_status .keyword_list .list a {

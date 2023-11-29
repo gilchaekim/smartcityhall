@@ -9,11 +9,14 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
   <div id="guideWrap">
     <div class="main_content">
+      <div mui-bump>dfdfgsdfgsfdgsfd</div>
       <div class="title_sec">
         <p class="guide_title title_lv1">Accordion</p>
       </div>
@@ -40,12 +43,32 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_accordion" mui-accordion=""><div class="acc_lists"><div class="acc_header"><span class="acc_title">아코디언 리스트 타이틀 이건 텍스트고1</span><button class="mui_acc_button" type="button"> 열기</button></div><div class="mui_acc_content"><div>content1</div></div></div><div class="acc_lists"><div class="acc_header"><div style="border:1px solid red">아코디언 리스트 타이틀 이건 dom 구조로 들어온 것</div><button class="mui_acc_button" type="button"> 열기</button></div><div class="mui_acc_content"><div>content2</div></div></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+accordion({
+  active:2
+})
+  +acc_title('아코디언 리스트 타이틀 이건 텍스트고1')
+  +acc_content()
+    div content1
+ 
+  +acc_title()
+    div(
+      style="border:1px solid red"
+    ) 아코디언 리스트 타이틀 이건 dom 구조로 들어온 것
+  +acc_content()
+    div content2</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
         </div>
       </div><br><br>
+      <pre class="tessss"><code class="testtttt"></code></pre>
       <div class="guide_card_box">
         <section class="code_view">
           <div class="mui_accordion type2" mui-accordion="">
@@ -73,7 +96,35 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_accordion type2" mui-accordion=""><div class="acc_lists mui_open"><div class="acc_header"><span class="acc_title">타이틀</span><button class="mui_acc_button" type="button"> 닫기</button></div><div class="mui_acc_content"><div class="mui_result default greybox"><dl> <dt>예치금액</dt><dd> 10,000,000원</dd></dl><dl> <dt>이자(세전)</dt><dd> 10,000,000원</dd></dl></div></div></div><div class="acc_lists"><div class="acc_header"><span class="acc_title">타이틀2</span><button class="mui_acc_button" type="button"> 열기</button></div><div class="mui_acc_content"><p>sdfsdfsdfsd</p></div></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+accordion({
+  active:0,
+  className:'type2'
+})
+  +acc_title('타이틀')
+  +acc_content()
+    +result({
+      className:"greybox",
+      data:[
+        {
+          title:"예치금액",
+          text:"10,000,000원",
+        },
+        {
+          title:"이자(세전)",
+          text:"10,000,000원",
+        }
+      ]
+    })
+  +acc_title('타이틀2')
+  +acc_content()
+    p sdfsdfsdfsd</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -127,9 +178,23 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    });
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

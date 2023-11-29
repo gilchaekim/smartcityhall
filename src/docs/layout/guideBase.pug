@@ -28,14 +28,50 @@ html(lang="ko")
       type="text/javascript"
       src="/index.js"
     )
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
   body
     #guideWrap
       block content
 
 
+
+
+    //- include index.pug\n
+    //- \n
+    //- section.code_view\n
+    //-   ${text.trim().split('\n').join('\n  ')}\n
+    //- \n
+    //- div.code_block\n
+    //-   .code_html\n
+    //-     p.title html\n
+    //-     pre\n
+    //-       code.language-html\n
+    //-   .code_pug\n
+    //-     p.title pug\n
+    //-     pre\n
+    //-       code.language-pug\n
+    //-         | ${text.trim().split('\n').join('\n        | ')}
+
+
+
     script.
-      const {$, $$, on, attr, hasAttr, removeAttr, closest} = GCui.util;
-      const btn = $$('.view_code button')
+      const {$, $$, on, attr, hasAttr, removeAttr, closest, wrapInner} = GCui.util;
+      const btn = $$('.view_code button');
+      const codes = [];
+      const htmlcode = $$('.code_html pre code');
+      const codePug = $$('.code_pug pre');
+      const codeHtml = $$('.code_html pre');
+      
+      $$('.code_view').forEach((el, idx)=>{
+        var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+        codes.push(html)
+        htmlcode[idx].innerHTML = '        '+html;
+        hljs.highlightElement(codePug[idx])
+        hljs.highlightElement(codeHtml[idx])
+      });    
+      
       on(btn, 'click', (e)=>{
         const target = $('.code_block', closest(e.target, '.guide_card_box'))
         if (hasAttr(target, 'hidden')){
@@ -44,3 +80,4 @@ html(lang="ko")
           attr(target, 'hidden', '')
         }
       })
+    

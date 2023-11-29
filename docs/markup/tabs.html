@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -44,7 +46,24 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_tabs custom_tab" mui-tab=""><ul class="mui_tab_nav"><li class="nav_list"><button type="button">텝 네비1</button></li><li class="nav_list mui_active"><button type="button">텝 네비2</button></li><li class="nav_list"><button type="button">텝 네비3</button></li><li class="nav_list"><button type="button">텝 네비4</button></li></ul><div class="tab_contents"><div class="tab_pane"><div>11111</div></div><div class="tab_pane mui_active"><div>22222</div></div><div class="tab_pane"><div>33333</div></div><div class="tab_pane"></div></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+tabsWrap({
+  active:1,
+  className:'custom_tab'
+})
+  +tab("텝 네비1")
+    div 11111
+  +tab("텝 네비2")
+    div 22222
+  +tab("텝 네비3")
+    div 33333
+  +tab("텝 네비4")</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -67,7 +86,23 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_tabs link_tab custom_tab"><ul class="mui_tab_nav"><li class="nav_list"><a href="#none">텝 네비1</a></li><li class="nav_list mui_active"><a href="#none">텝 네비2</a></li><li class="nav_list"><a href="#none">텝 네비3</a></li><li class="nav_list"><a href="#none">텝 네비4</a></li></ul><div class="tab_contents"><div class="tab_pane"><div>텝 컨텐츠</div></div></div></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+tabsLink({
+  list:[
+    {name:'텝 네비1'},
+    {name:'텝 네비2', active:true},
+    {name:'텝 네비3'},
+    {name:'텝 네비4'},
+  ],
+  className:'custom_tab'
+})
+  div 텝 컨텐츠</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -156,9 +191,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

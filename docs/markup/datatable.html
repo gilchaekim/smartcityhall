@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -65,7 +67,84 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_datatable"><table><colgroup><col class="10"/><col class="40"/><col class="10"/></colgroup><caption>테이블 제목</caption><thead><tr><th class="th custom-class" scope="cols"><em>제목1</em></th><th class="th" scope="cols">제목2</th><th class="th" scope="cols">제목3</th></tr><tr><th class="th" scope="cols">제목1-1</th><th class="th" scope="cols">제목1-2</th><th class="th" scope="cols">제목1-3</th></tr></thead><tfoot><tr><th class="th custom-class" scope="rows"><em>tfoot 제목</em></th><td>내용</td><td>내용</td></tr></tfoot><tbody><tr><th class="th custom-class" scope="rows"><em>제목2-1</em></th><td>내용</td><td>내용</td></tr><tr><th class="th" scope="rows">제목2-2</th><td>내용</td><td>내용</td></tr></tbody></table></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+dataTable({
+  caption:"테이블 제목",
+  colgroup:[10, 40, 10],
+  headData:[
+    [
+      {
+        text: "<em>제목1</em>",
+        className:"custom-class"
+      },
+      {
+        text: "제목2"
+      },
+      {
+        text: "제목3"
+      },
+    ],
+    [
+      {
+        text: "제목1-1"
+      },
+      {
+        text: "제목1-2"
+      },
+      {
+        text: "제목1-3"
+      },
+    ],
+  ],
+  bodyData:[
+    [
+      {
+        text: "<em>제목2-1</em>",
+        className:"custom-class",
+        isTitle:true
+      },
+      {
+        text: "내용"
+      },
+      {
+        text: "내용"
+      }
+    ],
+    [
+      {
+        text: "제목2-2",
+        isTitle:true
+      },
+      {
+        text: "내용"
+      },
+      {
+        text: "내용"
+      }
+    ],
+  ],
+  footerData:[
+    [
+      {
+        text: "<em>tfoot 제목</em>",
+        className:"custom-class",
+        isTitle:true
+      },
+      {
+        text: "내용"
+      },
+      {
+        text: "내용"
+      }
+    ],
+  ]
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -187,9 +266,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

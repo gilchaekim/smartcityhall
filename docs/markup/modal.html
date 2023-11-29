@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +39,40 @@
           </div><!-- / layer -->
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#modal;mode:hover;"><span>기본 모달 호출</span></button><!-- layer --><div mui-modal="" id="modal"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical"> <div class="mui_modal_body"><div class="mui_modal_header"> <p>모달 타이틀</p></div><div class="mui_modal_content"><div>모달 컨텐츠</div><div class="mui_button_wrap"><button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button><button class="mui_button mui_large mui_primary mui_modal_close" type="button"><span>취소</span></button></div></div><button class="mui_modal_close">닫기</button></div></div></div><!-- / layer --></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">//- 호출 버튼
++button({
+  label:"기본 모달 호출",
+  size:'large',
+  muiToggle:'target:#modal;mode:hover;'
+})
+ 
+ 
++modal({
+  title:"모달 타이틀"
+})
+  //- 컨텐츠 영역
+  div 모달 컨텐츠
+ 
+  //- //- 푸터 영역
+  //- +footer()
+  +button_wrap()
+    
+    +button({
+      label:"확인",
+      size:'large',
+    })
+    +button({
+      label:"취소",
+      size:'large',
+      className:"mui_modal_close"
+    })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -63,7 +98,41 @@
           </div><!-- / layer -->
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>풀팝업 호출</span></button><!-- layer --><div class="mui_fullpop_wrap" mui-modal="" id="fullLayer"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop"> <div class="mui_modal_body"><div class="mui_modal_header"> <p>풀팝업 타이틀</p></div><div class="mui_modal_content"><div>dasfasdlkjfasdklfjasldkjf</div><div>dasfasdlkjfasdklfjasldkjf</div></div><div class="mui_modal_footer"><div class="mui_button_fixed"><span class="inset"><button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button><button class="mui_button mui_large mui_primary mui_modal_close" type="button"><span>취소</span></button></span></div></div><button class="mui_modal_close">닫기</button></div></div></div><!-- / layer --></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">//- 호출 버튼
++button({
+  label:"풀팝업 호출",
+  size:'large',
+  muiToggle:'target:#fullLayer;'
+})
+ 
+ 
++modal({
+  title:"풀팝업 타이틀",
+  id:"fullLayer",
+  type:"full"
+})
+  div dasfasdlkjfasdklfjasldkjf
+  div dasfasdlkjfasdklfjasldkjf
+ 
+  //- 푸터 영역
+  +footer()
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:'large',
+      })
+      +button({
+        label:"취소",
+        size:'large',
+        className:"mui_modal_close"
+      })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -89,7 +158,28 @@
           </div><!-- / layer -->
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><button class="mui_button mui_large mui_primary" type="button" mui-toggle="target:#modal_bottom;mode:hover;"><span>버텀 트레이</span></button><!-- layer --><div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray"> <div class="mui_modal_body"><div class="mui_modal_header"> <p>모달 타이틀</p></div><div class="mui_modal_content"><div>모달 컨텐츠111111111111111111111111111111111111<div>dsfsdf</div></div></div><button class="mui_modal_close">닫기</button></div></div></div><!-- / layer --></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">//- 호출 버튼
++button({
+  label:"버텀 트레이",
+  size:'large',
+  muiToggle:'target:#modal_bottom;mode:hover;'
+})
+ 
+ 
++modal({
+  title:"모달 타이틀",
+  id:"modal_bottom",
+  type:"bottom"
+})
+  div 모달 컨텐츠111111111111111111111111111111111111
+    div dsfsdf</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -348,9 +438,26 @@ GCui.modal.alert({
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {

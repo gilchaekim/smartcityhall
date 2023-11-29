@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
 <body>
@@ -42,7 +44,39 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug"><div class="mui_title"><p class="title lv1">제목 Lv1</p></div><div class="mui_title"><p class="title lv2">제목 Lv2</p></div><div class="mui_title"><p class="title lv3">제목 Lv3</p></div><div class="mui_title"><p class="title lv4">제목 Lv4</p></div><div class="mui_title"><p class="title lv5">제목 Lv5</p></div><div class="mui_title"><p class="title lv6">제목 Lv6</p></div></code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">//- clsLv
+//- tagLv
++title({
+  text:'제목 Lv1',
+  lv:1,
+})
++title({
+  text:'제목 Lv2',
+  lv:2,
+})
++title({
+  text:'제목 Lv3',
+  lv:3,
+})
++title({
+  text:'제목 Lv4',
+  lv:4,
+})
++title({
+  text:'제목 Lv5',
+  lv:5,
+})
++title({
+  text:'제목 Lv6',
+  lv:6,
+})</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -96,9 +130,26 @@
       attr,
       hasAttr,
       removeAttr,
-      closest
+      closest,
+      wrapInner
     } = GCui.util;
-    const btn = $$('.view_code button')
+    const btn = $$('.view_code button');
+    const codes = [];
+    const htmlcode = $$('.code_html pre code');
+    const codePug = $$('.code_pug pre');
+    const codeHtml = $$('.code_html pre');
+
+    $$('.code_view').forEach((el, idx) => {
+      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+      codes.push(html)
+      htmlcode[idx].innerHTML = '        ' + html;
+      hljs.highlightElement(codePug[idx])
+      hljs.highlightElement(codeHtml[idx])
+    })
+    console.log(htmlcode[0])
+
+
+
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
       if (hasAttr(target, 'hidden')) {
