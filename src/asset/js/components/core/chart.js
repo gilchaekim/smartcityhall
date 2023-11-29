@@ -1,7 +1,6 @@
 import Class from '../mixin/class';
 import {default as Togglable, toggleHeight} from '../mixin/togglable';
 import ApexCharts from 'apexcharts';
-import * as d3 from "d3";
 
 import {$, $$, attr, filter, getIndex, each, hasClass, includes, index, isInView, scrollIntoView, toggleClass, unwrap, wrapAll, within, width, css, toFloat, addClass, removeClass, Transition, assign, merge} from '../../util';
 

@@ -1,6 +1,6 @@
 import Class from '../mixin/class';
 import {default as Togglable, toggleHeight} from '../mixin/togglable';
-import * as d3 from "d3";
+// import * as d3 from "d3";
 
 import {$, $$, attr, filter, getIndex, each, hasClass, includes, index, isInView, scrollIntoView, toggleClass, unwrap, wrapAll, within, width, css, toFloat, addClass, removeClass, Transition, assign, merge} from '../../util';
 
@@ -29,7 +29,7 @@ export default {
   
     },
     connected(){
-      console.log(d3);
+      // console.log(d3);
     },
 
     methods: {
