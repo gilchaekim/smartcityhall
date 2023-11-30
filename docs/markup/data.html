@@ -69,10 +69,7 @@
       htmlcode[idx].innerHTML = '        ' + html;
       hljs.highlightElement(codePug[idx])
       hljs.highlightElement(codeHtml[idx])
-    })
-    console.log(htmlcode[0])
-
-
+    });
 
     on(btn, 'click', (e) => {
       const target = $('.code_block', closest(e.target, '.guide_card_box'))
