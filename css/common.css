@@ -7661,6 +7661,13 @@ table, th, td {
   white-space: nowrap;
   overflow: auto;
 }
+.minwon_month .chart_secbump .chart_wrap .chart::-webkit-scrollbar {
+  height: 8px;
+}
+.minwon_month .chart_secbump .chart_wrap .chart::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+}
 .minwon_month .chart_secbump .chart_wrap svg {
   display: block;
 }
