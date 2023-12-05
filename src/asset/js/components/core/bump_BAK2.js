@@ -33,7 +33,7 @@ export default {
     
     props: {
       data: Object,
-      colors: Object,
+      colors: Array,
     },
 
     data: {
@@ -42,8 +42,7 @@ export default {
       margin : {left: 0, right: 0, top: 20, bottom: 40},
       padding:25,
       bumpRadius:16,
-      drawingStyle: "compact",
-      duration:300,
+      drawingStyle: "compact"
     },
     computed: {
       scores({data}) {
@@ -91,7 +90,6 @@ export default {
           ranking,
           title,
           drawAxis,
-          duration,
         } = this;
         const width = steps.length * 64;
         const height = labels.length * 44;
@@ -124,11 +122,11 @@ export default {
 
         const svg = select(append($el, `<svg width="${width}" height="${height}">`));
         
-        // const right = ranking().sort((a, b) => a.last - b.last).map((d) => d.label);
-        // const left = ranking().sort((a, b) => a.first - b.first).map((d) => d.label);
+        const right = ranking().sort((a, b) => a.last - b.last).map((d) => d.label);
+        const left = ranking().sort((a, b) => a.first - b.first).map((d) => d.label);
 
-        // const leftY = svg.append("g").call(g => drawAxis(g, margin.left, 0, d3.axisLeft(y.domain(left))));
-        // const rightY = svg.append("g").call(g => drawAxis(g, width - margin.right, 0, d3.axisRight(y.domain(right)))); 
+        const leftY = svg.append("g").call(g => drawAxis(g, margin.left, 0, d3.axisLeft(y.domain(left))));
+        const rightY = svg.append("g").call(g => drawAxis(g, width - margin.right, 0, d3.axisRight(y.domain(right)))); 
         
 
 
@@ -141,7 +139,7 @@ export default {
           .attr("stroke", d => colors[d[0].rank])
           .attr("transform", `translate(${margin.left + padding},0)`)
           // .on("mouseover", highlight)
-          // .on("mouseout", restore);
+        //   // .on("mouseout", restore);
 
         series.selectAll("path")
           .data(d => d)
@@ -159,8 +157,8 @@ export default {
         bumps.append("circle").attr("r", compact ? 5 : bumpRadius);
 
         bumps.append("text")
-          .attr("dy", "0.35em")
-          .attr("fill", "white")
+          .attr("dy", compact ? "-0.75em" : "0.35em")
+          .attr("fill", compact ? null : "white")
           .attr("stroke", "none")
           .attr("text-anchor", "middle")    
           .style("font-weight", "bold")
@@ -173,34 +171,21 @@ export default {
         .attr("cursor", "default")
         .attr("viewBox", [0, 0, width, height]);
 
-      function highlight(e, d) {       
-        this.parentNode.appendChild(this);
-        series.filter(s => s !== d)
-          .transition().duration(300)
-          .attr("opacity", "0.1")
-        // markTick(leftY, 0);
-        // markTick(rightY,  steps.length - 1);
-        
-        function markTick(axis, pos) {
-          axis.selectAll(".tick text").filter((s, i) => i === d[pos].rank)
-            .transition().duration(duration)
-            .attr("font-weight", "bold")
-            .attr("fill", colors[d[0].rank]);
-        }
-      }
-      
-      function restore() {
-        series.transition().duration(duration)
-        .attr("opacity", "1")
-        // restoreTicks(leftY);
-        // restoreTicks(rightY);
-        
-        function restoreTicks(axis) {
-          axis.selectAll(".tick text")
-            .transition().duration(duration)
-            .attr("font-weight", "normal").attr("fill", "black");
-        }
-      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -236,26 +221,18 @@ export default {
         return matrix;
       },
       drawAxis (g, x, y, axis, domain) {
-        console.log(axis);
         g.attr("transform", `translate(${x},${y})`)
           .call(axis)
           .selectAll(".tick text")
-          .attr("fill", "white")
-          .attr("font-size", "14px")
-        g.selectAll(".domain")
-          .attr("stroke", "white")
-        g.selectAll(".tick line").remove();
-        g.select(".domain").remove();
-          
-
-
-        // if (!domain) g.select(".domain").remove();
+          .attr("font-size", "12px");
+        
+        if (!domain) g.select(".domain").remove();
       },
       title (g){
         const {steps} = this;
         g.append("title")
           .text((d, i) => {
-            return `${d.label} - ${steps[i]}\n순위: ${d.score.rank + 1}\n점수: ${d.score.score}`
+            return `${d.label} - ${steps[i]}\nRank: ${d.score.rank + 1}\nProfit: ${d.score.score}`
           })
       },
       ranking() {
@@ -265,6 +242,7 @@ export default {
       },
       seq (start, length) {
         return Array.apply(null, {length: length}).map((d, i) => i + start)
-      },
+      }
     }
+
 };

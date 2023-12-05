@@ -911,6 +911,7 @@
 	width: 100%;
 	padding-right: 42px;
 	padding-bottom: 160px;
+	min-width: 0;
 	@include respondTo("tablet"){
 		padding: 0 20px;
 	}
@@ -3370,8 +3371,10 @@
 	display: flex;
 	margin-top: 40px;
 	gap: 24px;
+	flex-wrap: wrap;
 	@include respondToMinMax(0, 1366){
-		flex-wrap: wrap;
+		// display: block;
+		flex-direction: column;
 	}
 	.titles {
 		position: relative;
@@ -3426,7 +3429,7 @@
 	}
 	.chart_secbump, 
 	.chart_secpie {
-		flex: 1;
+		width: calc(50% - 24px);
 		padding: 24px 24px 0;
 		background: #272A31;
 		border: 1px solid #383B43;
@@ -3437,8 +3440,56 @@
 			border-top: 1px solid #383B43;
 		}
 		@include respondToMinMax(0, 1366){
-			flex: none;
 			width: 100%;
+		}
+	}
+	.chart_secbump {
+		// width: 400px;
+		max-width: 100%;
+		display: block;
+		.chart_wrap {
+			
+			width: 100%;
+			max-width: 100%;
+			.inset {
+				display: block;
+			}
+			.chart {
+				margin: 0;
+				max-width: 100%;
+				white-space: nowrap;
+				overflow: auto;
+			}
+			svg {
+				// display: none;
+				display: block;
+			}
+		}
+	}
+	.labels {
+		margin: 20px 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px 30px;
+		span {
+			width: 110px;
+			color: #fff;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
+			&::before {
+				content: '';
+				margin-right: 10px;
+				width: 16px;
+				height: 16px;
+				border-radius: 8px;
+			}			
+			$color_list: (#21A182, #2391A2, #5D3F8B, #F44B4B, #F59239, #00BCCC, #3464A0, #E55091, #A23837, #66A846);
+			@for $i from 1 through length($color_list) {
+				&.label#{$i}::before {
+					background-color: nth($color_list, $i);
+				}
+			}
 		}
 	}
 }

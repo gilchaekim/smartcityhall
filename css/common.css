@@ -4889,6 +4889,7 @@ table, th, td {
   width: 100%;
   padding-right: 42px;
   padding-bottom: 160px;
+  min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #contents {
@@ -7568,10 +7569,11 @@ table, th, td {
   display: flex;
   margin-top: 40px;
   gap: 24px;
+  flex-wrap: wrap;
 }
 @media (min-width: 0px) and (max-width: 1366px) {
   .minwon_month {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 }
 .minwon_month .titles {
@@ -7624,7 +7626,7 @@ table, th, td {
 }
 .minwon_month .chart_secbump,
 .minwon_month .chart_secpie {
-  flex: 1;
+  width: calc(50% - 24px);
   padding: 24px 24px 0;
   background: #272A31;
   border: 1px solid #383B43;
@@ -7639,9 +7641,78 @@ table, th, td {
 @media (min-width: 0px) and (max-width: 1366px) {
   .minwon_month .chart_secbump,
   .minwon_month .chart_secpie {
-    flex: none;
     width: 100%;
   }
+}
+.minwon_month .chart_secbump {
+  max-width: 100%;
+  display: block;
+}
+.minwon_month .chart_secbump .chart_wrap {
+  width: 100%;
+  max-width: 100%;
+}
+.minwon_month .chart_secbump .chart_wrap .inset {
+  display: block;
+}
+.minwon_month .chart_secbump .chart_wrap .chart {
+  margin: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: auto;
+}
+.minwon_month .chart_secbump .chart_wrap svg {
+  display: block;
+}
+.minwon_month .labels {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 30px;
+}
+.minwon_month .labels span {
+  width: 110px;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.minwon_month .labels span::before {
+  content: "";
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+.minwon_month .labels span.label1::before {
+  background-color: #21A182;
+}
+.minwon_month .labels span.label2::before {
+  background-color: #2391A2;
+}
+.minwon_month .labels span.label3::before {
+  background-color: #5D3F8B;
+}
+.minwon_month .labels span.label4::before {
+  background-color: #F44B4B;
+}
+.minwon_month .labels span.label5::before {
+  background-color: #F59239;
+}
+.minwon_month .labels span.label6::before {
+  background-color: #00BCCC;
+}
+.minwon_month .labels span.label7::before {
+  background-color: #3464A0;
+}
+.minwon_month .labels span.label8::before {
+  background-color: #E55091;
+}
+.minwon_month .labels span.label9::before {
+  background-color: #A23837;
+}
+.minwon_month .labels span.label10::before {
+  background-color: #66A846;
 }
 
 .mui_modal_dialog.lank_view {

@@ -916,7 +916,7 @@
       });
     });
   }
-  function data(element, attribute) {
+  function data$1(element, attribute) {
     for (var i = 0, attrs = [attribute, "data-".concat(attribute)]; i < attrs.length; i++) {
       if (hasAttr(element, attrs[i])) {
         return attr(element, attrs[i]);
@@ -3097,7 +3097,7 @@
     attr: attr,
     hasAttr: hasAttr,
     removeAttr: removeAttr,
-    data: data,
+    data: data$1,
     dimensions: dimensions$1,
     offset: offset,
     position: position,
@@ -3539,18 +3539,18 @@
     }
   }
   function getProps(opts, name) {
-    var data$1 = {};
+    var data = {};
     var _opts$args = opts.args,
       args = _opts$args === void 0 ? [] : _opts$args,
       _opts$props = opts.props,
       props = _opts$props === void 0 ? {} : _opts$props,
       el = opts.el;
     if (!props) {
-      return data$1;
+      return data;
     }
     for (var key in props) {
       var prop = hyphenate(key);
-      var value = data(el, prop);
+      var value = data$1(el, prop);
       if (isUndefined(value)) {
         continue;
       }
@@ -3558,16 +3558,16 @@
       if (prop === 'target' && (!value || startsWith(value, '_'))) {
         continue;
       }
-      data$1[key] = value;
+      data[key] = value;
     }
-    var options = parseOptions(data(el, name), args);
+    var options = parseOptions(data$1(el, name), args);
     for (var _key in options) {
       var _prop = camelize(_key);
       if (props[_prop] !== undefined) {
-        data$1[_prop] = coerce(props[_prop], options[_key]);
+        data[_prop] = coerce(props[_prop], options[_key]);
       }
     }
-    return data$1;
+    return data;
   }
   function notIn(options, key) {
     return options.every(function (arr) {
@@ -4383,7 +4383,7 @@
       handler: function handler(e) {
         e.preventDefault();
         console.log('날짜');
-        var date = this.parseDate(data(e.current, 'date'));
+        var date = this.parseDate(data$1(e.current, 'date'));
         console.log(date);
         this.viewDate = date;
         this.setValue();
@@ -5691,7 +5691,7 @@
       },
       handler: function handler(e) {
         e.preventDefault();
-        var val = this.parseDate(data(e.current, 'date'));
+        var val = this.parseDate(data$1(e.current, 'date'));
         this.setDate(val);
         this.closePickerDate();
       }
@@ -12810,6 +12810,171 @@
     return range;
   }
 
+  function identity$1(x) {
+    return x;
+  }
+
+  var top = 1,
+      right = 2,
+      bottom = 3,
+      left = 4,
+      epsilon$1 = 1e-6;
+
+  function translateX(x) {
+    return "translate(" + x + ",0)";
+  }
+
+  function translateY(y) {
+    return "translate(0," + y + ")";
+  }
+
+  function number(scale) {
+    return d => +scale(d);
+  }
+
+  function center(scale, offset) {
+    offset = Math.max(0, scale.bandwidth() - offset * 2) / 2;
+    if (scale.round()) offset = Math.round(offset);
+    return d => +scale(d) + offset;
+  }
+
+  function entering() {
+    return !this.__axis;
+  }
+
+  function axis(orient, scale) {
+    var tickArguments = [],
+        tickValues = null,
+        tickFormat = null,
+        tickSizeInner = 6,
+        tickSizeOuter = 6,
+        tickPadding = 3,
+        offset = typeof window !== "undefined" && window.devicePixelRatio > 1 ? 0 : 0.5,
+        k = orient === top || orient === left ? -1 : 1,
+        x = orient === left || orient === right ? "x" : "y",
+        transform = orient === top || orient === bottom ? translateX : translateY;
+
+    function axis(context) {
+      var values = tickValues == null ? (scale.ticks ? scale.ticks.apply(scale, tickArguments) : scale.domain()) : tickValues,
+          format = tickFormat == null ? (scale.tickFormat ? scale.tickFormat.apply(scale, tickArguments) : identity$1) : tickFormat,
+          spacing = Math.max(tickSizeInner, 0) + tickPadding,
+          range = scale.range(),
+          range0 = +range[0] + offset,
+          range1 = +range[range.length - 1] + offset,
+          position = (scale.bandwidth ? center : number)(scale.copy(), offset),
+          selection = context.selection ? context.selection() : context,
+          path = selection.selectAll(".domain").data([null]),
+          tick = selection.selectAll(".tick").data(values, scale).order(),
+          tickExit = tick.exit(),
+          tickEnter = tick.enter().append("g").attr("class", "tick"),
+          line = tick.select("line"),
+          text = tick.select("text");
+
+      path = path.merge(path.enter().insert("path", ".tick")
+          .attr("class", "domain")
+          .attr("stroke", "currentColor"));
+
+      tick = tick.merge(tickEnter);
+
+      line = line.merge(tickEnter.append("line")
+          .attr("stroke", "currentColor")
+          .attr(x + "2", k * tickSizeInner));
+
+      text = text.merge(tickEnter.append("text")
+          .attr("fill", "currentColor")
+          .attr(x, k * spacing)
+          .attr("dy", orient === top ? "0em" : orient === bottom ? "0.71em" : "0.32em"));
+
+      if (context !== selection) {
+        path = path.transition(context);
+        tick = tick.transition(context);
+        line = line.transition(context);
+        text = text.transition(context);
+
+        tickExit = tickExit.transition(context)
+            .attr("opacity", epsilon$1)
+            .attr("transform", function(d) { return isFinite(d = position(d)) ? transform(d + offset) : this.getAttribute("transform"); });
+
+        tickEnter
+            .attr("opacity", epsilon$1)
+            .attr("transform", function(d) { var p = this.parentNode.__axis; return transform((p && isFinite(p = p(d)) ? p : position(d)) + offset); });
+      }
+
+      tickExit.remove();
+
+      path
+          .attr("d", orient === left || orient === right
+              ? (tickSizeOuter ? "M" + k * tickSizeOuter + "," + range0 + "H" + offset + "V" + range1 + "H" + k * tickSizeOuter : "M" + offset + "," + range0 + "V" + range1)
+              : (tickSizeOuter ? "M" + range0 + "," + k * tickSizeOuter + "V" + offset + "H" + range1 + "V" + k * tickSizeOuter : "M" + range0 + "," + offset + "H" + range1));
+
+      tick
+          .attr("opacity", 1)
+          .attr("transform", function(d) { return transform(position(d) + offset); });
+
+      line
+          .attr(x + "2", k * tickSizeInner);
+
+      text
+          .attr(x, k * spacing)
+          .text(format);
+
+      selection.filter(entering)
+          .attr("fill", "none")
+          .attr("font-size", 10)
+          .attr("font-family", "sans-serif")
+          .attr("text-anchor", orient === right ? "start" : orient === left ? "end" : "middle");
+
+      selection
+          .each(function() { this.__axis = position; });
+    }
+
+    axis.scale = function(_) {
+      return arguments.length ? (scale = _, axis) : scale;
+    };
+
+    axis.ticks = function() {
+      return tickArguments = Array.from(arguments), axis;
+    };
+
+    axis.tickArguments = function(_) {
+      return arguments.length ? (tickArguments = _ == null ? [] : Array.from(_), axis) : tickArguments.slice();
+    };
+
+    axis.tickValues = function(_) {
+      return arguments.length ? (tickValues = _ == null ? null : Array.from(_), axis) : tickValues && tickValues.slice();
+    };
+
+    axis.tickFormat = function(_) {
+      return arguments.length ? (tickFormat = _, axis) : tickFormat;
+    };
+
+    axis.tickSize = function(_) {
+      return arguments.length ? (tickSizeInner = tickSizeOuter = +_, axis) : tickSizeInner;
+    };
+
+    axis.tickSizeInner = function(_) {
+      return arguments.length ? (tickSizeInner = +_, axis) : tickSizeInner;
+    };
+
+    axis.tickSizeOuter = function(_) {
+      return arguments.length ? (tickSizeOuter = +_, axis) : tickSizeOuter;
+    };
+
+    axis.tickPadding = function(_) {
+      return arguments.length ? (tickPadding = +_, axis) : tickPadding;
+    };
+
+    axis.offset = function(_) {
+      return arguments.length ? (offset = +_, axis) : offset;
+    };
+
+    return axis;
+  }
+
+  function axisBottom(scale) {
+    return axis(bottom, scale);
+  }
+
   var noop = {value: () => {}};
 
   function dispatch() {
@@ -15729,14 +15894,6 @@
     return pointish(band.apply(null, arguments).paddingInner(1));
   }
 
-  function colors(specifier) {
-    var n = specifier.length / 6 | 0, colors = new Array(n), i = 0;
-    while (i < n) colors[i] = "#" + specifier.slice(i * 6, ++i * 6);
-    return colors;
-  }
-
-  var Tableau10 = colors("4e79a7f28e2ce1575976b7b259a14fedc949af7aa1ff9da79c755fbab0ab");
-
   function constant(x) {
     return function constant() {
       return x;
@@ -15909,661 +16066,139 @@
 
   var bump = {
     props: {
-      chartData: Object
+      data: Object,
+      colors: Object
     },
     data: {
-      targets: '> .list',
-      active: false,
-      animation: [true],
-      openSize: null,
-      closeSize: null,
-      openText: "열기",
-      closeText: "닫기",
-      clsOpen: 'mui_active',
-      toggle: ' .ctrl',
-      transition: 'ease',
-      duration: 300,
-      offset: 0,
-      chartOptions: null
-    },
-    computed: {},
-    connected: function connected() {
-      var $el = this.$el;
-      var select$1 = select;
-      var svg = select$1(append$1($el, '<svg width="500" height="500">'));
-      var data = [{
-        territory: '교통행정과',
-        quarter: '22-08',
-        profit: 41119.6
-      }, {
-        territory: '교통행정과',
-        quarter: '22-09',
-        profit: 36771.95
-      }, {
-        territory: '교통행정과',
-        quarter: '22-10',
-        profit: 45251.75
-      }, {
-        territory: '교통행정과',
-        quarter: '22-11',
-        profit: 17989.05
-      }, {
-        territory: '교통행정과',
-        quarter: '22-12',
-        profit: 25182.9
-      }, {
-        territory: '교통행정과',
-        quarter: '22-01',
-        profit: 54538.25
-      }, {
-        territory: '교통행정과',
-        quarter: '22-02',
-        profit: 22339.65
-      }, {
-        territory: '교통행정과',
-        quarter: '22-03',
-        profit: 26487.8
-      }, {
-        territory: '교통행정과',
-        quarter: '22-04',
-        profit: 38736.05
-      }, {
-        territory: '교통행정과',
-        quarter: '22-05',
-        profit: 44843.7
-      }, {
-        territory: '교통행정과',
-        quarter: '22-06',
-        profit: 39175.8
-      }, {
-        territory: '교통행정과',
-        quarter: '22-07',
-        profit: 26932.1
-      }, {
-        territory: '교통행정과',
-        quarter: '22-08',
-        profit: 33236.35
-      }, {
-        territory: '교통행정과',
-        quarter: '22-09',
-        profit: 34090.4
-      }, {
-        territory: '환경정책과',
-        quarter: '22-08',
-        profit: 278130.95
-      }, {
-        territory: '환경정책과',
-        quarter: '22-09',
-        profit: 355180.3
-      }, {
-        territory: '환경정책과',
-        quarter: '22-10',
-        profit: 277655.1
-      }, {
-        territory: '환경정책과',
-        quarter: '22-11',
-        profit: 339116.05
-      }, {
-        territory: '환경정책과',
-        quarter: '22-12',
-        profit: 358637.15
-      }, {
-        territory: '환경정책과',
-        quarter: '22-01',
-        profit: 378244.35
-      }, {
-        territory: '환경정책과',
-        quarter: '22-02',
-        profit: 360947.75
-      }, {
-        territory: '환경정책과',
-        quarter: '22-03',
-        profit: 313951.6
-      }, {
-        territory: '환경정책과',
-        quarter: '22-04',
-        profit: 389148.8
-      }, {
-        territory: '환경정책과',
-        quarter: '22-05',
-        profit: 366769.95
-      }, {
-        territory: '환경정책과',
-        quarter: '22-06',
-        profit: 340136.8
-      }, {
-        territory: '환경정책과',
-        quarter: '22-07',
-        profit: 383315.7
-      }, {
-        territory: '환경정책과',
-        quarter: '22-08',
-        profit: 374495.9
-      }, {
-        territory: '환경정책과',
-        quarter: '22-09',
-        profit: 218377.55
-      }, {
-        territory: '주택과',
-        quarter: '22-08',
-        profit: 280034.45
-      }, {
-        territory: '주택과',
-        quarter: '22-09',
-        profit: 319310.55
-      }, {
-        territory: '주택과',
-        quarter: '22-10',
-        profit: 332849.1
-      }, {
-        territory: '주택과',
-        quarter: '22-11',
-        profit: 270933.85
-      }, {
-        territory: '주택과',
-        quarter: '22-12',
-        profit: 302933.6
-      }, {
-        territory: '주택과',
-        quarter: '22-01',
-        profit: 378663.75
-      }, {
-        territory: '주택과',
-        quarter: '22-02',
-        profit: 308821.75
-      }, {
-        territory: '주택과',
-        quarter: '22-03',
-        profit: 343936.35
-      }, {
-        territory: '주택과',
-        quarter: '22-04',
-        profit: 394518.15
-      }, {
-        territory: '주택과',
-        quarter: '22-05',
-        profit: 327691.15
-      }, {
-        territory: '주택과',
-        quarter: '22-06',
-        profit: 400286.95
-      }, {
-        territory: '주택과',
-        quarter: '22-07',
-        profit: 346821.6
-      }, {
-        territory: '주택과',
-        quarter: '22-08',
-        profit: 376081.65
-      }, {
-        territory: '주택과',
-        quarter: '22-09',
-        profit: 344669.95
-      }, {
-        territory: '건설행정과',
-        quarter: '22-08',
-        profit: 413931.2
-      }, {
-        territory: '건설행정과',
-        quarter: '22-09',
-        profit: 441499
-      }, {
-        territory: '건설행정과',
-        quarter: '22-10',
-        profit: 355402.65
-      }, {
-        territory: '건설행정과',
-        quarter: '22-11',
-        profit: 430710.7
-      }, {
-        territory: '건설행정과',
-        quarter: '22-12',
-        profit: 381060.1
-      }, {
-        territory: '건설행정과',
-        quarter: '22-01',
-        profit: 546916.9
-      }, {
-        territory: '건설행정과',
-        quarter: '22-02',
-        profit: 423951.35
-      }, {
-        territory: '건설행정과',
-        quarter: '22-03',
-        profit: 469435.7
-      }, {
-        territory: '건설행정과',
-        quarter: '22-04',
-        profit: 427096.1
-      }, {
-        territory: '건설행정과',
-        quarter: '22-05',
-        profit: 516073.4
-      }, {
-        territory: '건설행정과',
-        quarter: '22-06',
-        profit: 541920
-      }, {
-        territory: '건설행정과',
-        quarter: '22-07',
-        profit: 450530.85
-      }, {
-        territory: '건설행정과',
-        quarter: '22-08',
-        profit: 550096.65
-      }, {
-        territory: '건설행정과',
-        quarter: '22-09',
-        profit: 325576.15
-      }, {
-        territory: '자원순환과',
-        quarter: '22-08',
-        profit: 131328.25
-      }, {
-        territory: '자원순환과',
-        quarter: '22-09',
-        profit: 132040.95
-      }, {
-        territory: '자원순환과',
-        quarter: '22-10',
-        profit: 106902.8
-      }, {
-        territory: '자원순환과',
-        quarter: '22-11',
-        profit: 107422.1
-      }, {
-        territory: '자원순환과',
-        quarter: '22-12',
-        profit: 116352
-      }, {
-        territory: '자원순환과',
-        quarter: '22-01',
-        profit: 152736.1
-      }, {
-        territory: '자원순환과',
-        quarter: '22-02',
-        profit: 112615.35
-      }, {
-        territory: '자원순환과',
-        quarter: '22-03',
-        profit: 116733.25
-      }, {
-        territory: '자원순환과',
-        quarter: '22-04',
-        profit: 134454.25
-      }, {
-        territory: '자원순환과',
-        quarter: '22-05',
-        profit: 132797.2
-      }, {
-        territory: '자원순환과',
-        quarter: '22-06',
-        profit: 133825.5
-      }, {
-        territory: '자원순환과',
-        quarter: '22-07',
-        profit: 144050.9
-      }, {
-        territory: '자원순환과',
-        quarter: '22-08',
-        profit: 174459.6
-      }, {
-        territory: '자원순환과',
-        quarter: '22-09',
-        profit: 120667
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-08',
-        profit: 295160.15
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-09',
-        profit: 444106.95
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-10',
-        profit: 371220.75
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-11',
-        profit: 331776
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-12',
-        profit: 358080.15
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-01',
-        profit: 402917.3
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-02',
-        profit: 369758.5
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-03',
-        profit: 429549.4
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-04',
-        profit: 468077.85
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-05',
-        profit: 468586.05
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-06',
-        profit: 475360.3
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-07',
-        profit: 435609.1
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-08',
-        profit: 430343.7
-      }, {
-        territory: '장애인복지과',
-        quarter: '22-09',
-        profit: 260109.7
-      }, {
-        territory: '건축과',
-        quarter: '22-08',
-        profit: 121434.25
-      }, {
-        territory: '건축과',
-        quarter: '22-09',
-        profit: 159530.8
-      }, {
-        territory: '건축과',
-        quarter: '22-10',
-        profit: 171485.55
-      }, {
-        territory: '건축과',
-        quarter: '22-11',
-        profit: 171937.6
-      }, {
-        territory: '건축과',
-        quarter: '22-12',
-        profit: 149487.3
-      }, {
-        territory: '건축과',
-        quarter: '22-01',
-        profit: 218180.95
-      }, {
-        territory: '건축과',
-        quarter: '22-02',
-        profit: 247382.5
-      }, {
-        territory: '건축과',
-        quarter: '22-03',
-        profit: 168867.35
-      }, {
-        territory: '건축과',
-        quarter: '22-04',
-        profit: 219469.15
-      }, {
-        territory: '건축과',
-        quarter: '22-05',
-        profit: 225063.45
-      }, {
-        territory: '건축과',
-        quarter: '22-06',
-        profit: 217127.25
-      }, {
-        territory: '건축과',
-        quarter: '22-07',
-        profit: 190882
-      }, {
-        territory: '건축과',
-        quarter: '22-08',
-        profit: 179538.9
-      }, {
-        territory: '건축과',
-        quarter: '22-09',
-        profit: 135342.4
-      }, {
-        territory: '대중교통과',
-        quarter: '22-08',
-        profit: 556678.6
-      }, {
-        territory: '대중교통과',
-        quarter: '22-09',
-        profit: 684290.8
-      }, {
-        territory: '대중교통과',
-        quarter: '22-10',
-        profit: 577302.35
-      }, {
-        territory: '대중교통과',
-        quarter: '22-11',
-        profit: 626020.7
-      }, {
-        territory: '대중교통과',
-        quarter: '22-12',
-        profit: 523957.55
-      }, {
-        territory: '대중교통과',
-        quarter: '22-01',
-        profit: 693574.45
-      }, {
-        territory: '대중교통과',
-        quarter: '22-02',
-        profit: 579825.6
-      }, {
-        territory: '대중교통과',
-        quarter: '22-03',
-        profit: 664541.05
-      }, {
-        territory: '대중교통과',
-        quarter: '22-04',
-        profit: 754257.15
-      }, {
-        territory: '대중교통과',
-        quarter: '22-05',
-        profit: 705444.95
-      }, {
-        territory: '대중교통과',
-        quarter: '22-06',
-        profit: 726478.9
-      }, {
-        territory: '대중교통과',
-        quarter: '22-07',
-        profit: 707994.35
-      }, {
-        territory: '대중교통과',
-        quarter: '22-08',
-        profit: 696234.2
-      }, {
-        territory: '대중교통과',
-        quarter: '22-09',
-        profit: 520632
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-08',
-        profit: 333957.7
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-09',
-        profit: 399087.1
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-10',
-        profit: 373194.65
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-11',
-        profit: 393113.95
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-12',
-        profit: 354642.05
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-01',
-        profit: 460565.4
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-02',
-        profit: 387380.95
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-03',
-        profit: 564150.8
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-04',
-        profit: 486550.15
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-05',
-        profit: 431447.45
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-06',
-        profit: 357119.05
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-07',
-        profit: 395999.55
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-08',
-        profit: 390529.45
-      }, {
-        territory: '경관디자인과',
-        quarter: '22-09',
-        profit: 291935.25
-      }, {
-        territory: '위생과',
-        quarter: '22-08',
-        profit: 333957.7
-      }, {
-        territory: '위생과',
-        quarter: '22-09',
-        profit: 399087.1
-      }, {
-        territory: '위생과',
-        quarter: '22-10',
-        profit: 373194.65
-      }, {
-        territory: '위생과',
-        quarter: '22-11',
-        profit: 393113.95
-      }, {
-        territory: '위생과',
-        quarter: '22-12',
-        profit: 354642.05
-      }, {
-        territory: '위생과',
-        quarter: '22-01',
-        profit: 460565.4
-      }, {
-        territory: '위생과',
-        quarter: '22-02',
-        profit: 387380.95
-      }, {
-        territory: '위생과',
-        quarter: '22-03',
-        profit: 564150.8
-      }, {
-        territory: '위생과',
-        quarter: '22-04',
-        profit: 486550.15
-      }, {
-        territory: '위생과',
-        quarter: '22-05',
-        profit: 431447.45
-      }, {
-        territory: '위생과',
-        quarter: '22-06',
-        profit: 357119.05
-      }, {
-        territory: '위생과',
-        quarter: '22-07',
-        profit: 395999.55
-      }, {
-        territory: '위생과',
-        quarter: '22-08',
-        profit: 390529.45
-      }, {
-        territory: '위생과',
-        quarter: '22-09',
-        profit: 291935.25
-      }];
-      var margin = {
-        left: 105,
-        right: 105,
+      data: null,
+      colors: null,
+      margin: {
+        left: 0,
+        right: 0,
         top: 20,
-        bottom: 50
-      };
-      var padding = 25;
-      var bumpRadius = 13;
-      var quarters = Array.from(new Set(data.flatMap(function (d) {
-        return [d.quarter];
-      })));
-      var territories = Array.from(new Set(data.flatMap(function (d) {
-        return [d.territory];
-      })));
-      var height = territories.length * 60;
-      var width = quarters.length * 80;
-      ranking().sort(function (a, b) {
-        return a.last - b.last;
-      }).map(function (d) {
-        return d.territory;
-      });
-      ranking().sort(function (a, b) {
-        return a.first - b.first;
-      }).map(function (d) {
-        return d.territory;
-      });
-      console.log(ordinal(Tableau10).domain(seq(0, ranking().length)));
-      ordinal(Tableau10).domain(seq(0, ranking().length));
-      point().range([margin.top, height - margin.bottom - padding]);
-      point().domain(quarters).range([margin.left + padding, width - margin.right - padding]);
-      point().domain(seq(0, ranking.length)).range([margin.top, height - margin.bottom - padding]);
-      var bx = point().domain(seq(0, quarters.length)).range([0, width - margin.left - margin.right - padding * 2]);
-      ordinal().domain(["default", "transit", "compact"]).range([5, bumpRadius * 2 + 2, 2]);
-      function seq(start, length) {
-        Array.apply(null, {
-          length: length
-        }).map(function (d, i) {
-          return i + start;
-        });
+        bottom: 40
+      },
+      padding: 25,
+      bumpRadius: 16,
+      drawingStyle: "compact",
+      duration: 300
+    },
+    computed: {
+      scores: function scores(_ref) {
+        var data = _ref.data;
+        return Array.from(new Set(data.flatMap(function (d) {
+          return [d.score];
+        })));
+      },
+      steps: function steps(_ref2) {
+        var data = _ref2.data;
+        return Array.from(new Set(data.flatMap(function (d) {
+          return [d.step];
+        })));
+      },
+      labels: function labels(_ref3) {
+        var data = _ref3.data;
+        return Array.from(new Set(data.flatMap(function (d) {
+          return [d.label];
+        })));
+      },
+      colors: function colors(_ref4) {
+        var colors = _ref4.colors;
+        return colors || ['#21A182', '#00BCCC', '#2391A2', '#3464A0', '#5D3F8B', '#E55091', '#F44B4B', '#A23837', '#F59239', '#66A846'];
       }
-      function ranking() {
-        var len = quarters.length - 1;
-        var ranking = chartData().map(function (d, i) {
-          return {
-            territory: territories[i],
-            first: d[0].rank,
-            last: d[len].rank
-          };
+    },
+    connected: function connected() {
+      this.render();
+    },
+    methods: {
+      render: function render() {
+        var $el = this.$el,
+          chartData = this.chartData,
+          labels = this.labels,
+          steps = this.steps,
+          colors = this.colors,
+          margin = this.margin,
+          padding = this.padding,
+          bumpRadius = this.bumpRadius,
+          drawingStyle = this.drawingStyle,
+          seq = this.seq,
+          ranking = this.ranking,
+          title = this.title,
+          drawAxis = this.drawAxis;
+          this.duration;
+        var width = steps.length * 64;
+        var height = labels.length * 44;
+        var data = chartData();
+        var select$1 = select;
+        point().range([margin.top, height - margin.bottom - padding]);
+        var ax = point().domain(steps).range([margin.left + padding, width - margin.right - padding]);
+        var by = point().domain(seq(0, ranking().length)).range([margin.top, height - margin.bottom - padding]);
+        var bx = point().domain(seq(0, steps.length)).range([0, width - margin.left - margin.right - padding * 2]);
+        var strokeWidth = ordinal().domain(["default", "transit", "compact"]).range([5, bumpRadius * 2 + 2, 2]);
+        var svg = select$1(append$1($el, "<svg width=\"".concat(width, "\" height=\"").concat(height, "\">")));
+
+        // const right = ranking().sort((a, b) => a.last - b.last).map((d) => d.label);
+        // const left = ranking().sort((a, b) => a.first - b.first).map((d) => d.label);
+
+        // const leftY = svg.append("g").call(g => drawAxis(g, margin.left, 0, d3.axisLeft(y.domain(left))));
+        // const rightY = svg.append("g").call(g => drawAxis(g, width - margin.right, 0, d3.axisRight(y.domain(right)))); 
+
+        var series = svg.selectAll(".series").data(data).join("g").attr("class", "series").attr("opacity", 1).attr("fill", function (d) {
+          return colors[d[0].rank];
+        }).attr("stroke", function (d) {
+          return colors[d[0].rank];
+        }).attr("transform", "translate(".concat(margin.left + padding, ",0)"));
+        // .on("mouseover", highlight)
+        // .on("mouseout", restore);
+
+        series.selectAll("path").data(function (d) {
+          return d;
+        }).join("path").attr("stroke-width", strokeWidth(drawingStyle)).attr("d", function (d, i) {
+          if (d.next) return line()([[bx(i), by(d.rank)], [bx(i + 1), by(d.next.rank)]]);
         });
-        return ranking;
-      }
-      function chartData() {
-        var ti = new Map(territories.map(function (territory, i) {
-          return [territory, i];
+        var bumps = series.selectAll("g").data(function (d, i) {
+          return d.map(function (v) {
+            return {
+              label: labels[i],
+              score: v,
+              first: d[0].rank
+            };
+          });
+        }).join("g").attr("transform", function (d, i) {
+          return "translate(".concat(bx(i), ",").concat(by(d.score.rank), ")");
+        }).call(title);
+        bumps.append("circle").attr("r", bumpRadius);
+        bumps.append("text").attr("dy", "0.35em").attr("fill", "white").attr("stroke", "none").attr("text-anchor", "middle").style("font-weight", "bold").style("font-size", "14px").text(function (d) {
+          return (d.score.rank + 1 + '').length === 1 ? "0".concat(d.score.rank + 1) : d.score.rank + 1;
+        });
+        svg.append("g").call(function (g) {
+          return drawAxis(g, 0, height - margin.top - margin.bottom + padding, axisBottom(ax), true);
+        });
+        svg.attr("cursor", "default").attr("viewBox", [0, 0, width, height]);
+      },
+      chartData: function chartData() {
+        var labels = this.labels,
+          steps = this.steps;
+        var ti = new Map(labels.map(function (label, i) {
+          return [label, i];
         }));
-        var qi = new Map(quarters.map(function (quarter, i) {
-          return [quarter, i];
+        var qi = new Map(steps.map(function (step, i) {
+          return [step, i];
         }));
         var matrix = Array.from(ti, function () {
-          return new Array(quarters.length).fill(null);
+          return new Array(steps.length).fill(null);
         });
         var _iterator = _createForOfIteratorHelper(data),
           _step;
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
             var _step$value = _step.value,
-              territory = _step$value.territory,
-              quarter = _step$value.quarter,
-              profit = _step$value.profit;
-            matrix[ti.get(territory)][qi.get(quarter)] = {
+              label = _step$value.label,
+              step = _step$value.step,
+              score = _step$value.score;
+            matrix[ti.get(label)][qi.get(step)] = {
               rank: 0,
-              profit: +profit,
+              score: +score,
               next: null
             };
           }
@@ -16577,43 +16212,54 @@
             d[i].next = d[i + 1];
           }
         });
-        quarters.forEach(function (d, i) {
+        steps.forEach(function (d, i) {
           var array = [];
           matrix.forEach(function (d) {
             return array.push(d[i]);
           });
           array.sort(function (a, b) {
-            return b.profit - a.profit;
+            return b.score - a.score;
           });
           array.forEach(function (d, j) {
             return d.rank = j;
           });
         });
         return matrix;
-      }
-      svg.attr("cursor", "default").attr("viewBox", [0, 0, width, height]);
-      svg.append("g").attr("transform", "translate(".concat(margin.left + padding, ",0)")).selectAll("path").data(seq(0, arrDate.length)).join("path").attr("stroke", "#ccc").attr("stroke-width", 2).attr("stroke-dasharray", "5,5").attr("d", function (d) {
-        return line()([[bx(d), 0], [bx(d), height - margin.bottom]]);
-      });
+      },
+      drawAxis: function drawAxis(g, x, y, axis, domain) {
+        console.log(axis);
+        g.attr("transform", "translate(".concat(x, ",").concat(y, ")")).call(axis).selectAll(".tick text").attr("fill", "white").attr("font-size", "14px");
+        g.selectAll(".domain").attr("stroke", "white");
+        g.selectAll(".tick line").remove();
+        g.select(".domain").remove();
 
-      // const series = svg.selectAll(".series")
-      //   .data(chartData)
-      //   .join("g")
-      //   .attr("class", "series")
-      //   .attr("opacity", 1)
-      //   .attr("fill", d => color(d[0].rank))
-      //   .attr("stroke", d => color(d[0].rank))
-      //   .attr("transform", `translate(${margin.left + padding},0)`)
-    },
-
-    methods: {
-      render: function render() {
-        var $el = this.$el,
-          chartOptions = this.chartOptions;
-        // console.log(this.chartData);
-
-        var aaaa = new ApexCharts($el, chartOptions);
-        aaaa.render();
+        // if (!domain) g.select(".domain").remove();
+      },
+      title: function title(g) {
+        var steps = this.steps;
+        g.append("title").text(function (d, i) {
+          return "".concat(d.label, " - ").concat(steps[i], "\n\uC21C\uC704: ").concat(d.score.rank + 1, "\n\uC810\uC218: ").concat(d.score.score);
+        });
+      },
+      ranking: function ranking() {
+        var chartData = this.chartData,
+          labels = this.labels,
+          steps = this.steps;
+        var len = steps.length - 1;
+        return chartData().map(function (d, i) {
+          return {
+            label: labels[i],
+            first: d[0].rank,
+            last: d[len].rank
+          };
+        });
+      },
+      seq: function seq(start, length) {
+        return Array.apply(null, {
+          length: length
+        }).map(function (d, i) {
+          return i + start;
+        });
       }
     }
   };
