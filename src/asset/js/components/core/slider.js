@@ -30,6 +30,7 @@ export default {
         pagination:Boolean,
         paginationType:String,
         paging:Boolean,
+        direction:String,
         controller:Boolean,
         scrollbar:Boolean,
         loop:Boolean,
@@ -41,6 +42,7 @@ export default {
         slider:'.slider',
         scrollbar:false,
         loop:true,
+        direction:'horizontal',
         paging:false,
         Swiper:null,
         clickable:true,
@@ -64,7 +66,8 @@ export default {
         
         if(autoplay){
             swiperData.autoplay = {
-                delay:delay
+                delay:delay,
+                disableOnInteraction: false
             };
         }
         if(scrollbar){

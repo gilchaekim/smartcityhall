@@ -3443,6 +3443,71 @@
 			width: 100%;
 		}
 	}
+	.chart_secpie {
+		.chart {
+			// max-width: 380px;
+			padding: 0;
+			// margin: 35px auto;
+		}
+		.rank {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-top: 1px solid #383B43;
+			padding: 24px 0;
+			margin-top: 20px;
+			.detail_view {
+				background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+				color: #fff;
+				height: 30px;
+				line-height: 30px;
+				font-size: 16px;
+				padding: 0 10px;
+				border-radius: 6px;
+				margin-left: 20px;
+			}
+			.rank_lists  {
+				// width: 200px;
+				.txt p{
+					display: flex;
+					align-items: center;
+					.rank_num {
+						width: 40px;
+						height: 40px;
+						background: #ED6C00;
+						font-size: 18px;
+						font-weight: 700;
+						color: #fff;
+						align-items: center;
+						justify-content: center;
+						display: flex;
+						border-radius: 6px;
+					}
+					.text {
+						padding-left: 10px;
+						font-size: 18px;
+						font-weight: 500;
+						color: #fff;
+						min-width: 120px;
+					}
+					.score {
+						font-weight: 500;
+						font-size: 18px;
+						text-decoration: underline;
+						color: #ED6C00;
+					}
+				}
+			}
+			.slider  {
+				height: 40px;
+				overflow: hidden;
+			}
+			.slide_list  {
+				height: 40px;
+			}
+			
+		}
+	}
 	.chart_secbump {
 		// width: 400px;
 		max-width: 100%;

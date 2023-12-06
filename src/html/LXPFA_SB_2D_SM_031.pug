@@ -67,6 +67,73 @@ block content
         button(type="button").download EXCLEL
       .chart_wrap
         .chart#semiPie
+        .rank 
+          .rank_lists(mui-slider="direction:vertical;autoplay:true;")
+            .slider
+              .swiper-wrapper
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 01
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 02
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 03
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 04
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 05
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 06
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 07
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 08
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 09
+                      span.text 교통행정과
+                      span.score 385 건
+                .slide_list.swiper-slide
+                  .txt
+                    p   
+                      span.rank_num 10
+                      span.text 교통행정과
+                      span.score 385 건
+          
+          button(type="button").detail_view 자세히 보기
+
   script.
     var options = {
       series: [4710, 1022, 347, 263, 183, 153, 132, 108, 88,72],
@@ -84,32 +151,33 @@ block content
             labels: {
               show: true,
               name: {
-              show: true,
-              fontSize: '22px',
-              color: '#ffffff',
-              offsetY: -10
-            },
-            value: {
-              show: true,
-              fontSize: '16px',
-              color: "#ffffff",
-              offsetY: 16,
-              formatter: function (val) {
-                return val
-              }
-            },
+                show: true,
+                fontSize: '22px',
+                color: '#ffffff',
+                offsetY: -10
+              },
+              value: {
+                show: true,
+                fontSize: '16px',
+                color: "#ffffff",
+                offsetY: 16,
+                formatter: function (val) {
+                  return val
+                }
+              },
               total: {
-              show: true,
-              label: 'Total',
-              color: '#ffffff',
-              formatter: function (w) {
-                return w.globals.seriesTotals.reduce((a, b) => {
-                  return a + b
-                }, 0)
+                show: true,
+                label: 'Total',
+                color: '#ffffff',
+                formatter: function (w) {
+                  return w.globals.seriesTotals.reduce((a, b) => {
+                    return a + b
+                  }, 0)
+                }
               }
             }
-            }
-          }
+          },
+          offsetY: 20
         }
       },
 
