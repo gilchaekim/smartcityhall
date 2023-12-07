@@ -7120,6 +7120,58 @@ table, th, td {
   font-size: 12px;
   color: #ED6C00;
 }
+.main .section .population.type2 {
+  margin-bottom: 10px;
+}
+.main .section .population.type2 dl {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.main .section .population.type2 dl:not(:last-child) dd:after {
+  content: "";
+  display: block;
+  width: 1px;
+  position: absolute;
+  top: 4px;
+  right: 0;
+  bottom: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.main .section .population.type2 dl dt {
+  font-size: 12px;
+  color: #ED6C00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .section .population.type2 dl dt.multiline {
+  height: 36px;
+}
+.main .section .population.type2 dl dd {
+  font-size: 16px;
+  color: #fff;
+  flex: 1;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.main .section .population.type2 dl dd .block {
+  display: block;
+}
+.main .section .population.type2 dl dd .min {
+  font-size: 12px;
+  margin-left: 4px;
+}
+.main .section .population.type2 dl dd .min.block {
+  margin-left: 0;
+}
 .main .section .req_data li {
   border-bottom: 1px solid #2F323A;
   padding: 16px 0;

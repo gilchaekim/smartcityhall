@@ -14,7 +14,7 @@ block content
       .weather_legend
         .weather
           .title 날씨
-          <!-- ico_wd1 ,ico_wd1_2 ,ico_wd1_3 ,ico_wd1_4 ,ico_wd1_5 -->
+          <!-- ico_wd1, ico_wd1_2, ico_wd1_3, ico_wd1_4, ico_wd1_5, ico_wd1_6, ico_wd1_7, ico_wd1_8 -->
           .data.type1.ico_wd1_2
             | 25.0ºC
           .data.type1.ico_wd2
@@ -226,6 +226,168 @@ block content
                   [
                     {
                       text: "장애인",
+                      isTitle:true
+                    },
+                    {
+                      text: "내용"
+                    },
+                    {
+                      text: "내용"
+                    }
+                  ],
+                ]
+              })
+      .list_box 
+        p.title1 주거 및 인구 분야
+        
+        .population.type2
+          dl 
+            dt.multiline 녹지현황
+            dd 
+              span.block
+                | 274
+                span.min 개소
+              span.block
+                | 2,374
+                span.min ㎢
+          dl 
+            dt.multiline 공원현황
+            dd 
+              span.block
+                | 51
+                span.min 개소
+          dl 
+            dt 학교 숲<br>조성 현황
+            dd 
+              span.block
+                | 40
+                span.min 개교
+              span.min.block (21%)
+          dl 
+            dt 산사태<br>취약지역(면적)
+            dd 
+              span.block
+                | 12
+                span.min 개소
+              span.block
+                | 12
+                span.min ㎢
+              
+              span.min.block (21%)
+        .slides_chart(mui-slider="pagination:true;loop:false;")
+          .slider
+            .swiper-wrapper
+              .slide_list.swiper-slide
+                p.title2 관내 역별 탑승객(이용객)수
+                .slide_chart#piechart
+              .slide_list.swiper-slide
+                p.title2 거래 지역별 부동산 매매 현황
+                .slide_chart#barchart3
+      .list_box 
+        p.title1 주거 및 인구 분야
+        
+        .population.type2
+          dl 
+            dt 주민등록 인구
+            dd 
+              span.block
+                | 518,336 
+                span.min 명
+          dl 
+            dt 주택 수
+            dd 
+              span.block
+                | 518,336 
+                span.min 세
+          dl 
+            dt 청년 인구 (비중)
+            dd 
+              span.block
+                | 518,336 
+                span.min 명
+              span.min.block (21%)
+          dl 
+            dt 주민등록 인구
+            dd 
+              span.block
+                | 518,336 
+                span.min 명
+              span.min.block (21%)
+        .slides_chart(mui-slider="pagination:true;loop:false;")
+          .slider
+            .swiper-wrapper
+              .slide_list.swiper-slide
+                p.title2 최근 5년간 인구 증감(명)
+                .slide_chart#chart1_2
+              .slide_list.swiper-slide
+                p.title2 최근 5년간 순이동인구 수(전입인구-전출인구)
+                .slide_chart#chart2_2
+      .list_box 
+        p.title1 교통 및 철도 분야
+        
+        .population.type2
+          dl 
+            dt 일평균 지하철<br>이용객수
+            dd 
+              span.block
+                | 518,336 
+                span.min 명
+          dl 
+            dt 버스<br>운행대수
+            dd 
+              span.block
+                | 518,336 
+                span.min 대
+          dl 
+            dt 택시<br>운영현황
+            dd 
+              span.block
+                span.min 개인
+                | 8,336 
+                span.min 대
+              span.block
+                span.min 법인
+                | 276
+                span.min 대
+          dl 
+            dt 교통약자<br>이동지원 차량
+            dd 
+              span.block
+                | 63
+                span.min 명
+        .slides_chart(mui-slider="pagination:true;loop:false;")
+          .slider
+            .swiper-wrapper
+              .slide_list.swiper-slide
+                p.title2 관내 버스노선 종류별 분포
+                .slide_chart#barchart1
+              .slide_list.swiper-slide
+                p.title2 관내 역별 탑승객(이용객)수
+                .slide_chart#barchart2
+        .source
+          a(href="", mui-toggle="target:#source1_2;mode:hover;").more 출처
+          .source_layer#source1_2(hidden="")
+            .data_table 
+              +dataTable({
+                caption:"출처",
+                colgroup:['cols1','cols2','cols3'],
+                headData:[
+                  [
+                    {
+                      text: "데이터",
+                    },
+                    {
+                      text: "출처",
+                    },
+                    {
+                      text: "기준일자",
+                    },
+                  ],
+                ],
+                bodyData:[
+                  [
+                    {
+                      text: "일반",
                       isTitle:true
                     },
                     {
@@ -1067,13 +1229,258 @@ block content
         }
       ]
     })
+    var optionChart4 = {
+      series: [
+        {
+          data: [
+            {
+              x: ['시내일반'],
+              y: 60
+            },
+            {
+              x: ['시내좌석'],
+              y: 50
+            },
+            {
+              x: ['공항버스'],
+              y: 40
+            },
+            {
+              x: ['시외버스'],
+              y: 30
+            },
+            {
+              x: ['고속버스'],
+              y: 50
+            },
+            {
+              x: ['마을버스'],
+              y: 40
+            },
+          ]
+        }
+      ],
+      yaxis: {
+        min:0,
+        tickAmount:4,
+        labels: {
+          style:{
+            fontSize:"12px"
+          }
+        }
+      }, 
+      plotOptions: {
+        bar: {
+          columnWidth:16,
+        }
+      },
+      chart: {
+        type: "bar",
+        height: 160,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          type:"vertical",
+          colorStops: [
+            {
+              offset: 0,
+              color: "#ED9C00",
+              opacity: 1
+            },
+            {
+              offset: 100,
+              color: "#ED6C00",
+              opacity: 1
+            }
+          ]
+        }
+      },
+      
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"10px"
+          }
+        }
+      },
+    };
+
+    var optionChart5 = {
+      series: [
+        {
+          data: [
+            {
+              x: ['시흥대야역'],
+              y: 6000
+            },
+            {
+              x: ['신천역'],
+              y: 15000
+            },
+            {
+              x: ['신현역'],
+              y: 4000
+            },
+            {
+              x: ['시흥시청역'],
+              y: 3000
+            },
+            {
+              x: ['시흥능곡역'],
+              y: 5000
+            },
+            {
+              x: ['정왕역'],
+              y: 4000
+            },
+            {
+              x: ['오이도역'],
+              y: 4000
+            },
+            {
+              x: ['달월역'],
+              y: 4000
+            },
+            {
+              x: ['월곶역'],
+              y: 4000
+            },
+          ]
+        }
+      ],
+      yaxis: {
+        min:0,
+        tickAmount:4,
+        labels: {
+          style:{
+            fontSize:"12px"
+          }
+        }
+      }, 
+      plotOptions: {
+        bar: {
+          columnWidth:16,
+        }
+      },
+      chart: {
+        type: "bar",
+        height: 160,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          type:"vertical",
+          colorStops: [
+            {
+              offset: 0,
+              color: "#ED9C00",
+              opacity: 1
+            },
+            {
+              offset: 100,
+              color: "#ED6C00",
+              opacity: 1
+            }
+          ]
+        }
+      },
+      
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"10px"
+          }
+        }
+      },
+    };
+    var optionChart6 = {
+      series: [1000, 800, 500, ],
+      offsetX: 0,
+      offsetY: 0,
+      chart: {
+        height: 200,
+        type: 'pie',
+      },
+      labels: ['국유림', '공유림', '사유림'],
+      colors: ["#ED4700", "#ED7200", "#F5921D"],
+      stroke: {
+        show: true,
+        curve: 'smooth',
+        lineCap: 'butt',
+        colors: "#ED4700",
+        width: 1,
+      },
+      dataLabels: {
+        formatter: function (val, {seriesIndex, w}) {
+          return w.globals.series[seriesIndex];
+        },
+      },
+      plotOptions: {
+        pie: {
+          dataLabels: {
+            offset: -20,
+            minAngleToShowLabel: 10,
+            formatter: function (val, opts) {
+              console.log(val)
+              return val
+            },
+          },
+          donut: {
+            size: '200%',
+          }
+        }
+      }
+    };
+    
     GCui.chart('#chart1', {chartOptions:optionChart1})
     GCui.chart('#chart2', {chartOptions:optionChart2})
     GCui.chart('#chart3', {chartOptions:optionChart3})
     GCui.chart('#chart1_1', {chartOptions:optionChart1})
     GCui.chart('#chart2_1', {chartOptions:optionChart2})
     GCui.chart('#chart3_1', {chartOptions:optionChart3})
+    GCui.chart('#chart1_2', {chartOptions:optionChart1})
+    GCui.chart('#chart2_2', {chartOptions:optionChart2})
+    GCui.chart('#barchart1', {chartOptions:optionChart4})
+    GCui.chart('#barchart2', {chartOptions:optionChart5})
+    GCui.chart('#piechart', {chartOptions:optionChart6})
+    //- GCui.chart('#barchart3', {chartOptions:optionChart7})
+    
+    
     GCui.slider('[mui-slider]').Swiper.on('slideChangeTransitionEnd', function(e){
       var activeSlide = e.slides[e.activeIndex];
       console.log(find('.slide_chart', activeSlide))
     })
+
