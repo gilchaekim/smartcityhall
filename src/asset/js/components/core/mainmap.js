@@ -88,7 +88,7 @@ export default {
             .attr('stroke-width', '6')
             .attr('mask', 'url(#el_hilight)')
           maskPath.attr('d', d.path)
-          highlightPath = activePath
+          highlightPath = activePath;
           // console.dir(d.path);
         }
     },
