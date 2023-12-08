@@ -6917,10 +6917,16 @@ table, th, td {
 .main .section .main_map {
   margin-top: 24px;
   margin-left: 55px;
-  text-align: right;
+  position: relative;
+  top: -100px;
+  z-index: 2;
 }
 .main .section .main_map svg {
   max-width: 100%;
+}
+.main .section .main_map .map_area {
+  transition: all 0.5s;
+  cursor: pointer;
 }
 @media (min-width: 0px) and (max-width: 1366px) {
   .main .section .main_map {

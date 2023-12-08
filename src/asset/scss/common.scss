@@ -2750,11 +2750,18 @@
 		.main_map{
 			margin-top: 24px;
 			margin-left: 55px;
-			text-align: right;
+			// text-align: right;
+			position: relative;
+			top: -100px;
+			z-index: 2;
 			svg {
 				max-width: 100%;
-				// width: 200px;
 			}
+			.map_area {
+				transition: all .5s;
+				cursor: pointer;
+			}
+
 			@include respondToMinMax(0, 1366){
 				position: absolute;
 				top: 0;
