@@ -18,6 +18,7 @@ export {default as Tooltip} from './core/tooltip';
 export {default as Parallax} from './core/parallax';
 export {default as Chart} from './core/chart';
 export {default as Bump} from './core/bump';
+export {default as Mainmap} from './core/mainmap';
 export {default as Frontui} from './core/frontui';
 
 

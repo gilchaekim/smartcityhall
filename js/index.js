@@ -5536,7 +5536,7 @@
       $year: '.picker_header>.year_month>.current_year',
       $month: '.picker_header>.year_month>.current_month',
       datePattern: ['yyyy', 'mm', 'dd'],
-      format: 'yyyy-mm-dd',
+      format: 'yyyy-mm-dd (w)',
       // The start view date
       startDate: null,
       // The end view date
@@ -5626,6 +5626,7 @@
       },
       handler: function handler(e) {
         e.preventDefault();
+        this.setDate(new Date(this.getValue()));
         this.renderPickerDate();
       }
     }, {
@@ -5727,6 +5728,7 @@
           $month = this.$month,
           months = this.months,
           calendar = this.calendar;
+        console.log(viewDate);
         var yearText = viewDate.getFullYear();
         var montText = months[viewDate.getMonth()];
         this.weeks = find$1(this.pickerHeader, this.calendar);
@@ -5752,13 +5754,9 @@
         removeClass(calendar, 'mui_active');
       },
       getValue: function getValue() {
-        console.log(dateFormat(this.target.value, this.datePattern));
-        // datePattern()
-        // dateFormat(this.target.value, this.datePattern)
         return this.target.value;
       },
       setValue: function setValue() {
-        console.log('aa');
         this.target.value = this.formatDate(this.date);
       },
       createItem: function createItem(data, type) {
@@ -6052,11 +6050,8 @@
             data: this.formatDate(_date)
           }));
         }
-
-        // , items, nextItems
         var currItems = [].concat(prevItems, items, nextItems);
         var itemes = [];
-        // console.log(currItems)
         var column = 7;
         for (var _i = 0; _i < currItems.length; _i++) {
           var num = _i % column;
@@ -6070,19 +6065,8 @@
             itemes.push(currItems[_i]);
           }
         }
-
-        // Render days picker
-        // -----------------------------------------------------------------------
         empty$1(this.bodys);
         this.bodys.innerHTML = itemes.join('');
-        // this.$monthPrev.toggleClass(disabledClass, prevDisabled);
-        // this.$monthNext.toggleClass(disabledClass, nextDisabled);
-        // this.$monthCurrent
-        //   .toggleClass(disabledClass, prevDisabled && nextDisabled)
-        //   .html(options.yearFirst
-        //     ? `${viewYear + yearSuffix} ${months[viewMonth]}`
-        //     : `${months[viewMonth]} ${viewYear}${yearSuffix}`);
-        // this.$days.html(prevItems.join('') + items.join('') + nextItems.join(''));
       },
       formatDate: function formatDate(date) {
         var format = this.format;
@@ -6091,7 +6075,9 @@
           var year = date.getFullYear();
           var month = date.getMonth();
           var day = date.getDate();
+          var weeks = this.daysMin[date.getDay()];
           var values = {
+            w: weeks,
             d: day,
             dd: addLeadingZero(day, 2),
             m: month + 1,
@@ -6107,7 +6093,6 @@
         return formatted;
       },
       parseDate: function parseDate(date) {
-        console.log(date);
         var format = this.format;
         var parts = [];
         if (!isDate(date)) {
@@ -6160,7 +6145,7 @@
       },
       parseFormat: function parseFormat(format) {
         var source = String(format).toLowerCase();
-        var parts = source.match(/(y|m|d)+/g);
+        var parts = source.match(/(y|m|d|w)+/g);
         if (!parts || parts.length === 0) {
           throw new Error('Invalid date format.');
         }
@@ -6170,6 +6155,9 @@
         };
         each(parts, function (part) {
           switch (part) {
+            case 'w':
+              format.hasWeek = true;
+              break;
             case 'dd':
             case 'd':
               format.hasDay = true;
@@ -16267,6 +16255,29 @@
     }
   };
 
+  var mainmap = {
+    props: {
+      data: Object,
+      colors: Object
+    },
+    data: {
+      data: null,
+      width: 760,
+      height: 739
+    },
+    computed: {},
+    connected: function connected() {
+      var $el = this.$el,
+        width = this.width,
+        height = this.height;
+      var select$1 = select;
+      select$1(append$1($el, "<svg width=\"".concat(width, "\" height=\"").concat(height, "\" viewBox=\"0 0 ").concat(width, " ").concat(height, "\">")));
+    },
+    methods: {
+      render: function render() {}
+    }
+  };
+
   var frontui = {
     data: {
       aaa: 'aaa',
@@ -16443,6 +16454,7 @@
     Parallax: parallax,
     Chart: chart,
     Bump: bump,
+    Mainmap: mainmap,
     Frontui: frontui,
     Worklists: worklists
   });

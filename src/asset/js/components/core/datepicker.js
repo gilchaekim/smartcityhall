@@ -51,7 +51,7 @@ export default {
     $year:'.picker_header>.year_month>.current_year',
     $month:'.picker_header>.year_month>.current_month',
     datePattern: ['yyyy', 'mm', 'dd'],
-    format: 'yyyy-mm-dd',
+    format: 'yyyy-mm-dd (w)',
     // The start view date
     startDate: null,
 
@@ -119,7 +119,6 @@ export default {
     let {initialValue, date} = this;
     
     initialValue = this.getValue();
-
     date = this.parseDate(date || initialValue);
     this.date = date;
     this.viewDate = new Date(date);
@@ -162,6 +161,7 @@ export default {
 
       handler(e) {
         e.preventDefault();
+        this.setDate(new Date(this.getValue()));
         this.renderPickerDate();
       }
     },
@@ -270,8 +270,10 @@ export default {
   methods: {
     renderPickerDate() {
       const {viewDate, $year, $month, months, calendar} = this;
+      console.log(viewDate);
       const yearText = viewDate.getFullYear();
       const montText = months[viewDate.getMonth()];
+
       
       this.weeks = find(this.pickerHeader, this.calendar);
       this.bodys = find(this.pickerBody, this.calendar);
@@ -287,7 +289,6 @@ export default {
       // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
       // css(calendar, 'left', `${dimensions(this.$el).left}px`)
       this.positionAt(calendar, this.$el);
-      
     },
     closePickerDate() {
       const {weeks, bodys, calendar} = this;
@@ -298,13 +299,9 @@ export default {
       removeClass(calendar, 'mui_active');
     },
     getValue() {
-      console.log(dateFormat(this.target.value, this.datePattern));
-      // datePattern()
-      // dateFormat(this.target.value, this.datePattern)
       return this.target.value;
     },
     setValue() {
-      console.log('aa');
       this.target.value = this.formatDate(this.date);
     },
     createItem(data, type) {
@@ -677,10 +674,8 @@ export default {
         }));
       }
 
-      // , items, nextItems
       const currItems = [].concat(prevItems, items, nextItems)
       let itemes = [];
-      // console.log(currItems)
       const column = 7
       for (let i = 0; i < currItems.length; i++) {
         let num = i % column;
@@ -695,19 +690,8 @@ export default {
         }
         
       }
-
-      // Render days picker
-      // -----------------------------------------------------------------------
       empty(this.bodys)
       this.bodys.innerHTML = itemes.join('')
-      // this.$monthPrev.toggleClass(disabledClass, prevDisabled);
-      // this.$monthNext.toggleClass(disabledClass, nextDisabled);
-      // this.$monthCurrent
-      //   .toggleClass(disabledClass, prevDisabled && nextDisabled)
-      //   .html(options.yearFirst
-      //     ? `${viewYear + yearSuffix} ${months[viewMonth]}`
-      //     : `${months[viewMonth]} ${viewYear}${yearSuffix}`);
-      // this.$days.html(prevItems.join('') + items.join('') + nextItems.join(''));
       
     },
 
@@ -720,7 +704,9 @@ export default {
         const year = date.getFullYear();
         const month = date.getMonth();
         const day = date.getDate();
+        const weeks = this.daysMin[date.getDay()];
         const values = {
+          w: weeks,
           d: day,
           dd: addLeadingZero(day, 2),
           m: month + 1,
@@ -738,7 +724,6 @@ export default {
       return formatted;
     },
     parseDate(date) {
-      console.log(date);
       const { format } = this;
       let parts = [];
   
@@ -757,7 +742,6 @@ export default {
           // Set year and month first
           each(parts, (i, part) => {
             const value = parseInt(part, 10);
-  
             switch (format.parts[i]) {
               case 'yy':
                 date.setFullYear(2000 + value);
@@ -803,7 +787,7 @@ export default {
     },
     parseFormat(format) {
       const source = String(format).toLowerCase();
-      const parts = source.match(/(y|m|d)+/g);
+      const parts = source.match(/(y|m|d|w)+/g);
     
       if (!parts || parts.length === 0) {
         throw new Error('Invalid date format.');
@@ -816,6 +800,9 @@ export default {
     
       each(parts, (part) => {
         switch (part) {
+          case 'w':
+            format.hasWeek = true;
+            break;
           case 'dd':
           case 'd':
             format.hasDay = true;
