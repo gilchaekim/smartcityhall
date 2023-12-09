@@ -70,27 +70,30 @@ export default {
         .on("click", highlight)
         // .attr("fill", d => colors[d[0].rank])
         // .attr("stroke", d => colors[d[0].rank])
-
-        function highlight(e, d){
-          const activePath = series.filter(s => d === s);
-          if (!!highlightPath) {
-            if (highlightPath !== activePath) {
-              highlightPath.attr('stroke-width', '0')
-              highlightPath.attr('mask', '')
-            }else {
-              return;
-            }
+      console.log(series);
+      function highlight(e, d){
+        const activePath = series.filter(s => d === s);
+        if (!!highlightPath) {
+          if (highlightPath !== activePath) {
+            highlightPath
+              .attr('stroke-width', '0')
+              .classed("mui_active", false)
+              .attr('mask', '')
+          }else {
+            return;
           }
+        }
 
           
-          activePath
-            .attr('stroke', '#F9FE00')
-            .attr('stroke-width', '6')
-            .attr('mask', 'url(#el_hilight)')
-          maskPath.attr('d', d.path)
-          highlightPath = activePath;
-          // console.dir(d.path);
-        }
+        activePath
+          // .attr('stroke', '#F9FE00')
+          // .attr('stroke-width', '6')
+          .attr('mask', 'url(#el_hilight)')
+          .classed("mui_active", true);
+        maskPath.attr('d', d.path)
+        highlightPath = activePath;
+        // console.dir(d.path);
+      }
     },
 
     methods: {

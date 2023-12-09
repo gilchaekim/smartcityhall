@@ -6925,8 +6925,13 @@ table, th, td {
   max-width: 100%;
 }
 .main .section .main_map .map_area {
-  transition: all 0.5s;
   cursor: pointer;
+  stroke-width: 0;
+  transition: all 0.5s;
+}
+.main .section .main_map .map_area.mui_active {
+  stroke: #F9FE00;
+  stroke-width: 6;
 }
 @media (min-width: 0px) and (max-width: 1366px) {
   .main .section .main_map {

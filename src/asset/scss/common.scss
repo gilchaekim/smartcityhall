@@ -2758,9 +2758,15 @@
 				max-width: 100%;
 			}
 			.map_area {
-				transition: all .5s;
 				cursor: pointer;
+				stroke-width: 0;
+				transition: all .5s;
+				&.mui_active {
+					stroke: #F9FE00;
+					stroke-width: 6;
+				}
 			}
+			
 
 			@include respondToMinMax(0, 1366){
 				position: absolute;

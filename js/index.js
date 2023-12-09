@@ -16288,20 +16288,22 @@
       }).on("click", highlight);
       // .attr("fill", d => colors[d[0].rank])
       // .attr("stroke", d => colors[d[0].rank])
-
+      console.log(series);
       function highlight(e, d) {
         var activePath = series.filter(function (s) {
           return d === s;
         });
         if (!!highlightPath) {
           if (highlightPath !== activePath) {
-            highlightPath.attr('stroke-width', '0');
-            highlightPath.attr('mask', '');
+            highlightPath.attr('stroke-width', '0').classed("mui_active", false).attr('mask', '');
           } else {
             return;
           }
         }
-        activePath.attr('stroke', '#F9FE00').attr('stroke-width', '6').attr('mask', 'url(#el_hilight)');
+        activePath
+        // .attr('stroke', '#F9FE00')
+        // .attr('stroke-width', '6')
+        .attr('mask', 'url(#el_hilight)').classed("mui_active", true);
         maskPath.attr('d', d.path);
         highlightPath = activePath;
         // console.dir(d.path);
