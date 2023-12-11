@@ -84,7 +84,64 @@
 		}
 	}
 }
-
+#header {
+	position: relative;
+	z-index: 99;
+}
+.block_tooltip {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	background: #2F323A;
+	border: 1px solid #ED6C00;
+	border-radius: 4px;
+	max-width: 310px;
+	z-index: 999;
+	&.mui_active {
+		display: block;
+	}
+	.inset {
+		padding: 6px 20px;
+		.title {
+			font-size: 12px;
+			color: #ED6C00;
+			border-bottom: 1px solid #ED6C00;
+			padding-bottom: 4px;
+		}
+		.conts {
+			dl {
+				display: flex;
+				color: #C3CDD6;
+				padding: 2px 0;
+				font-size: 12px;
+				&:not(:first-child) {
+					border-top: 1px solid #636363;
+				}
+				dt {
+					width: 66px;
+					font-weight: 700;
+				}
+				dd {
+					flex: 1 1;
+				}
+			}
+		}
+	}
+	.close {
+		position: absolute;
+		top: 6px;
+		right: 16px;
+		span{
+			display: block;
+			color: transparent;
+			font-size: 0;
+			width: 20px;
+			height: 20px;
+			background: url($url_common+"ico_close.png") no-repeat center;
+		}
+	}
+}
 .header {
 	// border: 1px solid red;
 	height: 96px;
@@ -2756,6 +2813,17 @@
 			z-index: 2;
 			svg {
 				max-width: 100%;
+				#imagesSvg {
+					& > g:not(.mui_active) {
+						display: none;
+					}
+					[stroke-width]:not([fill]) {
+						fill:none;
+					}
+				}
+			}
+			.tooltip_element {
+				cursor: pointer;
 			}
 			.map_area {
 				cursor: pointer;
@@ -2763,7 +2831,7 @@
 				transition: all .5s;
 				&.mui_active {
 					stroke: #F9FE00;
-					stroke-width: 6;
+					stroke-width: 8;
 				}
 			}
 			
@@ -2786,6 +2854,7 @@
 			position: absolute;
 			top: 144px;
 			left: 0;
+			z-index: 3;
 			@include respondToMinMax(0, 1366){
 				position: relative;
 				margin-top: 30px;

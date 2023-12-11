@@ -3979,6 +3979,64 @@ table, th, td {
   white-space: normal;
 }
 
+#header {
+  position: relative;
+  z-index: 99;
+}
+
+.block_tooltip {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  background: #2F323A;
+  border: 1px solid #ED6C00;
+  border-radius: 4px;
+  max-width: 310px;
+  z-index: 999;
+}
+.block_tooltip.mui_active {
+  display: block;
+}
+.block_tooltip .inset {
+  padding: 6px 20px;
+}
+.block_tooltip .inset .title {
+  font-size: 12px;
+  color: #ED6C00;
+  border-bottom: 1px solid #ED6C00;
+  padding-bottom: 4px;
+}
+.block_tooltip .inset .conts dl {
+  display: flex;
+  color: #C3CDD6;
+  padding: 2px 0;
+  font-size: 12px;
+}
+.block_tooltip .inset .conts dl:not(:first-child) {
+  border-top: 1px solid #636363;
+}
+.block_tooltip .inset .conts dl dt {
+  width: 66px;
+  font-weight: 700;
+}
+.block_tooltip .inset .conts dl dd {
+  flex: 1 1;
+}
+.block_tooltip .close {
+  position: absolute;
+  top: 6px;
+  right: 16px;
+}
+.block_tooltip .close span {
+  display: block;
+  color: transparent;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  background: url("/src/images/ico_close.png") no-repeat center;
+}
+
 .header {
   height: 96px;
 }
@@ -6924,6 +6982,15 @@ table, th, td {
 .main .section .main_map svg {
   max-width: 100%;
 }
+.main .section .main_map svg #imagesSvg > g:not(.mui_active) {
+  display: none;
+}
+.main .section .main_map svg #imagesSvg [stroke-width]:not([fill]) {
+  fill: none;
+}
+.main .section .main_map .tooltip_element {
+  cursor: pointer;
+}
 .main .section .main_map .map_area {
   cursor: pointer;
   stroke-width: 0;
@@ -6931,7 +6998,7 @@ table, th, td {
 }
 .main .section .main_map .map_area.mui_active {
   stroke: #F9FE00;
-  stroke-width: 6;
+  stroke-width: 8;
 }
 @media (min-width: 0px) and (max-width: 1366px) {
   .main .section .main_map {
@@ -6954,6 +7021,7 @@ table, th, td {
   position: absolute;
   top: 144px;
   left: 0;
+  z-index: 3;
 }
 @media (min-width: 0px) and (max-width: 1366px) {
   .main .section .data_list {
