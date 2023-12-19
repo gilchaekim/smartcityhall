@@ -12734,10 +12734,8 @@
       render: function render() {
         var $el = this.$el,
           chartOptions = this.chartOptions;
-        // console.log(this.chartData);
-
-        var aaaa = new ApexCharts$1($el, chartOptions);
-        aaaa.render();
+        this.chart = new ApexCharts$1($el, chartOptions);
+        this.chart.render();
       }
     }
   };

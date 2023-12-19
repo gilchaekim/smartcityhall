@@ -132,16 +132,15 @@ export default {
       },
     },
     connected(){
+
       this.render();
     },
 
     methods: {
       render() {
         const {$el, chartOptions} = this;
-        // console.log(this.chartData);
-
-        const aaaa = new ApexCharts($el, chartOptions)
-        aaaa.render();
+        this.chart = new ApexCharts($el, chartOptions)
+        this.chart.render();
       }
     }
 
