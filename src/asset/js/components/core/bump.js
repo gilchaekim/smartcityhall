@@ -72,6 +72,7 @@ export default {
 
     },
     connected(){
+      
       this.render();
     },
 
@@ -212,12 +213,13 @@ export default {
 
       }, 
       chartData () {
-        const { labels, steps } = this;
+        const { labels, steps, data } = this;
         const ti = new Map(labels.map((label, i) => [label, i]));
         const qi = new Map(steps.map((step, i) => [step, i]));  
 
         
         const matrix = Array.from(ti, () => new Array(steps.length).fill(null));  
+        
         for (const {label, step, score} of data) 
           matrix[ti.get(label)][qi.get(step)] = {rank: 0, score: +score, next: null};
         

@@ -916,7 +916,7 @@
       });
     });
   }
-  function data$1(element, attribute) {
+  function data(element, attribute) {
     for (var i = 0, attrs = [attribute, "data-".concat(attribute)]; i < attrs.length; i++) {
       if (hasAttr(element, attrs[i])) {
         return attr(element, attrs[i]);
@@ -3097,7 +3097,7 @@
     attr: attr,
     hasAttr: hasAttr,
     removeAttr: removeAttr,
-    data: data$1,
+    data: data,
     dimensions: dimensions$1,
     offset: offset,
     position: position,
@@ -3539,18 +3539,18 @@
     }
   }
   function getProps(opts, name) {
-    var data = {};
+    var data$1 = {};
     var _opts$args = opts.args,
       args = _opts$args === void 0 ? [] : _opts$args,
       _opts$props = opts.props,
       props = _opts$props === void 0 ? {} : _opts$props,
       el = opts.el;
     if (!props) {
-      return data;
+      return data$1;
     }
     for (var key in props) {
       var prop = hyphenate(key);
-      var value = data$1(el, prop);
+      var value = data(el, prop);
       if (isUndefined(value)) {
         continue;
       }
@@ -3558,16 +3558,16 @@
       if (prop === 'target' && (!value || startsWith(value, '_'))) {
         continue;
       }
-      data[key] = value;
+      data$1[key] = value;
     }
-    var options = parseOptions(data$1(el, name), args);
+    var options = parseOptions(data(el, name), args);
     for (var _key in options) {
       var _prop = camelize(_key);
       if (props[_prop] !== undefined) {
-        data[_prop] = coerce(props[_prop], options[_key]);
+        data$1[_prop] = coerce(props[_prop], options[_key]);
       }
     }
-    return data;
+    return data$1;
   }
   function notIn(options, key) {
     return options.every(function (arr) {
@@ -4383,7 +4383,7 @@
       handler: function handler(e) {
         e.preventDefault();
         console.log('날짜');
-        var date = this.parseDate(data$1(e.current, 'date'));
+        var date = this.parseDate(data(e.current, 'date'));
         console.log(date);
         this.viewDate = date;
         this.setValue();
@@ -5692,7 +5692,7 @@
       },
       handler: function handler(e) {
         e.preventDefault();
-        var val = this.parseDate(data$1(e.current, 'date'));
+        var val = this.parseDate(data(e.current, 'date'));
         this.setDate(val);
         this.closePickerDate();
       }
@@ -16167,7 +16167,8 @@
       },
       chartData: function chartData() {
         var labels = this.labels,
-          steps = this.steps;
+          steps = this.steps,
+          data = this.data;
         var ti = new Map(labels.map(function (label, i) {
           return [label, i];
         }));

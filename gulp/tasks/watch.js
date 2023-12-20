@@ -8,6 +8,7 @@ import docsScss from './docsScss';
 import docsJavascript from './docsJavascript';
 import docsPug from './docsPug';
 
+
 const watch11 = () => {
   browserSync.init({
     server: buildDir,
@@ -20,6 +21,8 @@ const watch11 = () => {
   const pugWather = watch(config.source.pugWather);
 
   pugWather.on('change', (path, state) => {
+    console.log(path);
+    console.log(state);
     let isComponents = path.indexOf('components');
     let pagePath;
     if(isComponents<0){
