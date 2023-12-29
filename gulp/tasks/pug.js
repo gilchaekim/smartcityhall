@@ -3,6 +3,7 @@ import {config, buildDir} from "./../config";
 import plugins from "./plugins";
 import browserSync from 'browser-sync';
 import beautify from "gulp-beautify";
+import htmlbeautify from 'gulp-html-beautify';
 import {
   printError,
   logError
@@ -39,7 +40,27 @@ const pugBuild = (path) => {
     this.emit('end');
     logError(error.name, error.message);
   })
-  .pipe(beautify.html({ indent_size: 2 }))
+  // .pipe(beautify.html({ indent_size: 2 }))
+  .pipe(htmlbeautify({ 
+    "indent_size": 4,
+    "indent_level": 1,
+    "indent_with_tabs": false,
+    "preserve_newlines": true,
+    "max_preserve_newlines": 1,
+    "jslint_happy": false,
+    "space_after_anon_function": false,
+    "brace_style": "collapse",
+    "keep_array_indentation": false,
+    "keep_function_indentation": false,
+    "space_before_conditional": true,
+    "break_chained_methods": false,
+    "eval_code": false,
+    "unescape_strings": false,
+    "wrap_line_length": 0,
+    "wrap_attributes": "auto",
+    "wrap_attributes_indent_size": 4,
+    "end_with_newline": false
+  }))
   .pipe(dest(buildDir))
   .on('end', () => {
     reload && browserSync.reload();

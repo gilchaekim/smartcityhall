@@ -1,1832 +1,1812 @@
-<!DOCTYPE html>
-<html id="pageRoot" lang="ko">
+    <!DOCTYPE html>
+    <html id="pageRoot" lang="ko">
 
-<head>
-  <title>시흥시 스마트 시정</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/css/common.css">
-  <script type="text/javascript" src="/js/index.js"></script>
-</head>
+    <head>
+        <title>시흥시 스마트 시정</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/common.css">
+        <script type="text/javascript" src="/js/index.js"></script>
+    </head>
 
-<body>
-  <div id="wrapper"><!-- header -->
-    <div id="header">
-      <header class="header">
-        <div class="inner">
-          <h1 class="logo"><a href="#">스마트시정</a></h1>
-          <div class="tnb">
-            <div class="menu"> <a href="">호조별</a></div>
-            <div class="menu"> <a href="">시정영상</a></div>
-            <div class="menu"> <a href="">통합플랫폼</a></div>
-            <div class="menu toggle">
-              <button type="button" mui-toggle="target:#drop_menu">English </button>
-              <div class="drop_menu" id="drop_menu" hidden="">
-                <ul>
-                  <li> <a href="">Korea</a></li>
-                  <li class="mui_active"> <a href="">English</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="menu kren">
-              <button type="button" mui-toggle="cls:mui_active"><span>KR</span><span>EN</span></button>
-            </div>
-            <div class="menu search">
-              <button type="button" mui-toggle="target:#commonSearch"><span>검색</span></button>
-            </div>
-            <div class="menu allmenu">
-              <button type="button" mui-toggle="target:#commonAllmenu"><span>전체메뉴</span></button>
-            </div>
-          </div>
-          <div class="gnb">
-            <div class="inset">
-              <ul class="menu">
-                <li class="deps1"> <a href="">민원분석</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">민원총괄</a></li>
-                      <li><a href="">부서별 민원 현황</a></li>
-                      <li><a href="">분야별 민원 현황</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"> <a href="">실시간 도시현황</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">교통정보</a></li>
-                      <li><a href="">대기환경</a></li>
-                      <li><a href="">감염병 발생</a></li>
-                      <li><a href="">호조벌</a></li>
-                      <li><a href="">통합플랫폼</a></li>
-                      <li><a href="">시정영상</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"> <a href="">시정데이터</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">시정데이터</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">테마지도</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">테마지도</a></li>
-                      <li><a href="">부동산 지도</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">빅데이터 분석</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">자체분석</a></li>
-                      <li><a href="">분석플랫폼</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">공유박스</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">홍보영상</a></li>
-                      <li><a href="">관련뉴스</a></li>
-                      <li><a href="">공공데이터</a></li>
-                      <li><a href="">연관 플랫폼 목록</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">스마트시정 소개</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">포털소개</a></li>
-                      <li><a href="">공지사항</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div><!-- / header --><!-- contents -->
-    <div id="container"><!-- LNB -->
-      <div class="side_menu">
-        <div class="inner">
-          <ul class="deps1">
-            <li class="pc_only"><a href="">부서별 민원 현황</a>
-              <div class="sub_deps">
-                <ul>
-                  <li class="mui_active"><a href="">일별</a></li>
-                  <li> <a href="">월별</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mobile_only">
-              <button type="button" mui-toggle="target:#subDeps1;cls:mui_active;">부서별 민원 현황</button>
-              <div class="sub_deps" id="subDeps1">
-                <ul>
-                  <li class="mui_active"><a href="">일별</a></li>
-                  <li> <a href="">월별</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mui_active"><a href="">연관 플랫폼 목록</a></li>
-            <li><a class="ico type1" href="">인구</a></li>
-            <li><a class="ico type2" href="">경제</a></li>
-            <li><a class="ico type3" href="">교육</a></li>
-            <li><a class="ico type4" href="">교통</a></li>
-            <li><a class="ico type5" href="">문화</a></li>
-            <li><a class="ico type6" href="">복지</a></li>
-            <li><a class="ico type7" href="">행정</a></li>
-            <li><a class="ico type8" href="">환경</a></li>
-          </ul>
-        </div>
-      </div><!--// LNB -->
-      <div id="contents">
-        <div class="mui_title">
-          <p class="title lv2">부서별 민원현황 (월별)
-          </p>
-        </div>
-        <p class="sub_decs">시흥시 오늘의 민원 건수 및 민원이 가장 많은 부서/키워드를 보여줍니다.</p>
-        <div class="minwon_month">
-          <div class="chart_secbump">
-            <div class="search_date">
-              <div class="box"><span class="label">검색일자</span>
-                <div class="selects">
-                  <span class="mui_select">
-                    <select>
-                      <option>2023년</option>
-                    </select>
-                  </span>
-                  <span class="mui_select">
-                    <select>
-                      <option>7월</option>
-                    </select>
-                  </span>
-                  <button type="button"> <span>조회</span></button>
-                </div>
-              </div>
-            </div>
-            <div class="titles">
-              <p class="title1">민원 월별 추이</p>
-              <p class="decs">검색년도에 민원이 가장 많은 TOP10개의 부서 월별 추이를 보여드립니다.</p>
-              <button class="download" type="button">EXCLEL</button>
-            </div>
-            <div class="chart_wrap">
-              <div class="chart" id="bumpChart"></div>
-              <div class="labels"> <span class="label1">교통행정과</span><span class="label2">환경정책과 </span><span class="label3">주택과</span><span class="label4">건설행정과</span><span class="label5">자원순환과</span><span class="label6">장애인복지과</span><span class="label7">건축과</span><span class="label8">대중교통과</span><span class="label9">경관디자인과</span><span class="label1">위생과</span></div>
-            </div>
-          </div>
-          <div class="chart_secpie">
-            <div class="search_date">
-              <div class="box"><span class="label">검색일자</span>
-                <div class="selects">
-                  <span class="mui_select">
-                    <select>
-                      <option>2023년</option>
-                    </select>
-                  </span>
-                  <span class="mui_select">
-                    <select>
-                      <option>7월</option>
-                    </select>
-                  </span>
-                  <button type="button"> <span>조회</span></button>
-                </div>
-              </div>
-            </div>
-            <div class="titles">
-              <p class="title1">분야 TOP 10</p>
-              <p class="decs">검색년도에 민원이 가장 많은 TOP10개의 부서를 보여드립니다</p>
-              <button class="download" type="button">EXCLEL</button>
-            </div>
-            <div class="chart_wrap">
-              <div class="chart" id="semiPie"></div>
-              <div class="rank">
-                <div class="rank_lists" mui-slider="direction:vertical;autoplay:true;">
-                  <div class="slider">
-                    <div class="swiper-wrapper">
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">01</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+    <body>
+        <div id="wrapper"><!-- header -->
+            <div id="header">
+                <header class="header">
+                    <div class="inner">
+                        <h1 class="logo"><a href="#">스마트시정</a></h1>
+                        <div class="tnb">
+                            <div class="menu"> <a href="">호조별</a></div>
+                            <div class="menu"> <a href="">시정영상</a></div>
+                            <div class="menu"> <a href="">통합플랫폼</a></div>
+                            <div class="menu toggle">
+                                <button type="button" mui-toggle="target:#drop_menu">English </button>
+                                <div class="drop_menu" id="drop_menu" hidden="">
+                                    <ul>
+                                        <li> <a href="">Korea</a></li>
+                                        <li class="mui_active"> <a href="">English</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu kren">
+                                <button type="button" mui-toggle="cls:mui_active"><span>KR</span><span>EN</span></button>
+                            </div>
+                            <div class="menu search">
+                                <button type="button" mui-toggle="target:#commonSearch"><span>검색</span></button>
+                            </div>
+                            <div class="menu allmenu">
+                                <button type="button" mui-toggle="target:#commonAllmenu"><span>전체메뉴</span></button>
+                            </div>
                         </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">02</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                        <div class="gnb">
+                            <div class="inset">
+                                <ul class="menu">
+                                    <li class="deps1"> <a href="">민원분석</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">민원총괄</a></li>
+                                                <li><a href="">부서별 민원 현황</a></li>
+                                                <li><a href="">분야별 민원 현황</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"> <a href="">실시간 도시현황</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">교통정보</a></li>
+                                                <li><a href="">대기환경</a></li>
+                                                <li><a href="">감염병 발생</a></li>
+                                                <li><a href="">호조벌</a></li>
+                                                <li><a href="">통합플랫폼</a></li>
+                                                <li><a href="">시정영상</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"> <a href="">시정데이터</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">시정데이터</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">테마지도</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">테마지도</a></li>
+                                                <li><a href="">부동산 지도</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">빅데이터 분석</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">자체분석</a></li>
+                                                <li><a href="">분석플랫폼</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">공유박스</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">홍보영상</a></li>
+                                                <li><a href="">관련뉴스</a></li>
+                                                <li><a href="">공공데이터</a></li>
+                                                <li><a href="">연관 플랫폼 목록</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">스마트시정 소개</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">포털소개</a></li>
+                                                <li><a href="">공지사항</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">03</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">04</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">05</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">06</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">07</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">08</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">09</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
-                      <div class="slide_list swiper-slide">
-                        <div class="txt">
-                          <p> <span class="rank_num">10</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <button class="detail_view" type="button">자세히 보기</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script>
-          var options = {
-            series: [4710, 1022, 347, 263, 183, 153, 132, 108, 88, 72],
-            labels: ['교통행정과', '환경쟁책과', '건설행정과', '자원순환과', '장애인복지과', '건축과', '대중교통과', '경관디자인과', '위생과'],
-            chart: {
-              type: 'donut',
-            },
-            colors: ['#21A182', '#2391A2', '#5D3F8B', '#F44B4B', '#F59239', '#00BCCC', '#3464A0', '#E55091', '#A23837', '#66A846'],
-            dataLabels: {
-              enabled: false
-            },
-            plotOptions: {
-              pie: {
+                </header>
+            </div><!-- / header --><!-- contents -->
+            <div id="container"><!-- LNB -->
+                <div class="side_menu">
+                    <div class="inner">
+                        <ul class="deps1">
+                            <li class="pc_only"><a href="">부서별 민원 현황</a>
+                                <div class="sub_deps">
+                                    <ul>
+                                        <li class="mui_active"><a href="">일별</a></li>
+                                        <li> <a href="">월별</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mobile_only">
+                                <button type="button" mui-toggle="target:#subDeps1;cls:mui_active;">부서별 민원 현황</button>
+                                <div class="sub_deps" id="subDeps1">
+                                    <ul>
+                                        <li class="mui_active"><a href="">일별</a></li>
+                                        <li> <a href="">월별</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mui_active"><a href="">연관 플랫폼 목록</a></li>
+                            <li><a class="ico type1" href="">인구</a></li>
+                            <li><a class="ico type2" href="">경제</a></li>
+                            <li><a class="ico type3" href="">교육</a></li>
+                            <li><a class="ico type4" href="">교통</a></li>
+                            <li><a class="ico type5" href="">문화</a></li>
+                            <li><a class="ico type6" href="">복지</a></li>
+                            <li><a class="ico type7" href="">행정</a></li>
+                            <li><a class="ico type8" href="">환경</a></li>
+                        </ul>
+                    </div>
+                </div><!--// LNB -->
+                <div id="contents">
+                    <div class="mui_title">
+                        <p class="title lv2">부서별 민원현황 (월별)
+                        </p>
+                    </div>
+                    <p class="sub_decs">시흥시 오늘의 민원 건수 및 민원이 가장 많은 부서/키워드를 보여줍니다.</p>
+                    <div class="minwon_month">
+                        <div class="chart_secbump">
+                            <div class="search_date">
+                                <div class="box"><span class="label">검색일자</span>
+                                    <div class="selects">
+                                        <span class="mui_select">
+                                            <select>
+                                                <option>2023년</option>
+                                            </select>
+                                        </span>
+                                        <span class="mui_select">
+                                            <select>
+                                                <option>7월</option>
+                                            </select>
+                                        </span>
+                                        <button type="button"> <span>조회</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titles">
+                                <p class="title1">민원 월별 추이</p>
+                                <p class="decs">검색년도에 민원이 가장 많은 TOP10개의 부서 월별 추이를 보여드립니다.</p>
+                                <button class="download" type="button">EXCLEL</button>
+                            </div>
+                            <div class="chart_wrap">
+                                <div class="chart" id="bumpChart"></div>
+                                <div class="labels"> <span class="label1">교통행정과</span><span class="label2">환경정책과 </span><span class="label3">주택과</span><span class="label4">건설행정과</span><span class="label5">자원순환과</span><span class="label6">장애인복지과</span><span class="label7">건축과</span><span class="label8">대중교통과</span><span class="label9">경관디자인과</span><span class="label1">위생과</span></div>
+                            </div>
+                        </div>
+                        <div class="chart_secpie">
+                            <div class="search_date">
+                                <div class="box"><span class="label">검색일자</span>
+                                    <div class="selects">
+                                        <span class="mui_select">
+                                            <select>
+                                                <option>2023년</option>
+                                            </select>
+                                        </span>
+                                        <span class="mui_select">
+                                            <select>
+                                                <option>7월</option>
+                                            </select>
+                                        </span>
+                                        <button type="button"> <span>조회</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titles">
+                                <p class="title1">분야 TOP 10</p>
+                                <p class="decs">검색년도에 민원이 가장 많은 TOP10개의 부서를 보여드립니다</p>
+                                <button class="download" type="button">EXCLEL</button>
+                            </div>
+                            <div class="chart_wrap">
+                                <div class="chart" id="semiPie"></div>
+                                <div class="rank">
+                                    <div class="rank_lists" mui-slider="direction:vertical;autoplay:true;">
+                                        <div class="slider">
+                                            <div class="swiper-wrapper">
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">01</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">02</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">03</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">04</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">05</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">06</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">07</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">08</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">09</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                                <div class="slide_list swiper-slide">
+                                                    <div class="txt">
+                                                        <p> <span class="rank_num">10</span><span class="text">교통행정과</span><span class="score">385 건</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="detail_view" type="button">자세히 보기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+    var options = {
+        series: [4710, 1022, 347, 263, 183, 153, 132, 108, 88, 72],
+        labels: ['교통행정과', '환경쟁책과', '건설행정과', '자원순환과', '장애인복지과', '건축과', '대중교통과', '경관디자인과', '위생과'],
+        chart: {
+            type: 'donut',
+        },
+        colors: ['#21A182', '#2391A2', '#5D3F8B', '#F44B4B', '#F59239', '#00BCCC', '#3464A0', '#E55091', '#A23837', '#66A846'],
+        dataLabels: {
+            enabled: false
+        },
+        plotOptions: {
+            pie: {
                 donut: {
-                  labels: {
-                    show: true,
-                    name: {
-                      show: true,
-                      fontSize: '22px',
-                      color: '#ffffff',
-                      offsetY: -10
-                    },
-                    value: {
-                      show: true,
-                      fontSize: '16px',
-                      color: "#ffffff",
-                      offsetY: 16,
-                      formatter: function(val) {
-                        return val
-                      }
-                    },
-                    total: {
-                      show: true,
-                      label: 'Total',
-                      color: '#ffffff',
-                      formatter: function(w) {
-                        return w.globals.seriesTotals.reduce((a, b) => {
-                          return a + b
-                        }, 0)
-                      }
+                    labels: {
+                        show: true,
+                        name: {
+                            show: true,
+                            fontSize: '22px',
+                            color: '#ffffff',
+                            offsetY: -10
+                        },
+                        value: {
+                            show: true,
+                            fontSize: '16px',
+                            color: "#ffffff",
+                            offsetY: 16,
+                            formatter: function(val) {
+                                return val
+                            }
+                        },
+                        total: {
+                            show: true,
+                            label: 'Total',
+                            color: '#ffffff',
+                            formatter: function(w) {
+                                return w.globals.seriesTotals.reduce((a, b) => {
+                                    return a + b
+                                }, 0)
+                            }
+                        }
                     }
-                  }
                 },
                 offsetY: 20
-              }
-            },
-
-          };
-          var data = [{
-              label: '교통행정과',
-              step: '22-08',
-              score: 411
-            },
-            {
-              label: '교통행정과',
-              step: '22-09',
-              score: 367
-            },
-            {
-              label: '교통행정과',
-              step: '22-10',
-              score: 452
-            },
-            {
-              label: '교통행정과',
-              step: '22-11',
-              score: 179
-            },
-            {
-              label: '교통행정과',
-              step: '22-12',
-              score: 251
-            },
-            {
-              label: '교통행정과',
-              step: '23-01',
-              score: 545
-            },
-            {
-              label: '교통행정과',
-              step: '23-02',
-              score: 223
-            },
-            {
-              label: '교통행정과',
-              step: '23-03',
-              score: 264
-            },
-            {
-              label: '교통행정과',
-              step: '23-04',
-              score: 387
-            },
-            {
-              label: '교통행정과',
-              step: '23-05',
-              score: 448
-            },
-            {
-              label: '교통행정과',
-              step: '23-06',
-              score: 391
-            },
-            {
-              label: '교통행정과',
-              step: '23-07',
-              score: 269
-            },
-            {
-              label: '교통행정과',
-              step: '23-08',
-              score: 332
-            },
-            {
-              label: '교통행정과',
-              step: '23-09',
-              score: 140
-            },
-
-            {
-              label: '환경정책과',
-              step: '22-08',
-              score: 278
-            },
-            {
-              label: '환경정책과',
-              step: '22-09',
-              score: 305
-            },
-            {
-              label: '환경정책과',
-              step: '22-10',
-              score: 277
-            },
-            {
-              label: '환경정책과',
-              step: '22-11',
-              score: 339
-            },
-            {
-              label: '환경정책과',
-              step: '22-12',
-              score: 258
-            },
-            {
-              label: '환경정책과',
-              step: '23-01',
-              score: 387
-            },
-            {
-              label: '환경정책과',
-              step: '23-02',
-              score: 360
-            },
-            {
-              label: '환경정책과',
-              step: '23-03',
-              score: 313
-            },
-            {
-              label: '환경정책과',
-              step: '23-04',
-              score: 389
-            },
-            {
-              label: '환경정책과',
-              step: '23-05',
-              score: 366
-            },
-            {
-              label: '환경정책과',
-              step: '23-06',
-              score: 340
-            },
-            {
-              label: '환경정책과',
-              step: '23-07',
-              score: 383
-            },
-            {
-              label: '환경정책과',
-              step: '23-08',
-              score: 374
-            },
-            {
-              label: '환경정책과',
-              step: '23-09',
-              score: 218
-            },
-
-            {
-              label: '주택과',
-              step: '22-08',
-              score: 280
-            },
-            {
-              label: '주택과',
-              step: '22-09',
-              score: 319
-            },
-            {
-              label: '주택과',
-              step: '22-10',
-              score: 439
-            },
-            {
-              label: '주택과',
-              step: '22-11',
-              score: 270
-            },
-            {
-              label: '주택과',
-              step: '22-12',
-              score: 302
-            },
-            {
-              label: '주택과',
-              step: '23-01',
-              score: 378
-            },
-            {
-              label: '주택과',
-              step: '23-02',
-              score: 308
-            },
-            {
-              label: '주택과',
-              step: '23-03',
-              score: 343
-            },
-            {
-              label: '주택과',
-              step: '23-04',
-              score: 394
-            },
-            {
-              label: '주택과',
-              step: '23-05',
-              score: 327
-            },
-            {
-              label: '주택과',
-              step: '23-06',
-              score: 400
-            },
-            {
-              label: '주택과',
-              step: '23-07',
-              score: 346
-            },
-            {
-              label: '주택과',
-              step: '23-08',
-              score: 376
-            },
-            {
-              label: '주택과',
-              step: '23-09',
-              score: 344
-            },
-
-            {
-              label: '건설행정과',
-              step: '22-08',
-              score: 413
-            },
-            {
-              label: '건설행정과',
-              step: '22-09',
-              score: 441
-            },
-            {
-              label: '건설행정과',
-              step: '22-10',
-              score: 355
-            },
-            {
-              label: '건설행정과',
-              step: '22-11',
-              score: 430
-            },
-            {
-              label: '건설행정과',
-              step: '22-12',
-              score: 381
-            },
-            {
-              label: '건설행정과',
-              step: '23-01',
-              score: 546
-            },
-            {
-              label: '건설행정과',
-              step: '23-02',
-              score: 423
-            },
-            {
-              label: '건설행정과',
-              step: '23-03',
-              score: 469
-            },
-            {
-              label: '건설행정과',
-              step: '23-04',
-              score: 427
-            },
-            {
-              label: '건설행정과',
-              step: '23-05',
-              score: 516
-            },
-            {
-              label: '건설행정과',
-              step: '23-06',
-              score: 541
-            },
-            {
-              label: '건설행정과',
-              step: '23-07',
-              score: 450
-            },
-            {
-              label: '건설행정과',
-              step: '23-08',
-              score: 550
-            },
-            {
-              label: '건설행정과',
-              step: '23-09',
-              score: 325
-            },
-            {
-              label: '자원순환과',
-              step: '22-08',
-              score: 131
-            },
-            {
-              label: '자원순환과',
-              step: '22-09',
-              score: 132
-            },
-            {
-              label: '자원순환과',
-              step: '22-10',
-              score: 106
-            },
-            {
-              label: '자원순환과',
-              step: '22-11',
-              score: 107
-            },
-            {
-              label: '자원순환과',
-              step: '22-12',
-              score: 116
-            },
-            {
-              label: '자원순환과',
-              step: '23-01',
-              score: 152
-            },
-            {
-              label: '자원순환과',
-              step: '23-02',
-              score: 112
-            },
-            {
-              label: '자원순환과',
-              step: '23-03',
-              score: 116
-            },
-            {
-              label: '자원순환과',
-              step: '23-04',
-              score: 134
-            },
-            {
-              label: '자원순환과',
-              step: '23-05',
-              score: 132
-            },
-            {
-              label: '자원순환과',
-              step: '23-06',
-              score: 133
-            },
-            {
-              label: '자원순환과',
-              step: '23-07',
-              score: 144
-            },
-            {
-              label: '자원순환과',
-              step: '23-08',
-              score: 174
-            },
-            {
-              label: '자원순환과',
-              step: '23-09',
-              score: 120
-            },
-            {
-              label: '장애인복지과',
-              step: '22-08',
-              score: 295
-            },
-            {
-              label: '장애인복지과',
-              step: '22-09',
-              score: 444
-            },
-            {
-              label: '장애인복지과',
-              step: '22-10',
-              score: 371
-            },
-            {
-              label: '장애인복지과',
-              step: '22-11',
-              score: 331
-            },
-            {
-              label: '장애인복지과',
-              step: '22-12',
-              score: 358
-            },
-            {
-              label: '장애인복지과',
-              step: '23-01',
-              score: 402
-            },
-            {
-              label: '장애인복지과',
-              step: '23-02',
-              score: 369
-            },
-            {
-              label: '장애인복지과',
-              step: '23-03',
-              score: 429
-            },
-            {
-              label: '장애인복지과',
-              step: '23-04',
-              score: 468
-            },
-            {
-              label: '장애인복지과',
-              step: '23-05',
-              score: 468
-            },
-            {
-              label: '장애인복지과',
-              step: '23-06',
-              score: 475
-            },
-            {
-              label: '장애인복지과',
-              step: '23-07',
-              score: 435
-            },
-            {
-              label: '장애인복지과',
-              step: '23-08',
-              score: 430
-            },
-            {
-              label: '장애인복지과',
-              step: '23-09',
-              score: 260
-            },
-            {
-              label: '건축과',
-              step: '22-08',
-              score: 121
-            },
-            {
-              label: '건축과',
-              step: '22-09',
-              score: 159
-            },
-            {
-              label: '건축과',
-              step: '22-10',
-              score: 171
-            },
-            {
-              label: '건축과',
-              step: '22-11',
-              score: 171
-            },
-            {
-              label: '건축과',
-              step: '22-12',
-              score: 149
-            },
-            {
-              label: '건축과',
-              step: '23-01',
-              score: 218
-            },
-            {
-              label: '건축과',
-              step: '23-02',
-              score: 247
-            },
-            {
-              label: '건축과',
-              step: '23-03',
-              score: 168
-            },
-            {
-              label: '건축과',
-              step: '23-04',
-              score: 219
-            },
-            {
-              label: '건축과',
-              step: '23-05',
-              score: 225
-            },
-            {
-              label: '건축과',
-              step: '23-06',
-              score: 217
-            },
-            {
-              label: '건축과',
-              step: '23-07',
-              score: 190
-            },
-            {
-              label: '건축과',
-              step: '23-08',
-              score: 179
-            },
-            {
-              label: '건축과',
-              step: '23-09',
-              score: 135
-            },
-            {
-              label: '대중교통과',
-              step: '22-08',
-              score: 556
-            },
-            {
-              label: '대중교통과',
-              step: '22-09',
-              score: 684
-            },
-            {
-              label: '대중교통과',
-              step: '22-10',
-              score: 577
-            },
-            {
-              label: '대중교통과',
-              step: '22-11',
-              score: 626
-            },
-            {
-              label: '대중교통과',
-              step: '22-12',
-              score: 523
-            },
-            {
-              label: '대중교통과',
-              step: '23-01',
-              score: 693
-            },
-            {
-              label: '대중교통과',
-              step: '23-02',
-              score: 579
-            },
-            {
-              label: '대중교통과',
-              step: '23-03',
-              score: 664
-            },
-            {
-              label: '대중교통과',
-              step: '23-04',
-              score: 754
-            },
-            {
-              label: '대중교통과',
-              step: '23-05',
-              score: 705
-            },
-            {
-              label: '대중교통과',
-              step: '23-06',
-              score: 726
-            },
-            {
-              label: '대중교통과',
-              step: '23-07',
-              score: 707
-            },
-            {
-              label: '대중교통과',
-              step: '23-08',
-              score: 696
-            },
-            {
-              label: '대중교통과',
-              step: '23-09',
-              score: 520
-            },
-            {
-              label: '경관디자인과',
-              step: '22-08',
-              score: 333
-            },
-            {
-              label: '경관디자인과',
-              step: '22-09',
-              score: 399
-            },
-            {
-              label: '경관디자인과',
-              step: '22-10',
-              score: 373
-            },
-            {
-              label: '경관디자인과',
-              step: '22-11',
-              score: 393
-            },
-            {
-              label: '경관디자인과',
-              step: '22-12',
-              score: 354
-            },
-            {
-              label: '경관디자인과',
-              step: '23-01',
-              score: 460
-            },
-            {
-              label: '경관디자인과',
-              step: '23-02',
-              score: 387
-            },
-            {
-              label: '경관디자인과',
-              step: '23-03',
-              score: 564
-            },
-            {
-              label: '경관디자인과',
-              step: '23-04',
-              score: 486
-            },
-            {
-              label: '경관디자인과',
-              step: '23-05',
-              score: 431
-            },
-            {
-              label: '경관디자인과',
-              step: '23-06',
-              score: 357
-            },
-            {
-              label: '경관디자인과',
-              step: '23-07',
-              score: 395
-            },
-            {
-              label: '경관디자인과',
-              step: '23-08',
-              score: 390
-            },
-            {
-              label: '경관디자인과',
-              step: '23-09',
-              score: 291
-            },
-            {
-              label: '위생과',
-              step: '22-08',
-              score: 333
-            },
-            {
-              label: '위생과',
-              step: '22-09',
-              score: 399
-            },
-            {
-              label: '위생과',
-              step: '22-10',
-              score: 373
-            },
-            {
-              label: '위생과',
-              step: '22-11',
-              score: 393
-            },
-            {
-              label: '위생과',
-              step: '22-12',
-              score: 354
-            },
-            {
-              label: '위생과',
-              step: '23-01',
-              score: 460
-            },
-            {
-              label: '위생과',
-              step: '23-02',
-              score: 387
-            },
-            {
-              label: '위생과',
-              step: '23-03',
-              score: 564
-            },
-            {
-              label: '위생과',
-              step: '23-04',
-              score: 486
-            },
-            {
-              label: '위생과',
-              step: '23-05',
-              score: 431
-            },
-            {
-              label: '위생과',
-              step: '23-06',
-              score: 357
-            },
-            {
-              label: '위생과',
-              step: '23-07',
-              score: 395
-            },
-            {
-              label: '위생과',
-              step: '23-08',
-              score: 390
-            },
-            {
-              label: '위생과',
-              step: '23-09',
-              score: 291
-            },
-          ];
-
-
-
-
-
-
-
-
-
-
-
-          var dataVal2 = [{
-              label: '청년청소년과',
-              step: '23-02',
-              score: 15
-            },
-            {
-              label: '청년청소년과',
-              step: '23-03',
-              score: 11
-            },
-            {
-              label: '청년청소년과',
-              step: '23-04',
-              score: 7
-            },
-            {
-              label: '청년청소년과',
-              step: '23-05',
-              score: 3
-            },
-            {
-              label: '청년청소년과',
-              step: '23-06',
-              score: 33
-            },
-            {
-              label: '청년청소년과',
-              step: '23-07',
-              score: 23
-            },
-            {
-              label: '청년청소년과',
-              step: '23-08',
-              score: 14
-            },
-            {
-              label: '청년청소년과',
-              step: '23-09',
-              score: 3
-            },
-            {
-              label: '청년청소년과',
-              step: '23-10',
-              score: 14
-            },
-            {
-              label: '청년청소년과',
-              step: '23-11',
-              score: 2
-            },
-            {
-              label: '청년청소년과',
-              step: '23-12',
-              score: 2
-            },
-            {
-              label: '녹지과',
-              step: '23-02',
-              score: 15
-            },
-            {
-              label: '녹지과',
-              step: '23-03',
-              score: 0
-            },
-            {
-              label: '녹지과',
-              step: '23-04',
-              score: 13
-            },
-            {
-              label: '녹지과',
-              step: '23-05',
-              score: 17
-            },
-            {
-              label: '녹지과',
-              step: '23-06',
-              score: 0
-            },
-            {
-              label: '녹지과',
-              step: '23-07',
-              score: 0
-            },
-            {
-              label: '녹지과',
-              step: '23-08',
-              score: 0
-            },
-            {
-              label: '녹지과',
-              step: '23-09',
-              score: 14
-            },
-            {
-              label: '녹지과',
-              step: '23-10',
-              score: 0
-            },
-            {
-              label: '녹지과',
-              step: '23-11',
-              score: 7
-            },
-            {
-              label: '녹지과',
-              step: '23-12',
-              score: 22
-            },
-            {
-              label: '상수도과',
-              step: '23-02',
-              score: 12
-            },
-            {
-              label: '상수도과',
-              step: '23-03',
-              score: 3
-            },
-            {
-              label: '상수도과',
-              step: '23-04',
-              score: 9
-            },
-            {
-              label: '상수도과',
-              step: '23-05',
-              score: 12
-            },
-            {
-              label: '상수도과',
-              step: '23-06',
-              score: 0
-            },
-            {
-              label: '상수도과',
-              step: '23-07',
-              score: 6
-            },
-            {
-              label: '상수도과',
-              step: '23-08',
-              score: 6
-            },
-            {
-              label: '상수도과',
-              step: '23-09',
-              score: 4
-            },
-            {
-              label: '상수도과',
-              step: '23-10',
-              score: 17
-            },
-            {
-              label: '상수도과',
-              step: '23-11',
-              score: 14
-            },
-            {
-              label: '상수도과',
-              step: '23-12',
-              score: 3
-            },
-            {
-              label: '도시재생과',
-              step: '23-02',
-              score: 0
-            },
-            {
-              label: '도시재생과',
-              step: '23-03',
-              score: 6
-            },
-            {
-              label: '도시재생과',
-              step: '23-04',
-              score: 10
-            },
-            {
-              label: '도시재생과',
-              step: '23-05',
-              score: 15
-            },
-            {
-              label: '도시재생과',
-              step: '23-06',
-              score: 0
-            },
-            {
-              label: '도시재생과',
-              step: '23-07',
-              score: 0
-            },
-            {
-              label: '도시재생과',
-              step: '23-08',
-              score: 0
-            },
-            {
-              label: '도시재생과',
-              step: '23-09',
-              score: 12
-            },
-            {
-              label: '도시재생과',
-              step: '23-10',
-              score: 0
-            },
-            {
-              label: '도시재생과',
-              step: '23-11',
-              score: 23
-            },
-            {
-              label: '도시재생과',
-              step: '23-12',
-              score: 14
-            },
-            {
-              label: '대기정책과',
-              step: '23-02',
-              score: 2
-            },
-            {
-              label: '대기정책과',
-              step: '23-03',
-              score: 15
-            },
-            {
-              label: '대기정책과',
-              step: '23-04',
-              score: 0
-            },
-            {
-              label: '대기정책과',
-              step: '23-05',
-              score: 1
-            },
-            {
-              label: '대기정책과',
-              step: '23-06',
-              score: 8
-            },
-            {
-              label: '대기정책과',
-              step: '23-07',
-              score: 18
-            },
-            {
-              label: '대기정책과',
-              step: '23-08',
-              score: 19
-            },
-            {
-              label: '대기정책과',
-              step: '23-09',
-              score: 0
-            },
-            {
-              label: '대기정책과',
-              step: '23-10',
-              score: 3
-            },
-            {
-              label: '대기정책과',
-              step: '23-11',
-              score: 4
-            },
-            {
-              label: '대기정책과',
-              step: '23-12',
-              score: 4
-            },
-            {
-              label: '축수산과',
-              step: '23-02',
-              score: 11
-            },
-            {
-              label: '축수산과',
-              step: '23-03',
-              score: 0
-            },
-            {
-              label: '축수산과',
-              step: '23-04',
-              score: 0
-            },
-            {
-              label: '축수산과',
-              step: '23-05',
-              score: 7
-            },
-            {
-              label: '축수산과',
-              step: '23-06',
-              score: 0
-            },
-            {
-              label: '축수산과',
-              step: '23-07',
-              score: 22
-            },
-            {
-              label: '축수산과',
-              step: '23-08',
-              score: 0
-            },
-            {
-              label: '축수산과',
-              step: '23-09',
-              score: 16
-            },
-            {
-              label: '축수산과',
-              step: '23-10',
-              score: 12
-            },
-            {
-              label: '축수산과',
-              step: '23-11',
-              score: 0
-            },
-            {
-              label: '축수산과',
-              step: '23-12',
-              score: 1
-            },
-            {
-              label: '관광과',
-              step: '23-02',
-              score: 0
-            },
-            {
-              label: '관광과',
-              step: '23-03',
-              score: 24
-            },
-            {
-              label: '관광과',
-              step: '23-04',
-              score: 3
-            },
-            {
-              label: '관광과',
-              step: '23-05',
-              score: 0
-            },
-            {
-              label: '관광과',
-              step: '23-06',
-              score: 0
-            },
-            {
-              label: '관광과',
-              step: '23-07',
-              score: 16
-            },
-            {
-              label: '관광과',
-              step: '23-08',
-              score: 0
-            },
-            {
-              label: '관광과',
-              step: '23-09',
-              score: 24
-            },
-            {
-              label: '관광과',
-              step: '23-10',
-              score: 0
-            },
-            {
-              label: '관광과',
-              step: '23-11',
-              score: 0
-            },
-            {
-              label: '관광과',
-              step: '23-12',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-02',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-03',
-              score: 23
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-04',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-05',
-              score: 6
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-06',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-07',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-08',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-09',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-10',
-              score: 0
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-11',
-              score: 24
-            },
-            {
-              label: '경제자유구역과',
-              step: '23-12',
-              score: 10
-            },
-            {
-              label: '주택과',
-              step: '23-02',
-              score: 0
-            },
-            {
-              label: '주택과',
-              step: '23-03',
-              score: 0
-            },
-            {
-              label: '주택과',
-              step: '23-04',
-              score: 1
-            },
-            {
-              label: '주택과',
-              step: '23-05',
-              score: 0
-            },
-            {
-              label: '주택과',
-              step: '23-06',
-              score: 4
-            },
-            {
-              label: '주택과',
-              step: '23-07',
-              score: 0
-            },
-            {
-              label: '주택과',
-              step: '23-08',
-              score: 0
-            },
-            {
-              label: '주택과',
-              step: '23-09',
-              score: 0
-            },
-            {
-              label: '주택과',
-              step: '23-10',
-              score: 0
-            },
-            {
-              label: '주택과',
-              step: '23-11',
-              score: 13
-            },
-            {
-              label: '주택과',
-              step: '23-12',
-              score: 36
-            },
-            {
-              label: '산단재생과',
-              step: '23-02',
-              score: 6
-            },
-            {
-              label: '산단재생과',
-              step: '23-03',
-              score: 0
-            },
-            {
-              label: '산단재생과',
-              step: '23-04',
-              score: 0
-            },
-            {
-              label: '산단재생과',
-              step: '23-05',
-              score: 3
-            },
-            {
-              label: '산단재생과',
-              step: '23-06',
-              score: 0
-            },
-            {
-              label: '산단재생과',
-              step: '23-07',
-              score: 10
-            },
-            {
-              label: '산단재생과',
-              step: '23-08',
-              score: 15
-            },
-            {
-              label: '산단재생과',
-              step: '23-09',
-              score: 0
-            },
-            {
-              label: '산단재생과',
-              step: '23-10',
-              score: 16
-            },
-            {
-              label: '산단재생과',
-              step: '23-11',
-              score: 0
-            },
-            {
-              label: '산단재생과',
-              step: '23-12',
-              score: 2
-            },
-          ]
-
-
-
-          //- 교통행정과
-          //- 환경정책과
-          //- 주택과
-          //- 건설행정과
-          //- 자원순환과
-          //- 장애인복지과
-          //- 건축과
-          //- 대중교통과
-          //- 경관디자인과
-          //- 위생과
-
-
-          var colors = [
-            '#21A182',
-            '#00BCCC',
-            '#2391A2',
-            '#3464A0',
-            '#5D3F8B',
-            '#E55091',
-            '#F44B4B',
-            '#A23837',
-            '#F59239',
-            '#66A846',
-          ];
-          GCui.chart('#semiPie', {
-            chartOptions: options
-          });
-          GCui.bump('#bumpChart', {
-            data: data,
-            colors: colors
-          })
-        </script>
-      </div><!-- / contents -->
-    </div><!-- footer -->
-    <div id="footer">
-      <footer class="footer">
-        <div class="inset">
-          <div class="left">
-            <p class="logo"><img src="/src/images/logo_footer.svg" alt="시흥시 siheung city"></p>
-            <div class="text"><span class="txt">(우 14998) 경기도 시흥시 시청로 20 (장현동)</span><span class="txt">
-                대표전화<span class="tel">031-310-2114</span></span><span class="txt">
-                팩스<span class="tel">031-380-5300</span></span><span class="copy">Copyright © 2023 Jeonjy City. All Rights Reserved.</span></div>
-          </div>
-          <div class="admin_btn">
-            <button type="button"><span>Admin</span></button>
-          </div>
-        </div>
-      </footer>
-    </div><!-- / footer --><!-- layer -->
-    <div class="mui_fullpop_wrap" mui-modal="" id="commonSearch">
-      <div class="mui_modal_dialog mui_size_medium common_search mui_auto_vertical mui_fullpop">
-        <div class="mui_modal_body">
-          <div class="mui_modal_content">
-            <div class="inset">
-              <p class="main_title">
-                원하시는 <br class="mobile_only">정보를 검색해주세요.</p>
-              <div class="search_form">
-                <div class="mui_inputbtn">
-                  <span class="mui_input">
-                    <input type="text" placeholder="검색어를 입력해주세요" mui-input="" />
-                  </span>
-                  <div class="btn_sec">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>검색</span></button>
-                  </div>
+            }
+        },
+    };
+    var data = [{
+            label: '교통행정과',
+            step: '22-08',
+            score: 411
+        },
+        {
+            label: '교통행정과',
+            step: '22-09',
+            score: 367
+        },
+        {
+            label: '교통행정과',
+            step: '22-10',
+            score: 452
+        },
+        {
+            label: '교통행정과',
+            step: '22-11',
+            score: 179
+        },
+        {
+            label: '교통행정과',
+            step: '22-12',
+            score: 251
+        },
+        {
+            label: '교통행정과',
+            step: '23-01',
+            score: 545
+        },
+        {
+            label: '교통행정과',
+            step: '23-02',
+            score: 223
+        },
+        {
+            label: '교통행정과',
+            step: '23-03',
+            score: 264
+        },
+        {
+            label: '교통행정과',
+            step: '23-04',
+            score: 387
+        },
+        {
+            label: '교통행정과',
+            step: '23-05',
+            score: 448
+        },
+        {
+            label: '교통행정과',
+            step: '23-06',
+            score: 391
+        },
+        {
+            label: '교통행정과',
+            step: '23-07',
+            score: 269
+        },
+        {
+            label: '교통행정과',
+            step: '23-08',
+            score: 332
+        },
+        {
+            label: '교통행정과',
+            step: '23-09',
+            score: 140
+        },
+        {
+            label: '환경정책과',
+            step: '22-08',
+            score: 278
+        },
+        {
+            label: '환경정책과',
+            step: '22-09',
+            score: 305
+        },
+        {
+            label: '환경정책과',
+            step: '22-10',
+            score: 277
+        },
+        {
+            label: '환경정책과',
+            step: '22-11',
+            score: 339
+        },
+        {
+            label: '환경정책과',
+            step: '22-12',
+            score: 258
+        },
+        {
+            label: '환경정책과',
+            step: '23-01',
+            score: 387
+        },
+        {
+            label: '환경정책과',
+            step: '23-02',
+            score: 360
+        },
+        {
+            label: '환경정책과',
+            step: '23-03',
+            score: 313
+        },
+        {
+            label: '환경정책과',
+            step: '23-04',
+            score: 389
+        },
+        {
+            label: '환경정책과',
+            step: '23-05',
+            score: 366
+        },
+        {
+            label: '환경정책과',
+            step: '23-06',
+            score: 340
+        },
+        {
+            label: '환경정책과',
+            step: '23-07',
+            score: 383
+        },
+        {
+            label: '환경정책과',
+            step: '23-08',
+            score: 374
+        },
+        {
+            label: '환경정책과',
+            step: '23-09',
+            score: 218
+        },
+        {
+            label: '주택과',
+            step: '22-08',
+            score: 280
+        },
+        {
+            label: '주택과',
+            step: '22-09',
+            score: 319
+        },
+        {
+            label: '주택과',
+            step: '22-10',
+            score: 439
+        },
+        {
+            label: '주택과',
+            step: '22-11',
+            score: 270
+        },
+        {
+            label: '주택과',
+            step: '22-12',
+            score: 302
+        },
+        {
+            label: '주택과',
+            step: '23-01',
+            score: 378
+        },
+        {
+            label: '주택과',
+            step: '23-02',
+            score: 308
+        },
+        {
+            label: '주택과',
+            step: '23-03',
+            score: 343
+        },
+        {
+            label: '주택과',
+            step: '23-04',
+            score: 394
+        },
+        {
+            label: '주택과',
+            step: '23-05',
+            score: 327
+        },
+        {
+            label: '주택과',
+            step: '23-06',
+            score: 400
+        },
+        {
+            label: '주택과',
+            step: '23-07',
+            score: 346
+        },
+        {
+            label: '주택과',
+            step: '23-08',
+            score: 376
+        },
+        {
+            label: '주택과',
+            step: '23-09',
+            score: 344
+        },
+        {
+            label: '건설행정과',
+            step: '22-08',
+            score: 413
+        },
+        {
+            label: '건설행정과',
+            step: '22-09',
+            score: 441
+        },
+        {
+            label: '건설행정과',
+            step: '22-10',
+            score: 355
+        },
+        {
+            label: '건설행정과',
+            step: '22-11',
+            score: 430
+        },
+        {
+            label: '건설행정과',
+            step: '22-12',
+            score: 381
+        },
+        {
+            label: '건설행정과',
+            step: '23-01',
+            score: 546
+        },
+        {
+            label: '건설행정과',
+            step: '23-02',
+            score: 423
+        },
+        {
+            label: '건설행정과',
+            step: '23-03',
+            score: 469
+        },
+        {
+            label: '건설행정과',
+            step: '23-04',
+            score: 427
+        },
+        {
+            label: '건설행정과',
+            step: '23-05',
+            score: 516
+        },
+        {
+            label: '건설행정과',
+            step: '23-06',
+            score: 541
+        },
+        {
+            label: '건설행정과',
+            step: '23-07',
+            score: 450
+        },
+        {
+            label: '건설행정과',
+            step: '23-08',
+            score: 550
+        },
+        {
+            label: '건설행정과',
+            step: '23-09',
+            score: 325
+        },
+        {
+            label: '자원순환과',
+            step: '22-08',
+            score: 131
+        },
+        {
+            label: '자원순환과',
+            step: '22-09',
+            score: 132
+        },
+        {
+            label: '자원순환과',
+            step: '22-10',
+            score: 106
+        },
+        {
+            label: '자원순환과',
+            step: '22-11',
+            score: 107
+        },
+        {
+            label: '자원순환과',
+            step: '22-12',
+            score: 116
+        },
+        {
+            label: '자원순환과',
+            step: '23-01',
+            score: 152
+        },
+        {
+            label: '자원순환과',
+            step: '23-02',
+            score: 112
+        },
+        {
+            label: '자원순환과',
+            step: '23-03',
+            score: 116
+        },
+        {
+            label: '자원순환과',
+            step: '23-04',
+            score: 134
+        },
+        {
+            label: '자원순환과',
+            step: '23-05',
+            score: 132
+        },
+        {
+            label: '자원순환과',
+            step: '23-06',
+            score: 133
+        },
+        {
+            label: '자원순환과',
+            step: '23-07',
+            score: 144
+        },
+        {
+            label: '자원순환과',
+            step: '23-08',
+            score: 174
+        },
+        {
+            label: '자원순환과',
+            step: '23-09',
+            score: 120
+        },
+        {
+            label: '장애인복지과',
+            step: '22-08',
+            score: 295
+        },
+        {
+            label: '장애인복지과',
+            step: '22-09',
+            score: 444
+        },
+        {
+            label: '장애인복지과',
+            step: '22-10',
+            score: 371
+        },
+        {
+            label: '장애인복지과',
+            step: '22-11',
+            score: 331
+        },
+        {
+            label: '장애인복지과',
+            step: '22-12',
+            score: 358
+        },
+        {
+            label: '장애인복지과',
+            step: '23-01',
+            score: 402
+        },
+        {
+            label: '장애인복지과',
+            step: '23-02',
+            score: 369
+        },
+        {
+            label: '장애인복지과',
+            step: '23-03',
+            score: 429
+        },
+        {
+            label: '장애인복지과',
+            step: '23-04',
+            score: 468
+        },
+        {
+            label: '장애인복지과',
+            step: '23-05',
+            score: 468
+        },
+        {
+            label: '장애인복지과',
+            step: '23-06',
+            score: 475
+        },
+        {
+            label: '장애인복지과',
+            step: '23-07',
+            score: 435
+        },
+        {
+            label: '장애인복지과',
+            step: '23-08',
+            score: 430
+        },
+        {
+            label: '장애인복지과',
+            step: '23-09',
+            score: 260
+        },
+        {
+            label: '건축과',
+            step: '22-08',
+            score: 121
+        },
+        {
+            label: '건축과',
+            step: '22-09',
+            score: 159
+        },
+        {
+            label: '건축과',
+            step: '22-10',
+            score: 171
+        },
+        {
+            label: '건축과',
+            step: '22-11',
+            score: 171
+        },
+        {
+            label: '건축과',
+            step: '22-12',
+            score: 149
+        },
+        {
+            label: '건축과',
+            step: '23-01',
+            score: 218
+        },
+        {
+            label: '건축과',
+            step: '23-02',
+            score: 247
+        },
+        {
+            label: '건축과',
+            step: '23-03',
+            score: 168
+        },
+        {
+            label: '건축과',
+            step: '23-04',
+            score: 219
+        },
+        {
+            label: '건축과',
+            step: '23-05',
+            score: 225
+        },
+        {
+            label: '건축과',
+            step: '23-06',
+            score: 217
+        },
+        {
+            label: '건축과',
+            step: '23-07',
+            score: 190
+        },
+        {
+            label: '건축과',
+            step: '23-08',
+            score: 179
+        },
+        {
+            label: '건축과',
+            step: '23-09',
+            score: 135
+        },
+        {
+            label: '대중교통과',
+            step: '22-08',
+            score: 556
+        },
+        {
+            label: '대중교통과',
+            step: '22-09',
+            score: 684
+        },
+        {
+            label: '대중교통과',
+            step: '22-10',
+            score: 577
+        },
+        {
+            label: '대중교통과',
+            step: '22-11',
+            score: 626
+        },
+        {
+            label: '대중교통과',
+            step: '22-12',
+            score: 523
+        },
+        {
+            label: '대중교통과',
+            step: '23-01',
+            score: 693
+        },
+        {
+            label: '대중교통과',
+            step: '23-02',
+            score: 579
+        },
+        {
+            label: '대중교통과',
+            step: '23-03',
+            score: 664
+        },
+        {
+            label: '대중교통과',
+            step: '23-04',
+            score: 754
+        },
+        {
+            label: '대중교통과',
+            step: '23-05',
+            score: 705
+        },
+        {
+            label: '대중교통과',
+            step: '23-06',
+            score: 726
+        },
+        {
+            label: '대중교통과',
+            step: '23-07',
+            score: 707
+        },
+        {
+            label: '대중교통과',
+            step: '23-08',
+            score: 696
+        },
+        {
+            label: '대중교통과',
+            step: '23-09',
+            score: 520
+        },
+        {
+            label: '경관디자인과',
+            step: '22-08',
+            score: 333
+        },
+        {
+            label: '경관디자인과',
+            step: '22-09',
+            score: 399
+        },
+        {
+            label: '경관디자인과',
+            step: '22-10',
+            score: 373
+        },
+        {
+            label: '경관디자인과',
+            step: '22-11',
+            score: 393
+        },
+        {
+            label: '경관디자인과',
+            step: '22-12',
+            score: 354
+        },
+        {
+            label: '경관디자인과',
+            step: '23-01',
+            score: 460
+        },
+        {
+            label: '경관디자인과',
+            step: '23-02',
+            score: 387
+        },
+        {
+            label: '경관디자인과',
+            step: '23-03',
+            score: 564
+        },
+        {
+            label: '경관디자인과',
+            step: '23-04',
+            score: 486
+        },
+        {
+            label: '경관디자인과',
+            step: '23-05',
+            score: 431
+        },
+        {
+            label: '경관디자인과',
+            step: '23-06',
+            score: 357
+        },
+        {
+            label: '경관디자인과',
+            step: '23-07',
+            score: 395
+        },
+        {
+            label: '경관디자인과',
+            step: '23-08',
+            score: 390
+        },
+        {
+            label: '경관디자인과',
+            step: '23-09',
+            score: 291
+        },
+        {
+            label: '위생과',
+            step: '22-08',
+            score: 333
+        },
+        {
+            label: '위생과',
+            step: '22-09',
+            score: 399
+        },
+        {
+            label: '위생과',
+            step: '22-10',
+            score: 373
+        },
+        {
+            label: '위생과',
+            step: '22-11',
+            score: 393
+        },
+        {
+            label: '위생과',
+            step: '22-12',
+            score: 354
+        },
+        {
+            label: '위생과',
+            step: '23-01',
+            score: 460
+        },
+        {
+            label: '위생과',
+            step: '23-02',
+            score: 387
+        },
+        {
+            label: '위생과',
+            step: '23-03',
+            score: 564
+        },
+        {
+            label: '위생과',
+            step: '23-04',
+            score: 486
+        },
+        {
+            label: '위생과',
+            step: '23-05',
+            score: 431
+        },
+        {
+            label: '위생과',
+            step: '23-06',
+            score: 357
+        },
+        {
+            label: '위생과',
+            step: '23-07',
+            score: 395
+        },
+        {
+            label: '위생과',
+            step: '23-08',
+            score: 390
+        },
+        {
+            label: '위생과',
+            step: '23-09',
+            score: 291
+        },
+    ];
+    var dataVal2 = [{
+            label: '청년청소년과',
+            step: '23-02',
+            score: 15
+        },
+        {
+            label: '청년청소년과',
+            step: '23-03',
+            score: 11
+        },
+        {
+            label: '청년청소년과',
+            step: '23-04',
+            score: 7
+        },
+        {
+            label: '청년청소년과',
+            step: '23-05',
+            score: 3
+        },
+        {
+            label: '청년청소년과',
+            step: '23-06',
+            score: 33
+        },
+        {
+            label: '청년청소년과',
+            step: '23-07',
+            score: 23
+        },
+        {
+            label: '청년청소년과',
+            step: '23-08',
+            score: 14
+        },
+        {
+            label: '청년청소년과',
+            step: '23-09',
+            score: 3
+        },
+        {
+            label: '청년청소년과',
+            step: '23-10',
+            score: 14
+        },
+        {
+            label: '청년청소년과',
+            step: '23-11',
+            score: 2
+        },
+        {
+            label: '청년청소년과',
+            step: '23-12',
+            score: 2
+        },
+        {
+            label: '녹지과',
+            step: '23-02',
+            score: 15
+        },
+        {
+            label: '녹지과',
+            step: '23-03',
+            score: 0
+        },
+        {
+            label: '녹지과',
+            step: '23-04',
+            score: 13
+        },
+        {
+            label: '녹지과',
+            step: '23-05',
+            score: 17
+        },
+        {
+            label: '녹지과',
+            step: '23-06',
+            score: 0
+        },
+        {
+            label: '녹지과',
+            step: '23-07',
+            score: 0
+        },
+        {
+            label: '녹지과',
+            step: '23-08',
+            score: 0
+        },
+        {
+            label: '녹지과',
+            step: '23-09',
+            score: 14
+        },
+        {
+            label: '녹지과',
+            step: '23-10',
+            score: 0
+        },
+        {
+            label: '녹지과',
+            step: '23-11',
+            score: 7
+        },
+        {
+            label: '녹지과',
+            step: '23-12',
+            score: 22
+        },
+        {
+            label: '상수도과',
+            step: '23-02',
+            score: 12
+        },
+        {
+            label: '상수도과',
+            step: '23-03',
+            score: 3
+        },
+        {
+            label: '상수도과',
+            step: '23-04',
+            score: 9
+        },
+        {
+            label: '상수도과',
+            step: '23-05',
+            score: 12
+        },
+        {
+            label: '상수도과',
+            step: '23-06',
+            score: 0
+        },
+        {
+            label: '상수도과',
+            step: '23-07',
+            score: 6
+        },
+        {
+            label: '상수도과',
+            step: '23-08',
+            score: 6
+        },
+        {
+            label: '상수도과',
+            step: '23-09',
+            score: 4
+        },
+        {
+            label: '상수도과',
+            step: '23-10',
+            score: 17
+        },
+        {
+            label: '상수도과',
+            step: '23-11',
+            score: 14
+        },
+        {
+            label: '상수도과',
+            step: '23-12',
+            score: 3
+        },
+        {
+            label: '도시재생과',
+            step: '23-02',
+            score: 0
+        },
+        {
+            label: '도시재생과',
+            step: '23-03',
+            score: 6
+        },
+        {
+            label: '도시재생과',
+            step: '23-04',
+            score: 10
+        },
+        {
+            label: '도시재생과',
+            step: '23-05',
+            score: 15
+        },
+        {
+            label: '도시재생과',
+            step: '23-06',
+            score: 0
+        },
+        {
+            label: '도시재생과',
+            step: '23-07',
+            score: 0
+        },
+        {
+            label: '도시재생과',
+            step: '23-08',
+            score: 0
+        },
+        {
+            label: '도시재생과',
+            step: '23-09',
+            score: 12
+        },
+        {
+            label: '도시재생과',
+            step: '23-10',
+            score: 0
+        },
+        {
+            label: '도시재생과',
+            step: '23-11',
+            score: 23
+        },
+        {
+            label: '도시재생과',
+            step: '23-12',
+            score: 14
+        },
+        {
+            label: '대기정책과',
+            step: '23-02',
+            score: 2
+        },
+        {
+            label: '대기정책과',
+            step: '23-03',
+            score: 15
+        },
+        {
+            label: '대기정책과',
+            step: '23-04',
+            score: 0
+        },
+        {
+            label: '대기정책과',
+            step: '23-05',
+            score: 1
+        },
+        {
+            label: '대기정책과',
+            step: '23-06',
+            score: 8
+        },
+        {
+            label: '대기정책과',
+            step: '23-07',
+            score: 18
+        },
+        {
+            label: '대기정책과',
+            step: '23-08',
+            score: 19
+        },
+        {
+            label: '대기정책과',
+            step: '23-09',
+            score: 0
+        },
+        {
+            label: '대기정책과',
+            step: '23-10',
+            score: 3
+        },
+        {
+            label: '대기정책과',
+            step: '23-11',
+            score: 4
+        },
+        {
+            label: '대기정책과',
+            step: '23-12',
+            score: 4
+        },
+        {
+            label: '축수산과',
+            step: '23-02',
+            score: 11
+        },
+        {
+            label: '축수산과',
+            step: '23-03',
+            score: 0
+        },
+        {
+            label: '축수산과',
+            step: '23-04',
+            score: 0
+        },
+        {
+            label: '축수산과',
+            step: '23-05',
+            score: 7
+        },
+        {
+            label: '축수산과',
+            step: '23-06',
+            score: 0
+        },
+        {
+            label: '축수산과',
+            step: '23-07',
+            score: 22
+        },
+        {
+            label: '축수산과',
+            step: '23-08',
+            score: 0
+        },
+        {
+            label: '축수산과',
+            step: '23-09',
+            score: 16
+        },
+        {
+            label: '축수산과',
+            step: '23-10',
+            score: 12
+        },
+        {
+            label: '축수산과',
+            step: '23-11',
+            score: 0
+        },
+        {
+            label: '축수산과',
+            step: '23-12',
+            score: 1
+        },
+        {
+            label: '관광과',
+            step: '23-02',
+            score: 0
+        },
+        {
+            label: '관광과',
+            step: '23-03',
+            score: 24
+        },
+        {
+            label: '관광과',
+            step: '23-04',
+            score: 3
+        },
+        {
+            label: '관광과',
+            step: '23-05',
+            score: 0
+        },
+        {
+            label: '관광과',
+            step: '23-06',
+            score: 0
+        },
+        {
+            label: '관광과',
+            step: '23-07',
+            score: 16
+        },
+        {
+            label: '관광과',
+            step: '23-08',
+            score: 0
+        },
+        {
+            label: '관광과',
+            step: '23-09',
+            score: 24
+        },
+        {
+            label: '관광과',
+            step: '23-10',
+            score: 0
+        },
+        {
+            label: '관광과',
+            step: '23-11',
+            score: 0
+        },
+        {
+            label: '관광과',
+            step: '23-12',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-02',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-03',
+            score: 23
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-04',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-05',
+            score: 6
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-06',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-07',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-08',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-09',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-10',
+            score: 0
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-11',
+            score: 24
+        },
+        {
+            label: '경제자유구역과',
+            step: '23-12',
+            score: 10
+        },
+        {
+            label: '주택과',
+            step: '23-02',
+            score: 0
+        },
+        {
+            label: '주택과',
+            step: '23-03',
+            score: 0
+        },
+        {
+            label: '주택과',
+            step: '23-04',
+            score: 1
+        },
+        {
+            label: '주택과',
+            step: '23-05',
+            score: 0
+        },
+        {
+            label: '주택과',
+            step: '23-06',
+            score: 4
+        },
+        {
+            label: '주택과',
+            step: '23-07',
+            score: 0
+        },
+        {
+            label: '주택과',
+            step: '23-08',
+            score: 0
+        },
+        {
+            label: '주택과',
+            step: '23-09',
+            score: 0
+        },
+        {
+            label: '주택과',
+            step: '23-10',
+            score: 0
+        },
+        {
+            label: '주택과',
+            step: '23-11',
+            score: 13
+        },
+        {
+            label: '주택과',
+            step: '23-12',
+            score: 36
+        },
+        {
+            label: '산단재생과',
+            step: '23-02',
+            score: 6
+        },
+        {
+            label: '산단재생과',
+            step: '23-03',
+            score: 0
+        },
+        {
+            label: '산단재생과',
+            step: '23-04',
+            score: 0
+        },
+        {
+            label: '산단재생과',
+            step: '23-05',
+            score: 3
+        },
+        {
+            label: '산단재생과',
+            step: '23-06',
+            score: 0
+        },
+        {
+            label: '산단재생과',
+            step: '23-07',
+            score: 10
+        },
+        {
+            label: '산단재생과',
+            step: '23-08',
+            score: 15
+        },
+        {
+            label: '산단재생과',
+            step: '23-09',
+            score: 0
+        },
+        {
+            label: '산단재생과',
+            step: '23-10',
+            score: 16
+        },
+        {
+            label: '산단재생과',
+            step: '23-11',
+            score: 0
+        },
+        {
+            label: '산단재생과',
+            step: '23-12',
+            score: 2
+        },
+    ]
+    //- 교통행정과
+    //- 환경정책과
+    //- 주택과
+    //- 건설행정과
+    //- 자원순환과
+    //- 장애인복지과
+    //- 건축과
+    //- 대중교통과
+    //- 경관디자인과
+    //- 위생과
+    var colors = [
+        '#21A182',
+        '#00BCCC',
+        '#2391A2',
+        '#3464A0',
+        '#5D3F8B',
+        '#E55091',
+        '#F44B4B',
+        '#A23837',
+        '#F59239',
+        '#66A846',
+    ];
+    GCui.chart('#semiPie', {
+        chartOptions: options
+    });
+    GCui.bump('#bumpChart', {
+        data: data,
+        colors: colors
+    })
+                    </script>
+                </div><!-- / contents -->
+            </div><!-- footer -->
+            <div id="footer">
+                <footer class="footer">
+                    <div class="inset">
+                        <div class="left">
+                            <p class="logo"><img src="/src/images/logo_footer.svg" alt="시흥시 siheung city"></p>
+                            <div class="text"><span class="txt">(우 14998) 경기도 시흥시 시청로 20 (장현동)</span><span class="txt">
+                                    대표전화<span class="tel">031-310-2114</span></span><span class="txt">
+                                    팩스<span class="tel">031-380-5300</span></span><span class="copy">Copyright © 2023 Jeonjy City. All Rights Reserved.</span></div>
+                        </div>
+                        <div class="admin_btn">
+                            <button type="button"><span>Admin</span></button>
+                        </div>
+                    </div>
+                </footer>
+            </div><!-- / footer --><!-- layer -->
+            <div class="mui_fullpop_wrap" mui-modal="" id="commonSearch">
+                <div class="mui_modal_dialog mui_size_medium common_search mui_auto_vertical mui_fullpop">
+                    <div class="mui_modal_body">
+                        <div class="mui_modal_content">
+                            <div class="inset">
+                                <p class="main_title">
+                                    원하시는 <br class="mobile_only">정보를 검색해주세요.</p>
+                                <div class="search_form">
+                                    <div class="mui_inputbtn">
+                                        <span class="mui_input">
+                                            <input type="text" placeholder="검색어를 입력해주세요" mui-input="" />
+                                        </span>
+                                        <div class="btn_sec">
+                                            <button class="mui_button mui_medium mui_primary" type="button"><span>검색</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="result">
+                                    검색어 <em>“시흥시청” </em>에 대한 <br class="mobile_only">검색 결과 입니다.</p>
+                                <div class="search_results">
+                                    <div class="inset">
+                                        <div class="sec">
+                                            <div class="title">
+                                                <p class="text">메뉴검색</p>
+                                                <button class="more" type="button">더보기</button>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="sec">
+                                            <div class="title">
+                                                <p class="text">관련뉴스 검색</p>
+                                                <button class="more" type="button">더보기</button>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시 1</em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="sec">
+                                            <div class="title">
+                                                <p class="text">포털소개 검색</p>
+                                                <button class="more" type="button">더보기</button>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mui_paging"><a class="first" href="">처음</a><a class="prev" href="">이전</a><a class="num" href="">1</a><em class="num">2</em><a class="num" href="">3</a><a class="num" href="">4</a><a class="num" href="">5</a><a class="next" href="">다음</a><a class="last" href="">마지막</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mui_modal_close">닫기</button>
+                    </div>
                 </div>
-              </div>
-              <p class="result">
-                검색어 <em>“시흥시청” </em>에 대한 <br class="mobile_only">검색 결과 입니다.</p>
-              <div class="search_results">
-                <div class="inset">
-                  <div class="sec">
-                    <div class="title">
-                      <p class="text">메뉴검색</p>
-                      <button class="more" type="button">더보기</button>
+            </div><!-- / layer --><!-- 전체메뉴 --><!-- layer -->
+            <div class="mui_fullpop_wrap" mui-modal="" id="commonAllmenu">
+                <div class="mui_modal_dialog mui_size_medium common_allmenu mui_auto_vertical mui_fullpop">
+                    <div class="mui_modal_body">
+                        <div class="mui_modal_content">
+                            <div class="inset">
+                                <div class="tnb_sec"> <a href="">호조벌</a><a href="">시정영상</a><a href="">통합플랫폼</a></div>
+                                <div class="menu_list">
+                                    <div class="mui_accordion" mui-accordion="">
+                                        <div class="acc_lists mui_open">
+                                            <div class="acc_header"><span class="acc_title">민원분석</span>
+                                                <button class="mui_acc_button" type="button"> 닫기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">민원총괄</a></li>
+                                                        <li><a href="">부서별 민원 현황</a></li>
+                                                        <li><a href="">분야별 민원 현황</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">실시간 도시현황</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">교통정보</a></li>
+                                                        <li><a href="">대기환경</a></li>
+                                                        <li><a href="">감염병 발생</a></li>
+                                                        <li><a href="">호조벌</a></li>
+                                                        <li><a href="">통합플랫폼</a></li>
+                                                        <li><a href="">시정영상</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">시정데이터</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">시정데이터</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">테마지도</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">테마지도</a></li>
+                                                        <li><a href="">부동산 지도</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">빅데이터 분석</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">자체분석</a></li>
+                                                        <li><a href="">분석플랫폼</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">공유박스</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">홍보영상</a></li>
+                                                        <li><a href="">관련뉴스</a></li>
+                                                        <li><a href="">공공데이터</a></li>
+                                                        <li><a href="">연관 플랫폼 목록</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">스마트시정 소개</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">포털소개</a></li>
+                                                        <li><a href="">공지사항</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mui_modal_close">닫기</button>
                     </div>
-                    <div class="list">
-                      <ul>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="sec">
-                    <div class="title">
-                      <p class="text">관련뉴스 검색</p>
-                      <button class="more" type="button">더보기</button>
-                    </div>
-                    <div class="list">
-                      <ul>
-                        <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="sec">
-                    <div class="title">
-                      <p class="text">포털소개 검색</p>
-                      <button class="more" type="button">더보기</button>
-                    </div>
-                    <div class="list">
-                      <ul>
-                        <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
-                <div class="mui_paging"><a class="first" href="">처음</a><a class="prev" href="">이전</a><a class="num" href="">1</a><em class="num">2</em><a class="num" href="">3</a><a class="num" href="">4</a><a class="num" href="">5</a><a class="next" href="">다음</a><a class="last" href="">마지막</a></div>
-              </div>
-            </div>
-          </div>
-          <button class="mui_modal_close">닫기</button>
+            </div><!-- / layer --><!--// 전체메뉴 -->
         </div>
-      </div>
-    </div><!-- / layer --><!-- 전체메뉴 --><!-- layer -->
-    <div class="mui_fullpop_wrap" mui-modal="" id="commonAllmenu">
-      <div class="mui_modal_dialog mui_size_medium common_allmenu mui_auto_vertical mui_fullpop">
-        <div class="mui_modal_body">
-          <div class="mui_modal_content">
-            <div class="inset">
-              <div class="tnb_sec"> <a href="">호조벌</a><a href="">시정영상</a><a href="">통합플랫폼</a></div>
-              <div class="menu_list">
-                <div class="mui_accordion" mui-accordion="">
-                  <div class="acc_lists mui_open">
-                    <div class="acc_header"><span class="acc_title">민원분석</span>
-                      <button class="mui_acc_button" type="button"> 닫기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">민원총괄</a></li>
-                          <li><a href="">부서별 민원 현황</a></li>
-                          <li><a href="">분야별 민원 현황</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">실시간 도시현황</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">교통정보</a></li>
-                          <li><a href="">대기환경</a></li>
-                          <li><a href="">감염병 발생</a></li>
-                          <li><a href="">호조벌</a></li>
-                          <li><a href="">통합플랫폼</a></li>
-                          <li><a href="">시정영상</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">시정데이터</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">시정데이터</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">테마지도</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">테마지도</a></li>
-                          <li><a href="">부동산 지도</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">빅데이터 분석</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">자체분석</a></li>
-                          <li><a href="">분석플랫폼</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">공유박스</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">홍보영상</a></li>
-                          <li><a href="">관련뉴스</a></li>
-                          <li><a href="">공공데이터</a></li>
-                          <li><a href="">연관 플랫폼 목록</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">스마트시정 소개</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">포털소개</a></li>
-                          <li><a href="">공지사항</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="mui_modal_close">닫기</button>
-        </div>
-      </div>
-    </div><!-- / layer --><!--// 전체메뉴 -->
-  </div>
-</body>
+    </body>
 
-</html>
+    </html>

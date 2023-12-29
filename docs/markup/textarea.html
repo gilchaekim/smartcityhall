@@ -1,89 +1,87 @@
-<!DOCTYPE html>
-<html lang="ko">
+    <!DOCTYPE html>
+    <html lang="ko">
 
-<head>
-  <title>METAUI</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/docs/css/index.css">
-  <link rel="stylesheet" href="/css/common.css">
-  <script type="text/javascript" src="/js/index.js"></script>
-  <script type="text/javascript" src="/index.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-</head>
+    <head>
+        <title>METAUI</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/docs/css/index.css">
+        <link rel="stylesheet" href="/css/common.css">
+        <script type="text/javascript" src="/js/index.js"></script>
+        <script type="text/javascript" src="/index.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    </head>
 
-<body>
-  <div id="guideWrap">
-    <div class="main_content">
-      <div class="title_sec">
-        <p class="guide_title title_lv1">Textarea</p>
-      </div>
-      <div class="title_sec">
-        <p class="guide_title title_lv2">Example</p>
-      </div>
-      <div class="guide_card_box">
-        <section class="code_view">
-          <div class="mui_textarea"><textarea></textarea></div>
-          <div class="mui_textarea"><textarea mui-formatter="viewMaxLength:true;" maxlength="100"></textarea></div>
-        </section>
-        <div class="code_block">
-          <div class="code_html">
-            <p class="title">html</p>
-            <pre><code class="language-html"></code></pre>
-          </div>
-          <div class="code_pug">
-            <p class="title">pug</p>
-            <pre><code class="language-scss">+textarea()
+    <body>
+        <div id="guideWrap">
+            <div class="main_content">
+                <div class="title_sec">
+                    <p class="guide_title title_lv1">Textarea</p>
+                </div>
+                <div class="title_sec">
+                    <p class="guide_title title_lv2">Example</p>
+                </div>
+                <div class="guide_card_box">
+                    <section class="code_view">
+                        <div class="mui_textarea"><textarea></textarea></div>
+                        <div class="mui_textarea"><textarea mui-formatter="viewMaxLength:true;" maxlength="100"></textarea></div>
+                    </section>
+                    <div class="code_block">
+                        <div class="code_html">
+                            <p class="title">html</p>
+                            <pre><code class="language-html"></code></pre>
+                        </div>
+                        <div class="code_pug">
+                            <p class="title">pug</p>
+                            <pre><code class="language-scss">+textarea()
 +textarea({
   muiFormatter:"viewMaxLength:true;",
   maxlength:100
 })</code></pre>
-          </div>
+                        </div>
+                    </div>
+                    <div class="view_code">
+                        <button>code view Toggle</button>
+                    </div>
+                </div><br><br>
+                <div class="title_sec">
+                    <p class="guide_title title_lv2">Attribute</p>
+                </div>
+            </div>
         </div>
-        <div class="view_code">
-          <button>code view Toggle</button>
-        </div>
-      </div><br><br>
-      <div class="title_sec">
-        <p class="guide_title title_lv2">Attribute</p>
-      </div>
-    </div>
-  </div>
-  <script>
+        <script>
     const {
-      $,
-      $$,
-      on,
-      attr,
-      hasAttr,
-      removeAttr,
-      closest,
-      wrapInner
+        $,
+        $$,
+        on,
+        attr,
+        hasAttr,
+        removeAttr,
+        closest,
+        wrapInner
     } = GCui.util;
     const btn = $$('.view_code button');
     const codes = [];
     const htmlcode = $$('.code_html pre code');
     const codePug = $$('.code_pug pre');
     const codeHtml = $$('.code_html pre');
-
     $$('.code_view').forEach((el, idx) => {
-      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-      codes.push(html)
-      htmlcode[idx].innerHTML = '        ' + html;
-      hljs.highlightElement(codePug[idx])
-      hljs.highlightElement(codeHtml[idx])
+        var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+        codes.push(html)
+        htmlcode[idx].innerHTML = '        ' + html;
+        hljs.highlightElement(codePug[idx])
+        hljs.highlightElement(codeHtml[idx])
     });
-
     on(btn, 'click', (e) => {
-      const target = $('.code_block', closest(e.target, '.guide_card_box'))
-      if (hasAttr(target, 'hidden')) {
-        removeAttr(target, 'hidden')
-      } else {
-        attr(target, 'hidden', '')
-      }
+        const target = $('.code_block', closest(e.target, '.guide_card_box'))
+        if (hasAttr(target, 'hidden')) {
+            removeAttr(target, 'hidden')
+        } else {
+            attr(target, 'hidden', '')
+        }
     })
-  </script>
-</body>
+        </script>
+    </body>
 
-</html>
+    </html>

@@ -1,381 +1,381 @@
-<!DOCTYPE html>
-<html id="pageRoot" lang="ko">
+    <!DOCTYPE html>
+    <html id="pageRoot" lang="ko">
 
-<head>
-  <title>시흥시 스마트 시정</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/css/common.css">
-  <script type="text/javascript" src="/js/index.js"></script>
-</head>
+    <head>
+        <title>시흥시 스마트 시정</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/common.css">
+        <script type="text/javascript" src="/js/index.js"></script>
+    </head>
 
-<body>
-  <div id="wrapper"><!-- header -->
-    <div id="header">
-      <header class="header">
-        <div class="inner">
-          <h1 class="logo"><a href="#">스마트시정</a></h1>
-          <div class="tnb">
-            <div class="menu"> <a href="">호조별</a></div>
-            <div class="menu"> <a href="">시정영상</a></div>
-            <div class="menu"> <a href="">통합플랫폼</a></div>
-            <div class="menu toggle">
-              <button type="button" mui-toggle="target:#drop_menu">English </button>
-              <div class="drop_menu" id="drop_menu" hidden="">
-                <ul>
-                  <li> <a href="">Korea</a></li>
-                  <li class="mui_active"> <a href="">English</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="menu kren">
-              <button type="button" mui-toggle="cls:mui_active"><span>KR</span><span>EN</span></button>
-            </div>
-            <div class="menu search">
-              <button type="button" mui-toggle="target:#commonSearch"><span>검색</span></button>
-            </div>
-            <div class="menu allmenu">
-              <button type="button" mui-toggle="target:#commonAllmenu"><span>전체메뉴</span></button>
-            </div>
-          </div>
-          <div class="gnb">
-            <div class="inset">
-              <ul class="menu">
-                <li class="deps1"> <a href="">민원분석</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">민원총괄</a></li>
-                      <li><a href="">부서별 민원 현황</a></li>
-                      <li><a href="">분야별 민원 현황</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"> <a href="">실시간 도시현황</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">교통정보</a></li>
-                      <li><a href="">대기환경</a></li>
-                      <li><a href="">감염병 발생</a></li>
-                      <li><a href="">호조벌</a></li>
-                      <li><a href="">통합플랫폼</a></li>
-                      <li><a href="">시정영상</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"> <a href="">시정데이터</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">시정데이터</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">테마지도</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">테마지도</a></li>
-                      <li><a href="">부동산 지도</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">빅데이터 분석</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">자체분석</a></li>
-                      <li><a href="">분석플랫폼</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">공유박스</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">홍보영상</a></li>
-                      <li><a href="">관련뉴스</a></li>
-                      <li><a href="">공공데이터</a></li>
-                      <li><a href="">연관 플랫폼 목록</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="deps1"><a href="">스마트시정 소개</a>
-                  <div class="deps2">
-                    <ul>
-                      <li><a href="">포털소개</a></li>
-                      <li><a href="">공지사항</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div><!-- / header --><!-- contents -->
-    <div id="container"><!-- LNB -->
-      <div class="side_menu">
-        <div class="inner">
-          <ul class="deps1">
-            <li class="pc_only"><a href="">부서별 민원 현황</a>
-              <div class="sub_deps">
-                <ul>
-                  <li class="mui_active"><a href="">일별</a></li>
-                  <li> <a href="">월별</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mobile_only">
-              <button type="button" mui-toggle="target:#subDeps1;cls:mui_active;">부서별 민원 현황</button>
-              <div class="sub_deps" id="subDeps1">
-                <ul>
-                  <li class="mui_active"><a href="">일별</a></li>
-                  <li> <a href="">월별</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mui_active"><a href="">연관 플랫폼 목록</a></li>
-            <li><a class="ico type1" href="">인구</a></li>
-            <li><a class="ico type2" href="">경제</a></li>
-            <li><a class="ico type3" href="">교육</a></li>
-            <li><a class="ico type4" href="">교통</a></li>
-            <li><a class="ico type5" href="">문화</a></li>
-            <li><a class="ico type6" href="">복지</a></li>
-            <li><a class="ico type7" href="">행정</a></li>
-            <li><a class="ico type8" href="">환경</a></li>
-          </ul>
-        </div>
-      </div><!--// LNB -->
-      <div id="contents">
-        <div class="mui_title">
-          <p class="title lv2">부서별 민원현황 (일별)
-          </p>
-        </div>
-        <div class="board_view">
-          <div class="board_data"> <span>작성자 : 시흥시청</span><span>작성일 : 2023-03-31</span></div>
-          <div class="view_cont">
-            <div class="texts">
-              <div class="embed_container">
-                <iframe src="https://www.youtube.com/embed/ej2s9nEWR8c?si=Jc-rxV567aAt4c1R" frameborder="0" allowfullscreen> </iframe>
-              </div>
-            </div>
-          </div>
-          <div class="view_bottom">
-            <div class="btns">
-              <button class="mui_button mui_medium mui_primary" type="button"><span>목록으로</span></button>
-            </div>
-          </div>
-        </div>
-      </div><!-- / contents -->
-    </div><!-- footer -->
-    <div id="footer">
-      <footer class="footer">
-        <div class="inset">
-          <div class="left">
-            <p class="logo"><img src="/src/images/logo_footer.svg" alt="시흥시 siheung city"></p>
-            <div class="text"><span class="txt">(우 14998) 경기도 시흥시 시청로 20 (장현동)</span><span class="txt">
-                대표전화<span class="tel">031-310-2114</span></span><span class="txt">
-                팩스<span class="tel">031-380-5300</span></span><span class="copy">Copyright © 2023 Jeonjy City. All Rights Reserved.</span></div>
-          </div>
-          <div class="admin_btn">
-            <button type="button"><span>Admin</span></button>
-          </div>
-        </div>
-      </footer>
-    </div><!-- / footer --><!-- layer -->
-    <div class="mui_fullpop_wrap" mui-modal="" id="commonSearch">
-      <div class="mui_modal_dialog mui_size_medium common_search mui_auto_vertical mui_fullpop">
-        <div class="mui_modal_body">
-          <div class="mui_modal_content">
-            <div class="inset">
-              <p class="main_title">
-                원하시는 <br class="mobile_only">정보를 검색해주세요.</p>
-              <div class="search_form">
-                <div class="mui_inputbtn">
-                  <span class="mui_input">
-                    <input type="text" placeholder="검색어를 입력해주세요" mui-input="" />
-                  </span>
-                  <div class="btn_sec">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>검색</span></button>
-                  </div>
+    <body>
+        <div id="wrapper"><!-- header -->
+            <div id="header">
+                <header class="header">
+                    <div class="inner">
+                        <h1 class="logo"><a href="#">스마트시정</a></h1>
+                        <div class="tnb">
+                            <div class="menu"> <a href="">호조별</a></div>
+                            <div class="menu"> <a href="">시정영상</a></div>
+                            <div class="menu"> <a href="">통합플랫폼</a></div>
+                            <div class="menu toggle">
+                                <button type="button" mui-toggle="target:#drop_menu">English </button>
+                                <div class="drop_menu" id="drop_menu" hidden="">
+                                    <ul>
+                                        <li> <a href="">Korea</a></li>
+                                        <li class="mui_active"> <a href="">English</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu kren">
+                                <button type="button" mui-toggle="cls:mui_active"><span>KR</span><span>EN</span></button>
+                            </div>
+                            <div class="menu search">
+                                <button type="button" mui-toggle="target:#commonSearch"><span>검색</span></button>
+                            </div>
+                            <div class="menu allmenu">
+                                <button type="button" mui-toggle="target:#commonAllmenu"><span>전체메뉴</span></button>
+                            </div>
+                        </div>
+                        <div class="gnb">
+                            <div class="inset">
+                                <ul class="menu">
+                                    <li class="deps1"> <a href="">민원분석</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">민원총괄</a></li>
+                                                <li><a href="">부서별 민원 현황</a></li>
+                                                <li><a href="">분야별 민원 현황</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"> <a href="">실시간 도시현황</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">교통정보</a></li>
+                                                <li><a href="">대기환경</a></li>
+                                                <li><a href="">감염병 발생</a></li>
+                                                <li><a href="">호조벌</a></li>
+                                                <li><a href="">통합플랫폼</a></li>
+                                                <li><a href="">시정영상</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"> <a href="">시정데이터</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">시정데이터</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">테마지도</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">테마지도</a></li>
+                                                <li><a href="">부동산 지도</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">빅데이터 분석</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">자체분석</a></li>
+                                                <li><a href="">분석플랫폼</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">공유박스</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">홍보영상</a></li>
+                                                <li><a href="">관련뉴스</a></li>
+                                                <li><a href="">공공데이터</a></li>
+                                                <li><a href="">연관 플랫폼 목록</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="deps1"><a href="">스마트시정 소개</a>
+                                        <div class="deps2">
+                                            <ul>
+                                                <li><a href="">포털소개</a></li>
+                                                <li><a href="">공지사항</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div><!-- / header --><!-- contents -->
+            <div id="container"><!-- LNB -->
+                <div class="side_menu">
+                    <div class="inner">
+                        <ul class="deps1">
+                            <li class="pc_only"><a href="">부서별 민원 현황</a>
+                                <div class="sub_deps">
+                                    <ul>
+                                        <li class="mui_active"><a href="">일별</a></li>
+                                        <li> <a href="">월별</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mobile_only">
+                                <button type="button" mui-toggle="target:#subDeps1;cls:mui_active;">부서별 민원 현황</button>
+                                <div class="sub_deps" id="subDeps1">
+                                    <ul>
+                                        <li class="mui_active"><a href="">일별</a></li>
+                                        <li> <a href="">월별</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mui_active"><a href="">연관 플랫폼 목록</a></li>
+                            <li><a class="ico type1" href="">인구</a></li>
+                            <li><a class="ico type2" href="">경제</a></li>
+                            <li><a class="ico type3" href="">교육</a></li>
+                            <li><a class="ico type4" href="">교통</a></li>
+                            <li><a class="ico type5" href="">문화</a></li>
+                            <li><a class="ico type6" href="">복지</a></li>
+                            <li><a class="ico type7" href="">행정</a></li>
+                            <li><a class="ico type8" href="">환경</a></li>
+                        </ul>
+                    </div>
+                </div><!--// LNB -->
+                <div id="contents">
+                    <div class="mui_title">
+                        <p class="title lv2">부서별 민원현황 (일별)
+                        </p>
+                    </div>
+                    <div class="board_view">
+                        <div class="board_data"> <span>작성자 : 시흥시청</span><span>작성일 : 2023-03-31</span></div>
+                        <div class="view_cont">
+                            <div class="texts">
+                                <div class="embed_container">
+                                    <iframe src="https://www.youtube.com/embed/ej2s9nEWR8c?si=Jc-rxV567aAt4c1R" frameborder="0" allowfullscreen> </iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="view_bottom">
+                            <div class="btns">
+                                <button class="mui_button mui_medium mui_primary" type="button"><span>목록으로</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- / contents -->
+            </div><!-- footer -->
+            <div id="footer">
+                <footer class="footer">
+                    <div class="inset">
+                        <div class="left">
+                            <p class="logo"><img src="/src/images/logo_footer.svg" alt="시흥시 siheung city"></p>
+                            <div class="text"><span class="txt">(우 14998) 경기도 시흥시 시청로 20 (장현동)</span><span class="txt">
+                                    대표전화<span class="tel">031-310-2114</span></span><span class="txt">
+                                    팩스<span class="tel">031-380-5300</span></span><span class="copy">Copyright © 2023 Jeonjy City. All Rights Reserved.</span></div>
+                        </div>
+                        <div class="admin_btn">
+                            <button type="button"><span>Admin</span></button>
+                        </div>
+                    </div>
+                </footer>
+            </div><!-- / footer --><!-- layer -->
+            <div class="mui_fullpop_wrap" mui-modal="" id="commonSearch">
+                <div class="mui_modal_dialog mui_size_medium common_search mui_auto_vertical mui_fullpop">
+                    <div class="mui_modal_body">
+                        <div class="mui_modal_content">
+                            <div class="inset">
+                                <p class="main_title">
+                                    원하시는 <br class="mobile_only">정보를 검색해주세요.</p>
+                                <div class="search_form">
+                                    <div class="mui_inputbtn">
+                                        <span class="mui_input">
+                                            <input type="text" placeholder="검색어를 입력해주세요" mui-input="" />
+                                        </span>
+                                        <div class="btn_sec">
+                                            <button class="mui_button mui_medium mui_primary" type="button"><span>검색</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="result">
+                                    검색어 <em>“시흥시청” </em>에 대한 <br class="mobile_only">검색 결과 입니다.</p>
+                                <div class="search_results">
+                                    <div class="inset">
+                                        <div class="sec">
+                                            <div class="title">
+                                                <p class="text">메뉴검색</p>
+                                                <button class="more" type="button">더보기</button>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text">
+                                                                스마트시정 소개 > <em>시흥시청</em></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="sec">
+                                            <div class="title">
+                                                <p class="text">관련뉴스 검색</p>
+                                                <button class="more" type="button">더보기</button>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시 1</em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="sec">
+                                            <div class="title">
+                                                <p class="text">포털소개 검색</p>
+                                                <button class="more" type="button">더보기</button>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
+                                                    <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mui_paging"><a class="first" href="">처음</a><a class="prev" href="">이전</a><a class="num" href="">1</a><em class="num">2</em><a class="num" href="">3</a><a class="num" href="">4</a><a class="num" href="">5</a><a class="next" href="">다음</a><a class="last" href="">마지막</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mui_modal_close">닫기</button>
+                    </div>
                 </div>
-              </div>
-              <p class="result">
-                검색어 <em>“시흥시청” </em>에 대한 <br class="mobile_only">검색 결과 입니다.</p>
-              <div class="search_results">
-                <div class="inset">
-                  <div class="sec">
-                    <div class="title">
-                      <p class="text">메뉴검색</p>
-                      <button class="more" type="button">더보기</button>
+            </div><!-- / layer --><!-- 전체메뉴 --><!-- layer -->
+            <div class="mui_fullpop_wrap" mui-modal="" id="commonAllmenu">
+                <div class="mui_modal_dialog mui_size_medium common_allmenu mui_auto_vertical mui_fullpop">
+                    <div class="mui_modal_body">
+                        <div class="mui_modal_content">
+                            <div class="inset">
+                                <div class="tnb_sec"> <a href="">호조벌</a><a href="">시정영상</a><a href="">통합플랫폼</a></div>
+                                <div class="menu_list">
+                                    <div class="mui_accordion" mui-accordion="">
+                                        <div class="acc_lists mui_open">
+                                            <div class="acc_header"><span class="acc_title">민원분석</span>
+                                                <button class="mui_acc_button" type="button"> 닫기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">민원총괄</a></li>
+                                                        <li><a href="">부서별 민원 현황</a></li>
+                                                        <li><a href="">분야별 민원 현황</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">실시간 도시현황</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">교통정보</a></li>
+                                                        <li><a href="">대기환경</a></li>
+                                                        <li><a href="">감염병 발생</a></li>
+                                                        <li><a href="">호조벌</a></li>
+                                                        <li><a href="">통합플랫폼</a></li>
+                                                        <li><a href="">시정영상</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">시정데이터</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">시정데이터</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">테마지도</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">테마지도</a></li>
+                                                        <li><a href="">부동산 지도</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">빅데이터 분석</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">자체분석</a></li>
+                                                        <li><a href="">분석플랫폼</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">공유박스</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">홍보영상</a></li>
+                                                        <li><a href="">관련뉴스</a></li>
+                                                        <li><a href="">공공데이터</a></li>
+                                                        <li><a href="">연관 플랫폼 목록</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="acc_lists">
+                                            <div class="acc_header"><span class="acc_title">스마트시정 소개</span>
+                                                <button class="mui_acc_button" type="button"> 열기
+                                                </button>
+                                            </div>
+                                            <div class="mui_acc_content">
+                                                <div class="deps2">
+                                                    <ul>
+                                                        <li><a href="">포털소개</a></li>
+                                                        <li><a href="">공지사항</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mui_modal_close">닫기</button>
                     </div>
-                    <div class="list">
-                      <ul>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text">
-                              스마트시정 소개 > <em>시흥시청</em></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="sec">
-                    <div class="title">
-                      <p class="text">관련뉴스 검색</p>
-                      <button class="more" type="button">더보기</button>
-                    </div>
-                    <div class="list">
-                      <ul>
-                        <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치피해가 극심해지면서 경기도를 비롯한지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시 </em>전국적으로 장마철 집중호우로 인한 인명·재산피해가 극심해지면서 경기도를 비롯한가 극심해지면서 경기도를 비롯한 경기권 지방자치단체들이 공들여 축</span><span class="date"> <span class="tt">공유박스 > 관련뉴스</span><span>2023 / 07 / 19</span></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="sec">
-                    <div class="title">
-                      <p class="text">포털소개 검색</p>
-                      <button class="more" type="button">더보기</button>
-                    </div>
-                    <div class="list">
-                      <ul>
-                        <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
-                        <li> <a href=""> <span class="text"> <em>시흥시청</em></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
-                <div class="mui_paging"><a class="first" href="">처음</a><a class="prev" href="">이전</a><a class="num" href="">1</a><em class="num">2</em><a class="num" href="">3</a><a class="num" href="">4</a><a class="num" href="">5</a><a class="next" href="">다음</a><a class="last" href="">마지막</a></div>
-              </div>
-            </div>
-          </div>
-          <button class="mui_modal_close">닫기</button>
+            </div><!-- / layer --><!--// 전체메뉴 -->
         </div>
-      </div>
-    </div><!-- / layer --><!-- 전체메뉴 --><!-- layer -->
-    <div class="mui_fullpop_wrap" mui-modal="" id="commonAllmenu">
-      <div class="mui_modal_dialog mui_size_medium common_allmenu mui_auto_vertical mui_fullpop">
-        <div class="mui_modal_body">
-          <div class="mui_modal_content">
-            <div class="inset">
-              <div class="tnb_sec"> <a href="">호조벌</a><a href="">시정영상</a><a href="">통합플랫폼</a></div>
-              <div class="menu_list">
-                <div class="mui_accordion" mui-accordion="">
-                  <div class="acc_lists mui_open">
-                    <div class="acc_header"><span class="acc_title">민원분석</span>
-                      <button class="mui_acc_button" type="button"> 닫기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">민원총괄</a></li>
-                          <li><a href="">부서별 민원 현황</a></li>
-                          <li><a href="">분야별 민원 현황</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">실시간 도시현황</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">교통정보</a></li>
-                          <li><a href="">대기환경</a></li>
-                          <li><a href="">감염병 발생</a></li>
-                          <li><a href="">호조벌</a></li>
-                          <li><a href="">통합플랫폼</a></li>
-                          <li><a href="">시정영상</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">시정데이터</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">시정데이터</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">테마지도</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">테마지도</a></li>
-                          <li><a href="">부동산 지도</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">빅데이터 분석</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">자체분석</a></li>
-                          <li><a href="">분석플랫폼</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">공유박스</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">홍보영상</a></li>
-                          <li><a href="">관련뉴스</a></li>
-                          <li><a href="">공공데이터</a></li>
-                          <li><a href="">연관 플랫폼 목록</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">스마트시정 소개</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="deps2">
-                        <ul>
-                          <li><a href="">포털소개</a></li>
-                          <li><a href="">공지사항</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="mui_modal_close">닫기</button>
-        </div>
-      </div>
-    </div><!-- / layer --><!--// 전체메뉴 -->
-  </div>
-</body>
+    </body>
 
-</html>
+    </html>
