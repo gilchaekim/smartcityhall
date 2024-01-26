@@ -5310,6 +5310,9 @@ table, th, td {
 .board_view .view_cont {
   position: relative;
 }
+.board_view .view_cont video {
+  width: 100%;
+}
 .board_view .view_cont .file {
   margin-top: 16px;
   display: flex;
@@ -6085,14 +6088,14 @@ table, th, td {
 }
 .view_city .lank .mui_datatable tbody .tag {
   display: inline-flex;
-  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   height: 22px;
   border-radius: 12px;
   padding: 0 10px;
   font-size: 12px;
   color: #fff;
-  line-height: 22px;
+  line-height: 20px;
   white-space: nowrap;
+  border: 1px solid #4B4D51;
 }
 .view_city .lank .mui_datatable tbody .date {
   white-space: nowrap;
@@ -6557,6 +6560,7 @@ table, th, td {
   display: block;
   font-size: 28px;
   font-weight: 700;
+  color: #fff;
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .minwon_lists .box .head .title em {
@@ -6603,7 +6607,7 @@ table, th, td {
   height: 24px;
   line-height: 24px;
   margin-top: -14px;
-  color: #EFA106;
+  color: #5F9604;
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .minwon_lists .list.lank li .updown {
@@ -6776,6 +6780,13 @@ table, th, td {
   height: 40px;
   line-height: 40px;
 }
+.keyword_lank_wrap .key_list a .num {
+  display: inline-flex;
+  margin-right: 24px;
+}
+.keyword_lank_wrap .key_list a:hover {
+  color: #EFA106;
+}
 .keyword_lank_wrap .chart_box_wrap {
   display: flex;
   flex-wrap: wrap;
@@ -6815,9 +6826,6 @@ table, th, td {
   position: absolute;
   top: 0;
   right: 0;
-}
-.keyword_lank_wrap .chart_box_wrap .chart_box:nth-child(2n) .title {
-  color: #ED4700;
 }
 .keyword_lank_wrap .chart_box_wrap .chart_box .box_chart {
   margin-top: 12px;
@@ -7833,7 +7841,7 @@ table, th, td {
 .minwon_month .title1 {
   margin-top: 16px;
   font-size: 28px;
-  color: #EFA106;
+  color: #fff;
   font-weight: 700;
 }
 .minwon_month .decs {
@@ -7881,13 +7889,13 @@ table, th, td {
   margin-top: 20px;
 }
 .minwon_month .chart_secpie .rank .detail_view {
-  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   color: #fff;
   height: 30px;
-  line-height: 30px;
+  line-height: 28px;
+  border: 1px solid #4B4D51;
+  border-radius: 15px;
   font-size: 16px;
   padding: 0 10px;
-  border-radius: 6px;
   margin-left: 20px;
 }
 .minwon_month .chart_secpie .rank .rank_lists .txt p {
@@ -8006,7 +8014,6 @@ table, th, td {
 
 .mui_modal_dialog.lank_view {
   min-width: 1200px;
-  border: 1px solid #EFA106;
   border-radius: 6px;
 }
 @media (min-width: 0px) and (max-width: 1240px) {
@@ -8087,7 +8094,6 @@ table, th, td {
   width: 39px;
   height: 39px;
   border-radius: 6px;
-  background: #EFA106;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -8098,6 +8104,36 @@ table, th, td {
     width: 26px;
     height: 26px;
   }
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(1) .num {
+  background: #F44B4B;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(2) .num {
+  background: #F59239;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(3) .num {
+  background: #77C253;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(4) .num {
+  background: #21A182;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(5) .num {
+  background: #00BCCC;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(6) .num {
+  background: #2391A2;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(7) .num {
+  background: #3464A0;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(8) .num {
+  background: #5D3F8B;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(9) .num {
+  background: #E55091;
+}
+.lank_layer .lank_wrap .lank_sec li:nth-child(10) .num {
+  background: #A23837;
 }
 .lank_layer .lank_wrap .lank_sec li .text {
   font-weight: 500;

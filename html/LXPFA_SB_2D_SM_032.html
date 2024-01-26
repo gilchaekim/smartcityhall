@@ -205,48 +205,29 @@
                 speed: 8350
             }
         },
-        fill: {
-            type: "gradient",
-            gradient: {
-                colorStops: [{
-                        offset: 0,
-                        color: "#ED4700",
-                        opacity: 1
-                    },
-                    {
-                        offset: 100,
-                        color: "#ED7200",
-                        opacity: 1
-                    }
-                ]
-            }
-        },
         chart: {
             type: 'bar',
             height: 520,
-        },
-        fill: {
-            type: "gradient",
-            gradient: {
-                colorStops: [{
-                        offset: 0,
-                        color: "#ED4700",
-                        opacity: 1
-                    },
-                    {
-                        offset: 100,
-                        color: "#ED7200",
-                        opacity: 1
-                    }
-                ]
-            }
         },
         plotOptions: {
             bar: {
                 barHeight: 20,
                 horizontal: true,
+                distributed: true,
             }
         },
+        colors: [
+            "#F44B4B",
+            "#F59239",
+            "#77C253",
+            "#21A182",
+            "#00BCCC",
+            "#2391A2",
+            "#3464A0",
+            "#5D3F8B",
+            "#E55091",
+            "#A23837"
+        ],
         dataLabels: {
             enabled: true,
             offsetX: 22,
@@ -254,7 +235,18 @@
             textAnchor: 'start',
             style: {
                 fontSize: '14px',
-                colors: ['#ED6C00']
+                colors: [
+                    "#F44B4B",
+                    "#F59239",
+                    "#77C253",
+                    "#21A182",
+                    "#00BCCC",
+                    "#2391A2",
+                    "#3464A0",
+                    "#5D3F8B",
+                    "#E55091",
+                    "#A23837"
+                ],
             }
         },
         xaxis: {
@@ -282,7 +274,7 @@
         },
         yaxis: {
             min: 0,
-            max: 6000,
+            max: 5000,
             labels: {
                 style: {
                     fontSize: "14px"

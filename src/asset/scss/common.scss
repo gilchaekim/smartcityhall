@@ -1251,6 +1251,9 @@
 	}
 	.view_cont {
 		position: relative;
+		video {
+			width: 100%;
+		}
 		.file {
 			margin-top: 16px;
 			display: flex;
@@ -1999,14 +2002,14 @@
 				}
 				.tag {
 					display: inline-flex;
-					background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 					height: 22px;
 					border-radius: 12px;
 					padding: 0 10px;
 					font-size: 12px;
 					color: #fff;
-					line-height: 22px;
+					line-height: 20px;
 					white-space: nowrap;
+					border: 1px solid #4B4D51;
 				}
 				.date {
 					white-space: nowrap;
@@ -2388,6 +2391,7 @@
 					display: block;
 					font-size: 28px;
 					font-weight: 700;
+					color: #fff;
 					@include respondTo("mobile"){
 						font-size: 18px;
 					}
@@ -2434,7 +2438,7 @@
 					height: 24px;
 					line-height: 24px;
 					margin-top: -14px;
-					color: #EFA106;
+					color: #5F9604;
 					@include respondTo("mobile"){
 						font-size: 14px;
 					}
@@ -2590,6 +2594,13 @@
 			@include ellipsis();
 			height: 40px;
 			line-height: 40px;
+			.num {
+				display: inline-flex;
+				margin-right: 24px;
+			}
+			&:hover {
+				color: #EFA106;
+			}
 		}
 	}
 	.chart_box_wrap {
@@ -2628,11 +2639,6 @@
 				position: absolute;
 				top: 0;
 				right: 0;
-			}
-			&:nth-child(2n) {
-				.title {
-					color: #ED4700;
-				}				
 			}
 			.box_chart {
 				margin-top: 12px;
@@ -3617,7 +3623,7 @@
 	.title1 {
 		margin-top: 16px;
 		font-size: 28px;
-		color: #EFA106;
+		color: #fff;
 		font-weight: 700;
 	}
 	.decs {
@@ -3663,13 +3669,13 @@
 			padding: 24px 0;
 			margin-top: 20px;
 			.detail_view {
-				background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 				color: #fff;
 				height: 30px;
-				line-height: 30px;
+				line-height: 28px;
+				border: 1px solid #4B4D51;
+				border-radius: 15px;
 				font-size: 16px;
 				padding: 0 10px;
-				border-radius: 6px;
 				margin-left: 20px;
 			}
 			.rank_lists  {
@@ -3774,7 +3780,6 @@
 
 .mui_modal_dialog.lank_view {
 	min-width: 1200px;
-	border: 1px solid #EFA106;
 	border-radius: 6px;
 	
 	@include respondToMinMax(0,1240 ){
@@ -3842,7 +3847,6 @@
 					width: 39px;
 					height: 39px;
 					border-radius: 6px;
-					background: #EFA106;
 					display: inline-flex;
 					align-items: center;
 					justify-content: center;
@@ -3850,6 +3854,56 @@
 					@include respondTo("mobile"){
 						width: 26px;
 						height: 26px;
+					}
+				}
+				&:nth-child(1) {
+					.num {
+						background: #F44B4B;
+					}
+				}
+				&:nth-child(2) {
+					.num {
+						background: #F59239;
+					}
+				}
+				&:nth-child(3) {
+					.num {
+						background: #77C253;
+					}
+				}
+				&:nth-child(4) {
+					.num {
+						background: #21A182;
+					}
+				}
+				&:nth-child(5) {
+					.num {
+						background: #00BCCC;
+					}
+				}
+				&:nth-child(6) {
+					.num {
+						background: #2391A2;
+					}
+				}
+				&:nth-child(7) {
+					.num {
+						background: #3464A0;
+					}
+				}
+				&:nth-child(8) {
+					.num {
+						background: #5D3F8B;
+					}
+				}
+				&:nth-child(9) {
+					.num {
+						background: #E55091;
+					}
+				}
+				&:nth-child(10) {
+					.num {
+						background: #A23837;
 					}
 				}
 				.text {
