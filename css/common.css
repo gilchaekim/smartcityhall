@@ -8265,7 +8265,7 @@ table, th, td {
   }
 }
 
-.map odf-view {
+.map.odf-view {
   height: 100%;
 }
 /*# sourceMappingURL=common.css.map */
