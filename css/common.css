@@ -5996,6 +5996,8 @@ table, th, td {
 }
 .view_city .keyword_lank {
   width: 32%;
+  display: flex;
+  flex-direction: column;
 }
 @media (min-width: 0px) and (max-width: 1280px) {
   .view_city .keyword_lank {

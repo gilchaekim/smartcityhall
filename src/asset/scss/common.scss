@@ -1901,6 +1901,8 @@
 	}
 	.keyword_lank {
 		width: 32%;
+		display: flex;
+		flex-direction: column;
 		@include respondToMinMax(0, 1280){
 			width: 100%;
 			margin-top: 24px;
