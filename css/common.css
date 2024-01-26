@@ -3927,7 +3927,7 @@ table, th, td {
 }
 .swiper_pagenation .swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 20px;
-  background: #ED6C00;
+  background: #EFA106;
 }
 
 #wrapper {
@@ -3990,7 +3990,7 @@ table, th, td {
   top: 0;
   left: 0;
   background: #2F323A;
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   border-radius: 4px;
   max-width: 310px;
   z-index: 999;
@@ -4003,8 +4003,8 @@ table, th, td {
 }
 .block_tooltip .inset .title {
   font-size: 12px;
-  color: #ED6C00;
-  border-bottom: 1px solid #ED6C00;
+  color: #EFA106;
+  border-bottom: 1px solid #EFA106;
   padding-bottom: 4px;
 }
 .block_tooltip .inset .conts dl {
@@ -4324,7 +4324,7 @@ table, th, td {
   display: block;
 }
 .header .gnb .menu .deps2 a:hover {
-  color: #ED6C00;
+  color: #EFA106;
   font-weight: 700;
 }
 
@@ -4610,7 +4610,7 @@ table, th, td {
   padding-right: 46px !important;
 }
 #container .side_menu .deps1 > li > button.mui_active {
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 }
 #container .side_menu .deps1 > li > button::after {
   content: "";
@@ -4982,7 +4982,7 @@ table, th, td {
   border-left: 1px solid #3F4249;
 }
 .common_allmenu .menu_list .mui_open .acc_header {
-  color: #ED6C00;
+  color: #EFA106;
 }
 .common_allmenu .menu_list .mui_open.acc_lists {
   border-bottom: 0 none;
@@ -5930,6 +5930,21 @@ table, th, td {
   vertical-align: 3px;
   margin-left: 2px;
 }
+.view_city .air_quality dl dt.lv1 .result::after {
+  background-color: #26B3F0;
+}
+.view_city .air_quality dl dt.lv2 .result::after {
+  background-color: #1CB82C;
+}
+.view_city .air_quality dl dt.lv3 .result::after {
+  background-color: #FFD808;
+}
+.view_city .air_quality dl dt.lv4 .result::after {
+  background-color: #E62C2C;
+}
+.view_city .air_quality dl dt.lv5 .result::after {
+  background-color: #7C7C7C;
+}
 .view_city .air_quality dl dd .texts {
   margin-top: 8px;
   font-size: 14px;
@@ -5947,7 +5962,7 @@ table, th, td {
   left: 0;
 }
 .view_city .air_quality button {
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: #0086BF;
   border-radius: 6px;
   color: #fff;
   height: 48px;
@@ -6012,7 +6027,7 @@ table, th, td {
   color: #fff;
 }
 .view_city .keyword_lank .subtitle {
-  color: #ED6C00;
+  color: #EFA106;
   font-size: 18px;
   font-weight: 700;
 }
@@ -6070,7 +6085,7 @@ table, th, td {
 }
 .view_city .lank .mui_datatable tbody .tag {
   display: inline-flex;
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   height: 22px;
   border-radius: 12px;
   padding: 0 10px;
@@ -6240,7 +6255,7 @@ table, th, td {
 }
 .indicators_lists .chart_sec {
   flex: 1;
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   border-radius: 6px;
   padding: 0 24px;
   background: #1B1B1B;
@@ -6588,7 +6603,7 @@ table, th, td {
   height: 24px;
   line-height: 24px;
   margin-top: -14px;
-  color: #ED6C00;
+  color: #EFA106;
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .minwon_lists .list.lank li .updown {
@@ -6632,7 +6647,7 @@ table, th, td {
   }
 }
 .minwon_lists .list li a:hover {
-  color: #ED6C00;
+  color: #EFA106;
 }
 
 .keyword_lank_wrap {
@@ -6666,7 +6681,7 @@ table, th, td {
 .keyword_lank_wrap .sec_total_chart {
   width: calc(68% - 24px);
   margin-left: 24px;
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   border-radius: 6px;
   padding: 24px;
   background: #1B1B1B;
@@ -6816,7 +6831,7 @@ table, th, td {
 .keyword_lank_wrap .chart_box_wrap .title {
   font-weight: 700;
   font-size: 18px;
-  color: #ED6C00;
+  color: #EFA106;
 }
 .keyword_lank_wrap .chart_box_wrap .decs {
   font-size: 14px;
@@ -7037,7 +7052,7 @@ table, th, td {
   background: #ED4700;
 }
 .main .section .weather_legend .legend p.type3::before {
-  background: #ED6C00;
+  background: #EFA106;
 }
 .main .section .weather_legend .legend p.type4::before {
   background: #ED8E00;
@@ -7145,7 +7160,7 @@ table, th, td {
   display: none;
 }
 .main .section .data_list button.mui_active, .main .section .data_list button:hover {
-  color: #ED6C00;
+  color: #EFA106;
 }
 .main .section .data_list button.mui_active .ico img, .main .section .data_list button:hover .ico img {
   display: none;
@@ -7155,7 +7170,7 @@ table, th, td {
 }
 .main .section .data_list button.mui_active::after, .main .section .data_list button:hover::after {
   content: "";
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23ED6C00' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23EFA106' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 20px;
@@ -7211,7 +7226,7 @@ table, th, td {
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  border: 2px solid #ED6C00;
+  border: 2px solid #EFA106;
   position: absolute;
   top: 7px;
   left: 0;
@@ -7276,7 +7291,7 @@ table, th, td {
 .main .section .population .label {
   display: block;
   font-size: 12px;
-  color: #ED6C00;
+  color: #EFA106;
 }
 .main .section .population.type2 {
   margin-bottom: 10px;
@@ -7300,7 +7315,7 @@ table, th, td {
 }
 .main .section .population.type2 dl dt {
   font-size: 12px;
-  color: #ED6C00;
+  color: #EFA106;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7467,7 +7482,7 @@ table, th, td {
   display: block;
   padding: 3px 6px;
   border-radius: 12px;
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 }
 .main .section .req_data .data_box .btns button.type2 span {
   background: linear-gradient(180deg, #ED7200 0%, #ED4700 100%);
@@ -7538,7 +7553,7 @@ table, th, td {
   border-radius: 15px;
 }
 .main .section .switch_toggle label > span.label1 {
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   color: #fff;
 }
 .main .section .switch_toggle label::before, .main .section .switch_toggle label::after {
@@ -7549,7 +7564,7 @@ table, th, td {
   color: rgba(255, 255, 255, 0.4);
 }
 .main .section .switch_toggle input:checked + label .label2 {
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   color: #fff;
 }
 .main .section .sns_list {
@@ -7662,7 +7677,7 @@ table, th, td {
   position: relative;
 }
 .main .section .prms_status .table_list .detail_view {
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   height: 24px;
   display: block;
   padding: 0 8px;
@@ -7693,7 +7708,7 @@ table, th, td {
   width: 36px;
   height: 36px;
   border-radius: 18px;
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   text-align: center;
   line-height: 34px;
   font-size: 18px;
@@ -7761,7 +7776,7 @@ table, th, td {
   display: inline-flex;
   align-items: center;
   height: 30px;
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   padding: 0 20px;
   color: #fff;
   border-radius: 15px;
@@ -7818,7 +7833,7 @@ table, th, td {
 .minwon_month .title1 {
   margin-top: 16px;
   font-size: 28px;
-  color: #ED6C00;
+  color: #EFA106;
   font-weight: 700;
 }
 .minwon_month .decs {
@@ -7866,7 +7881,7 @@ table, th, td {
   margin-top: 20px;
 }
 .minwon_month .chart_secpie .rank .detail_view {
-  background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   color: #fff;
   height: 30px;
   line-height: 30px;
@@ -7882,7 +7897,7 @@ table, th, td {
 .minwon_month .chart_secpie .rank .rank_lists .txt p .rank_num {
   width: 40px;
   height: 40px;
-  background: #ED6C00;
+  background: #EFA106;
   font-size: 18px;
   font-weight: 700;
   color: #fff;
@@ -7902,7 +7917,7 @@ table, th, td {
   font-weight: 500;
   font-size: 18px;
   text-decoration: underline;
-  color: #ED6C00;
+  color: #EFA106;
 }
 .minwon_month .chart_secpie .rank .slider {
   height: 40px;
@@ -7991,7 +8006,7 @@ table, th, td {
 
 .mui_modal_dialog.lank_view {
   min-width: 1200px;
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   border-radius: 6px;
 }
 @media (min-width: 0px) and (max-width: 1240px) {
@@ -8072,7 +8087,7 @@ table, th, td {
   width: 39px;
   height: 39px;
   border-radius: 6px;
-  background: #ED6C00;
+  background: #EFA106;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -8103,7 +8118,7 @@ table, th, td {
 }
 
 .tooltip_box {
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   padding: 6px 12px;
   background: rgba(36, 36, 36, 0.8);
   overflow: hidden;
@@ -8124,7 +8139,7 @@ table, th, td {
   top: 30px;
   background: #272A31;
   padding: 6px 20px;
-  border: 1px solid #ED6C00;
+  border: 1px solid #EFA106;
   border-radius: 6px;
   z-index: 99;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25), -3px -3px 8px rgba(0, 0, 0, 0.25);
@@ -8147,10 +8162,10 @@ table, th, td {
   padding: 6px 0 3px;
 }
 .source_layer .mui_datatable thead th {
-  color: #ED6C00;
+  color: #EFA106;
 }
 .source_layer .mui_datatable thead tr {
-  border-bottom: 1px solid #ED6C00;
+  border-bottom: 1px solid #EFA106;
 }
 .source_layer .mui_datatable tbody th, .source_layer .mui_datatable tbody td {
   color: #C3CDD6;
@@ -8269,6 +8284,13 @@ table, th, td {
 }
 
 .map.odf-view {
+  height: 100%;
+}
+
+.mui_fullpop_wrap {
+  padding: 0;
+}
+.mui_fullpop_wrap .mui_modal_body {
   height: 100%;
 }
 /*# sourceMappingURL=common.css.map */

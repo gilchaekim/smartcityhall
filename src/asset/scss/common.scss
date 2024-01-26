@@ -30,7 +30,7 @@
 	  border-radius: 4px;
 	  &.swiper-pagination-bullet-active {
 		width: 20px;
-		background: #ED6C00;
+		background: #EFA106;
 
 	  }
 	}
@@ -94,7 +94,7 @@
 	top: 0;
 	left: 0;
 	background: #2F323A;
-	border: 1px solid #ED6C00;
+	border: 1px solid #EFA106;
 	border-radius: 4px;
 	max-width: 310px;
 	z-index: 999;
@@ -105,8 +105,8 @@
 		padding: 6px 20px;
 		.title {
 			font-size: 12px;
-			color: #ED6C00;
-			border-bottom: 1px solid #ED6C00;
+			color: #EFA106;
+			border-bottom: 1px solid #EFA106;
 			padding-bottom: 4px;
 		}
 		.conts {
@@ -416,7 +416,7 @@
 					line-height: 23px;
 					display: block;
 					&:hover {
-						color: #ED6C00;
+						color: #EFA106;
 						font-weight: 700;
 					}
 				}
@@ -568,7 +568,7 @@
 
 				& > a, & > button {
 					display: block;
-					// background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+					// background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 					background: #272A31;
 					border: 1px solid #2F323A;
 					height: 54px;
@@ -640,7 +640,7 @@
 				& > button {
 					padding-right: 46px !important;
 					&.mui_active {
-						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+						background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 					}
 					&::after {
 						content: '';
@@ -968,7 +968,7 @@
 	.menu_list {
 		.mui_open {
 			.acc_header {
-				color: #ED6C00;
+				color: #EFA106;
 			}	
 			&.acc_lists {
 				border-bottom: 0 none;
@@ -1834,6 +1834,31 @@
 						margin-left: 2px;
 					}
 				}
+				&.lv1 {
+					.result::after {
+						background-color: #26B3F0;
+					}
+				}
+				&.lv2 {
+					.result::after {
+						background-color: #1CB82C;
+					}
+				}
+				&.lv3 {
+					.result::after {
+						background-color: #FFD808;
+					}
+				}
+				&.lv4 {
+					.result::after {
+						background-color: #E62C2C;
+					}
+				}
+				&.lv5 {
+					.result::after {
+						background-color: #7C7C7C;
+					}
+				}
 			}
 			dd {
 				.texts {
@@ -1855,7 +1880,7 @@
 			}
 		}
 		button {
-			background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+			background: #0086BF;
 			border-radius: 6px;
 			color: #fff;
 			height: 48px;
@@ -1914,7 +1939,7 @@
 			color: #fff;
 		}
 		.subtitle {
-			color: #ED6C00;
+			color: #EFA106;
 			font-size: 18px;
 			font-weight: 700;
 			@include respondTo("mobile"){
@@ -1974,7 +1999,7 @@
 				}
 				.tag {
 					display: inline-flex;
-					background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+					background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 					height: 22px;
 					border-radius: 12px;
 					padding: 0 10px;
@@ -2108,7 +2133,7 @@
 	gap: 24px;
 	.chart_sec {
 		flex: 1;
-		border: 1px solid #ED6C00;
+		border: 1px solid #EFA106;
 		border-radius: 6px;
 		padding: 0 24px;
 		background: #1B1B1B;
@@ -2409,7 +2434,7 @@
 					height: 24px;
 					line-height: 24px;
 					margin-top: -14px;
-					color: #ED6C00;
+					color: #EFA106;
 					@include respondTo("mobile"){
 						font-size: 14px;
 					}
@@ -2446,7 +2471,7 @@
 					padding-left: 6px;
 				}
 				&:hover {
-					color: #ED6C00;
+					color: #EFA106;
 				}
 			}
 		}
@@ -2479,7 +2504,7 @@
 	.sec_total_chart {
 		width: calc( 68% - 24px );
 		margin-left: 24px;
-		border: 1px solid #ED6C00;
+		border: 1px solid #EFA106;
 		border-radius: 6px;
 		padding: 24px;
 		background: #1B1B1B;
@@ -2621,7 +2646,7 @@
 		.title {
 			font-weight: 700;
 			font-size: 18px;
-			color: #ED6C00;
+			color: #EFA106;
 		}
 		.decs {
 			font-size: 14px;
@@ -2829,7 +2854,7 @@
 						background: #ED4700;
 					}
 					&.type3::before{
-						background: #ED6C00;
+						background: #EFA106;
 					}
 					&.type4::before{
 						background: #ED8E00;
@@ -2936,7 +2961,7 @@
 					}
 				}
 				&.mui_active, &:hover {
-					color: #ED6C00;
+					color: #EFA106;
 					.ico{
 						img {
 							display: none;
@@ -2947,7 +2972,7 @@
 					}
 					&::after {
 						content: '';
-						@include icon_svg(arrow-left, "#ED6C00", 20px);
+						@include icon_svg(arrow-left, "#EFA106", 20px);
 						transform: rotate(180deg);
 						margin-left: 4px;
 					}
@@ -2994,7 +3019,7 @@
 					width: 10px;
 					height: 10px;
 					border-radius: 5px;
-					border: 2px solid #ED6C00;
+					border: 2px solid #EFA106;
 					position: absolute;
 					top: 7px;
 					left: 0;
@@ -3056,7 +3081,7 @@
 			.label {
 				display: block;
 				font-size: 12px;
-				color: #ED6C00;
+				color: #EFA106;
 				
 			}
 			&.type2 {
@@ -3083,7 +3108,7 @@
 					}
 					dt {
 						font-size: 12px;
-						color: #ED6C00;
+						color: #EFA106;
 						display: flex;
 						align-items: center;
 						justify-content: center;
@@ -3246,7 +3271,7 @@
 							display: block;
 							padding: 3px 6px;
 							border-radius: 12px;
-							background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+							background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 						}
 						&.type2 {
 							span {
@@ -3321,7 +3346,7 @@
 					height: 30px;
 					border-radius: 15px;
 					&.label1 {
-						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+						background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 						color: #fff;
 					}
 				}
@@ -3336,7 +3361,7 @@
 						color: rgba($color: #fff, $alpha: .4);
 					}
 					.label2 {
-						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+						background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 						color: #fff;
 					}
 				}
@@ -3445,7 +3470,7 @@
 			.table_list{
 				position: relative;
 				.detail_view {
-					background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+					background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 					height: 24px;
 					display: block;
 					padding: 0 8px;
@@ -3471,7 +3496,7 @@
 						width: 36px;
 						height: 36px;
 						border-radius: 18px;
-						border: 1px solid #ED6C00;
+						border: 1px solid #EFA106;
 						text-align: center;
 						line-height: 34px;
 						font-size: 18px;
@@ -3532,7 +3557,7 @@
 						display: inline-flex;
 						align-items: center;
 						height: 30px;
-						border: 1px solid #ED6C00;
+						border: 1px solid #EFA106;
 						padding: 0 20px;
 						color: #fff;
 						border-radius: 15px;
@@ -3592,7 +3617,7 @@
 	.title1 {
 		margin-top: 16px;
 		font-size: 28px;
-		color: #ED6C00;
+		color: #EFA106;
 		font-weight: 700;
 	}
 	.decs {
@@ -3638,7 +3663,7 @@
 			padding: 24px 0;
 			margin-top: 20px;
 			.detail_view {
-				background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
+				background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
 				color: #fff;
 				height: 30px;
 				line-height: 30px;
@@ -3655,7 +3680,7 @@
 					.rank_num {
 						width: 40px;
 						height: 40px;
-						background: #ED6C00;
+						background: #EFA106;
 						font-size: 18px;
 						font-weight: 700;
 						color: #fff;
@@ -3675,7 +3700,7 @@
 						font-weight: 500;
 						font-size: 18px;
 						text-decoration: underline;
-						color: #ED6C00;
+						color: #EFA106;
 					}
 				}
 			}
@@ -3749,7 +3774,7 @@
 
 .mui_modal_dialog.lank_view {
 	min-width: 1200px;
-	border: 1px solid #ED6C00;
+	border: 1px solid #EFA106;
 	border-radius: 6px;
 	
 	@include respondToMinMax(0,1240 ){
@@ -3817,7 +3842,7 @@
 					width: 39px;
 					height: 39px;
 					border-radius: 6px;
-					background: #ED6C00;
+					background: #EFA106;
 					display: inline-flex;
 					align-items: center;
 					justify-content: center;
@@ -3851,7 +3876,7 @@
 	&.type2 {
 		border-color: #ED4801;
 	}
-	border: 1px solid #ED6C00;
+	border: 1px solid #EFA106;
 	padding: 6px 12px;
 	background: rgba($color: #242424, $alpha: .8);
 	overflow: hidden;
@@ -3869,7 +3894,7 @@
 	top: 30px;
 	background: #272A31;
 	padding: 6px 20px;
-	border: 1px solid #ED6C00;
+	border: 1px solid #EFA106;
 	border-radius: 6px;
 	z-index: 99;
 	box-shadow: 3px 3px 8px rgba($color: #000, $alpha: .25), -3px -3px 8px rgba($color: #000, $alpha: .25);
@@ -3893,10 +3918,10 @@
 		}
 		thead {
 			th {
-				color: #ED6C00;
+				color: #EFA106;
 			}
 			tr {
-				border-bottom: 1px solid #ED6C00;
+				border-bottom: 1px solid #EFA106;
 			}
 		}
 		tbody {
@@ -4003,4 +4028,10 @@
 }
 .map.odf-view {
 	height: 100%;
+}
+.mui_fullpop_wrap {
+	padding: 0;
+	.mui_modal_body {
+		height: 100%;
+	}
 }
