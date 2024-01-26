@@ -5763,6 +5763,7 @@ table, th, td {
   display: flex;
   align-items: center;
   padding-right: 4px;
+  white-space: nowrap;
 }
 .view_city .select_type {
   position: absolute;
