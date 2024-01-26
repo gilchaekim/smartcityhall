@@ -8293,4 +8293,8 @@ table, th, td {
 .mui_fullpop_wrap .mui_modal_body {
   height: 100%;
 }
+
+#commonForcast .search_results {
+  height: auto;
+}
 /*# sourceMappingURL=common.css.map */
