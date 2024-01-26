@@ -8295,6 +8295,6 @@ table, th, td {
 }
 
 #commonForcast .search_results {
-  height: auto;
+  max-height: calc(100vh - 100px);
 }
 /*# sourceMappingURL=common.css.map */
