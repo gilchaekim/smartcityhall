@@ -1,68 +1,68 @@
-<!DOCTYPE html>
-<html lang="ko">
+    <!DOCTYPE html>
+    <html lang="ko">
 
-<head>
-  <title>METAUI</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/docs/css/index.css">
-  <link rel="stylesheet" href="/css/common.css">
-  <script type="text/javascript" src="/js/index.js"></script>
-  <script type="text/javascript" src="/index.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-</head>
+    <head>
+        <title>METAUI</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/docs/css/index.css">
+        <link rel="stylesheet" href="/css/common.css">
+        <script type="text/javascript" src="/js/index.js"></script>
+        <script type="text/javascript" src="/index.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    </head>
 
-<body>
-  <div id="guideWrap">
-    <div class="main_content">
-      <div class="title_sec">
-        <p class="guide_title title_lv1">Slider</p>
-      </div>
-      <div class="title_sec">
-        <p class="guide_title title_lv2">Example</p>
-      </div>
-      <div>
-        <iframe id="mainFrame"></iframe>
-      </div>
-      <div class="guide_card_box">
-        <section class="code_view">
-          <div mui-slider="">
-            <div class="mui_slider_wrapper">
-              <div class="mui_slide_container">
-                <div class="mui_slide_list">
-                  <div class="mui_slide_items">slides1</div>
+    <body>
+        <div id="guideWrap">
+            <div class="main_content">
+                <div class="title_sec">
+                    <p class="guide_title title_lv1">Slider</p>
                 </div>
-                <div class="mui_slide_list">
-                  <div class="mui_slide_items">slides2</div>
+                <div class="title_sec">
+                    <p class="guide_title title_lv2">Example</p>
                 </div>
-                <div class="mui_slide_list">
-                  <div class="mui_slide_items">slides3</div>
+                <div>
+                    <iframe id="mainFrame"></iframe>
                 </div>
-                <div class="mui_slide_list">
-                  <div class="mui_slide_items">slides4</div>
-                </div>
-                <div class="mui_slide_list">
-                  <div class="mui_slide_items">slides5</div>
-                </div>
-                <div class="mui_slide_list">
-                  <div class="mui_slide_items">slides6</div>
-                </div>
-                <div class="mui_slide_list">
-                  <div class="mui_slide_items">slides7</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div class="code_block">
-          <div class="code_html">
-            <p class="title">html</p>
-            <pre><code class="language-html"></code></pre>
-          </div>
-          <div class="code_pug">
-            <p class="title">pug</p>
-            <pre><code class="language-scss">div(
+                <div class="guide_card_box">
+                    <section class="code_view">
+                        <div mui-slider="">
+                            <div class="mui_slider_wrapper">
+                                <div class="mui_slide_container">
+                                    <div class="mui_slide_list">
+                                        <div class="mui_slide_items">slides1</div>
+                                    </div>
+                                    <div class="mui_slide_list">
+                                        <div class="mui_slide_items">slides2</div>
+                                    </div>
+                                    <div class="mui_slide_list">
+                                        <div class="mui_slide_items">slides3</div>
+                                    </div>
+                                    <div class="mui_slide_list">
+                                        <div class="mui_slide_items">slides4</div>
+                                    </div>
+                                    <div class="mui_slide_list">
+                                        <div class="mui_slide_items">slides5</div>
+                                    </div>
+                                    <div class="mui_slide_list">
+                                        <div class="mui_slide_items">slides6</div>
+                                    </div>
+                                    <div class="mui_slide_list">
+                                        <div class="mui_slide_items">slides7</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="code_block">
+                        <div class="code_html">
+                            <p class="title">html</p>
+                            <pre><code class="language-html"></code></pre>
+                        </div>
+                        <div class="code_pug">
+                            <p class="title">pug</p>
+                            <pre><code class="language-scss">div(
   mui-slider=""
 ) 
   .mui_slider_wrapper
@@ -81,86 +81,84 @@
         .mui_slide_items slides6
       .mui_slide_list
         .mui_slide_items slides7</code></pre>
-          </div>
+                        </div>
+                    </div>
+                    <div class="view_code">
+                        <button>code view Toggle</button>
+                    </div>
+                </div>
+                <div class="title_sec">
+                    <p class="guide_title title_lv2">Attribute</p>
+                </div>
+                <div class="attribute_table">
+                    <div class="mui_datatable attr_table">
+                        <table>
+                            <colgroup>
+                                <col class="15" />
+                                <col class="55" />
+                                <col class="15" />
+                                <col class="15" />
+                            </colgroup>
+                            <caption>Attributes</caption>
+                            <thead>
+                                <tr>
+                                    <th class="th" scope="cols">Property</th>
+                                    <th class="th" scope="cols">Description</th>
+                                    <th class="th" scope="cols">Type</th>
+                                    <th class="th" scope="cols">Default</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>target</td>
+                                    <td>토글 타겟, class, id 이름</td>
+                                    <td>string</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>cls</td>
+                                    <td>토글 할 커스텀 클래스</td>
+                                    <td>string</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="view_code">
-          <button>code view Toggle</button>
-        </div>
-      </div>
-      <div class="title_sec">
-        <p class="guide_title title_lv2">Attribute</p>
-      </div>
-      <div class="attribute_table">
-        <div class="mui_datatable attr_table">
-          <table>
-            <colgroup>
-              <col class="15" />
-              <col class="55" />
-              <col class="15" />
-              <col class="15" />
-            </colgroup>
-            <caption>Attributes</caption>
-            <thead>
-              <tr>
-                <th class="th" scope="cols">Property</th>
-                <th class="th" scope="cols">Description</th>
-                <th class="th" scope="cols">Type</th>
-                <th class="th" scope="cols">Default</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>target</td>
-                <td>토글 타겟, class, id 이름</td>
-                <td>string</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>cls</td>
-                <td>토글 할 커스텀 클래스</td>
-                <td>string</td>
-                <td>-</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
+        <script>
     const {
-      $,
-      $$,
-      on,
-      attr,
-      hasAttr,
-      removeAttr,
-      closest,
-      wrapInner
+        $,
+        $$,
+        on,
+        attr,
+        hasAttr,
+        removeAttr,
+        closest,
+        wrapInner
     } = GCui.util;
     const btn = $$('.view_code button');
     const codes = [];
     const htmlcode = $$('.code_html pre code');
     const codePug = $$('.code_pug pre');
     const codeHtml = $$('.code_html pre');
-
     $$('.code_view').forEach((el, idx) => {
-      var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-      codes.push(html)
-      htmlcode[idx].innerHTML = '        ' + html;
-      hljs.highlightElement(codePug[idx])
-      hljs.highlightElement(codeHtml[idx])
+        var html = el.outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+        codes.push(html)
+        htmlcode[idx].innerHTML = '        ' + html;
+        hljs.highlightElement(codePug[idx])
+        hljs.highlightElement(codeHtml[idx])
     });
-
     on(btn, 'click', (e) => {
-      const target = $('.code_block', closest(e.target, '.guide_card_box'))
-      if (hasAttr(target, 'hidden')) {
-        removeAttr(target, 'hidden')
-      } else {
-        attr(target, 'hidden', '')
-      }
+        const target = $('.code_block', closest(e.target, '.guide_card_box'))
+        if (hasAttr(target, 'hidden')) {
+            removeAttr(target, 'hidden')
+        } else {
+            attr(target, 'hidden', '')
+        }
     })
-  </script>
-</body>
+        </script>
+    </body>
 
-</html>
+    </html>
