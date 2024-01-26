@@ -339,8 +339,10 @@
 			height: 48px;
 			line-height: 48px;
 			background: url($url_common+"logo.svg") no-repeat left center;
-			background-size: 48px;
+			background-size: 112px;
 			width: 160px;
+			font-size: 0;
+			color: transparent;
 			@include respondTo("tablet"){
 				font-size: 18px;
 				font-family: "S-Core Dream";
@@ -583,11 +585,21 @@
 					}
 					&:hover {
 						@include respondToMinMax(1025, 10000){
-							background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
-							border-color: transparent;
 							font-weight: 700;
-							padding-left: 25px;	
-							line-height: 54px;
+							color: #EFA106;
+							&::before {
+								content: '';
+								display: block;
+								width: 10px;
+								height: 10px;
+								transform: rotate(45deg);
+								border-right: 2px solid #EFA106;
+								border-top: 2px solid #EFA106;
+								position: absolute;
+								top: 50%;
+								right: 30px;
+								margin-top: -5px;
+							}
 						}
 					}
 					&.ico {
@@ -616,6 +628,13 @@
 								background: url($url_common+"menu_ico#{$i}.svg") no-repeat center;
 							}
 						}
+						&:hover {
+							@for $i from 1 through 8 {
+								&.type#{$i}:after {
+									background: url($url_common+"menu_ico#{$i}_on.svg") no-repeat center;
+								}
+							}	
+						}
 					}
 				}
 				& > button {
@@ -637,11 +656,30 @@
 				}
 				&.mui_active {
 					& > a {
-						background: linear-gradient(180deg, #ED9C00 0%, #ED6C00 100%);
-						border: 0 none;
 						font-weight: 700;
 						padding-left: 25px;
 						line-height: 54px;
+						font-weight: 700;
+						color: #EFA106;
+						&::before {
+							content: '';
+							display: block;
+							width: 10px;
+							height: 10px;
+							transform: rotate(45deg);
+							border-right: 2px solid #EFA106;
+							border-top: 2px solid #EFA106;
+							position: absolute;
+							top: 50%;
+							right: 30px;
+							margin-top: -5px;
+						}
+						
+						@for $i from 1 through 8 {
+							&.type#{$i}:after {
+								background: url($url_common+"menu_ico#{$i}_on.svg") no-repeat center;
+							}
+						}	
 						@include respondTo("tablet"){
 							height: 48px;
 							line-height: 48px;
@@ -676,7 +714,7 @@
 				&.mui_active {
 					a {
 						font-weight: 700;
-						color: #ED6C00;
+						color: #EFA106;
 					}
 				}
 			}
@@ -690,7 +728,7 @@
 				padding-left: 24px;
 				&:hover {
 					font-weight: 700;
-					color: #ED6C00;
+					color: #EFA106;
 				}
 			}
 		}
@@ -1384,9 +1422,10 @@
 			display: block;
 		}
 		.img {
+			width: 200px;
+			min-width: 200px;
 			img {
 				width: 100%;
-				min-width: 200px;	
 			}
 			@include respondTo("mobile"){
 				overflow: hidden;
@@ -2099,11 +2138,12 @@
 				gap: 12px;
 			}
 		}
+		
 		li {
 			width: calc(33.3333% - 16px);
 			&.mui_active {
 				button {
-					background: linear-gradient(279.97deg, #ED9C00 -12.74%, #ED6C00 55.95%);
+					background: linear-gradient(298.58deg, #EF7605 0%, #EFA106 67.77%);
 					.top {
 						color: #fff;
 					}
@@ -3880,4 +3920,84 @@
 		text-decoration: underline;
 	}
 }
-
+.company {
+	text-align: center;
+	word-break: keep-all;
+	strong {
+		color: #60BBF3;
+	}
+	.title {
+		font-weight: 700;
+		font-size: 48px;
+		color: #fff;
+		@include respondToMinMax(0, 1280){
+			br {
+				display: none;
+			}
+		}
+		@include respondTo("mobile"){
+			font-size: 32px;
+		}
+	}
+	.subtitle {
+		margin-top: 24px;
+		font-size: 22px;
+		color: #868E96;
+		@include respondTo("mobile"){
+			font-size: 18px;
+			margin-top: 12px;
+		}
+	}
+	.con_list {
+		display: flex;
+		gap: 24px;
+		margin-top: 72px;
+		@include respondToMinMax(1025, 1280){
+			flex-wrap: wrap;
+		}
+		@include respondTo("mobile"){
+			flex-direction: column;
+			margin-top: 24px;
+			gap: 12px;
+		}
+		
+		.sec {
+			background: #272A31;
+			padding: 40px 20px;
+			flex: 1;
+			@include respondToMinMax(1025, 1280){
+				width: calc(50% - 12px);
+				flex: none;
+				
+			}
+			@include respondTo("mobile"){
+				width: 100%;
+				padding: 20px;
+			}
+			.img {
+				img {
+					width: 178px;
+				}
+				margin-bottom: 20px;
+			}
+			dt {
+				color: #fff;
+				font-size: 18px;
+				@include respondTo("mobile"){
+					font-size: 16px;
+				}
+			}
+			dd {
+				font-size: 16px;
+				color: #868E96;
+				margin-top: 10px;
+				@include respondTo("mobile"){
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+.map odf-view {
+	height: 100%;
+}

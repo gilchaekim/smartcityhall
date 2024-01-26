@@ -103,7 +103,7 @@ block content
           | “빅카인즈”에서 
           em “시흥시”
           | 에 대한 분석한 결과 화면입니다.
-        #chart 
+        #chart
       .view_box.bigkinds_data
         .title 연관어 분석
         .decs 
@@ -112,6 +112,115 @@ block content
           | 에 대한 분석한 결과 화면입니다.
         .img 
           img(src="/src/images/keyword.png", alt="")
+  script.
+    var optionChart1 = {
+      grid: {
+        borderColor: "#666",
+      },
+      series: [
+        {
+          data: [
+            {
+              x: ['2023','/02'],
+              y: 30
+            },
+            {
+              x: ['2023','/03'],
+              y: 40
+            },
+            {
+              x: ['2023','/04'],
+              y: 30
+            },
+            {
+              x: ['2023','/05'],
+              y: 40
+            },
+            {
+              x: ['2023','/06'],
+              y: 30
+            },
+            {
+              x: ['2023','/07'],
+              y: 40
+            },
+          ]
+        }
+      ],
+      tooltip: {
+        enabled: true,
+        theme:false,
+        custom: function({series, seriesIndex, dataPointIndex, w}) {
+          return '<div class="tooltip_box">' +
+            '<span>' + series[seriesIndex][dataPointIndex] + '</span>' +
+            '</div>'
+        }
+      },
+      yaxis: {
+        min:0,
+        tickAmount:4,
+        labels: {
+          style:{
+            fontSize:"14px"
+          }
+        }
+      }, 
+      chart: {
+        type: "area",
+        height: 240,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      stroke: {
+        curve: "straight",
+        width: 1,
+        colors: ["#EFA106"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          type: "vertical",
+          colorStops: [
+            [
+              {
+                offset: 0,
+                color: "#EFA106",
+                opacity: 0.4
+              },
+              {
+                offset: 100,
+                color: "#EFA106",
+                opacity: 0
+              },
+            ]
+          ]
+        }
+      },
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"14px"
+          }
+        }
+      },
+    };
+    GCui.chart('#chart', {chartOptions:optionChart1})
+
 
       
 

@@ -1,0 +1,49 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName=""
+
+block content
+  .company 
+    p.title 
+      | 시흥시의 행정시스템과 공공데이터를 결합한 
+      br
+      strong 데이터 시각화 분석 플랫폼
+      | 입니다.
+    p.subtitle 다양한 시정 데이터는 물론, 빅데이터 기반의 정책 분석과정을 공유, 관리함으로써 시민의 일상에 도움이 되는 적극적인 데이터 기반 소통 행정을 수행하겠습니다.
+
+    .con_list 
+      .sec 
+        .img 
+          img(src="/src/images/img_com1.svg", alt="")
+        dl 
+          dt 
+            | 시흥이 보유한 데이터의 
+            strong 시각화 제공
+          dd 시흥 속에 있는 데이터들을 직관적으로 볼 수 있게 그래프, 지도 시각화를 통해 쉽게 표현하여 제공합니다.
+      .sec 
+        .img 
+          img(src="/src/images/img_com2.svg", alt="")
+        dl 
+          dt 
+            | 도시의 
+            strong 실시간 현황
+            | 지표 갱신 및 표출
+          dd 시시각각 변동하는 교통, 기상 등을 반영한 도시 현황을 실시간 시각화하여 제공합니다.
+      .sec 
+        .img 
+          img(src="/src/images/img_com3.svg", alt="")
+        dl 
+          dt 
+            | 빅데이터 분석기법 기반의 
+            strong 정책분석
+            | 공유
+          dd 빅데이터가 어떠한 정책적 의미를 가지는지, 과제별 분석내용을 개방함으로써 시흥시의 데이터 기반 정책분석 과정을 공개합니다.
+      .sec 
+        .img 
+          img(src="/src/images/img_com4.svg", alt="")
+        dl 
+          dt 
+            | 분야별 주요 시정 
+            strong 데이터 추이 관리
+          dd 시민의 관심사를 반영한 주요 시정 데이터를 선정하여 지표로서 지속관리합니다.
