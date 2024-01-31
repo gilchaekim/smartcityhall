@@ -6007,6 +6007,17 @@ table, th, td {
   display: flex;
   flex-direction: column;
 }
+.view_city .keyword_lank .mui_datatable {
+  max-height: 250px;
+  overflow: auto;
+}
+.view_city .keyword_lank .mui_datatable::-webkit-scrollbar {
+  width: 4px;
+}
+.view_city .keyword_lank .mui_datatable::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+}
 @media (min-width: 0px) and (max-width: 1280px) {
   .view_city .keyword_lank {
     width: 100%;
@@ -7640,11 +7651,7 @@ table, th, td {
   flex-wrap: wrap;
 }
 .main .section .sns_list .list_thumb .img {
-  width: 70px;
-}
-.main .section .sns_list .list_thumb .img + .texts {
-  width: calc(100% - 70px);
-  padding-left: 10px;
+  width: 100%;
 }
 .main .section .sns_list .list_thumb .img + .texts .list_title {
   -webkit-line-clamp: 2;
