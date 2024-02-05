@@ -3984,13 +3984,26 @@ table, th, td {
   z-index: 99;
 }
 
+.labels_walk {
+  cursor: pointer;
+  position: absolute;
+  z-index: 0;
+}
+.labels_walk.mui_active {
+  z-index: 1;
+}
+
+.centername {
+  cursor: pointer;
+}
+
 .block_tooltip {
   position: absolute;
   display: none;
   top: 0;
   left: 0;
   background: #2F323A;
-  border: 1px solid #EFA106;
+  border: 1px solid #fff;
   border-radius: 4px;
   max-width: 310px;
   z-index: 999;
@@ -4003,8 +4016,8 @@ table, th, td {
 }
 .block_tooltip .inset .title {
   font-size: 12px;
-  color: #EFA106;
-  border-bottom: 1px solid #EFA106;
+  color: #fff;
+  border-bottom: 1px solid #fff;
   padding-bottom: 4px;
 }
 .block_tooltip .inset .conts dl {
@@ -7038,34 +7051,115 @@ table, th, td {
   height: 16px;
   margin-right: 6px;
 }
-.main .section .weather_legend .legend {
-  display: flex;
-  margin-top: 7px;
+.main .section .main_map {
+  margin-top: 24px;
+  margin-left: 55px;
+  position: relative;
+  top: -100px;
+  z-index: 2;
+  max-width: 760px;
 }
-@media (min-width: 0px) and (max-width: 767px) {
-  .main .section .weather_legend .legend.pc {
-    display: none;
+.main .section .main_map .charts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+.main .section .main_map .charts.mui_active {
+  display: block;
+}
+.main .section .main_map .charts.type1 .chart1,
+.main .section .main_map .charts.type1 .chart2,
+.main .section .main_map .charts.type1 .chart3 {
+  padding: 20px 10px 10px;
+  background: rgba(39, 42, 49, 0.7);
+  border-radius: 6px;
+  position: absolute;
+}
+.main .section .main_map .charts.type1 .chart1 > div,
+.main .section .main_map .charts.type1 .chart2 > div,
+.main .section .main_map .charts.type1 .chart3 > div {
+  border-bottom: 1px solid #fff;
+}
+.main .section .main_map .charts.type1 .chart1 {
+  top: 22%;
+  left: 59%;
+}
+.main .section .main_map .charts.type1 .chart2 {
+  top: 50%;
+  left: 44%;
+}
+.main .section .main_map .charts.type1 .chart3 {
+  top: 68%;
+  left: 8%;
+}
+.main .section .main_map .charts.type2 .chart1,
+.main .section .main_map .charts.type2 .chart2,
+.main .section .main_map .charts.type2 .chart3,
+.main .section .main_map .charts.type2 .chart4,
+.main .section .main_map .charts.type2 .chart5 {
+  padding: 10px;
+  background: rgba(39, 42, 49, 0.7);
+  border-radius: 6px;
+  position: absolute;
+}
+.main .section .main_map .charts.type2 .chart1 {
+  top: 29%;
+  left: 59%;
+}
+.main .section .main_map .charts.type2 .chart2 {
+  top: 43%;
+  left: 90%;
+}
+.main .section .main_map .charts.type2 .chart3 {
+  top: 57%;
+  left: 47%;
+}
+.main .section .main_map .charts.type2 .chart4 {
+  top: 87%;
+  left: 15%;
+}
+.main .section .main_map .charts.type2 .chart5 {
+  top: 85%;
+  left: 27%;
+}
+.main .section .main_map .legend {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+@media (min-width: 1920px) and (max-width: 3000px) {
+  .main .section .main_map .legend {
+    right: -60px;
   }
 }
-.main .section .weather_legend .legend p {
-  margin-left: 16px;
+.main .section .main_map .legend .box p {
   font-size: 12px;
-  color: #D8F1FF;
-  align-items: center;
+  color: #fff;
 }
-.main .section .weather_legend .legend p.type1::before {
-  background: #DC2B10;
+.main .section .main_map .legend .decs {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
 }
-.main .section .weather_legend .legend p.type2::before {
-  background: #ED4700;
+.main .section .main_map .legend .labels {
+  display: none;
 }
-.main .section .weather_legend .legend p.type3::before {
+.main .section .main_map .legend .labels.mui_active {
+  display: block;
+}
+.main .section .main_map .legend .labels.type1 .box {
+  display: flex;
+  gap: 20px;
+}
+.main .section .main_map .legend .labels.type1 p.type1::before {
   background: #EFA106;
 }
-.main .section .weather_legend .legend p.type4::before {
-  background: #ED8E00;
+.main .section .main_map .legend .labels.type1 p.type2::before {
+  background: #0086BF;
 }
-.main .section .weather_legend .legend p::before {
+.main .section .main_map .legend .labels.type1 p::before {
   content: "";
   display: inline-flex;
   width: 12px;
@@ -7074,12 +7168,155 @@ table, th, td {
   border-radius: 50%;
   margin-right: 4px;
 }
-.main .section .main_map {
-  margin-top: 24px;
-  margin-left: 55px;
-  position: relative;
-  top: -100px;
-  z-index: 2;
+.main .section .main_map .legend .labels.type2 .box {
+  display: flex;
+  gap: 4px 0;
+  flex-wrap: wrap;
+  width: 480px;
+}
+.main .section .main_map .legend .labels.type2 .box p {
+  width: 25%;
+}
+.main .section .main_map .legend .labels.type2 .box p.type1::before {
+  background: url("/src/images/label1.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type2::before {
+  background: url("/src/images/label2.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type3::before {
+  background: url("/src/images/label3.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type4::before {
+  background: url("/src/images/label4.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type5::before {
+  background: url("/src/images/label5.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type6::before {
+  background: url("/src/images/label6.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type7::before {
+  background: url("/src/images/label7.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type8::before {
+  background: url("/src/images/label8.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type9::before {
+  background: url("/src/images/label9.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type10::before {
+  background: url("/src/images/label10.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type11::before {
+  background: url("/src/images/label11.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type12::before {
+  background: url("/src/images/label12.svg") no-repeat center;
+}
+.main .section .main_map .legend .labels.type2 .box p.type2::before {
+  background: #0086BF;
+}
+.main .section .main_map .legend .labels.type2 .box p::before {
+  content: "";
+  display: inline-flex;
+  vertical-align: 2px;
+  width: 18px;
+  height: 6px;
+  margin-right: 4px;
+}
+.main .section .main_map .legend .labels.type3 .box {
+  display: flex;
+  width: 210px;
+  flex-wrap: wrap;
+}
+.main .section .main_map .legend .labels.type3 p {
+  width: 33.3333%;
+}
+.main .section .main_map .legend .labels.type3 p.type1::before {
+  background: #D9501C;
+}
+.main .section .main_map .legend .labels.type3 p.type2::before {
+  background: #EFA106;
+}
+.main .section .main_map .legend .labels.type3 p.type3::before {
+  background: #5F9604;
+}
+.main .section .main_map .legend .labels.type3 p.type4::before {
+  background: #278AB4;
+}
+.main .section .main_map .legend .labels.type3 p.type5::before {
+  background: #713EC3;
+}
+.main .section .main_map .legend .labels.type3 p.type6::before {
+  background: #275FB4;
+}
+.main .section .main_map .legend .labels.type3 p::before {
+  content: "";
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(233, 246, 254, 0.5);
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.main .section .main_map .legend .labels.type4 .box {
+  display: flex;
+  width: 330px;
+  flex-wrap: wrap;
+}
+.main .section .main_map .legend .labels.type4 p {
+  width: 50%;
+}
+.main .section .main_map .legend .labels.type4 p.type1::before {
+  background: #713EC3;
+}
+.main .section .main_map .legend .labels.type4 p.type2::before {
+  background: #EFA106;
+}
+.main .section .main_map .legend .labels.type4 p.type3::before {
+  background: #5F9604;
+}
+.main .section .main_map .legend .labels.type4 p.type4::before {
+  background: #0086BF;
+}
+.main .section .main_map .legend .labels.type4 p::before {
+  content: "";
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(233, 246, 254, 0.5);
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.main .section .main_map .legend .labels.type5 .box {
+  display: flex;
+}
+.main .section .main_map .legend .labels.type5 p:not(.title) {
+  margin-left: 10px;
+}
+.main .section .main_map .legend .labels.type5 p:not(.title).type1::before {
+  background: #C83C00;
+}
+.main .section .main_map .legend .labels.type5 p:not(.title).type2::before {
+  background: #D45B02;
+}
+.main .section .main_map .legend .labels.type5 p:not(.title).type3::before {
+  background: #DD7203;
+}
+.main .section .main_map .legend .labels.type5 p:not(.title).type4::before {
+  background: #E68905;
+}
+.main .section .main_map .legend .labels.type5 p:not(.title).type5::before {
+  background: #E68905;
+}
+.main .section .main_map .legend .labels.type5 p:not(.title)::before {
+  content: "";
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(233, 246, 254, 0.5);
+  border-radius: 50%;
+  margin-right: 4px;
 }
 .main .section .main_map svg {
   max-width: 100%;
@@ -7099,8 +7336,8 @@ table, th, td {
   transition: all 0.5s;
 }
 .main .section .main_map .map_area.mui_active {
-  stroke: #F9FE00;
-  stroke-width: 8;
+  stroke: #fff;
+  stroke-width: 3;
 }
 @media (min-width: 0px) and (max-width: 1366px) {
   .main .section .main_map {
@@ -7158,8 +7395,8 @@ table, th, td {
   position: relative;
 }
 .main .section .data_list button .ico img {
-  width: 48px;
   position: absolute;
+  width: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -7437,7 +7674,7 @@ table, th, td {
   top: 50%;
   margin-top: -4px;
   left: 0;
-  background: url("/src/images/ico_up.svg") no-repeat center;
+  background: url("/src/images/ico_up2.svg") no-repeat center;
   background-size: 100%;
 }
 .main .section .req_data .data_box dl dd em.down {
@@ -7488,12 +7725,9 @@ table, th, td {
   font-size: 12px;
   font-weight: 500;
   display: block;
-  padding: 3px 6px;
+  padding: 3px 10px;
   border-radius: 12px;
-  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
-}
-.main .section .req_data .data_box .btns button.type2 span {
-  background: linear-gradient(180deg, #ED7200 0%, #ED4700 100%);
+  border: 1px solid #4B4D51;
 }
 .main .section .news_list {
   margin-top: 16px;
@@ -7561,8 +7795,10 @@ table, th, td {
   border-radius: 15px;
 }
 .main .section .switch_toggle label > span.label1 {
-  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
+  background: #272A31;
   color: #fff;
+  border: 1px solid #4B4D51;
+  padding: 0 13px;
 }
 .main .section .switch_toggle label::before, .main .section .switch_toggle label::after {
   display: none;
@@ -7572,8 +7808,10 @@ table, th, td {
   color: rgba(255, 255, 255, 0.4);
 }
 .main .section .switch_toggle input:checked + label .label2 {
-  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
+  background: #272A31;
   color: #fff;
+  border: 1px solid #4B4D51;
+  padding: 0 13px;
 }
 .main .section .sns_list {
   display: flex;
@@ -7681,7 +7919,6 @@ table, th, td {
   position: relative;
 }
 .main .section .prms_status .table_list .detail_view {
-  background: linear-gradient(180deg, #ED9C00 0%, #EFA106 100%);
   height: 24px;
   display: block;
   padding: 0 8px;
@@ -7692,6 +7929,8 @@ table, th, td {
   top: 0;
   right: 0;
   border-radius: 12px;
+  background: #272A31;
+  border: 1px solid #4B4D51;
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .main .section .prms_status .table_list .detail_view {
