@@ -4,84 +4,112 @@ block prepend top
   - mainClassName=""
 
 block content
-  .view_city  
+  .view_city.type02 
     .map_sec 
       .map 
         img(src="/src/images/ex_map.png", alt="")
-        .map_ico(
-          style="top:0;left:0;"
+        .map_ico.anm_type.mui_active(
+          style="top:0px;left:0;"
         )
-          <!-- ico_map1 ~ 6 -->
-          a(href="").type01
-            img(src="/src/images/ico_map6.svg", alt="사고")
-          .layer(style="display:none;")
-            p.title 
-              span.point 사고 
-              span 도로명
-            .details 
-              dl
-                dt 발생일시
-                dd.date 
-                  span 2023-07-17 
-                  span 18:42
-              dl
-                dt 종료일시
-                dd.date 
-                  span 2023-07-17 
-                  span 18:42
-              dl
-                dt 상세내용
-                dd [사고]심곡로 꿈이있는 교회에서 심곡사거리 방향1차로 고장차량 주의운전
-            button(type="button").close
-              span 닫기
-        .map_ico(
-          style="top:40px;left:20px;"
+          button(type="button").anm
+            span.ico_num +5
+            span.ico 
+              img(src="/src/images/ico_anm01.svg", alt="")
+          .anm_list 
+            ul 
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+            
+        .map_ico.anm_type(
+          style="top:0px;left:180px;"
         )
-          a(href="").type01
-            img(src="/src/images/ico_map1.svg", alt="사고")
-          .layer 
-            p.title 
-              span.point 사고 
-              span 도로명
-            .details 
-              dl
-                dt 발생일시
-                dd.date 
-                  span 2023-07-17 
-                  span 18:42
-              dl
-                dt 종료일시
-                dd.date 
-                  span 2023-07-17 
-                  span 18:42
-              dl
-                dt 상세내용
-                dd [사고]심곡로 꿈이있는 교회에서 심곡사거리 방향1차로 고장차량 주의운전
-            button(type="button").close
-              span 닫기
+          button(type="button").anm
+            span.ico_num +99
+            span.ico 
+              img(src="/src/images/ico_anm02.svg", alt="")
+          .anm_list 
+            ul 
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+        .map_ico.anm_type(
+          style="top:0px;left:240px;"
+        )
+          button(type="button").anm
+            span.ico 
+              img(src="/src/images/ico_anm03.svg", alt="")
+          .anm_list 
+            ul 
+              li 
+                a(href="") [개] 포메리니안
+              li 
+                a(href="") [개] 포메리니안
+        .map_layer(
+          style="top:150px;left:0;"
+        )
+          p.title 유기동물 정보
+          .details
+            .text 
+              dl 
+                dt 접수일자
+                dd 2023-11-20
+              dl 
+                dt 공고기간
+                dd 2023-11-27 ~ 2023-11-27
+              dl 
+                dt 품종
+                dd [개] 시츄
+              dl 
+                dt 특징
+                dd 세븐일레븐에서 발견, 귀여운 얼굴 맑은 눈빛, 상냥한 아이
+              dl 
+                dt 상태
+                dd 보호중
+            .img
+              img(src="/src/images/img_ex5.png", alt="")
+          button(type="button").close 닫기
+
+
+
+
     .keyword_lank 
-      .lank 
-        p.title 민원 키워드 랭킹
+      .air_quality
+        p.title 유기동물 정보 목록
         +dataTable({
-          caption:"민원 키워드 랭킹",
-          colgroup:["type1","type2","type3"],
+          caption:"유기동물 정보 목록",
+          colgroup:["type1_1","type2_1","type3_1"],
           headData:[
             [
               {
-                text: "구분",
+                text: "품종",
               },
               {
-                text: "내용",
+                text: "특장",
               },
               {
-                text: "일시",
+                text: "접수일자",
               },
             ],
           ],
           bodyData:[
             [
               {
-                text: "<span class=\"tag type1\">사고</span>"
+                text: "<span class=\"tag type2\">[고양이] 믹스믹스믹스</span>"
               },
               {
                 text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
@@ -92,7 +120,7 @@ block content
             ],
             [
               {
-                text: "<span class=\"tag type1\">사고</span>"
+                text: "<span class=\"tag type2\">[고양이] 믹스</span>"
               },
               {
                 text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
@@ -103,7 +131,7 @@ block content
             ],
             [
               {
-                text: "<span class=\"tag type1\">사고</span>"
+                text: "<span class=\"tag type2\">[고양이] 믹스</span>"
               },
               {
                 text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
@@ -114,7 +142,7 @@ block content
             ],
             [
               {
-                text: "<span class=\"tag type1\">사고</span>"
+                text: "<span class=\"tag type2\">[고양이] 믹스</span>"
               },
               {
                 text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
@@ -125,7 +153,7 @@ block content
             ],
             [
               {
-                text: "<span class=\"tag type1\">사고</span>"
+                text: "<span class=\"tag type2\">[고양이] 믹스</span>"
               },
               {
                 text: "<a href=\"\">철망산길 진성고사거리 에서 진성고삼거리삼거리  에서 진성고삼거리삼거리  에서 진성고삼거리삼거리 </a>"
@@ -207,27 +235,9 @@ block content
                   ],
                 ]
               })
-      .total 
-        p.title 교통현황통계
-        .list 
-          span.type1 
-            | 30
-            i 건 
-          span.type2 
-            | 30
-            i 건 
-          span.type3 
-            | 30
-            i 건
-          span.type4 
-            | 30
-            i 건
-          span.type5 
-            | 30
-            i 건
-          span.type6 
-            | 30
-            i 건
+      .time_step 
+        p.title 유기동물 접수 건수
+        .chart#chart1
         .source
           a(href="", mui-toggle="target:#source2;mode:hover;").more 출처
           .source_layer#source2(hidden="")
@@ -299,83 +309,123 @@ block content
                   ],
                 ]
               })
-      .legend
-        p.title 범례
-        .list 
-          span.type1 사고
-          span.type2 행사
-          span.type3 통제
-          span.type4 공사
-          span.type5 기상
-          span.type6 재난
-        .source
-          a(href="", mui-toggle="target:#source3;mode:hover;").more 출처
-          .source_layer#source3(hidden="")
-            .data_table 
-              +dataTable({
-                caption:"출처",
-                colgroup:['cols1','cols2','cols3'],
-                headData:[
-                  [
-                    {
-                      text: "데이터",
-                    },
-                    {
-                      text: "출처",
-                    },
-                    {
-                      text: "기준일자",
-                    },
-                  ],
-                ],
-                bodyData:[
-                  [
-                    {
-                      text: "일반",
-                      isTitle:true
-                    },
-                    {
-                      text: "내용"
-                    },
-                    {
-                      text: "내용"
-                    }
-                  ],
-                  [
-                    {
-                      text: "청년",
-                      isTitle:true
-                    },
-                    {
-                      text: "내용"
-                    },
-                    {
-                      text: "내용"
-                    }
-                  ],
-                  [
-                    {
-                      text: "노인",
-                      isTitle:true
-                    },
-                    {
-                      text: "내용"
-                    },
-                    {
-                      text: "내용"
-                    }
-                  ],
-                  [
-                    {
-                      text: "장애인",
-                      isTitle:true
-                    },
-                    {
-                      text: "내용"
-                    },
-                    {
-                      text: "내용"
-                    }
-                  ],
-                ]
-              })
+
+  script.
+    var optionChart1 = {
+      grid: {
+        borderColor: "#666",
+        yaxis: {
+          lines: {
+              show: false
+          }
+        }, 
+      },
+      series: [
+        {
+          data: [
+            {
+              x: ['2023-07'],
+              y: 35
+            },
+            {
+              x: ['2023-08'],
+              y: 25
+            },
+            {
+              x: ['2023-09'],
+              y: 25
+            },
+            {
+              x: ['2023-10'],
+              y: 46
+            },
+            {
+              x: ['2023-11'],
+              y: 31
+            },
+            {
+              x: ['2023-12'],
+              y: 42
+            },
+          ]
+        }
+      ],
+      tooltip: {
+        enabled: true,
+        theme:false,
+        custom: function({series, seriesIndex, dataPointIndex, w}) {
+          //- console.log(w)
+          var dateStr = w.globals.categoryLabels[dataPointIndex].join('')
+          console.log()
+          return '<div class="tooltip_box">' +
+            '<span>접수건수</span>' +
+            '<span class="al_c">' + series[seriesIndex][dataPointIndex] + '</span>' +
+            '</div>'
+        }
+      },
+      yaxis: {
+        min:0,
+        max:50,
+        tickAmount:5,
+        labels: {
+          style:{
+            fontSize:"14px"
+          }
+        }
+      }, 
+      chart: {
+        type: "area",
+        height: 350,
+        background: "#272A31",
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        colors: ["#FFFFFF"]
+      },
+      stroke: {
+        curve: "straight",
+        width: 1,
+        colors: ["#EF7605"]
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          type: "vertical",
+          colorStops: [
+            [
+              {
+                offset: 0,
+                color: "#EF7605",
+                opacity: 0.4
+              },
+              {
+                offset: 100,
+                color: "#EF7605",
+                opacity: 0
+              },
+            ]
+          ]
+        }
+      },
+      xaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        labels: {
+          style: {
+            colors: "#fff",
+            fontSize:"14px"
+          }
+        }
+      },
+    };
+    GCui.chart('#chart1', {chartOptions:optionChart1})

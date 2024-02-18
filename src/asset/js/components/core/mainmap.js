@@ -10,6 +10,7 @@ import {
   getIndex, 
   each, 
   hasClass, 
+  html,
   includes, 
   index, 
   isInView, 
@@ -46,7 +47,9 @@ export default {
       width:760,
       height:739,
       id:"mask_id",
-      nav: '.data_list button',
+      nav: '.data_list ul button',
+      navMobile: '.data_list .active_item button',
+      dataList: '.data_list',
       imageSvg : '#imagesSvg',
       imageSvgList : '#imagesSvg > g',
       activeClass:"mui_active",
@@ -69,6 +72,12 @@ export default {
     computed: {
       nav({nav}){
         return $$(nav);
+      },
+      navMobile({navMobile}){
+        return $(navMobile);
+      },
+      dataList({dataList}){
+        return $(dataList);
       },
       imageSvg({imageSvg}){
         return $(imageSvg);
@@ -147,6 +156,18 @@ export default {
           this.activeNav(e);
         }
       },
+
+      {
+        name: 'click',
+        delegate(){
+          return this.$props.navMobile
+        },
+  
+        handler(e) {
+          this.toggleNavMobile();
+        }
+      },
+      // 
     ],
 
     methods: {
@@ -254,9 +275,21 @@ export default {
           toggleClass(el, activeClass, el === e.current);
           if (el === e.current) {
             index = i;
+            this.toggleNavMobile(el);
           }
         })
         this[list[index]]();
+      },
+      toggleNavMobile(el){
+        const {navMobile, dataList, activeClass} = this;
+        toggleClass(dataList, activeClass, !hasClass(dataList, activeClass));
+        if (!!el) {
+          // console.log(el);
+          // empty(parent)
+          html(find('.active_item', dataList), el.cloneNode(true))
+        }
+
+        
       },
       showTooltip(target) {
         const {tooltipLayer, activeClass} = this;

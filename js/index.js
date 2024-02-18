@@ -16267,7 +16267,9 @@
       width: 760,
       height: 739,
       id: "mask_id",
-      nav: '.data_list button',
+      nav: '.data_list ul button',
+      navMobile: '.data_list .active_item button',
+      dataList: '.data_list',
       imageSvg: '#imagesSvg',
       imageSvgList: '#imagesSvg > g',
       activeClass: "mui_active",
@@ -16281,26 +16283,34 @@
         var nav = _ref.nav;
         return $$(nav);
       },
-      imageSvg: function imageSvg(_ref2) {
-        var imageSvg = _ref2.imageSvg;
+      navMobile: function navMobile(_ref2) {
+        var navMobile = _ref2.navMobile;
+        return $$1(navMobile);
+      },
+      dataList: function dataList(_ref3) {
+        var dataList = _ref3.dataList;
+        return $$1(dataList);
+      },
+      imageSvg: function imageSvg(_ref4) {
+        var imageSvg = _ref4.imageSvg;
         return $$1(imageSvg);
       },
-      tooltipLayer: function tooltipLayer(_ref3) {
-        var tooltipLayer = _ref3.tooltipLayer;
+      tooltipLayer: function tooltipLayer(_ref5) {
+        var tooltipLayer = _ref5.tooltipLayer;
         return $$1(tooltipLayer);
       },
-      imageSvgList: function imageSvgList(_ref4) {
-        var imageSvgList = _ref4.imageSvgList;
+      imageSvgList: function imageSvgList(_ref6) {
+        var imageSvgList = _ref6.imageSvgList;
         return $$(imageSvgList);
       },
-      data: function data(_ref5) {
-        _ref5.data;
+      data: function data(_ref7) {
+        _ref7.data;
         return new Map(mapPath.map(function (label, i) {
           return [i, label];
         }));
       },
-      dataTrain: function dataTrain(_ref6) {
-        _ref6.dataTrain;
+      dataTrain: function dataTrain(_ref8) {
+        _ref8.dataTrain;
         return new Map(mapPath2.map(function (label, i) {
           return [i, label];
         }));
@@ -16354,7 +16364,18 @@
       handler: function handler(e) {
         this.activeNav(e);
       }
-    }],
+    }, {
+      name: 'click',
+      delegate: function delegate() {
+        return this.$props.navMobile;
+      },
+      handler: function handler(e) {
+        this.toggleNavMobile();
+      }
+    }
+    // 
+    ],
+
     methods: {
       render: function render(data, className) {
         this.svg;
@@ -16461,6 +16482,7 @@
         console.log(el);
       },
       activeNav: function activeNav(e) {
+        var _this = this;
         var nav = this.nav,
           list = this.list,
           activeClass = this.activeClass;
@@ -16469,9 +16491,21 @@
           toggleClass(el, activeClass, el === e.current);
           if (el === e.current) {
             index = i;
+            _this.toggleNavMobile(el);
           }
         });
         this[list[index]]();
+      },
+      toggleNavMobile: function toggleNavMobile(el) {
+        this.navMobile;
+          var dataList = this.dataList,
+          activeClass = this.activeClass;
+        toggleClass(dataList, activeClass, !hasClass(dataList, activeClass));
+        if (!!el) {
+          // console.log(el);
+          // empty(parent)
+          html(find$1('.active_item', dataList), el.cloneNode(true));
+        }
       },
       showTooltip: function showTooltip(target) {
         var tooltipLayer = this.tooltipLayer,
@@ -16488,7 +16522,7 @@
         addClass($$('.labels')[idx], activeClass);
       },
       selectLoad: function selectLoad(e) {
-        var _this = this;
+        var _this2 = this;
         var target = e.current;
         var list = $$('.labels_walk');
         this.hideTooltip();
@@ -16503,7 +16537,7 @@
             addClass(el, "mui_active");
             attr($$('circle', el), "opacity", '1');
             attr($$('.line', el), "stroke-width", '5');
-            _this.showTooltip(find$1('rect', el));
+            _this2.showTooltip(find$1('rect', el));
           }
         });
       }
