@@ -188,7 +188,7 @@ export default {
 
       },
       renderDefault() {
-        const { svg, group, deletePath, data } = this;
+        const { svg, group, deletePath, data, activeClass } = this;
         let highlightPath;
         deletePath();
         const mask = group.append("mask")
@@ -225,6 +225,7 @@ export default {
             .classed("mui_active", true);
           highlightPath = activePath;
         }
+        removeClass($$('.charts'), activeClass)
         this.showLabel(0);
       },
       renderTranMap(){

@@ -16396,7 +16396,8 @@
         this.svg;
           var group = this.group,
           deletePath = this.deletePath,
-          data = this.data;
+          data = this.data,
+          activeClass = this.activeClass;
         var highlightPath;
         deletePath();
         group.append("mask").attr('fill', 'white').attr('id', "el_hilight").selectAll(".mask_path").data(data).join("path").attr('d', function (d) {
@@ -16423,6 +16424,7 @@
           activePath.classed("mui_active", true);
           highlightPath = activePath;
         }
+        removeClass($$('.charts'), activeClass);
         this.showLabel(0);
       },
       renderTranMap: function renderTranMap() {
